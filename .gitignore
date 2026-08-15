@@ -27,11 +27,31 @@ migrate_working_dir/
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
+.flutter-plugins
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
 /build/
+**/build/
 /coverage/
+
+# Secrets and local configuration — never commit these.
+# Document required keys in .env.example instead (committed, dummy values only).
+.env
+.env.*
+!.env.example
+secrets.dart
+lib/**/*_secrets.dart
+
+# Server-side credentials. These are true secrets, unlike the Firebase client
+# config files (google-services.json / firebase_options.dart), which are safe
+# to commit and are needed for the build to succeed on a fresh clone.
+*-service-account*.json
+service-account*.json
+serviceAccountKey*.json
+*.pem
+*.p12
+*.p8
 
 # Symbolication related
 app.*.symbols
@@ -43,3 +63,12 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Claude Code / AI assistant tooling — local to this machine.
+.claude/
+CLAUDE.md
+.mcp.json
+.aider*
+.cursor/
+.windsurfrules
+.github/copilot-instructions.md

@@ -64,6 +64,9 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Device screenshots — scratch, not part of the project.
+screenshots/
+
 # Claude Code / AI assistant tooling — local to this machine.
 .claude/
 CLAUDE.md

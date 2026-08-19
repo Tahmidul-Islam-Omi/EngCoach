@@ -5,27 +5,22 @@ import 'app/theme/app_spacing.dart';
 import 'app/theme/app_theme.dart';
 import 'app/theme/app_typography.dart';
 
-void main() {
-  runApp(const EngCoachApp());
-}
+void main() => runApp(const EngCoachApp());
 
 class EngCoachApp extends StatelessWidget {
   const EngCoachApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'EngCoach',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.light,
-      home: const _ThemeCheck(),
-    );
-  }
+  Widget build(BuildContext context) => MaterialApp(
+        title: 'EngCoach',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.light,
+        home: const _ThemeCheck(),
+      );
 }
 
-/// Temporary. Renders one of each themed element so the theme — especially
-/// the Bengali fallback — can be checked on a real device. Deleted once the
-/// router and real screens land.
+/// Temporary. Renders one of each themed element so the theme can be checked
+/// on a real device. Replaced by the router and real screens.
 class _ThemeCheck extends StatelessWidget {
   const _ThemeCheck();
 
@@ -38,11 +33,10 @@ class _ThemeCheck extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(AppSpacing.pageH),
         children: [
-          Text('Present Simple', style: text.headlineMedium),
+          Text('Subject–verb agreement', style: text.headlineMedium),
           const SizedBox(height: AppSpacing.xs),
           Text('Rules for correct sentences', style: text.bodySmall),
           const SizedBox(height: AppSpacing.xl),
-
           Card(
             child: Padding(
               padding: const EdgeInsets.all(AppSpacing.lg),
@@ -51,13 +45,17 @@ class _ThemeCheck extends StatelessWidget {
                 children: [
                   Text('LEARNING EVIDENCE', style: text.labelSmall),
                   const SizedBox(height: AppSpacing.md),
-                  // Mixed Bangla + English in ONE string and ONE style —
-                  // if the fallback is wired correctly this renders fully.
+                  Text(
+                    'With he, she and it, add -s to the verb.',
+                    style: text.bodyMedium,
+                  ),
+                  const SizedBox(height: AppSpacing.sm),
+                  // Mixed script, one string, one style.
                   Text(
                     'He / she / it-এর ক্ষেত্রে verb-এর শেষে -s যোগ হয়।',
                     style: text.bodyMedium,
                   ),
-                  const SizedBox(height: AppSpacing.md),
+                  const SizedBox(height: AppSpacing.sm),
                   Text(
                     'সম্পূর্ণ বাংলা ব্যাখ্যা এখানে দেখানো হবে।',
                     style: AppTypography.banglaBlock,
@@ -77,7 +75,6 @@ class _ThemeCheck extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppSpacing.lg),
-
           Wrap(
             spacing: AppSpacing.sm,
             runSpacing: AppSpacing.sm,
@@ -90,7 +87,6 @@ class _ThemeCheck extends StatelessWidget {
             ],
           ),
           const SizedBox(height: AppSpacing.xl),
-
           FilledButton(onPressed: () {}, child: const Text('Start review')),
           const SizedBox(height: AppSpacing.md),
           OutlinedButton(onPressed: () {}, child: const Text('Show 21 more')),
@@ -109,23 +105,21 @@ class _Badge extends StatelessWidget {
   final AppColorPair colors;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.md,
-        vertical: AppSpacing.xs + 2,
-      ),
-      decoration: BoxDecoration(
-        color: colors.background,
-        borderRadius: BorderRadius.circular(AppRadius.pill),
-      ),
-      child: Text(
-        label,
-        style: Theme.of(context)
-            .textTheme
-            .labelSmall
-            ?.copyWith(color: colors.foreground),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.md,
+          vertical: AppSpacing.xs + 2,
+        ),
+        decoration: BoxDecoration(
+          color: colors.background,
+          borderRadius: BorderRadius.circular(AppRadius.pill),
+        ),
+        child: Text(
+          label,
+          style: Theme.of(context)
+              .textTheme
+              .labelSmall
+              ?.copyWith(color: colors.foreground),
+        ),
+      );
 }

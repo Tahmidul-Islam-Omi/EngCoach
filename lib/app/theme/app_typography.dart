@@ -13,12 +13,16 @@ import 'app_colors.dart';
 /// "He / she / it-এর শেষে -s যোগ হয়" — renders correctly from a single
 /// [TextStyle], with no string splitting or RichText.
 abstract final class AppTypography {
-  /// System font on Android; falls back to the platform sans elsewhere.
-  static const sans = 'Roboto';
+  /// The Latin family. **This is the single swap point** — change this
+  /// string (and add the matching asset) to move the app to another face.
+  ///
+  /// Noto Sans Bengali is used for Latin as well as Bengali: it carries a
+  /// full Latin set, the two scripts were designed together so they share
+  /// proportions and vertical metrics, and it is already bundled — so this
+  /// costs nothing beyond the Bengali we needed anyway.
+  static const sans = 'NotoSansBengali';
 
-  /// Bundled Bengali face. Until the asset is added to `assets/fonts/` and
-  /// declared in pubspec.yaml, Flutter silently uses the system Bengali
-  /// font — text still renders, it just varies by device.
+  /// The Bengali family — currently the same file as [sans].
   static const bengali = 'NotoSansBengali';
 
   static const fontFamilyFallback = <String>[bengali];

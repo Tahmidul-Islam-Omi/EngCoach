@@ -1,0 +1,3193 @@
+{
+  "id": "present_simple",
+  "section": "grammar",
+  "order": 1,
+  "title": "Present Simple",
+  "summary": "Talk about habits, routines, facts, and things that are generally true — \"She works from home\", \"Water boils at 100°C\".",
+  "whyThisTopic": "It's the foundation for most everyday English — a good place to start before your lessons adapt to how you do on the check.",
+  "assessmentConfig": {
+    "questionsPerSubSkill": 3,
+    "qualifyingScore": 3,
+    "bankSize": 6,
+    "_note": "3 drawn at random per sub-skill; all 3 correct qualifies the learner to skip it. Pre and post banks must cover the same rules in the same proportion."
+  },
+  "subSkills": [
+    {
+      "id": "base_form",
+      "title": "Base verb form",
+      "preAssessmentBank": [
+        {
+          "id": "pre_base_1",
+          "rule": "i-subject",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I read the news every morning.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "I am read the news every morning.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "I does read the news every morning.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "I reading the news every morning.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_base_2",
+          "rule": "plural-pronoun",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They finishes work at five.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "They finish work at five.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "They does finish work at five.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "They are finish work at five.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_base_3",
+          "rule": "plural-pronoun",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We needing more time.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "We does need more time.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "We need more time.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "We needs more time.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_base_4",
+          "rule": "plural-noun",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My friends studies at night.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "My friends study at night.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "My friends are study at night.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "My friends studying at night.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_base_5",
+          "rule": "you-subject",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "You know the answer.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "You knowing the answer.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "You does know the answer.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "You are know the answer.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_base_6",
+          "rule": "plural-noun",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The children eat at seven.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "The children eats at seven.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "The children does eat at seven.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The children are eat at seven.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_base_1",
+          "rule": "i-subject",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I does visit my village every year.",
+              "correct": false,
+              "feedback": {
+                "en": "**does** belongs to **he / she / it**, and a plain statement doesn't need it at all.",
+                "bn": "**does** শুধু **he / she / it**-এর জন্য, আর সাধারণ statement-এ এটি লাগে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I visiting my village every year.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form. It needs **am / is / are** before it and describes something happening now.",
+                "bn": "এটি **-ing** form; এর আগে **am / is / are** লাগে এবং এটি এখন ঘটছে এমন বোঝায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I visit my village every year.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I / you / we / they** and plural subjects take the base verb.",
+                "bn": "ঠিক আছে। **I / you / we / they** ও plural subject-এ verb-এর base form বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I am visit my village every year.",
+              "correct": false,
+              "feedback": {
+                "en": "**am / is / are** and a base verb never go together.",
+                "bn": "**am / is / are** এবং verb-এর base form একসাথে বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_base_2",
+          "rule": "plural-pronoun",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They are sell fresh fish here.",
+              "correct": false,
+              "feedback": {
+                "en": "**am / is / are** and a base verb never go together.",
+                "bn": "**am / is / are** এবং verb-এর base form একসাথে বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "They sell fresh fish here.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I / you / we / they** and plural subjects take the base verb.",
+                "bn": "ঠিক আছে। **I / you / we / they** ও plural subject-এ verb-এর base form বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "They does sell fresh fish here.",
+              "correct": false,
+              "feedback": {
+                "en": "**does** belongs to **he / she / it**, and a plain statement doesn't need it at all.",
+                "bn": "**does** শুধু **he / she / it**-এর জন্য, আর সাধারণ statement-এ এটি লাগে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "They sells fresh fish here.",
+              "correct": false,
+              "feedback": {
+                "en": "**-s** belongs to **he / she / it** only. Other subjects take the base verb.",
+                "bn": "**-s** শুধু **he / she / it**-এর জন্য। অন্য subject-এ verb-এর base form বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_base_3",
+          "rule": "plural-pronoun",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We start at eight.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I / you / we / they** and plural subjects take the base verb.",
+                "bn": "ঠিক আছে। **I / you / we / they** ও plural subject-এ verb-এর base form বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We starts at eight.",
+              "correct": false,
+              "feedback": {
+                "en": "**-s** belongs to **he / she / it** only. Other subjects take the base verb.",
+                "bn": "**-s** শুধু **he / she / it**-এর জন্য। অন্য subject-এ verb-এর base form বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We starting at eight.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form. It needs **am / is / are** before it and describes something happening now.",
+                "bn": "এটি **-ing** form; এর আগে **am / is / are** লাগে এবং এটি এখন ঘটছে এমন বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We does start at eight.",
+              "correct": false,
+              "feedback": {
+                "en": "**does** belongs to **he / she / it**, and a plain statement doesn't need it at all.",
+                "bn": "**does** শুধু **he / she / it**-এর জন্য, আর সাধারণ statement-এ এটি লাগে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_base_4",
+          "rule": "plural-noun",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My cousins travel by bus.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I / you / we / they** and plural subjects take the base verb.",
+                "bn": "ঠিক আছে। **I / you / we / they** ও plural subject-এ verb-এর base form বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "My cousins travels by bus.",
+              "correct": false,
+              "feedback": {
+                "en": "**-s** belongs to **he / she / it** only. Other subjects take the base verb.",
+                "bn": "**-s** শুধু **he / she / it**-এর জন্য। অন্য subject-এ verb-এর base form বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "My cousins travelling by bus.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form. It needs **am / is / are** before it and describes something happening now.",
+                "bn": "এটি **-ing** form; এর আগে **am / is / are** লাগে এবং এটি এখন ঘটছে এমন বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "My cousins are travel by bus.",
+              "correct": false,
+              "feedback": {
+                "en": "**am / is / are** and a base verb never go together.",
+                "bn": "**am / is / are** এবং verb-এর base form একসাথে বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_base_5",
+          "rule": "you-subject",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "You are write very well.",
+              "correct": false,
+              "feedback": {
+                "en": "**am / is / are** and a base verb never go together.",
+                "bn": "**am / is / are** এবং verb-এর base form একসাথে বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "You write very well.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I / you / we / they** and plural subjects take the base verb.",
+                "bn": "ঠিক আছে। **I / you / we / they** ও plural subject-এ verb-এর base form বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "You does write very well.",
+              "correct": false,
+              "feedback": {
+                "en": "**does** belongs to **he / she / it**, and a plain statement doesn't need it at all.",
+                "bn": "**does** শুধু **he / she / it**-এর জন্য, আর সাধারণ statement-এ এটি লাগে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "You writing very well.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form. It needs **am / is / are** before it and describes something happening now.",
+                "bn": "এটি **-ing** form; এর আগে **am / is / are** লাগে এবং এটি এখন ঘটছে এমন বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_base_6",
+          "rule": "plural-noun",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The workers does arrive early.",
+              "correct": false,
+              "feedback": {
+                "en": "**does** belongs to **he / she / it**, and a plain statement doesn't need it at all.",
+                "bn": "**does** শুধু **he / she / it**-এর জন্য, আর সাধারণ statement-এ এটি লাগে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The workers arrives early.",
+              "correct": false,
+              "feedback": {
+                "en": "**-s** belongs to **he / she / it** only. Other subjects take the base verb.",
+                "bn": "**-s** শুধু **he / she / it**-এর জন্য। অন্য subject-এ verb-এর base form বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The workers arrive early.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I / you / we / they** and plural subjects take the base verb.",
+                "bn": "ঠিক আছে। **I / you / we / they** ও plural subject-এ verb-এর base form বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The workers are arrive early.",
+              "correct": false,
+              "feedback": {
+                "en": "**am / is / are** and a base verb never go together.",
+                "bn": "**am / is / are** এবং verb-এর base form একসাথে বসে না।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s_endings",
+      "title": "He / she / it: -s endings",
+      "preAssessmentBank": [
+        {
+          "id": "pre_s_en_1",
+          "rule": "es-ending",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She is watch TV after dinner.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "She watches TV after dinner.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "She watching TV after dinner.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "She watchs TV after dinner.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_s_en_2",
+          "rule": "y-to-ies",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My brother study every night.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "My brother is study every night.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "My brother studies every night.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "My brother studying every night.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_s_en_3",
+          "rule": "irregular",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He have a car.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "He is have a car.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "He haves a car.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "He has a car.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_s_en_4",
+          "rule": "plain-s",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The shop closes at nine.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "The shop close at nine.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "The shop closs at nine.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The shop closing at nine.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_s_en_5",
+          "rule": "y-to-ies",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nadia carries a heavy bag.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Nadia carrys a heavy bag.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Nadia is carry a heavy bag.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Nadia carrying a heavy bag.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_s_en_6",
+          "rule": "plain-s",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "It is cost five hundred taka.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "It costing five hundred taka.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "It costs five hundred taka.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "It cost five hundred taka.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_s_en_1",
+          "rule": "plain-s",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My sister is cook very well.",
+              "correct": false,
+              "feedback": {
+                "en": "**am / is / are** and a base verb never go together.",
+                "bn": "**am / is / are** এবং verb-এর base form একসাথে বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "My sister cooking very well.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form. It needs **am / is / are** before it and describes something happening now.",
+                "bn": "এটি **-ing** form; এর আগে **am / is / are** লাগে এবং এটি এখন ঘটছে এমন বোঝায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "My sister cookes very well.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, wrong spelling — check the **-es** and **y → ies** rules.",
+                "bn": "নিয়ম ঠিক, বানান ভুল — **-es** ও **y → ies** নিয়ম দেখুন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "My sister cooks very well.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. With **he / she / it** the verb takes **-s** or **-es**.",
+                "bn": "ঠিক আছে। **he / she / it**-এর সাথে verb-এ **-s** বা **-es** যোগ হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_s_en_2",
+          "rule": "plain-s",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The train arriving at noon.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form. It needs **am / is / are** before it and describes something happening now.",
+                "bn": "এটি **-ing** form; এর আগে **am / is / are** লাগে এবং এটি এখন ঘটছে এমন বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The train arrives at noon.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. With **he / she / it** the verb takes **-s** or **-es**.",
+                "bn": "ঠিক আছে। **he / she / it**-এর সাথে verb-এ **-s** বা **-es** যোগ হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The train is arrive at noon.",
+              "correct": false,
+              "feedback": {
+                "en": "**am / is / are** and a base verb never go together.",
+                "bn": "**am / is / are** এবং verb-এর base form একসাথে বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The train arrive at noon.",
+              "correct": false,
+              "feedback": {
+                "en": "With **he / she / it**, the verb takes **-s**.",
+                "bn": "**he / she / it**-এর সাথে verb-এ **-s** যোগ হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_s_en_3",
+          "rule": "es-ending",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He fixes computers.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. With **he / she / it** the verb takes **-s** or **-es**.",
+                "bn": "ঠিক আছে। **he / she / it**-এর সাথে verb-এ **-s** বা **-es** যোগ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He fixs computers.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, wrong spelling — check the **-es** and **y → ies** rules.",
+                "bn": "নিয়ম ঠিক, বানান ভুল — **-es** ও **y → ies** নিয়ম দেখুন।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He fix computers.",
+              "correct": false,
+              "feedback": {
+                "en": "With **he / she / it**, the verb takes **-s**.",
+                "bn": "**he / she / it**-এর সাথে verb-এ **-s** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He is fix computers.",
+              "correct": false,
+              "feedback": {
+                "en": "**am / is / are** and a base verb never go together.",
+                "bn": "**am / is / are** এবং verb-এর base form একসাথে বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_s_en_4",
+          "rule": "y-to-ies",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tanvir trying his best.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form. It needs **am / is / are** before it and describes something happening now.",
+                "bn": "এটি **-ing** form; এর আগে **am / is / are** লাগে এবং এটি এখন ঘটছে এমন বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Tanvir try his best.",
+              "correct": false,
+              "feedback": {
+                "en": "With **he / she / it**, the verb takes **-s**.",
+                "bn": "**he / she / it**-এর সাথে verb-এ **-s** যোগ হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Tanvir tries his best.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. With **he / she / it** the verb takes **-s** or **-es**.",
+                "bn": "ঠিক আছে। **he / she / it**-এর সাথে verb-এ **-s** বা **-es** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Tanvir trys his best.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, wrong spelling — check the **-es** and **y → ies** rules.",
+                "bn": "নিয়ম ঠিক, বানান ভুল — **-es** ও **y → ies** নিয়ম দেখুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_s_en_5",
+          "rule": "y-to-ies",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She is worry about her family.",
+              "correct": false,
+              "feedback": {
+                "en": "**am / is / are** and a base verb never go together.",
+                "bn": "**am / is / are** এবং verb-এর base form একসাথে বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She worries about her family.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. With **he / she / it** the verb takes **-s** or **-es**.",
+                "bn": "ঠিক আছে। **he / she / it**-এর সাথে verb-এ **-s** বা **-es** যোগ হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She worrys about her family.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, wrong spelling — check the **-es** and **y → ies** rules.",
+                "bn": "নিয়ম ঠিক, বানান ভুল — **-es** ও **y → ies** নিয়ম দেখুন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She worrying about her family.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form. It needs **am / is / are** before it and describes something happening now.",
+                "bn": "এটি **-ing** form; এর আগে **am / is / are** লাগে এবং এটি এখন ঘটছে এমন বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_s_en_6",
+          "rule": "irregular",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My mother do the shopping.",
+              "correct": false,
+              "feedback": {
+                "en": "With **he / she / it**, the verb takes **-s**.",
+                "bn": "**he / she / it**-এর সাথে verb-এ **-s** যোগ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "My mother doing the shopping.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form. It needs **am / is / are** before it and describes something happening now.",
+                "bn": "এটি **-ing** form; এর আগে **am / is / are** লাগে এবং এটি এখন ঘটছে এমন বোঝায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "My mother does the shopping.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. With **he / she / it** the verb takes **-s** or **-es**.",
+                "bn": "ঠিক আছে। **he / she / it**-এর সাথে verb-এ **-s** বা **-es** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "My mother is do the shopping.",
+              "correct": false,
+              "feedback": {
+                "en": "**am / is / are** and a base verb never go together.",
+                "bn": "**am / is / are** এবং verb-এর base form একসাথে বসে না।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "negatives",
+      "title": "Negatives: don't / doesn't",
+      "preAssessmentBank": [
+        {
+          "id": "pre_nega_1",
+          "rule": "dont",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They not eat meat.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "They don't eat meat.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "They don't eats meat.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "They aren't eat meat.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_nega_2",
+          "rule": "dont",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I don't understand the question.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "I doesn't understand the question.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "I am not understand the question.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "I not understand the question.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_nega_3",
+          "rule": "dont",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We aren't have time.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "We don't has time.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "We don't have time.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "We doesn't have time.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_nega_4",
+          "rule": "doesnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He don't drive.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "He doesn't drive.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "He doesn't drives.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "He not drive.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_nega_5",
+          "rule": "doesnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She isn't watch television.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "She not watch television.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "She doesn't watches television.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "She doesn't watch television.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_nega_6",
+          "rule": "doesnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "It not cost much.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "It isn't cost much.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "It doesn't cost much.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "It don't cost much.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_nega_1",
+          "rule": "dont",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "You don't need a ticket.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The auxiliary carries the **-s**, and the verb stays base.",
+                "bn": "ঠিক আছে। Auxiliary-তে **-s** থাকে, verb base form-এ থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "You not need a ticket.",
+              "correct": false,
+              "feedback": {
+                "en": "A present-simple negative needs **don't** or **doesn't**. **not** on its own isn't enough.",
+                "bn": "Present simple-এ negative করতে **don't** বা **doesn't** লাগে; শুধু **not** যথেষ্ট নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "You aren't need a ticket.",
+              "correct": false,
+              "feedback": {
+                "en": "**isn't / aren't** negates a state, not an action. A present-simple action needs **don't** or **doesn't**.",
+                "bn": "**isn't / aren't** state-কে negative করে, action-কে নয়। Action-এর জন্য **don't** বা **doesn't** লাগে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "You don't needs a ticket.",
+              "correct": false,
+              "feedback": {
+                "en": "After **do / does / don't / doesn't** the verb stays base — the **-s** has already moved into the auxiliary.",
+                "bn": "**do / does / don't / doesn't**-এর পরে verb base form-এ থাকে — **-s** ইতিমধ্যে auxiliary-তে চলে গেছে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_nega_2",
+          "rule": "dont",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They not sell tickets here.",
+              "correct": false,
+              "feedback": {
+                "en": "A present-simple negative needs **don't** or **doesn't**. **not** on its own isn't enough.",
+                "bn": "Present simple-এ negative করতে **don't** বা **doesn't** লাগে; শুধু **not** যথেষ্ট নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "They aren't sell tickets here.",
+              "correct": false,
+              "feedback": {
+                "en": "**isn't / aren't** negates a state, not an action. A present-simple action needs **don't** or **doesn't**.",
+                "bn": "**isn't / aren't** state-কে negative করে, action-কে নয়। Action-এর জন্য **don't** বা **doesn't** লাগে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "They doesn't sell tickets here.",
+              "correct": false,
+              "feedback": {
+                "en": "Wrong auxiliary for this subject — check which subjects take **do / don't** and which take **does / doesn't**.",
+                "bn": "এই subject-এর জন্য ভুল auxiliary — কোন subject-এ **do/don't** আর কোনটিতে **does/doesn't** বসে দেখুন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "They don't sell tickets here.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The auxiliary carries the **-s**, and the verb stays base.",
+                "bn": "ঠিক আছে। Auxiliary-তে **-s** থাকে, verb base form-এ থাকে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_nega_3",
+          "rule": "dont",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We doesn't buy vegetables here.",
+              "correct": false,
+              "feedback": {
+                "en": "Wrong auxiliary for this subject — check which subjects take **do / don't** and which take **does / doesn't**.",
+                "bn": "এই subject-এর জন্য ভুল auxiliary — কোন subject-এ **do/don't** আর কোনটিতে **does/doesn't** বসে দেখুন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We aren't buy vegetables here.",
+              "correct": false,
+              "feedback": {
+                "en": "**isn't / aren't** negates a state, not an action. A present-simple action needs **don't** or **doesn't**.",
+                "bn": "**isn't / aren't** state-কে negative করে, action-কে নয়। Action-এর জন্য **don't** বা **doesn't** লাগে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We don't buys vegetables here.",
+              "correct": false,
+              "feedback": {
+                "en": "After **do / does / don't / doesn't** the verb stays base — the **-s** has already moved into the auxiliary.",
+                "bn": "**do / does / don't / doesn't**-এর পরে verb base form-এ থাকে — **-s** ইতিমধ্যে auxiliary-তে চলে গেছে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We don't buy vegetables here.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The auxiliary carries the **-s**, and the verb stays base.",
+                "bn": "ঠিক আছে। Auxiliary-তে **-s** থাকে, verb base form-এ থাকে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_nega_4",
+          "rule": "doesnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My brother not smoke.",
+              "correct": false,
+              "feedback": {
+                "en": "A present-simple negative needs **don't** or **doesn't**. **not** on its own isn't enough.",
+                "bn": "Present simple-এ negative করতে **don't** বা **doesn't** লাগে; শুধু **not** যথেষ্ট নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "My brother don't smoke.",
+              "correct": false,
+              "feedback": {
+                "en": "Wrong auxiliary for this subject — check which subjects take **do / don't** and which take **does / doesn't**.",
+                "bn": "এই subject-এর জন্য ভুল auxiliary — কোন subject-এ **do/don't** আর কোনটিতে **does/doesn't** বসে দেখুন।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "My brother doesn't smoke.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The auxiliary carries the **-s**, and the verb stays base.",
+                "bn": "ঠিক আছে। Auxiliary-তে **-s** থাকে, verb base form-এ থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "My brother doesn't smokes.",
+              "correct": false,
+              "feedback": {
+                "en": "After **do / does / don't / doesn't** the verb stays base — the **-s** has already moved into the auxiliary.",
+                "bn": "**do / does / don't / doesn't**-এর পরে verb base form-এ থাকে — **-s** ইতিমধ্যে auxiliary-তে চলে গেছে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_nega_5",
+          "rule": "doesnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She isn't know his name.",
+              "correct": false,
+              "feedback": {
+                "en": "**isn't / aren't** negates a state, not an action. A present-simple action needs **don't** or **doesn't**.",
+                "bn": "**isn't / aren't** state-কে negative করে, action-কে নয়। Action-এর জন্য **don't** বা **doesn't** লাগে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She doesn't knows his name.",
+              "correct": false,
+              "feedback": {
+                "en": "After **do / does / don't / doesn't** the verb stays base — the **-s** has already moved into the auxiliary.",
+                "bn": "**do / does / don't / doesn't**-এর পরে verb base form-এ থাকে — **-s** ইতিমধ্যে auxiliary-তে চলে গেছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She doesn't know his name.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The auxiliary carries the **-s**, and the verb stays base.",
+                "bn": "ঠিক আছে। Auxiliary-তে **-s** থাকে, verb base form-এ থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She not know his name.",
+              "correct": false,
+              "feedback": {
+                "en": "A present-simple negative needs **don't** or **doesn't**. **not** on its own isn't enough.",
+                "bn": "Present simple-এ negative করতে **don't** বা **doesn't** লাগে; শুধু **not** যথেষ্ট নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_nega_6",
+          "rule": "doesnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The bank not accept cards.",
+              "correct": false,
+              "feedback": {
+                "en": "A present-simple negative needs **don't** or **doesn't**. **not** on its own isn't enough.",
+                "bn": "Present simple-এ negative করতে **don't** বা **doesn't** লাগে; শুধু **not** যথেষ্ট নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The bank doesn't accept cards.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The auxiliary carries the **-s**, and the verb stays base.",
+                "bn": "ঠিক আছে। Auxiliary-তে **-s** থাকে, verb base form-এ থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The bank don't accept cards.",
+              "correct": false,
+              "feedback": {
+                "en": "Wrong auxiliary for this subject — check which subjects take **do / don't** and which take **does / doesn't**.",
+                "bn": "এই subject-এর জন্য ভুল auxiliary — কোন subject-এ **do/don't** আর কোনটিতে **does/doesn't** বসে দেখুন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The bank isn't accept cards.",
+              "correct": false,
+              "feedback": {
+                "en": "**isn't / aren't** negates a state, not an action. A present-simple action needs **don't** or **doesn't**.",
+                "bn": "**isn't / aren't** state-কে negative করে, action-কে নয়। Action-এর জন্য **don't** বা **doesn't** লাগে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "questions",
+      "title": "Questions: do / does",
+      "preAssessmentBank": [
+        {
+          "id": "pre_ques_1",
+          "rule": "do",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Do you know the answer?",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Are you know the answer?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "You do know the answer?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Do you knows the answer?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_2",
+          "rule": "do",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Are they sell tickets here?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Do they sell tickets here?",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "They do sell tickets here?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Does they sell tickets here?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_3",
+          "rule": "do",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Do we starts at eight?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Are we start at eight?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Do we start at eight?",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "Does we start at eight?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_4",
+          "rule": "does",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Do he play cricket?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Does he plays cricket?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Does he play cricket?",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "He does play cricket?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_5",
+          "rule": "does",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Does she like tea?",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Does she likes tea?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "She does like tea?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Is she like tea?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_6",
+          "rule": "does",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Is it cost much?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "It does cost much?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Does it cost much?",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "Do it cost much?",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_ques_1",
+          "rule": "do",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Do you reads Bangla?",
+              "correct": false,
+              "feedback": {
+                "en": "After **do / does / don't / doesn't** the verb stays base — the **-s** has already moved into the auxiliary.",
+                "bn": "**do / does / don't / doesn't**-এর পরে verb base form-এ থাকে — **-s** ইতিমধ্যে auxiliary-তে চলে গেছে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Do you read Bangla?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Do / Does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Do / Does** + subject + verb-এর base form।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "You do read Bangla?",
+              "correct": false,
+              "feedback": {
+                "en": "That's statement order. A question begins with **Do** or **Does**.",
+                "bn": "এটি statement-এর গঠন। প্রশ্ন **Do** বা **Does** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Are you read Bangla?",
+              "correct": false,
+              "feedback": {
+                "en": "**Is / Are** asks about a state. To ask about a habit or an action, use **Do** or **Does**.",
+                "bn": "**Is / Are** state সম্পর্কে প্রশ্ন করে। অভ্যাস বা action-এর জন্য **Do** বা **Does** ব্যবহার করুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_2",
+          "rule": "do",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Are they deliver on Fridays?",
+              "correct": false,
+              "feedback": {
+                "en": "**Is / Are** asks about a state. To ask about a habit or an action, use **Do** or **Does**.",
+                "bn": "**Is / Are** state সম্পর্কে প্রশ্ন করে। অভ্যাস বা action-এর জন্য **Do** বা **Does** ব্যবহার করুন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Does they deliver on Fridays?",
+              "correct": false,
+              "feedback": {
+                "en": "Wrong auxiliary for this subject — check which subjects take **do / don't** and which take **does / doesn't**.",
+                "bn": "এই subject-এর জন্য ভুল auxiliary — কোন subject-এ **do/don't** আর কোনটিতে **does/doesn't** বসে দেখুন।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "They do deliver on Fridays?",
+              "correct": false,
+              "feedback": {
+                "en": "That's statement order. A question begins with **Do** or **Does**.",
+                "bn": "এটি statement-এর গঠন। প্রশ্ন **Do** বা **Does** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Do they deliver on Fridays?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Do / Does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Do / Does** + subject + verb-এর base form।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_3",
+          "rule": "do",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Does we need a visa?",
+              "correct": false,
+              "feedback": {
+                "en": "Wrong auxiliary for this subject — check which subjects take **do / don't** and which take **does / doesn't**.",
+                "bn": "এই subject-এর জন্য ভুল auxiliary — কোন subject-এ **do/don't** আর কোনটিতে **does/doesn't** বসে দেখুন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Do we needs a visa?",
+              "correct": false,
+              "feedback": {
+                "en": "After **do / does / don't / doesn't** the verb stays base — the **-s** has already moved into the auxiliary.",
+                "bn": "**do / does / don't / doesn't**-এর পরে verb base form-এ থাকে — **-s** ইতিমধ্যে auxiliary-তে চলে গেছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Do we need a visa?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Do / Does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Do / Does** + subject + verb-এর base form।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Are we need a visa?",
+              "correct": false,
+              "feedback": {
+                "en": "**Is / Are** asks about a state. To ask about a habit or an action, use **Do** or **Does**.",
+                "bn": "**Is / Are** state সম্পর্কে প্রশ্ন করে। অভ্যাস বা action-এর জন্য **Do** বা **Does** ব্যবহার করুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_4",
+          "rule": "does",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Does your sister studies here?",
+              "correct": false,
+              "feedback": {
+                "en": "After **do / does / don't / doesn't** the verb stays base — the **-s** has already moved into the auxiliary.",
+                "bn": "**do / does / don't / doesn't**-এর পরে verb base form-এ থাকে — **-s** ইতিমধ্যে auxiliary-তে চলে গেছে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Does your sister study here?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Do / Does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Do / Does** + subject + verb-এর base form।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Your sister does study here?",
+              "correct": false,
+              "feedback": {
+                "en": "That's statement order. A question begins with **Do** or **Does**.",
+                "bn": "এটি statement-এর গঠন। প্রশ্ন **Do** বা **Does** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Do your sister study here?",
+              "correct": false,
+              "feedback": {
+                "en": "Wrong auxiliary for this subject — check which subjects take **do / don't** and which take **does / doesn't**.",
+                "bn": "এই subject-এর জন্য ভুল auxiliary — কোন subject-এ **do/don't** আর কোনটিতে **does/doesn't** বসে দেখুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_5",
+          "rule": "does",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Is he drive to work?",
+              "correct": false,
+              "feedback": {
+                "en": "**Is / Are** asks about a state. To ask about a habit or an action, use **Do** or **Does**.",
+                "bn": "**Is / Are** state সম্পর্কে প্রশ্ন করে। অভ্যাস বা action-এর জন্য **Do** বা **Does** ব্যবহার করুন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Does he drives to work?",
+              "correct": false,
+              "feedback": {
+                "en": "After **do / does / don't / doesn't** the verb stays base — the **-s** has already moved into the auxiliary.",
+                "bn": "**do / does / don't / doesn't**-এর পরে verb base form-এ থাকে — **-s** ইতিমধ্যে auxiliary-তে চলে গেছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He does drive to work?",
+              "correct": false,
+              "feedback": {
+                "en": "That's statement order. A question begins with **Do** or **Does**.",
+                "bn": "এটি statement-এর গঠন। প্রশ্ন **Do** বা **Does** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Does he drive to work?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Do / Does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Do / Does** + subject + verb-এর base form।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_6",
+          "rule": "does",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Do the shop close at nine?",
+              "correct": false,
+              "feedback": {
+                "en": "Wrong auxiliary for this subject — check which subjects take **do / don't** and which take **does / doesn't**.",
+                "bn": "এই subject-এর জন্য ভুল auxiliary — কোন subject-এ **do/don't** আর কোনটিতে **does/doesn't** বসে দেখুন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The shop does close at nine?",
+              "correct": false,
+              "feedback": {
+                "en": "That's statement order. A question begins with **Do** or **Does**.",
+                "bn": "এটি statement-এর গঠন। প্রশ্ন **Do** বা **Does** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Is the shop close at nine?",
+              "correct": false,
+              "feedback": {
+                "en": "**Is / Are** asks about a state. To ask about a habit or an action, use **Do** or **Does**.",
+                "bn": "**Is / Are** state সম্পর্কে প্রশ্ন করে। অভ্যাস বা action-এর জন্য **Do** বা **Does** ব্যবহার করুন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Does the shop close at nine?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Do / Does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Do / Does** + subject + verb-এর base form।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wh_questions",
+      "title": "Wh- questions: what, where, when, why",
+      "preAssessmentBank": [
+        {
+          "id": "pre_whqu_1",
+          "rule": "wh-do",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "What you want?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "What you do want?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "What do you wants?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "What do you want?",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_whqu_2",
+          "rule": "wh-do",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Where do they stay?",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Where they do stay?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Where they stay?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Where does they stay?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_whqu_3",
+          "rule": "wh-do",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "When do we begins?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "When do we begin?",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "When does we begin?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "When we do begin?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_whqu_4",
+          "rule": "wh-does",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Where do he keep the keys?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Where does he keep the keys?",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "Where does he keeps the keys?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Where he keeps the keys?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_whqu_5",
+          "rule": "wh-does",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "When she does leave?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "When she leaves?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "When does she leaves?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "When does she leave?",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_whqu_6",
+          "rule": "wh-does",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Why it matters?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Why does it matter?",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "Why it does matter?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Why do it matter?",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_whqu_1",
+          "rule": "wh-do",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "What you use for this?",
+              "correct": false,
+              "feedback": {
+                "en": "A wh- question still needs **do** or **does**. Dropping it is the most common slip.",
+                "bn": "Wh- প্রশ্নেও **do** বা **does** লাগে। এটি বাদ দেওয়া সবচেয়ে সাধারণ ভুল।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "What you do use for this?",
+              "correct": false,
+              "feedback": {
+                "en": "The auxiliary comes straight after the wh- word, before the subject.",
+                "bn": "Auxiliary **wh-** word-এর ঠিক পরে, subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "What do you uses for this?",
+              "correct": false,
+              "feedback": {
+                "en": "After **do / does** the verb stays base — the **-s** is already in **does**.",
+                "bn": "**do / does**-এর পরে verb base form-এ থাকে — **-s** ইতিমধ্যে **does**-এ আছে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "What do you use for this?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Wh-** word + **do / does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Wh-** word + **do / does** + subject + verb-এর base form।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_whqu_2",
+          "rule": "wh-do",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Where they meet?",
+              "correct": false,
+              "feedback": {
+                "en": "A wh- question still needs **do** or **does**. Dropping it is the most common slip.",
+                "bn": "Wh- প্রশ্নেও **do** বা **does** লাগে। এটি বাদ দেওয়া সবচেয়ে সাধারণ ভুল।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Where they do meet?",
+              "correct": false,
+              "feedback": {
+                "en": "The auxiliary comes straight after the wh- word, before the subject.",
+                "bn": "Auxiliary **wh-** word-এর ঠিক পরে, subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Where does they meet?",
+              "correct": false,
+              "feedback": {
+                "en": "Wrong auxiliary for this subject — **do** for I / you / we / they, **does** for he / she / it.",
+                "bn": "ভুল auxiliary — I / you / we / they-তে **do**, আর he / she / it-এ **does** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Where do they meet?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Wh-** word + **do / does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Wh-** word + **do / does** + subject + verb-এর base form।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_whqu_3",
+          "rule": "wh-do",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "When we do pay the bill?",
+              "correct": false,
+              "feedback": {
+                "en": "The auxiliary comes straight after the wh- word, before the subject.",
+                "bn": "Auxiliary **wh-** word-এর ঠিক পরে, subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "When does we pay the bill?",
+              "correct": false,
+              "feedback": {
+                "en": "Wrong auxiliary for this subject — **do** for I / you / we / they, **does** for he / she / it.",
+                "bn": "ভুল auxiliary — I / you / we / they-তে **do**, আর he / she / it-এ **does** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "When do we pays the bill?",
+              "correct": false,
+              "feedback": {
+                "en": "After **do / does** the verb stays base — the **-s** is already in **does**.",
+                "bn": "**do / does**-এর পরে verb base form-এ থাকে — **-s** ইতিমধ্যে **does**-এ আছে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "When do we pay the bill?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Wh-** word + **do / does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Wh-** word + **do / does** + subject + verb-এর base form।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_whqu_4",
+          "rule": "wh-does",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Where does she send the forms?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Wh-** word + **do / does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Wh-** word + **do / does** + subject + verb-এর base form।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Where she sends the forms?",
+              "correct": false,
+              "feedback": {
+                "en": "A wh- question still needs **do** or **does**. Dropping it is the most common slip.",
+                "bn": "Wh- প্রশ্নেও **do** বা **does** লাগে। এটি বাদ দেওয়া সবচেয়ে সাধারণ ভুল।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Where do she send the forms?",
+              "correct": false,
+              "feedback": {
+                "en": "Wrong auxiliary for this subject — **do** for I / you / we / they, **does** for he / she / it.",
+                "bn": "ভুল auxiliary — I / you / we / they-তে **do**, আর he / she / it-এ **does** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Where does she sends the forms?",
+              "correct": false,
+              "feedback": {
+                "en": "After **do / does** the verb stays base — the **-s** is already in **does**.",
+                "bn": "**do / does**-এর পরে verb base form-এ থাকে — **-s** ইতিমধ্যে **does**-এ আছে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_whqu_5",
+          "rule": "wh-does",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "When he does choose a topic?",
+              "correct": false,
+              "feedback": {
+                "en": "The auxiliary comes straight after the wh- word, before the subject.",
+                "bn": "Auxiliary **wh-** word-এর ঠিক পরে, subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "When does he choose a topic?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Wh-** word + **do / does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Wh-** word + **do / does** + subject + verb-এর base form।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "When does he chooses a topic?",
+              "correct": false,
+              "feedback": {
+                "en": "After **do / does** the verb stays base — the **-s** is already in **does**.",
+                "bn": "**do / does**-এর পরে verb base form-এ থাকে — **-s** ইতিমধ্যে **does**-এ আছে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "When he chooses a topic?",
+              "correct": false,
+              "feedback": {
+                "en": "A wh- question still needs **do** or **does**. Dropping it is the most common slip.",
+                "bn": "Wh- প্রশ্নেও **do** বা **does** লাগে। এটি বাদ দেওয়া সবচেয়ে সাধারণ ভুল।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_whqu_6",
+          "rule": "wh-does",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "How she spends the money?",
+              "correct": false,
+              "feedback": {
+                "en": "A wh- question still needs **do** or **does**. Dropping it is the most common slip.",
+                "bn": "Wh- প্রশ্নেও **do** বা **does** লাগে। এটি বাদ দেওয়া সবচেয়ে সাধারণ ভুল।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "How do she spend the money?",
+              "correct": false,
+              "feedback": {
+                "en": "Wrong auxiliary for this subject — **do** for I / you / we / they, **does** for he / she / it.",
+                "bn": "ভুল auxiliary — I / you / we / they-তে **do**, আর he / she / it-এ **does** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "How she does spend the money?",
+              "correct": false,
+              "feedback": {
+                "en": "The auxiliary comes straight after the wh- word, before the subject.",
+                "bn": "Auxiliary **wh-** word-এর ঠিক পরে, subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "How does she spend the money?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Wh-** word + **do / does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Wh-** word + **do / does** + subject + verb-এর base form।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson_base_form",
+      "subSkillId": "base_form",
+      "title": "I, you, we, they — the base verb",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "With **I**, **you**, **we**, **they** and any plural subject, the verb stays in its **base form**. Nothing is added."
+        },
+        {
+          "type": "pattern",
+          "text": "I / you / we / they + verb",
+          "highlight": "no change"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Base form",
+            "He / she / it"
+          ],
+          "rows": [
+            [
+              "I work",
+              "He works"
+            ],
+            [
+              "They live",
+              "She lives"
+            ],
+            [
+              "We go",
+              "It goes"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "I work in Dhaka.",
+              "highlight": "work"
+            },
+            {
+              "text": "They live in Chittagong.",
+              "highlight": "live"
+            },
+            {
+              "text": "My parents speak English.",
+              "highlight": "speak"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "The **-s** belongs to **he / she / it** only. Adding it anywhere else — *I works*, *they lives* — is the most common slip."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "**I / you / we / they** এবং plural subject-এর সাথে verb-এর **base form** বসে — কোনো **-s** যোগ হয় না। **-s** শুধু **he / she / it**-এর জন্য।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_base_1",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Choose the correct sentence.",
+          "options": [
+            {
+              "id": "a",
+              "text": "My friends working in a bank.",
+              "correct": false,
+              "feedback": {
+                "en": "**working** needs **are** before it. For a habit or fact, use the present simple: *work*.",
+                "bn": "**working**-এর আগে **are** লাগে। অভ্যাস বোঝাতে present simple **work** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "My friends works in a bank.",
+              "correct": false,
+              "feedback": {
+                "en": "**My friends** is plural, so the verb stays base — **work**, not *works*.",
+                "bn": "**My friends** plural, তাই verb-এ **-s** বসবে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "My friends is work in a bank.",
+              "correct": false,
+              "feedback": {
+                "en": "**is** and a base verb never go together — and **is** is singular anyway.",
+                "bn": "**is** এবং base verb একসাথে বসে না; **is** singular-এর জন্য।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "My friends work in a bank.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Plural subjects take the base verb.",
+                "bn": "ঠিক আছে। Plural subject-এর সাথে verb-এর base form বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_base_2",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Choose the correct sentence.",
+          "options": [
+            {
+              "id": "a",
+              "text": "You is need a visa.",
+              "correct": false,
+              "feedback": {
+                "en": "**You** takes **are**, never **is** — and **is** cannot sit before a base verb.",
+                "bn": "**You**-এর সাথে **are** বসে, **is** নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "You need a visa.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **You** takes the base form, singular or plural.",
+                "bn": "ঠিক আছে। **You**-এর সাথে base form বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "You needing a visa.",
+              "correct": false,
+              "feedback": {
+                "en": "**needing** is the **-ing** form and needs **are** before it.",
+                "bn": "**needing**-এর আগে **are** লাগে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "You needs a visa.",
+              "correct": false,
+              "feedback": {
+                "en": "**You** always takes the base verb, even about one person — **need**.",
+                "bn": "**You**-এর সাথে সবসময় verb-এর base form বসে — **need**।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_base_3",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Choose the correct sentence.",
+          "options": [
+            {
+              "id": "a",
+              "text": "We waiting for the bus every morning.",
+              "correct": false,
+              "feedback": {
+                "en": "**waiting** needs **are** before it.",
+                "bn": "**waiting**-এর আগে **are** লাগে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We wait for the bus every morning.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **We** takes the base verb.",
+                "bn": "ঠিক আছে। **We**-এর সাথে verb-এর base form বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We waits for the bus every morning.",
+              "correct": false,
+              "feedback": {
+                "en": "**-s** belongs to **he / she / it** only.",
+                "bn": "**-s** শুধু **he / she / it**-এর জন্য।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We are wait for the bus every morning.",
+              "correct": false,
+              "feedback": {
+                "en": "**are** and a base verb don't go together.",
+                "bn": "**are** এবং base form একসাথে বসে না।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_s_endings",
+      "subSkillId": "s_endings",
+      "title": "He, she, it — adding -s",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the present simple, most verbs take **-s** or **-es** with **he, she, and it**."
+        },
+        {
+          "type": "pattern",
+          "text": "he / she / it + verb",
+          "highlight": "+ s"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Other subjects",
+            "He / she / it"
+          ],
+          "rows": [
+            [
+              "I work",
+              "He works"
+            ],
+            [
+              "They play",
+              "She plays"
+            ],
+            [
+              "We go",
+              "It goes"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "Rahim works in Dhaka.",
+              "highlight": "works"
+            },
+            {
+              "text": "She teaches English at school.",
+              "highlight": "teaches"
+            },
+            {
+              "text": "It rains a lot in July.",
+              "highlight": "rains"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Some verbs change spelling: **go → goes**, **do → does**, **have → has**."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "He / she / it-এর ক্ষেত্রে verb-এর শেষে **-s** বা **-es** যোগ হয়। অন্য সব subject-এ verb অপরিবর্তিত থাকে।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_s_1",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Choose the correct sentence.",
+          "options": [
+            {
+              "id": "a",
+              "text": "She teaching English.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form, used in the present continuous — not the present simple.",
+                "bn": "এটি **-ing** form, present continuous-এ ব্যবহৃত হয় — present simple-এ নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She teach English.",
+              "correct": false,
+              "feedback": {
+                "en": "\"She teaches\" is correct — for **he / she / it**, we add **-es** to verbs ending in -ch, -sh, -ss, -x, -o.",
+                "bn": "\"She\" third person, তাই verb-এ **-es** যোগ হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She is teach English.",
+              "correct": false,
+              "feedback": {
+                "en": "**is** and the base verb don't go together. Either \"She teaches\" or \"She is teaching\".",
+                "bn": "**is** এবং base verb একসাথে বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She teaches English.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Verbs ending in **-ch** take **-es** with he / she / it.",
+                "bn": "ঠিক আছে। -ch দিয়ে শেষ হওয়া verb-এ **-es** যোগ হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_s_2",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Choose the correct sentence.",
+          "options": [
+            {
+              "id": "a",
+              "text": "He cleans his room on Fridays.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **He** takes **-s**.",
+                "bn": "ঠিক আছে। **He**-এর সাথে **-s** যোগ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He cleanes his room on Fridays.",
+              "correct": false,
+              "feedback": {
+                "en": "**-es** is only for verbs ending in -ch, -sh, -ss, -x or -o. **clean** just takes **-s**.",
+                "bn": "**-es** শুধু -ch, -sh, -ss, -x, -o দিয়ে শেষ হওয়া verb-এ বসে। **clean**-এ শুধু **-s**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He clean his room on Fridays.",
+              "correct": false,
+              "feedback": {
+                "en": "With **he**, the verb needs **-s**.",
+                "bn": "**he**-এর সাথে verb-এ **-s** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He is clean his room on Fridays.",
+              "correct": false,
+              "feedback": {
+                "en": "**is** and a base verb never go together.",
+                "bn": "**is** এবং base form একসাথে বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_s_3",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Choose the correct sentence.",
+          "options": [
+            {
+              "id": "a",
+              "text": "She wash the dishes.",
+              "correct": false,
+              "feedback": {
+                "en": "With **she**, the verb needs an ending.",
+                "bn": "**she**-এর সাথে verb-এ ending লাগে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She washes the dishes.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Verbs ending in **-sh** take **-es**.",
+                "bn": "ঠিক আছে। **-sh** দিয়ে শেষ হওয়া verb-এ **-es** যোগ হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She washing the dishes.",
+              "correct": false,
+              "feedback": {
+                "en": "**washing** needs **is** before it.",
+                "bn": "**washing**-এর আগে **is** লাগে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She washs the dishes.",
+              "correct": false,
+              "feedback": {
+                "en": "After **-sh** the ending is **-es**, not **-s** — *washes*.",
+                "bn": "**-sh**-এর পরে **-es** বসে, **-s** নয় — *washes*।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_negatives",
+      "subSkillId": "negatives",
+      "title": "Negatives: don't and doesn't",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "To make a negative, put **don't** or **doesn't** before the verb. The verb itself goes back to its **base form**."
+        },
+        {
+          "type": "pattern",
+          "text": "subject + don't / doesn't +",
+          "highlight": "base verb"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Subject",
+            "Negative"
+          ],
+          "rows": [
+            [
+              "I / you / we / they",
+              "don't"
+            ],
+            [
+              "he / she / it",
+              "doesn't"
+            ],
+            [
+              "My brother",
+              "doesn't"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "They don't like spicy food.",
+              "highlight": "don't"
+            },
+            {
+              "text": "He doesn't work on Fridays.",
+              "highlight": "doesn't"
+            },
+            {
+              "text": "It doesn't rain in winter.",
+              "highlight": "doesn't"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "After **don't** or **doesn't** the verb never takes **-s**. The **-s** has already moved into **doesn't** — *He doesn't works* is wrong."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "Negative করতে subject-এর পরে **don't** বা **doesn't** বসে, আর তারপরে verb-এর **base form** থাকে। **doesn't**-এর মধ্যেই **-s** আছে, তাই verb-এ আর **-s** যোগ হয় না।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_neg_1",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Choose the correct sentence.",
+          "options": [
+            {
+              "id": "a",
+              "text": "He doesn't work on Fridays.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **doesn't** + base verb.",
+                "bn": "ঠিক আছে। **doesn't**-এর পরে verb-এর base form।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He doesn't works on Fridays.",
+              "correct": false,
+              "feedback": {
+                "en": "The **-s** is already inside **doesn't**, so the verb stays base — **work**.",
+                "bn": "**-s** ইতিমধ্যে **doesn't**-এ আছে, তাই verb base form-এ থাকবে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He not work on Fridays.",
+              "correct": false,
+              "feedback": {
+                "en": "A present-simple negative always needs **don't** or **doesn't** — **not** alone is not enough.",
+                "bn": "Present simple-এ negative করতে **don't/doesn't** লাগে; শুধু **not** যথেষ্ট নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He don't work on Fridays.",
+              "correct": false,
+              "feedback": {
+                "en": "**He** needs **doesn't**, not *don't*.",
+                "bn": "**He**-এর সাথে **doesn't** বসে, **don't** নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_neg_2",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Choose the correct sentence.",
+          "options": [
+            {
+              "id": "a",
+              "text": "We doesn't open on Sundays.",
+              "correct": false,
+              "feedback": {
+                "en": "**We** takes **don't**. **doesn't** is only for he / she / it.",
+                "bn": "**We**-এর সাথে **don't** বসে; **doesn't** শুধু he / she / it-এর জন্য।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We not open on Sundays.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** on its own cannot make a present-simple negative.",
+                "bn": "শুধু **not** দিয়ে present simple-এ negative হয় না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We don't open on Sundays.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Plural subjects take **don't**.",
+                "bn": "ঠিক আছে। Plural subject-এর সাথে **don't** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We don't opens on Sundays.",
+              "correct": false,
+              "feedback": {
+                "en": "After **don't** the verb is always base — **open**.",
+                "bn": "**don't**-এর পরে verb সবসময় base form-এ থাকে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_neg_3",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Choose the correct sentence.",
+          "options": [
+            {
+              "id": "a",
+              "text": "I don't listens to the radio.",
+              "correct": false,
+              "feedback": {
+                "en": "After **don't** the verb stays base.",
+                "bn": "**don't**-এর পরে verb base form-এ থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I don't listen to the radio.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I** takes **don't**.",
+                "bn": "ঠিক আছে। **I**-এর সাথে **don't** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I am not listen to the radio.",
+              "correct": false,
+              "feedback": {
+                "en": "**am not** negates a state. For an action, use **don't**.",
+                "bn": "**am not** state-কে negative করে; action-এর জন্য **don't** লাগে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I doesn't listen to the radio.",
+              "correct": false,
+              "feedback": {
+                "en": "**doesn't** is only for **he / she / it**.",
+                "bn": "**doesn't** শুধু **he / she / it**-এর জন্য।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_questions",
+      "subSkillId": "questions",
+      "title": "Questions: do and does",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "To ask a question, start with **Do** or **Does**, then the subject, then the verb in its **base form**."
+        },
+        {
+          "type": "pattern",
+          "text": "Do / Does + subject +",
+          "highlight": "base verb ?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Subject",
+            "Question starts with"
+          ],
+          "rows": [
+            [
+              "I / you / we / they",
+              "Do"
+            ],
+            [
+              "he / she / it",
+              "Does"
+            ],
+            [
+              "The bus",
+              "Does"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "Do you speak English?",
+              "highlight": "Do"
+            },
+            {
+              "text": "Does he work at a bank?",
+              "highlight": "Does"
+            },
+            {
+              "text": "Does the bus stop here?",
+              "highlight": "Does"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "The **-s** moves to **Does** — the main verb stays base. *Does he works?* is wrong. And the question starts with **Do/Does**, not with the subject."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "প্রশ্ন করতে বাক্যের শুরুতে **Do** বা **Does** বসে, তারপর subject, তারপর verb-এর **base form**। **-s** চলে যায় **Does**-এ, তাই মূল verb-এ **-s** বসে না।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_q_1",
+          "instruction": "Choose the correct question",
+          "prompt": "Choose the correct question.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Do he work at a bank?",
+              "correct": false,
+              "feedback": {
+                "en": "**He** needs **Does**, not *Do*.",
+                "bn": "**He**-এর সাথে **Does** বসে, **Do** নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Does he work at a bank?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Does** + subject + verb-এর base form।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He does work at a bank?",
+              "correct": false,
+              "feedback": {
+                "en": "That is statement order. A question begins with **Does**.",
+                "bn": "এটি statement-এর গঠন। প্রশ্ন **Does** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Does he works at a bank?",
+              "correct": false,
+              "feedback": {
+                "en": "The **-s** is already in **Does**, so the verb stays base — **work**.",
+                "bn": "**-s** ইতিমধ্যে **Does**-এ আছে, তাই verb base form-এ থাকবে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_q_2",
+          "instruction": "Choose the correct question",
+          "prompt": "Choose the correct question.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Do they opens on Fridays?",
+              "correct": false,
+              "feedback": {
+                "en": "After **Do** the verb is always base — **open**.",
+                "bn": "**Do**-এর পরে verb সবসময় base form-এ থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Do they open on Fridays?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Plural subjects take **Do**.",
+                "bn": "ঠিক আছে। Plural subject-এর সাথে **Do** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Does they open on Fridays?",
+              "correct": false,
+              "feedback": {
+                "en": "**They** is plural, so the question starts with **Do**.",
+                "bn": "**They** plural, তাই প্রশ্ন **Do** দিয়ে শুরু হবে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "They do open on Fridays?",
+              "correct": false,
+              "feedback": {
+                "en": "That is statement order. Start the question with **Do**.",
+                "bn": "এটি statement-এর গঠন। প্রশ্ন **Do** দিয়ে শুরু করতে হবে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_q_3",
+          "instruction": "Choose the correct question",
+          "prompt": "Choose the correct question.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Does she sings well?",
+              "correct": false,
+              "feedback": {
+                "en": "The **-s** is already in **Does**.",
+                "bn": "**-s** ইতিমধ্যে **Does**-এ আছে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Do she sing well?",
+              "correct": false,
+              "feedback": {
+                "en": "**She** needs **Does**.",
+                "bn": "**She**-এর সাথে **Does** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Does she sing well?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Does** + subject + base verb.",
+                "bn": "ঠিক আছে। **Does** + subject + verb-এর base form।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Is she sing well?",
+              "correct": false,
+              "feedback": {
+                "en": "**Is** asks about a state. For an action, use **Does**.",
+                "bn": "**Is** state সম্পর্কে প্রশ্ন করে; action-এর জন্য **Does** লাগে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_wh_questions",
+      "subSkillId": "wh_questions",
+      "title": "Wh- questions: asking for information",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A **yes / no** question starts with **do** or **does**. To ask for *information*, put a **wh-** word in front of it — the rest of the question doesn't change."
+        },
+        {
+          "type": "pattern",
+          "text": "Wh- word + do / does + subject +",
+          "highlight": "base verb ?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Yes / no question",
+            "Wh- question"
+          ],
+          "rows": [
+            [
+              "Do you drink tea?",
+              "What do you drink?"
+            ],
+            [
+              "Does he cycle here?",
+              "Where does he cycle?"
+            ],
+            [
+              "Does she rest at noon?",
+              "When does she rest?"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "Where do you live?",
+              "highlight": "do"
+            },
+            {
+              "text": "What does she study?",
+              "highlight": "does"
+            },
+            {
+              "text": "When does the class start?",
+              "highlight": "does"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Don't drop the auxiliary. *Where he works?* is the most common slip — it needs **does**: *Where does he work?* And the **-s** stays on **does**, never on the main verb."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "তথ্য জানতে প্রশ্ন করতে প্রথমে **wh-** word, তারপর **do** বা **does**, তারপর subject, তারপর verb-এর **base form** বসে। **-s** থাকে **does**-এ, মূল verb-এ নয়। *Where he works?* — এখানে **does** বাদ পড়েছে, এটি ভুল।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_wh_1",
+          "instruction": "Choose the correct question",
+          "prompt": "Choose the correct question.",
+          "options": [
+            {
+              "id": "a",
+              "text": "What you need?",
+              "correct": false,
+              "feedback": {
+                "en": "The auxiliary **do** is missing.",
+                "bn": "Auxiliary **do** বাদ পড়েছে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "What do you needs?",
+              "correct": false,
+              "feedback": {
+                "en": "After **do** the verb stays base — **need**.",
+                "bn": "**do**-এর পরে verb base form-এ থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "What do you need?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **What** + **do** + subject + base verb.",
+                "bn": "ঠিক আছে। **What** + **do** + subject + verb-এর base form।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "What does you need?",
+              "correct": false,
+              "feedback": {
+                "en": "**You** takes **do**, not **does**.",
+                "bn": "**You**-এর সাথে **do** বসে, **does** নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_wh_2",
+          "instruction": "Choose the correct question",
+          "prompt": "Choose the correct question.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Where she paints?",
+              "correct": false,
+              "feedback": {
+                "en": "The auxiliary **does** is missing.",
+                "bn": "Auxiliary **does** বাদ পড়েছে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Where do she paint?",
+              "correct": false,
+              "feedback": {
+                "en": "**She** needs **does**.",
+                "bn": "**She**-এর সাথে **does** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Where does she paint?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **She** takes **does**, and the verb stays base.",
+                "bn": "ঠিক আছে। **She**-এর সাথে **does**, আর verb base form-এ।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Where does she paints?",
+              "correct": false,
+              "feedback": {
+                "en": "The **-s** is already in **does**.",
+                "bn": "**-s** ইতিমধ্যে **does**-এ আছে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_wh_3",
+          "instruction": "Choose the correct question",
+          "prompt": "Choose the correct question.",
+          "options": [
+            {
+              "id": "a",
+              "text": "When does they arrive?",
+              "correct": false,
+              "feedback": {
+                "en": "**They** is plural, so it takes **do**.",
+                "bn": "**They** plural, তাই **do** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "When they do arrive?",
+              "correct": false,
+              "feedback": {
+                "en": "The auxiliary comes before the subject: **When do they…**",
+                "bn": "Auxiliary subject-এর আগে বসে: **When do they…**"
+              }
+            },
+            {
+              "id": "c",
+              "text": "When do they arrives?",
+              "correct": false,
+              "feedback": {
+                "en": "After **do** the verb stays base.",
+                "bn": "**do**-এর পরে verb base form-এ থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "When do they arrive?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **They** takes **do**.",
+                "bn": "ঠিক আছে। **They**-এর সাথে **do** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

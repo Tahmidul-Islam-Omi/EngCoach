@@ -70,6 +70,7 @@ screenshots/
 # Claude Code / AI assistant tooling — local to this machine.
 .claude/
 CLAUDE.md
+.gemini/
 .mcp.json
 .aider*
 .cursor/

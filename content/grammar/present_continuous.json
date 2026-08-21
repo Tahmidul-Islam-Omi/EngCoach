@@ -1,0 +1,3193 @@
+{
+  "id": "present_continuous",
+  "section": "grammar",
+  "order": 2,
+  "title": "Present Continuous",
+  "summary": "Talk about what is happening right now, or around now — \"She is working from home today\", \"I am learning English\".",
+  "whyThisTopic": "It's how you say what's happening as you speak — and knowing when to use it instead of the present simple is what stops English sounding stiff.",
+  "assessmentConfig": {
+    "questionsPerSubSkill": 2,
+    "qualifyingScore": 2,
+    "bankSize": 6,
+    "_note": "Temporarily 2 for faster testing — production value is 3. questionsPerSubSkill and qualifyingScore must move together: if qualifying > drawn, nobody can ever skip a sub-skill."
+  },
+  "subSkills": [
+    {
+      "id": "be_forms",
+      "title": "Am / is / are + verb-ing",
+      "preAssessmentBank": [
+        {
+          "id": "pre_be_1",
+          "rule": "is-singular",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My brother is studies for his exam.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "My brother is study for his exam.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "My brother is studying for his exam.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "My brother studying for his exam.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_be_2",
+          "rule": "are-plural",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The children are cleaning their room.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "The children are cleans their room.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "The children are clean their room.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The children is cleaning their room.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_be_3",
+          "rule": "am-i",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I am walk to the station.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "I am walking to the station.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "I walking to the station.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "I is walking to the station.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_be_4",
+          "rule": "is-singular",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "It are raining outside.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "It raining outside.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "It is rain outside.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "It is raining outside.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_be_5",
+          "rule": "are-plural",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We are listen to the news.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "We are listening to the news.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "We listening to the news.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "We are listens to the news.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_be_6",
+          "rule": "are-you",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "You are talking too fast.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "You are talk too fast.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "You is talking too fast.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "You are talks too fast.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_be_1",
+          "rule": "is-singular",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Your phone is ring.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Your phone ringing.",
+              "correct": false,
+              "feedback": {
+                "en": "The **-ing** verb can't stand alone. It needs **am**, **is**, or **are** in front of it.",
+                "bn": "**-ing** verb একা বসতে পারে না — এর আগে **am / is / are** লাগে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Your phone is rings.",
+              "correct": false,
+              "feedback": {
+                "en": "**-s** belongs to the present simple. After **am / is / are**, use **-ing**.",
+                "bn": "**-s** present simple-এর রূপ। **am / is / are**-এর পরে **-ing** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Your phone is ringing.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **he / she / it** and single things take **is**.",
+                "bn": "ঠিক আছে। **he / she / it** এবং একবচনের সাথে **is** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_be_2",
+          "rule": "are-plural",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The workers are painting the wall.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **we / they** and plural things take **are**.",
+                "bn": "ঠিক আছে। **we / they** এবং বহুবচনের সাথে **are** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The workers are paints the wall.",
+              "correct": false,
+              "feedback": {
+                "en": "**-s** belongs to the present simple. After **am / is / are**, use **-ing**.",
+                "bn": "**-s** present simple-এর রূপ। **am / is / are**-এর পরে **-ing** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The workers is painting the wall.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The workers are paint the wall.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_be_3",
+          "rule": "am-i",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I am wash the dishes.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I are washing the dishes.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I am washing the dishes.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I** always takes **am**.",
+                "bn": "ঠিক আছে। **I**-এর সাথে সবসময় **am** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I washing the dishes.",
+              "correct": false,
+              "feedback": {
+                "en": "The **-ing** verb can't stand alone. It needs **am**, **is**, or **are** in front of it.",
+                "bn": "**-ing** verb একা বসতে পারে না — এর আগে **am / is / are** লাগে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_be_4",
+          "rule": "is-singular",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The kettle is boil.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The kettle are boiling.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The kettle boiling.",
+              "correct": false,
+              "feedback": {
+                "en": "The **-ing** verb can't stand alone. It needs **am**, **is**, or **are** in front of it.",
+                "bn": "**-ing** verb একা বসতে পারে না — এর আগে **am / is / are** লাগে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The kettle is boiling.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **he / she / it** and single things take **is**.",
+                "bn": "ঠিক আছে। **he / she / it** এবং একবচনের সাথে **is** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_be_5",
+          "rule": "are-plural",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They are building a new road.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **we / they** and plural things take **are**.",
+                "bn": "ঠিক আছে। **we / they** এবং বহুবচনের সাথে **are** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "They building a new road.",
+              "correct": false,
+              "feedback": {
+                "en": "The **-ing** verb can't stand alone. It needs **am**, **is**, or **are** in front of it.",
+                "bn": "**-ing** verb একা বসতে পারে না — এর আগে **am / is / are** লাগে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "They are build a new road.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "They are builds a new road.",
+              "correct": false,
+              "feedback": {
+                "en": "**-s** belongs to the present simple. After **am / is / are**, use **-ing**.",
+                "bn": "**-s** present simple-এর রূপ। **am / is / are**-এর পরে **-ing** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_be_6",
+          "rule": "are-you",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "You are ask too many questions.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "You are asks too many questions.",
+              "correct": false,
+              "feedback": {
+                "en": "**-s** belongs to the present simple. After **am / is / are**, use **-ing**.",
+                "bn": "**-s** present simple-এর রূপ। **am / is / are**-এর পরে **-ing** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "You is asking too many questions.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "You are asking too many questions.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **you** always takes **are**, even for one person.",
+                "bn": "ঠিক আছে। **you**-এর সাথে সবসময় **are** বসে, একজন বোঝালেও।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ing_spelling",
+      "title": "Spelling the -ing form",
+      "preAssessmentBank": [
+        {
+          "id": "pre_ing_1",
+          "rule": "plain-ing",
+          "instruction": "Choose the correct spelling",
+          "prompt": "What is the **-ing** form of **study**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "studies",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "studdying",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "studing",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "studying",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_ing_2",
+          "rule": "plain-ing",
+          "instruction": "Complete the sentence",
+          "prompt": "The baby is ___ loudly.  **(cry)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "cryying",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "cry",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "crying",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "cries",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ing_3",
+          "rule": "drop-e",
+          "instruction": "Choose the correct spelling",
+          "prompt": "What is the **-ing** form of **make**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "makeing",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "makes",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "making",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "makking",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ing_4",
+          "rule": "drop-e",
+          "instruction": "Complete the sentence",
+          "prompt": "She is ___ a bicycle to school.  **(ride)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "ridding",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "rideing",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "riding",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "ride",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ing_5",
+          "rule": "double-consonant",
+          "instruction": "Choose the correct spelling",
+          "prompt": "What is the **-ing** form of **stop**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "stopeing",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "stoping",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "stops",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "stopping",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_ing_6",
+          "rule": "double-consonant",
+          "instruction": "Complete the sentence",
+          "prompt": "He is ___ ready for work.  **(get)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "gets",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "getting",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "get",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "geting",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_ing_1",
+          "rule": "plain-ing",
+          "instruction": "Choose the correct spelling",
+          "prompt": "What is the **-ing** form of **wash**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "washes",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present simple **-s** form, not the **-ing** form.",
+                "bn": "এটি present simple-এর **-s** form, **-ing** form নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "washeing",
+              "correct": false,
+              "feedback": {
+                "en": "There's no **-e** to work with here. Just add **-ing** to the verb.",
+                "bn": "এখানে **-e** নেই। verb-এর সাথে সরাসরি **-ing** যোগ করুন।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "wash",
+              "correct": false,
+              "feedback": {
+                "en": "That's the plain verb with nothing added — the **-ing** is missing.",
+                "bn": "এটি verb-এর base form — **-ing** যোগ করা হয়নি।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "washing",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Most verbs simply add **-ing**, with no other change.",
+                "bn": "ঠিক আছে। বেশিরভাগ verb-এ কোনো পরিবর্তন ছাড়াই **-ing** যোগ হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ing_2",
+          "rule": "plain-ing",
+          "instruction": "Complete the sentence",
+          "prompt": "Someone is ___ the gate.  **(open)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "opens",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present simple **-s** form, not the **-ing** form.",
+                "bn": "এটি present simple-এর **-s** form, **-ing** form নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "openning",
+              "correct": false,
+              "feedback": {
+                "en": "No doubling here — that rule is only for short verbs ending in one vowel + one consonant.",
+                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক vowel ও এক consonant দিয়ে শেষ হওয়া ছোট verb-এর জন্য।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "opening",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Most verbs simply add **-ing**, with no other change.",
+                "bn": "ঠিক আছে। বেশিরভাগ verb-এ কোনো পরিবর্তন ছাড়াই **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "openeing",
+              "correct": false,
+              "feedback": {
+                "en": "There's no **-e** to work with here. Just add **-ing** to the verb.",
+                "bn": "এখানে **-e** নেই। verb-এর সাথে সরাসরি **-ing** যোগ করুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ing_3",
+          "rule": "drop-e",
+          "instruction": "Choose the correct spelling",
+          "prompt": "What is the **-ing** form of **hope**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "hopeing",
+              "correct": false,
+              "feedback": {
+                "en": "The final **-e** has to go before **-ing**.",
+                "bn": "**-ing** যোগ করার আগে শেষের **-e** বাদ দিতে হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "hopes",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present simple **-s** form, not the **-ing** form.",
+                "bn": "এটি present simple-এর **-s** form, **-ing** form নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "hopping",
+              "correct": false,
+              "feedback": {
+                "en": "No doubling here — that rule is only for short verbs ending in one vowel + one consonant.",
+                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক vowel ও এক consonant দিয়ে শেষ হওয়া ছোট verb-এর জন্য।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "hoping",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Drop the final **-e**, then add **-ing**.",
+                "bn": "ঠিক আছে। শেষের **-e** বাদ দিয়ে **-ing** যোগ হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ing_4",
+          "rule": "drop-e",
+          "instruction": "Complete the sentence",
+          "prompt": "He is ___ the window.  **(close)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "clossing",
+              "correct": false,
+              "feedback": {
+                "en": "No doubling here — that rule is only for short verbs ending in one vowel + one consonant.",
+                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক vowel ও এক consonant দিয়ে শেষ হওয়া ছোট verb-এর জন্য।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "closing",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Drop the final **-e**, then add **-ing**.",
+                "bn": "ঠিক আছে। শেষের **-e** বাদ দিয়ে **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "close",
+              "correct": false,
+              "feedback": {
+                "en": "That's the plain verb with nothing added — the **-ing** is missing.",
+                "bn": "এটি verb-এর base form — **-ing** যোগ করা হয়নি।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "closeing",
+              "correct": false,
+              "feedback": {
+                "en": "The final **-e** has to go before **-ing**.",
+                "bn": "**-ing** যোগ করার আগে শেষের **-e** বাদ দিতে হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ing_5",
+          "rule": "double-consonant",
+          "instruction": "Choose the correct spelling",
+          "prompt": "What is the **-ing** form of **begin**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "beginning",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A short verb ending in one vowel + one consonant doubles that consonant.",
+                "bn": "ঠিক আছে। ছোট verb-এ একটি vowel ও একটি consonant থাকলে শেষ consonant দ্বিগুণ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "begining",
+              "correct": false,
+              "feedback": {
+                "en": "This verb needs its last consonant doubled before **-ing**.",
+                "bn": "এই verb-এ **-ing** যোগের আগে শেষ consonant দ্বিগুণ হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "begineing",
+              "correct": false,
+              "feedback": {
+                "en": "There's no **-e** to work with here. Just add **-ing** to the verb.",
+                "bn": "এখানে **-e** নেই। verb-এর সাথে সরাসরি **-ing** যোগ করুন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "begins",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present simple **-s** form, not the **-ing** form.",
+                "bn": "এটি present simple-এর **-s** form, **-ing** form নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ing_6",
+          "rule": "double-consonant",
+          "instruction": "Complete the sentence",
+          "prompt": "She is ___ her bag on the table.  **(put)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "put",
+              "correct": false,
+              "feedback": {
+                "en": "That's the plain verb with nothing added — the **-ing** is missing.",
+                "bn": "এটি verb-এর base form — **-ing** যোগ করা হয়নি।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "puts",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present simple **-s** form, not the **-ing** form.",
+                "bn": "এটি present simple-এর **-s** form, **-ing** form নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "puting",
+              "correct": false,
+              "feedback": {
+                "en": "This verb needs its last consonant doubled before **-ing**.",
+                "bn": "এই verb-এ **-ing** যোগের আগে শেষ consonant দ্বিগুণ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "putting",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A short verb ending in one vowel + one consonant doubles that consonant.",
+                "bn": "ঠিক আছে। ছোট verb-এ একটি vowel ও একটি consonant থাকলে শেষ consonant দ্বিগুণ হয়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "negatives",
+      "title": "Negatives: isn't / aren't / am not",
+      "preAssessmentBank": [
+        {
+          "id": "pre_neg_1",
+          "rule": "isnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The shop doesn't delivering today.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "The shop isn't delivering today.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "The shop not delivering today.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The shop isn't deliver today.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_neg_2",
+          "rule": "arent",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They isn't painting the house.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "They don't painting the house.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "They aren't painting the house.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "They aren't paint the house.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_neg_3",
+          "rule": "am-not",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I don't talking to him now.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "I amn't talking to him now.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "I'm not talking to him now.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "I not talking to him now.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_neg_4",
+          "rule": "isnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She not wearing a jacket.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "She isn't wear a jacket.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "She isn't wearing a jacket.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "She aren't wearing a jacket.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_neg_5",
+          "rule": "arent",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We don't drinking tea right now.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "We not drinking tea right now.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "We aren't drinking tea right now.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "We aren't drink tea right now.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_neg_6",
+          "rule": "am-not",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I am not walk home today.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "I not walking home today.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "I am not walking home today.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "I is not walking home today.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_neg_1",
+          "rule": "isnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He doesn't fixing the car today.",
+              "correct": false,
+              "feedback": {
+                "en": "**don't / doesn't** belong to the present simple. Here, **not** goes after **am / is / are**.",
+                "bn": "**don't / doesn't** present simple-এর। এখানে **am / is / are**-এর পরে **not** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He isn't fixing the car today.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **not** goes straight after **is**, and the verb keeps its **-ing**.",
+                "bn": "ঠিক আছে। **is**-এর পরেই **not** বসে, আর verb-এ **-ing** থেকে যায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He isn't fix the car today.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He not fixing the car today.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** can't sit on its own. You need **am not**, **isn't**, or **aren't**.",
+                "bn": "**not** একা বসতে পারে না — **am not / isn't / aren't** লাগে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_neg_2",
+          "rule": "arent",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The boys isn't singing now.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The boys aren't sing now.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The boys don't singing now.",
+              "correct": false,
+              "feedback": {
+                "en": "**don't / doesn't** belong to the present simple. Here, **not** goes after **am / is / are**.",
+                "bn": "**don't / doesn't** present simple-এর। এখানে **am / is / are**-এর পরে **not** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The boys aren't singing now.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **not** goes straight after **are**, and the verb keeps its **-ing**.",
+                "bn": "ঠিক আছে। **are**-এর পরেই **not** বসে, আর verb-এ **-ing** থেকে যায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_neg_3",
+          "rule": "am-not",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I amn't using my phone now.",
+              "correct": false,
+              "feedback": {
+                "en": "**amn't** isn't English. Say **I'm not** or **I am not**.",
+                "bn": "**amn't** বলে কোনো শব্দ নেই। **I'm not** বা **I am not** বলুন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I'm not using my phone now.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I** takes **am not**, usually shortened to **I'm not**.",
+                "bn": "ঠিক আছে। **I**-এর সাথে **am not** বসে, সংক্ষেপে **I'm not**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I'm not use my phone now.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I not using my phone now.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** can't sit on its own. You need **am not**, **isn't**, or **aren't**.",
+                "bn": "**not** একা বসতে পারে না — **am not / isn't / aren't** লাগে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_neg_4",
+          "rule": "isnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The train isn't arrive on time.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The train isn't arriving on time.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **not** goes straight after **is**, and the verb keeps its **-ing**.",
+                "bn": "ঠিক আছে। **is**-এর পরেই **not** বসে, আর verb-এ **-ing** থেকে যায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The train aren't arriving on time.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The train doesn't arriving on time.",
+              "correct": false,
+              "feedback": {
+                "en": "**don't / doesn't** belong to the present simple. Here, **not** goes after **am / is / are**.",
+                "bn": "**don't / doesn't** present simple-এর। এখানে **am / is / are**-এর পরে **not** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_neg_5",
+          "rule": "arent",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "You isn't holding it correctly.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "You not holding it correctly.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** can't sit on its own. You need **am not**, **isn't**, or **aren't**.",
+                "bn": "**not** একা বসতে পারে না — **am not / isn't / aren't** লাগে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "You aren't holding it correctly.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **not** goes straight after **are**, and the verb keeps its **-ing**.",
+                "bn": "ঠিক আছে। **are**-এর পরেই **not** বসে, আর verb-এ **-ing** থেকে যায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "You aren't hold it correctly.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_neg_6",
+          "rule": "am-not",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I don't chatting with anyone.",
+              "correct": false,
+              "feedback": {
+                "en": "**don't / doesn't** belong to the present simple. Here, **not** goes after **am / is / are**.",
+                "bn": "**don't / doesn't** present simple-এর। এখানে **am / is / are**-এর পরে **not** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I am not chatting with anyone.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I** takes **am not**, usually shortened to **I'm not**.",
+                "bn": "ঠিক আছে। **I**-এর সাথে **am not** বসে, সংক্ষেপে **I'm not**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I am not chat with anyone.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I amn't chatting with anyone.",
+              "correct": false,
+              "feedback": {
+                "en": "**amn't** isn't English. Say **I'm not** or **I am not**.",
+                "bn": "**amn't** বলে কোনো শব্দ নেই। **I'm not** বা **I am not** বলুন।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "questions",
+      "title": "Questions: am / is / are",
+      "preAssessmentBank": [
+        {
+          "id": "pre_ques_1",
+          "rule": "is-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Does your sister studying now?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Your sister is studying now?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Is your sister studying now?",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "Is your sister study now?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_2",
+          "rule": "are-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Do the students copying the notes?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Are the students copy the notes?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Is the students copying the notes?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Are the students copying the notes?",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_3",
+          "rule": "is-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Are the water boiling?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "The water is boiling?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Is the water boiling?",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "Is the water boil?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_4",
+          "rule": "are-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Do you looking for something?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "You are looking for something?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Are you look for something?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Are you looking for something?",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_5",
+          "rule": "is-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Are he wearing his uniform?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Does he wearing his uniform?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "He is wearing his uniform?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Is he wearing his uniform?",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_6",
+          "rule": "are-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Are they move to a new house?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Do they moving to a new house?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Are they moving to a new house?",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "They are moving to a new house?",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_ques_1",
+          "rule": "is-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Is the teacher explaining the lesson?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Is** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Is** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The teacher is explaining the lesson?",
+              "correct": false,
+              "feedback": {
+                "en": "That's a statement with a question mark. In a question, **am / is / are** comes before the subject.",
+                "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **am / is / are** subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Does the teacher explaining the lesson?",
+              "correct": false,
+              "feedback": {
+                "en": "**Do / Does** is for the present simple. This question starts with **Am / Is / Are**.",
+                "bn": "**Do / Does** present simple-এর জন্য। এই প্রশ্ন শুরু হয় **Am / Is / Are** দিয়ে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Is the teacher explain the lesson?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the **-ing** on the verb too.",
+                "bn": "প্রশ্নেও verb-এ **-ing** থাকে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_2",
+          "rule": "are-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Is we going the right way?",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Are we go the right way?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the **-ing** on the verb too.",
+                "bn": "প্রশ্নেও verb-এ **-ing** থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Do we going the right way?",
+              "correct": false,
+              "feedback": {
+                "en": "**Do / Does** is for the present simple. This question starts with **Am / Is / Are**.",
+                "bn": "**Do / Does** present simple-এর জন্য। এই প্রশ্ন শুরু হয় **Am / Is / Are** দিয়ে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Are we going the right way?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Are** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Are** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_3",
+          "rule": "is-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Are your phone charging?",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Is your phone charge?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the **-ing** on the verb too.",
+                "bn": "প্রশ্নেও verb-এ **-ing** থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Your phone is charging?",
+              "correct": false,
+              "feedback": {
+                "en": "That's a statement with a question mark. In a question, **am / is / are** comes before the subject.",
+                "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **am / is / are** subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Is your phone charging?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Is** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Is** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_4",
+          "rule": "are-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Are the guests eat now?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the **-ing** on the verb too.",
+                "bn": "প্রশ্নেও verb-এ **-ing** থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Do the guests eating now?",
+              "correct": false,
+              "feedback": {
+                "en": "**Do / Does** is for the present simple. This question starts with **Am / Is / Are**.",
+                "bn": "**Do / Does** present simple-এর জন্য। এই প্রশ্ন শুরু হয় **Am / Is / Are** দিয়ে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Are the guests eating now?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Are** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Are** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The guests are eating now?",
+              "correct": false,
+              "feedback": {
+                "en": "That's a statement with a question mark. In a question, **am / is / are** comes before the subject.",
+                "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **am / is / are** subject-এর আগে বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_5",
+          "rule": "is-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Are she cleaning her room?",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Does she cleaning her room?",
+              "correct": false,
+              "feedback": {
+                "en": "**Do / Does** is for the present simple. This question starts with **Am / Is / Are**.",
+                "bn": "**Do / Does** present simple-এর জন্য। এই প্রশ্ন শুরু হয় **Am / Is / Are** দিয়ে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She is cleaning her room?",
+              "correct": false,
+              "feedback": {
+                "en": "That's a statement with a question mark. In a question, **am / is / are** comes before the subject.",
+                "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **am / is / are** subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Is she cleaning her room?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Is** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Is** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_6",
+          "rule": "are-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Are the shops closing early today?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Are** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Are** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The shops are closing early today?",
+              "correct": false,
+              "feedback": {
+                "en": "That's a statement with a question mark. In a question, **am / is / are** comes before the subject.",
+                "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **am / is / are** subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Is the shops closing early today?",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Do the shops closing early today?",
+              "correct": false,
+              "feedback": {
+                "en": "**Do / Does** is for the present simple. This question starts with **Am / Is / Are**.",
+                "bn": "**Do / Does** present simple-এর জন্য। এই প্রশ্ন শুরু হয় **Am / Is / Are** দিয়ে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "now_vs_routine",
+      "title": "Now or usually? Continuous vs simple",
+      "preAssessmentBank": [
+        {
+          "id": "pre_now_1",
+          "rule": "now-not-routine",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Look — it snowing outside.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Look — it is snowing outside.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "Look — it snows outside.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Look — it snow outside.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_now_2",
+          "rule": "routine-not-now",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ripa walk to school every morning.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Ripa walking to school every morning.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Ripa walks to school every morning.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "Ripa is walking to school every morning.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_now_3",
+          "rule": "stative",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She needs more time.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "She needing more time.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "She need more time.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "She is needing more time.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_now_4",
+          "rule": "now-not-routine",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Wait a minute — I am finish my homework.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Wait a minute — I finish my homework.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Wait a minute — I am finishing my homework.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "Wait a minute — I finishing my homework.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_now_5",
+          "rule": "routine-not-now",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The bank opens at ten every day.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "The bank opening at ten every day.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "The bank open at ten every day.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The bank is opening at ten every day.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_now_6",
+          "rule": "stative",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I am knowing the answer.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "I knows the answer.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "I knowing the answer.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "I know the answer.",
+              "correct": true
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_now_1",
+          "rule": "now-not-routine",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Don't go out — it raining heavily.",
+              "correct": false,
+              "feedback": {
+                "en": "The **-ing** verb can't stand alone. It needs **am**, **is**, or **are** in front of it.",
+                "bn": "**-ing** verb একা বসতে পারে না — এর আগে **am / is / are** লাগে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Don't go out — it is raining heavily.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This is happening as you speak, so the present continuous is right.",
+                "bn": "ঠিক আছে। এটি এখনই ঘটছে, তাই present continuous সঠিক।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Don't go out — it is rain heavily.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Don't go out — it rains heavily.",
+              "correct": false,
+              "feedback": {
+                "en": "The present simple is for habits. This is happening **now**, so use **am / is / are** + **-ing**.",
+                "bn": "present simple অভ্যাসের জন্য। এটি **এখন** ঘটছে, তাই **am / is / are** + **-ing** ব্যবহার করুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_now_2",
+          "rule": "routine-not-now",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We visit our village twice a year.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A repeated habit takes the present simple.",
+                "bn": "ঠিক আছে। অভ্যাস বা নিয়মিত কাজ present simple-এ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We visits our village twice a year.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-s** form used with the wrong subject.",
+                "bn": "ভুল subject-এর সাথে **-s** form ব্যবহার করা হয়েছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We are visiting our village twice a year.",
+              "correct": false,
+              "feedback": {
+                "en": "A repeated time phrase like **every day** signals a habit — that takes the present simple, not **-ing**.",
+                "bn": "**every day**-এর মতো শব্দ অভ্যাস বোঝায় — সেখানে present simple বসে, **-ing** নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We visiting our village twice a year.",
+              "correct": false,
+              "feedback": {
+                "en": "A habit doesn't use **-ing** at all. Adding **is** wouldn't help — use the present simple form of the verb.",
+                "bn": "অভ্যাস বোঝাতে **-ing** ব্যবহার হয় না। **is** যোগ করলেও ঠিক হবে না — present simple form ব্যবহার করুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_now_3",
+          "rule": "stative",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He is liking spicy food.",
+              "correct": false,
+              "feedback": {
+                "en": "**know, want, like, need, understand** describe states, not actions. They don't take **-ing**.",
+                "bn": "**know, want, like, need, understand** অবস্থা বোঝায়, কাজ নয় — এগুলোতে **-ing** বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He like spicy food.",
+              "correct": false,
+              "feedback": {
+                "en": "In the present simple, **he / she / it** and single things take **-s** on the verb.",
+                "bn": "present simple-এ **he / she / it** ও একবচনের সাথে verb-এ **-s** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He liking spicy food.",
+              "correct": false,
+              "feedback": {
+                "en": "**know, want, like, need, understand** take no **-ing** at all — and putting **is** in front wouldn't fix it either.",
+                "bn": "**know, want, like, need, understand**-এ **-ing** বসে না — সামনে **is** বসালেও ঠিক হবে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He likes spicy food.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This verb describes a state, not an action, so it stays in the present simple.",
+                "bn": "ঠিক আছে। এই verb কাজ নয়, অবস্থা বোঝায় — তাই present simple-এ থাকে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_now_4",
+          "rule": "now-not-routine",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Listen — someone is call your name.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Listen — someone is calling your name.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This is happening as you speak, so the present continuous is right.",
+                "bn": "ঠিক আছে। এটি এখনই ঘটছে, তাই present continuous সঠিক।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Listen — someone calling your name.",
+              "correct": false,
+              "feedback": {
+                "en": "The **-ing** verb can't stand alone. It needs **am**, **is**, or **are** in front of it.",
+                "bn": "**-ing** verb একা বসতে পারে না — এর আগে **am / is / are** লাগে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Listen — someone calls your name.",
+              "correct": false,
+              "feedback": {
+                "en": "The present simple is for habits. This is happening **now**, so use **am / is / are** + **-ing**.",
+                "bn": "present simple অভ্যাসের জন্য। এটি **এখন** ঘটছে, তাই **am / is / are** + **-ing** ব্যবহার করুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_now_5",
+          "rule": "routine-not-now",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My mother pray five times a day.",
+              "correct": false,
+              "feedback": {
+                "en": "In the present simple, **he / she / it** and single things take **-s** on the verb.",
+                "bn": "present simple-এ **he / she / it** ও একবচনের সাথে verb-এ **-s** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "My mother prays five times a day.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A repeated habit takes the present simple.",
+                "bn": "ঠিক আছে। অভ্যাস বা নিয়মিত কাজ present simple-এ হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "My mother is praying five times a day.",
+              "correct": false,
+              "feedback": {
+                "en": "A repeated time phrase like **every day** signals a habit — that takes the present simple, not **-ing**.",
+                "bn": "**every day**-এর মতো শব্দ অভ্যাস বোঝায় — সেখানে present simple বসে, **-ing** নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "My mother praying five times a day.",
+              "correct": false,
+              "feedback": {
+                "en": "A habit doesn't use **-ing** at all. Adding **is** wouldn't help — use the present simple form of the verb.",
+                "bn": "অভ্যাস বোঝাতে **-ing** ব্যবহার হয় না। **is** যোগ করলেও ঠিক হবে না — present simple form ব্যবহার করুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_now_6",
+          "rule": "stative",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They understands the problem.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-s** form used with the wrong subject.",
+                "bn": "ভুল subject-এর সাথে **-s** form ব্যবহার করা হয়েছে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "They are understanding the problem.",
+              "correct": false,
+              "feedback": {
+                "en": "**know, want, like, need, understand** describe states, not actions. They don't take **-ing**.",
+                "bn": "**know, want, like, need, understand** অবস্থা বোঝায়, কাজ নয় — এগুলোতে **-ing** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "They understanding the problem.",
+              "correct": false,
+              "feedback": {
+                "en": "**know, want, like, need, understand** take no **-ing** at all — and putting **is** in front wouldn't fix it either.",
+                "bn": "**know, want, like, need, understand**-এ **-ing** বসে না — সামনে **is** বসালেও ঠিক হবে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "They understand the problem.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This verb describes a state, not an action, so it stays in the present simple.",
+                "bn": "ঠিক আছে। এই verb কাজ নয়, অবস্থা বোঝায় — তাই present simple-এ থাকে।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson_be_forms",
+      "subSkillId": "be_forms",
+      "title": "The two parts: be + verb-ing",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The present continuous always has **two parts**: a form of **be** (am, is, are) and the main verb with **-ing**. Leave either part out and the sentence breaks."
+        },
+        {
+          "type": "pattern",
+          "text": "subject + am / is / are + verb",
+          "highlight": "+ ing"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Subject",
+            "Present continuous"
+          ],
+          "rows": [
+            [
+              "I",
+              "I am working"
+            ],
+            [
+              "He / She / It",
+              "She is reading"
+            ],
+            [
+              "We / You / They",
+              "They are playing"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "I am working from home today.",
+              "highlight": "am working"
+            },
+            {
+              "text": "The baby is sleeping now.",
+              "highlight": "is sleeping"
+            },
+            {
+              "text": "We are watching a film.",
+              "highlight": "are watching"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "The **-ing** verb can never stand alone. **She reading** is wrong — it has to be **She is reading**."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "Present continuous-এ সবসময় দুইটি অংশ থাকে — **am / is / are** এবং verb-এর সাথে **-ing**। যেকোনো একটি বাদ পড়লে বাক্যটি ভুল হয়ে যায়। **I**-এর সাথে **am**, **he / she / it**-এর সাথে **is**, আর **we / you / they**-এর সাথে **are** বসে।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_be_1",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I is cooking rice now.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I am cook rice now.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I am cooking rice now.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I** always takes **am**.",
+                "bn": "ঠিক আছে। **I**-এর সাথে সবসময় **am** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I cooking rice now.",
+              "correct": false,
+              "feedback": {
+                "en": "The **-ing** verb can't stand alone. It needs **am**, **is**, or **are** in front of it.",
+                "bn": "**-ing** verb একা বসতে পারে না — এর আগে **am / is / are** লাগে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_be_2",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They waiting outside.",
+              "correct": false,
+              "feedback": {
+                "en": "The **-ing** verb can't stand alone. It needs **am**, **is**, or **are** in front of it.",
+                "bn": "**-ing** verb একা বসতে পারে না — এর আগে **am / is / are** লাগে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "They are waiting outside.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **we / they** and plural things take **are**.",
+                "bn": "ঠিক আছে। **we / they** এবং বহুবচনের সাথে **are** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "They are wait outside.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "They is waiting outside.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_be_3",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She is dancing on the stage.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **he / she / it** and single things take **is**.",
+                "bn": "ঠিক আছে। **he / she / it** এবং একবচনের সাথে **is** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She are dancing on the stage.",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She dancing on the stage.",
+              "correct": false,
+              "feedback": {
+                "en": "The **-ing** verb can't stand alone. It needs **am**, **is**, or **are** in front of it.",
+                "bn": "**-ing** verb একা বসতে পারে না — এর আগে **am / is / are** লাগে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She is dance on the stage.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_ing_spelling",
+      "subSkillId": "ing_spelling",
+      "title": "Spelling the -ing form",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Most verbs just add **-ing**. Only two groups change first: verbs ending in **-e**, and short verbs ending in one vowel plus one consonant."
+        },
+        {
+          "type": "pattern",
+          "text": "verb ending in -e",
+          "highlight": "drop the e, add -ing"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Rule",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Most verbs: add -ing",
+              "play → playing"
+            ],
+            [
+              "Ends in -e: drop the e",
+              "write → writing"
+            ],
+            [
+              "One vowel + one consonant: double it",
+              "run → running"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "He is reading a book.",
+              "highlight": "reading"
+            },
+            {
+              "text": "She is writing a letter.",
+              "highlight": "writing"
+            },
+            {
+              "text": "The boys are running in the field.",
+              "highlight": "running"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Only **short, stressed** verbs double the consonant. **Visit** becomes **visiting**, not *visitting*."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "বেশিরভাগ verb-এর শেষে সরাসরি **-ing** যোগ হয়। **-e** দিয়ে শেষ হলে **e** বাদ দিয়ে **-ing** বসে (write → writing)। ছোট verb-এ একটি vowel ও একটি consonant থাকলে শেষ consonant দ্বিগুণ হয় (run → running)। বড় verb-এ এই দ্বিগুণ হওয়ার নিয়ম খাটে না।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_ing_1",
+          "instruction": "Choose the correct spelling",
+          "prompt": "What is the **-ing** form of **smile**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "smiles",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present simple **-s** form, not the **-ing** form.",
+                "bn": "এটি present simple-এর **-s** form, **-ing** form নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "smiling",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Drop the final **-e**, then add **-ing**.",
+                "bn": "ঠিক আছে। শেষের **-e** বাদ দিয়ে **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "smileing",
+              "correct": false,
+              "feedback": {
+                "en": "The final **-e** has to go before **-ing**.",
+                "bn": "**-ing** যোগ করার আগে শেষের **-e** বাদ দিতে হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "smilling",
+              "correct": false,
+              "feedback": {
+                "en": "No doubling here — that rule is only for short verbs ending in one vowel + one consonant.",
+                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক vowel ও এক consonant দিয়ে শেষ হওয়া ছোট verb-এর জন্য।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_ing_2",
+          "instruction": "Choose the correct spelling",
+          "prompt": "What is the **-ing** form of **shop**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "shopping",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A short verb ending in one vowel + one consonant doubles that consonant.",
+                "bn": "ঠিক আছে। ছোট verb-এ একটি vowel ও একটি consonant থাকলে শেষ consonant দ্বিগুণ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "shopeing",
+              "correct": false,
+              "feedback": {
+                "en": "There's no **-e** to work with here. Just add **-ing** to the verb.",
+                "bn": "এখানে **-e** নেই। verb-এর সাথে সরাসরি **-ing** যোগ করুন।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "shops",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present simple **-s** form, not the **-ing** form.",
+                "bn": "এটি present simple-এর **-s** form, **-ing** form নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "shoping",
+              "correct": false,
+              "feedback": {
+                "en": "This verb needs its last consonant doubled before **-ing**.",
+                "bn": "এই verb-এ **-ing** যোগের আগে শেষ consonant দ্বিগুণ হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_ing_3",
+          "instruction": "Choose the correct spelling",
+          "prompt": "What is the **-ing** form of **listen**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "listeneing",
+              "correct": false,
+              "feedback": {
+                "en": "There's no **-e** to work with here. Just add **-ing** to the verb.",
+                "bn": "এখানে **-e** নেই। verb-এর সাথে সরাসরি **-ing** যোগ করুন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "listenning",
+              "correct": false,
+              "feedback": {
+                "en": "No doubling here — that rule is only for short verbs ending in one vowel + one consonant.",
+                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক vowel ও এক consonant দিয়ে শেষ হওয়া ছোট verb-এর জন্য।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "listening",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Most verbs simply add **-ing**, with no other change.",
+                "bn": "ঠিক আছে। বেশিরভাগ verb-এ কোনো পরিবর্তন ছাড়াই **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "listens",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present simple **-s** form, not the **-ing** form.",
+                "bn": "এটি present simple-এর **-s** form, **-ing** form নয়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_negatives",
+      "subSkillId": "negatives",
+      "title": "Saying it isn't happening",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "To make the present continuous negative, put **not** straight after **am / is / are**. The **-ing** verb never changes."
+        },
+        {
+          "type": "pattern",
+          "text": "subject + am / is / are",
+          "highlight": "+ not + verb-ing"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Positive",
+            "Negative"
+          ],
+          "rows": [
+            [
+              "I am working",
+              "I am not working"
+            ],
+            [
+              "He is reading",
+              "He is not reading"
+            ],
+            [
+              "They are playing",
+              "They are not playing"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "I am not sleeping yet.",
+              "highlight": "am not"
+            },
+            {
+              "text": "She isn't watching TV.",
+              "highlight": "isn't"
+            },
+            {
+              "text": "They aren't running today.",
+              "highlight": "aren't"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "**is not** shortens to **isn't** and **are not** to **aren't**, but **am not** has no short form. Say **I'm not**, never *amn't*."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "না-বোধক করতে **am / is / are**-এর ঠিক পরে **not** বসে; verb-এর **-ing** অপরিবর্তিত থাকে। **is not → isn't**, **are not → aren't**, কিন্তু **am not**-এর সংক্ষিপ্ত রূপ নেই — বলতে হয় **I'm not**। এখানে **don't / doesn't** ব্যবহার হয় না।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_neg_1",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He doesn't driving today.",
+              "correct": false,
+              "feedback": {
+                "en": "**don't / doesn't** belong to the present simple. Here, **not** goes after **am / is / are**.",
+                "bn": "**don't / doesn't** present simple-এর। এখানে **am / is / are**-এর পরে **not** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He not driving today.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** can't sit on its own. You need **am not**, **isn't**, or **aren't**.",
+                "bn": "**not** একা বসতে পারে না — **am not / isn't / aren't** লাগে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He isn't driving today.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **not** goes straight after **is**, and the verb keeps its **-ing**.",
+                "bn": "ঠিক আছে। **is**-এর পরেই **not** বসে, আর verb-এ **-ing** থেকে যায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He isn't drive today.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_neg_2",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We don't planning a trip.",
+              "correct": false,
+              "feedback": {
+                "en": "**don't / doesn't** belong to the present simple. Here, **not** goes after **am / is / are**.",
+                "bn": "**don't / doesn't** present simple-এর। এখানে **am / is / are**-এর পরে **not** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We not planning a trip.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** can't sit on its own. You need **am not**, **isn't**, or **aren't**.",
+                "bn": "**not** একা বসতে পারে না — **am not / isn't / aren't** লাগে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We aren't plan a trip.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We aren't planning a trip.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **not** goes straight after **are**, and the verb keeps its **-ing**.",
+                "bn": "ঠিক আছে। **are**-এর পরেই **not** বসে, আর verb-এ **-ing** থেকে যায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_neg_3",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I don't cutting the cake yet.",
+              "correct": false,
+              "feedback": {
+                "en": "**don't / doesn't** belong to the present simple. Here, **not** goes after **am / is / are**.",
+                "bn": "**don't / doesn't** present simple-এর। এখানে **am / is / are**-এর পরে **not** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I'm not cutting the cake yet.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I** takes **am not**, usually shortened to **I'm not**.",
+                "bn": "ঠিক আছে। **I**-এর সাথে **am not** বসে, সংক্ষেপে **I'm not**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I not cutting the cake yet.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** can't sit on its own. You need **am not**, **isn't**, or **aren't**.",
+                "bn": "**not** একা বসতে পারে না — **am not / isn't / aren't** লাগে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I amn't cutting the cake yet.",
+              "correct": false,
+              "feedback": {
+                "en": "**amn't** isn't English. Say **I'm not** or **I am not**.",
+                "bn": "**amn't** বলে কোনো শব্দ নেই। **I'm not** বা **I am not** বলুন।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_questions",
+      "subSkillId": "questions",
+      "title": "Asking with am, is, are",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "To ask a question, move **am / is / are** in front of the subject. Nothing else changes — the verb keeps its **-ing**."
+        },
+        {
+          "type": "pattern",
+          "text": "Am / Is / Are + subject + verb-ing",
+          "highlight": "?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Statement",
+            "Question"
+          ],
+          "rows": [
+            [
+              "She is working",
+              "Is she working?"
+            ],
+            [
+              "They are playing",
+              "Are they playing?"
+            ],
+            [
+              "I am helping",
+              "Am I helping?"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "Is he sleeping now?",
+              "highlight": "Is he"
+            },
+            {
+              "text": "Are you reading this book?",
+              "highlight": "Are you"
+            },
+            {
+              "text": "What are they watching?",
+              "highlight": "What are"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Never use **do** or **does** here. **Do you working?** is wrong — it's **Are you working?**"
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "প্রশ্ন করতে **am / is / are** subject-এর আগে চলে আসে; বাকি সব একই থাকে। এখানে **do / does** ব্যবহার হয় না — **Are you working?** ঠিক, **Do you working?** ভুল। **What / Where / Why** থাকলে সেটি সবার আগে বসে: **What are you doing?**"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_ques_1",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She is baking a cake?",
+              "correct": false,
+              "feedback": {
+                "en": "That's a statement with a question mark. In a question, **am / is / are** comes before the subject.",
+                "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **am / is / are** subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Does she baking a cake?",
+              "correct": false,
+              "feedback": {
+                "en": "**Do / Does** is for the present simple. This question starts with **Am / Is / Are**.",
+                "bn": "**Do / Does** present simple-এর জন্য। এই প্রশ্ন শুরু হয় **Am / Is / Are** দিয়ে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Is she baking a cake?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Is** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Is** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Is she bake a cake?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the **-ing** on the verb too.",
+                "bn": "প্রশ্নেও verb-এ **-ing** থাকে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_ques_2",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Are they carrying the boxes?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Are** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Are** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Are they carry the boxes?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the **-ing** on the verb too.",
+                "bn": "প্রশ্নেও verb-এ **-ing** থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Is they carrying the boxes?",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Do they carrying the boxes?",
+              "correct": false,
+              "feedback": {
+                "en": "**Do / Does** is for the present simple. This question starts with **Am / Is / Are**.",
+                "bn": "**Do / Does** present simple-এর জন্য। এই প্রশ্ন শুরু হয় **Am / Is / Are** দিয়ে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_ques_3",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Are the machine printing now?",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Is the machine print now?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the **-ing** on the verb too.",
+                "bn": "প্রশ্নেও verb-এ **-ing** থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Is the machine printing now?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Is** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Is** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The machine is printing now?",
+              "correct": false,
+              "feedback": {
+                "en": "That's a statement with a question mark. In a question, **am / is / are** comes before the subject.",
+                "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **am / is / are** subject-এর আগে বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_now_vs_routine",
+      "subSkillId": "now_vs_routine",
+      "title": "Now, or usually?",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Use the **present continuous** for what is happening now or around now. Use the **present simple** for habits and things that are always true."
+        },
+        {
+          "type": "pattern",
+          "text": "right now / at the moment / today",
+          "highlight": "→ am / is / are + verb-ing"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Usually",
+            "Right now"
+          ],
+          "rows": [
+            [
+              "I work in an office",
+              "I am working from home today"
+            ],
+            [
+              "She reads every night",
+              "She is reading now"
+            ],
+            [
+              "They play on Fridays",
+              "They are playing at the moment"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "I am helping my brother today.",
+              "highlight": "am helping"
+            },
+            {
+              "text": "We watch this show every week.",
+              "highlight": "watch"
+            },
+            {
+              "text": "She is watching it right now.",
+              "highlight": "is watching"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Some verbs describe a state, not an action: **know, want, like, need, understand**. They stay in the present simple — say **I know it**, never *I am knowing it*."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "এখন বা আজকাল যা ঘটছে তার জন্য **present continuous**; অভ্যাস বা সবসময় সত্য এমন কিছুর জন্য **present simple**। **every day**, **every morning**-এর মতো শব্দ থাকলে বুঝবেন এটি অভ্যাস। **know, want, like, need, understand** — এগুলো অবস্থা বোঝায়, কাজ নয়, তাই এগুলোতে **-ing** বসে না।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_now_1",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Be quiet — the baby is sleep.",
+              "correct": false,
+              "feedback": {
+                "en": "After **am / is / are**, the verb takes **-ing**.",
+                "bn": "**am / is / are**-এর পরে verb-এ **-ing** যোগ হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Be quiet — the baby sleeping.",
+              "correct": false,
+              "feedback": {
+                "en": "The **-ing** verb can't stand alone. It needs **am**, **is**, or **are** in front of it.",
+                "bn": "**-ing** verb একা বসতে পারে না — এর আগে **am / is / are** লাগে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Be quiet — the baby is sleeping.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This is happening as you speak, so the present continuous is right.",
+                "bn": "ঠিক আছে। এটি এখনই ঘটছে, তাই present continuous সঠিক।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Be quiet — the baby sleeps.",
+              "correct": false,
+              "feedback": {
+                "en": "The present simple is for habits. This is happening **now**, so use **am / is / are** + **-ing**.",
+                "bn": "present simple অভ্যাসের জন্য। এটি **এখন** ঘটছে, তাই **am / is / are** + **-ing** ব্যবহার করুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_now_2",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My father is driving to work every day.",
+              "correct": false,
+              "feedback": {
+                "en": "A repeated time phrase like **every day** signals a habit — that takes the present simple, not **-ing**.",
+                "bn": "**every day**-এর মতো শব্দ অভ্যাস বোঝায় — সেখানে present simple বসে, **-ing** নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "My father drives to work every day.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A repeated habit takes the present simple.",
+                "bn": "ঠিক আছে। অভ্যাস বা নিয়মিত কাজ present simple-এ হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "My father drive to work every day.",
+              "correct": false,
+              "feedback": {
+                "en": "In the present simple, **he / she / it** and single things take **-s** on the verb.",
+                "bn": "present simple-এ **he / she / it** ও একবচনের সাথে verb-এ **-s** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "My father driving to work every day.",
+              "correct": false,
+              "feedback": {
+                "en": "A habit doesn't use **-ing** at all. Adding **is** wouldn't help — use the present simple form of the verb.",
+                "bn": "অভ্যাস বোঝাতে **-ing** ব্যবহার হয় না। **is** যোগ করলেও ঠিক হবে না — present simple form ব্যবহার করুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_now_3",
+          "instruction": "Choose the best sentence",
+          "prompt": "Which sentence fits the situation?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I am want a cup of tea.",
+              "correct": false,
+              "feedback": {
+                "en": "These verbs need no **am / is / are** and no **-ing**. Just **I want**, **she needs**.",
+                "bn": "এই verb-গুলোর সাথে **am / is / are** বা **-ing** কিছুই লাগে না — শুধু **I want**, **she needs**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I am wanting a cup of tea.",
+              "correct": false,
+              "feedback": {
+                "en": "**know, want, like, need, understand** describe states, not actions. They don't take **-ing**.",
+                "bn": "**know, want, like, need, understand** অবস্থা বোঝায়, কাজ নয় — এগুলোতে **-ing** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I wanting a cup of tea.",
+              "correct": false,
+              "feedback": {
+                "en": "**know, want, like, need, understand** take no **-ing** at all — and putting **is** in front wouldn't fix it either.",
+                "bn": "**know, want, like, need, understand**-এ **-ing** বসে না — সামনে **is** বসালেও ঠিক হবে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I want a cup of tea.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This verb describes a state, not an action, so it stays in the present simple.",
+                "bn": "ঠিক আছে। এই verb কাজ নয়, অবস্থা বোঝায় — তাই present simple-এ থাকে।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

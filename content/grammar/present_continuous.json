@@ -690,8 +690,8 @@
               "text": "openning",
               "correct": false,
               "feedback": {
-                "en": "No doubling here — that rule is only for short verbs ending in one vowel + one consonant.",
-                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক vowel ও এক consonant দিয়ে শেষ হওয়া ছোট verb-এর জন্য।"
+                "en": "No doubling here — that rule is only for **one-syllable** verbs like **stop** and **run**.",
+                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক syllable-এর verb-এর জন্য, যেমন **stop**, **run**।"
               }
             },
             {
@@ -743,8 +743,8 @@
               "text": "hopping",
               "correct": false,
               "feedback": {
-                "en": "No doubling here — that rule is only for short verbs ending in one vowel + one consonant.",
-                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক vowel ও এক consonant দিয়ে শেষ হওয়া ছোট verb-এর জন্য।"
+                "en": "No doubling here — that rule is only for **one-syllable** verbs like **stop** and **run**.",
+                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক syllable-এর verb-এর জন্য, যেমন **stop**, **run**।"
               }
             },
             {
@@ -769,8 +769,8 @@
               "text": "clossing",
               "correct": false,
               "feedback": {
-                "en": "No doubling here — that rule is only for short verbs ending in one vowel + one consonant.",
-                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক vowel ও এক consonant দিয়ে শেষ হওয়া ছোট verb-এর জন্য।"
+                "en": "No doubling here — that rule is only for **one-syllable** verbs like **stop** and **run**.",
+                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক syllable-এর verb-এর জন্য, যেমন **stop**, **run**।"
               }
             },
             {
@@ -806,20 +806,20 @@
           "id": "post_ing_5",
           "rule": "double-consonant",
           "instruction": "Choose the correct spelling",
-          "prompt": "What is the **-ing** form of **begin**?",
+          "prompt": "What is the **-ing** form of **sit**?",
           "options": [
             {
               "id": "a",
-              "text": "beginning",
+              "text": "sitting",
               "correct": true,
               "feedback": {
-                "en": "Correct. A short verb ending in one vowel + one consonant doubles that consonant.",
-                "bn": "ঠিক আছে। ছোট verb-এ একটি vowel ও একটি consonant থাকলে শেষ consonant দ্বিগুণ হয়।"
+                "en": "Correct. A one-syllable verb ending in one vowel + one consonant doubles that consonant.",
+                "bn": "ঠিক আছে। এক syllable-এর verb-এ একটি vowel ও একটি consonant থাকলে শেষ consonant দ্বিগুণ হয়।"
               }
             },
             {
               "id": "b",
-              "text": "begining",
+              "text": "siting",
               "correct": false,
               "feedback": {
                 "en": "This verb needs its last consonant doubled before **-ing**.",
@@ -828,7 +828,7 @@
             },
             {
               "id": "c",
-              "text": "begineing",
+              "text": "siteing",
               "correct": false,
               "feedback": {
                 "en": "There's no **-e** to work with here. Just add **-ing** to the verb.",
@@ -837,7 +837,7 @@
             },
             {
               "id": "d",
-              "text": "begins",
+              "text": "sits",
               "correct": false,
               "feedback": {
                 "en": "That's the present simple **-s** form, not the **-ing** form.",
@@ -884,8 +884,8 @@
               "text": "putting",
               "correct": true,
               "feedback": {
-                "en": "Correct. A short verb ending in one vowel + one consonant doubles that consonant.",
-                "bn": "ঠিক আছে। ছোট verb-এ একটি vowel ও একটি consonant থাকলে শেষ consonant দ্বিগুণ হয়।"
+                "en": "Correct. A one-syllable verb ending in one vowel + one consonant doubles that consonant.",
+                "bn": "ঠিক আছে। এক syllable-এর verb-এ একটি vowel ও একটি consonant থাকলে শেষ consonant দ্বিগুণ হয়।"
               }
             }
           ]
@@ -1450,28 +1450,28 @@
         },
         {
           "id": "pre_ques_5",
-          "rule": "is-question",
+          "rule": "am-question",
           "instruction": "Choose the correct question",
           "prompt": "Which question is correct?",
           "options": [
             {
               "id": "a",
-              "text": "Are he wearing his uniform?",
+              "text": "Is I standing in your way?",
               "correct": false
             },
             {
               "id": "b",
-              "text": "Does he wearing his uniform?",
+              "text": "Do I standing in your way?",
               "correct": false
             },
             {
               "id": "c",
-              "text": "He is wearing his uniform?",
+              "text": "I am standing in your way?",
               "correct": false
             },
             {
               "id": "d",
-              "text": "Is he wearing his uniform?",
+              "text": "Am I standing in your way?",
               "correct": true
             }
           ]
@@ -1684,13 +1684,13 @@
         },
         {
           "id": "post_ques_5",
-          "rule": "is-question",
+          "rule": "am-question",
           "instruction": "Choose the correct question",
           "prompt": "Which question is correct?",
           "options": [
             {
               "id": "a",
-              "text": "Are she cleaning her room?",
+              "text": "Is I disturbing you?",
               "correct": false,
               "feedback": {
                 "en": "The right idea, but the wrong form of **be** for this subject.",
@@ -1699,7 +1699,7 @@
             },
             {
               "id": "b",
-              "text": "Does she cleaning her room?",
+              "text": "Do I disturbing you?",
               "correct": false,
               "feedback": {
                 "en": "**Do / Does** is for the present simple. This question starts with **Am / Is / Are**.",
@@ -1708,7 +1708,7 @@
             },
             {
               "id": "c",
-              "text": "She is cleaning her room?",
+              "text": "I am disturbing you?",
               "correct": false,
               "feedback": {
                 "en": "That's a statement with a question mark. In a question, **am / is / are** comes before the subject.",
@@ -1717,11 +1717,11 @@
             },
             {
               "id": "d",
-              "text": "Is she cleaning her room?",
+              "text": "Am I disturbing you?",
               "correct": true,
               "feedback": {
-                "en": "Correct. **Is** moves in front of the subject, and nothing else changes.",
-                "bn": "ঠিক আছে। **Is** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+                "en": "Correct. **Am** moves in front of **I**, and nothing else changes.",
+                "bn": "ঠিক আছে। **Am** **I**-এর আগে চলে আসে, বাকি সব একই থাকে।"
               }
             }
           ]
@@ -1840,22 +1840,22 @@
           "options": [
             {
               "id": "a",
-              "text": "She needs more time.",
+              "text": "Don't rush her — she needs more time.",
               "correct": true
             },
             {
               "id": "b",
-              "text": "She needing more time.",
+              "text": "Don't rush her — she needing more time.",
               "correct": false
             },
             {
               "id": "c",
-              "text": "She need more time.",
+              "text": "Don't rush her — she need more time.",
               "correct": false
             },
             {
               "id": "d",
-              "text": "She is needing more time.",
+              "text": "Don't rush her — she is needing more time.",
               "correct": false
             }
           ]
@@ -1924,22 +1924,22 @@
           "options": [
             {
               "id": "a",
-              "text": "I am knowing the answer.",
+              "text": "Ask me — I am knowing the answer.",
               "correct": false
             },
             {
               "id": "b",
-              "text": "I knows the answer.",
+              "text": "Ask me — I knows the answer.",
               "correct": false
             },
             {
               "id": "c",
-              "text": "I knowing the answer.",
+              "text": "Ask me — I knowing the answer.",
               "correct": false
             },
             {
               "id": "d",
-              "text": "I know the answer.",
+              "text": "Ask me — I know the answer.",
               "correct": true
             }
           ]
@@ -2042,7 +2042,7 @@
           "options": [
             {
               "id": "a",
-              "text": "He is liking spicy food.",
+              "text": "Order the curry — he is liking spicy food.",
               "correct": false,
               "feedback": {
                 "en": "**know, want, like, need, understand** describe states, not actions. They don't take **-ing**.",
@@ -2051,7 +2051,7 @@
             },
             {
               "id": "b",
-              "text": "He like spicy food.",
+              "text": "Order the curry — he like spicy food.",
               "correct": false,
               "feedback": {
                 "en": "In the present simple, **he / she / it** and single things take **-s** on the verb.",
@@ -2060,7 +2060,7 @@
             },
             {
               "id": "c",
-              "text": "He liking spicy food.",
+              "text": "Order the curry — he liking spicy food.",
               "correct": false,
               "feedback": {
                 "en": "**know, want, like, need, understand** take no **-ing** at all — and putting **is** in front wouldn't fix it either.",
@@ -2069,7 +2069,7 @@
             },
             {
               "id": "d",
-              "text": "He likes spicy food.",
+              "text": "Order the curry — he likes spicy food.",
               "correct": true,
               "feedback": {
                 "en": "Correct. This verb describes a state, not an action, so it stays in the present simple.",
@@ -2174,7 +2174,7 @@
           "options": [
             {
               "id": "a",
-              "text": "They understands the problem.",
+              "text": "You can stop — they understands the problem.",
               "correct": false,
               "feedback": {
                 "en": "That's the **-s** form used with the wrong subject.",
@@ -2183,7 +2183,7 @@
             },
             {
               "id": "b",
-              "text": "They are understanding the problem.",
+              "text": "You can stop — they are understanding the problem.",
               "correct": false,
               "feedback": {
                 "en": "**know, want, like, need, understand** describe states, not actions. They don't take **-ing**.",
@@ -2192,7 +2192,7 @@
             },
             {
               "id": "c",
-              "text": "They understanding the problem.",
+              "text": "You can stop — they understanding the problem.",
               "correct": false,
               "feedback": {
                 "en": "**know, want, like, need, understand** take no **-ing** at all — and putting **is** in front wouldn't fix it either.",
@@ -2201,7 +2201,7 @@
             },
             {
               "id": "d",
-              "text": "They understand the problem.",
+              "text": "You can stop — they understand the problem.",
               "correct": true,
               "feedback": {
                 "en": "Correct. This verb describes a state, not an action, so it stays in the present simple.",
@@ -2416,7 +2416,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Most verbs just add **-ing**. Only two groups change first: verbs ending in **-e**, and short verbs ending in one vowel plus one consonant."
+          "text": "Most verbs just add **-ing**. Only two groups change first: verbs ending in **-e**, and **one-syllable** verbs ending in one vowel plus one consonant."
         },
         {
           "type": "pattern",
@@ -2439,7 +2439,7 @@
               "write → writing"
             ],
             [
-              "One vowel + one consonant: double it",
+              "One syllable, one vowel + one consonant: double it",
               "run → running"
             ]
           ]
@@ -2464,12 +2464,12 @@
         {
           "type": "callout",
           "label": "Watch out",
-          "text": "Only **short, stressed** verbs double the consonant. **Visit** becomes **visiting**, not *visitting*."
+          "text": "Count the syllables first. **Visit** has two, so it doesn't double — it becomes **visiting**, not *visitting*."
         },
         {
           "type": "bangla",
           "label": "ব্যাখ্যা",
-          "text": "বেশিরভাগ verb-এর শেষে সরাসরি **-ing** যোগ হয়। **-e** দিয়ে শেষ হলে **e** বাদ দিয়ে **-ing** বসে (write → writing)। ছোট verb-এ একটি vowel ও একটি consonant থাকলে শেষ consonant দ্বিগুণ হয় (run → running)। বড় verb-এ এই দ্বিগুণ হওয়ার নিয়ম খাটে না।"
+          "text": "বেশিরভাগ verb-এর শেষে সরাসরি **-ing** যোগ হয়। **-e** দিয়ে শেষ হলে **e** বাদ দিয়ে **-ing** বসে (write → writing)। **এক syllable**-এর verb-এ একটি vowel ও একটি consonant থাকলে শেষ consonant দ্বিগুণ হয় (run → running)। একাধিক syllable থাকলে এই নিয়ম খাটে না (visit → visiting)।"
         }
       ],
       "practice": [
@@ -2510,8 +2510,8 @@
               "text": "smilling",
               "correct": false,
               "feedback": {
-                "en": "No doubling here — that rule is only for short verbs ending in one vowel + one consonant.",
-                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক vowel ও এক consonant দিয়ে শেষ হওয়া ছোট verb-এর জন্য।"
+                "en": "No doubling here — that rule is only for **one-syllable** verbs like **stop** and **run**.",
+                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক syllable-এর verb-এর জন্য, যেমন **stop**, **run**।"
               }
             }
           ]
@@ -2526,8 +2526,8 @@
               "text": "shopping",
               "correct": true,
               "feedback": {
-                "en": "Correct. A short verb ending in one vowel + one consonant doubles that consonant.",
-                "bn": "ঠিক আছে। ছোট verb-এ একটি vowel ও একটি consonant থাকলে শেষ consonant দ্বিগুণ হয়।"
+                "en": "Correct. A one-syllable verb ending in one vowel + one consonant doubles that consonant.",
+                "bn": "ঠিক আছে। এক syllable-এর verb-এ একটি vowel ও একটি consonant থাকলে শেষ consonant দ্বিগুণ হয়।"
               }
             },
             {
@@ -2578,8 +2578,8 @@
               "text": "listenning",
               "correct": false,
               "feedback": {
-                "en": "No doubling here — that rule is only for short verbs ending in one vowel + one consonant.",
-                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক vowel ও এক consonant দিয়ে শেষ হওয়া ছোট verb-এর জন্য।"
+                "en": "No doubling here — that rule is only for **one-syllable** verbs like **stop** and **run**.",
+                "bn": "এখানে consonant দ্বিগুণ হবে না — ওই নিয়ম শুধু এক syllable-এর verb-এর জন্য, যেমন **stop**, **run**।"
               }
             },
             {
@@ -2956,38 +2956,38 @@
           "options": [
             {
               "id": "a",
-              "text": "Are the machine printing now?",
+              "text": "Do I saying it right?",
               "correct": false,
               "feedback": {
-                "en": "The right idea, but the wrong form of **be** for this subject.",
-                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
+                "en": "**Do / Does** is for the present simple. This question starts with **Am / Is / Are**.",
+                "bn": "**Do / Does** present simple-এর জন্য। এই প্রশ্ন শুরু হয় **Am / Is / Are** দিয়ে।"
               }
             },
             {
               "id": "b",
-              "text": "Is the machine print now?",
-              "correct": false,
-              "feedback": {
-                "en": "Questions keep the **-ing** on the verb too.",
-                "bn": "প্রশ্নেও verb-এ **-ing** থাকে।"
-              }
-            },
-            {
-              "id": "c",
-              "text": "Is the machine printing now?",
-              "correct": true,
-              "feedback": {
-                "en": "Correct. **Is** moves in front of the subject, and nothing else changes.",
-                "bn": "ঠিক আছে। **Is** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
-              }
-            },
-            {
-              "id": "d",
-              "text": "The machine is printing now?",
+              "text": "I am saying it right?",
               "correct": false,
               "feedback": {
                 "en": "That's a statement with a question mark. In a question, **am / is / are** comes before the subject.",
                 "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **am / is / are** subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Am I saying it right?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Am** moves in front of **I**, and nothing else changes.",
+                "bn": "ঠিক আছে। **Am** **I**-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Is I saying it right?",
+              "correct": false,
+              "feedback": {
+                "en": "The right idea, but the wrong form of **be** for this subject.",
+                "bn": "নিয়ম ঠিক, কিন্তু এই subject-এর জন্য **be**-এর ভুল form।"
               }
             }
           ]
@@ -3151,7 +3151,7 @@
           "options": [
             {
               "id": "a",
-              "text": "I am want a cup of tea.",
+              "text": "Put the kettle on — I am want a cup of tea.",
               "correct": false,
               "feedback": {
                 "en": "These verbs need no **am / is / are** and no **-ing**. Just **I want**, **she needs**.",
@@ -3160,7 +3160,7 @@
             },
             {
               "id": "b",
-              "text": "I am wanting a cup of tea.",
+              "text": "Put the kettle on — I am wanting a cup of tea.",
               "correct": false,
               "feedback": {
                 "en": "**know, want, like, need, understand** describe states, not actions. They don't take **-ing**.",
@@ -3169,7 +3169,7 @@
             },
             {
               "id": "c",
-              "text": "I wanting a cup of tea.",
+              "text": "Put the kettle on — I wanting a cup of tea.",
               "correct": false,
               "feedback": {
                 "en": "**know, want, like, need, understand** take no **-ing** at all — and putting **is** in front wouldn't fix it either.",
@@ -3178,7 +3178,7 @@
             },
             {
               "id": "d",
-              "text": "I want a cup of tea.",
+              "text": "Put the kettle on — I want a cup of tea.",
               "correct": true,
               "feedback": {
                 "en": "Correct. This verb describes a state, not an action, so it stays in the present simple.",

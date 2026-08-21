@@ -109,7 +109,14 @@ void _validate(Map<String, dynamic> topic, List<String> problems) {
 
   final withLessons = lessons.map((l) => l['subSkillId']).toSet();
   final ids = <String>{};
-  final answerPositions = <String, int>{};
+
+  // Counted per bank, not pooled. A learner sits the pre-assessment as its
+  // own test, so the two banks have to be balanced independently — pooling
+  // them lets a skewed pre-bank hide behind an opposite skew in the post.
+  final answerPositions = {
+    'pre-assessment': <String, int>{},
+    'post-assessment': <String, int>{},
+  };
 
   for (final s in subSkills.cast<Map<String, dynamic>>()) {
     final id = s['id'] as String;
@@ -143,7 +150,7 @@ void _validate(Map<String, dynamic> topic, List<String> problems) {
       }
     }
 
-    for (final entry in [(pre, false), (post, true)]) {
+    for (final entry in [(pre, 'pre-assessment'), (post, 'post-assessment')]) {
       for (final q in entry.$1) {
         final qid = q['id'] as String;
         if (!ids.add(qid)) fail('duplicate question id: $qid');
@@ -155,28 +162,31 @@ void _validate(Map<String, dynamic> topic, List<String> problems) {
             fail('$qid: option "${o['text']}" also appears in a lesson');
           }
         }
-        _checkOptions(q, requireFeedback: entry.$2, fail: fail);
+        _checkOptions(q,
+            requireFeedback: entry.$2 == 'post-assessment', fail: fail);
 
         final correct = options.firstWhere((o) => o['correct'] == true,
             orElse: () => const {'id': '?'});
-        answerPositions.update(correct['id'] as String, (n) => n + 1,
-            ifAbsent: () => 1);
+        answerPositions[entry.$2]!
+            .update(correct['id'] as String, (n) => n + 1, ifAbsent: () => 1);
       }
     }
   }
 
-  // If one letter dominates, a learner can score without reading.
-  if (answerPositions.isNotEmpty) {
-    final total = answerPositions.values.reduce((a, b) => a + b);
-    final worst = answerPositions.entries
-        .reduce((a, b) => a.value >= b.value ? a : b);
+  // If one letter dominates, a learner can score without reading. Four
+  // options make 25% the honest rate; 35% leaves room for small banks
+  // without letting a guessable pattern through.
+  answerPositions.forEach((bank, counts) {
+    if (counts.isEmpty) return;
+    final total = counts.values.reduce((a, b) => a + b);
+    final worst = counts.entries.reduce((a, b) => a.value >= b.value ? a : b);
     final share = worst.value / total;
-    if (share > 0.45) {
-      fail('answers cluster on "${worst.key}" '
-          '(${(share * 100).round()}% of $total) — guessing one letter '
-          'would score too well');
+    if (share > 0.35) {
+      fail('$bank answers cluster on "${worst.key}" '
+          '(${worst.value} of $total, ${(share * 100).round()}%) — guessing '
+          'one letter would score too well');
     }
-  }
+  });
 }
 
 void _checkOptions(

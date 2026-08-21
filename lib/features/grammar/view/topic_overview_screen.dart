@@ -50,7 +50,10 @@ class _Body extends StatelessWidget {
             // Extra bottom room so the last step clears the footer rather
             // than reading as clipped.
             padding: const EdgeInsets.fromLTRB(
-              AppSpacing.pageH, 0, AppSpacing.pageH, AppSpacing.xxxl,
+              AppSpacing.pageH,
+              0,
+              AppSpacing.pageH,
+              AppSpacing.xxxl,
             ),
             children: [
               _SectionChip(topic.section.toUpperCase()),
@@ -75,12 +78,20 @@ class _Body extends StatelessWidget {
               const SizedBox(height: AppSpacing.xl),
               Text('YOUR PATH', style: text.labelSmall),
               const SizedBox(height: AppSpacing.md),
-              _Step(1, 'Pre-Assessment',
-                  'A short check of what you already know', active: true),
+              _Step(
+                1,
+                'Pre-Assessment',
+                'A short check of what you already know',
+                active: true,
+              ),
               _Step(2, 'Learning', 'Focused lessons for your level'),
               _Step(3, 'Practice', 'Exercises to make it stick'),
-              _Step(4, 'Post-Assessment', 'See how much you improved',
-                  last: true),
+              _Step(
+                4,
+                'Post-Assessment',
+                'See how much you improved',
+                last: true,
+              ),
             ],
           ),
         ),
@@ -97,22 +108,29 @@ class _SectionChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Align(
-        alignment: Alignment.centerLeft,
-        child: Container(
-          padding: const EdgeInsets.symmetric(
-              horizontal: AppSpacing.md, vertical: 5),
-          decoration: BoxDecoration(
-            border: Border.all(color: AppColors.border),
-            borderRadius: BorderRadius.circular(AppRadius.pill),
-          ),
-          child: Text(label, style: Theme.of(context).textTheme.labelSmall),
-        ),
-      );
+    alignment: Alignment.centerLeft,
+    child: Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppSpacing.md,
+        vertical: 5,
+      ),
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColors.border),
+        borderRadius: BorderRadius.circular(AppRadius.pill),
+      ),
+      child: Text(label, style: Theme.of(context).textTheme.labelSmall),
+    ),
+  );
 }
 
 class _Step extends StatelessWidget {
-  const _Step(this.number, this.title, this.subtitle,
-      {this.active = false, this.last = false});
+  const _Step(
+    this.number,
+    this.title,
+    this.subtitle, {
+    this.active = false,
+    this.last = false,
+  });
 
   final int number;
   final String title;
@@ -145,15 +163,15 @@ class _Step extends StatelessWidget {
                 child: Text(
                   '$number',
                   style: text.labelMedium?.copyWith(
-                    color: active ? AppColors.onPrimary : AppColors.textSecondary,
+                    color: active
+                        ? AppColors.onPrimary
+                        : AppColors.textSecondary,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
               if (!last)
-                Expanded(
-                  child: Container(width: 1, color: AppColors.border),
-                ),
+                Expanded(child: Container(width: 1, color: AppColors.border)),
             ],
           ),
           const SizedBox(width: AppSpacing.md),
@@ -166,22 +184,28 @@ class _Step extends StatelessWidget {
                   Row(
                     children: [
                       Flexible(
-                        child: Text(title,
-                            style: text.titleLarge?.copyWith(color: fg)),
+                        child: Text(
+                          title,
+                          style: text.titleLarge?.copyWith(color: fg),
+                        ),
                       ),
                       if (active) ...[
                         const SizedBox(width: AppSpacing.sm),
                         Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: AppSpacing.sm, vertical: 3),
+                            horizontal: AppSpacing.sm,
+                            vertical: 3,
+                          ),
                           decoration: BoxDecoration(
                             color: AppColors.primary,
-                            borderRadius:
-                                BorderRadius.circular(AppRadius.pill),
+                            borderRadius: BorderRadius.circular(AppRadius.pill),
                           ),
-                          child: Text('START HERE',
-                              style: text.labelSmall
-                                  ?.copyWith(color: AppColors.onPrimary)),
+                          child: Text(
+                            'START HERE',
+                            style: text.labelSmall?.copyWith(
+                              color: AppColors.onPrimary,
+                            ),
+                          ),
                         ),
                       ],
                     ],
@@ -209,23 +233,31 @@ class _Footer extends StatelessWidget {
     return Container(
       color: AppColors.surface,
       padding: const EdgeInsets.fromLTRB(
-        AppSpacing.pageH, AppSpacing.lg, AppSpacing.pageH, AppSpacing.xl,
+        AppSpacing.pageH,
+        AppSpacing.lg,
+        AppSpacing.pageH,
+        AppSpacing.lg,
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          FilledButton(
-            onPressed: () {},
-            child: const Text('Start with a quick check'),
-          ),
-          const SizedBox(height: AppSpacing.sm),
-          // Derived, not hardcoded — the estimate stays honest as the topic
-          // gains sub-skills.
-          Text(
-            '$questions questions · about $minutes minutes · not graded',
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-        ],
+      // Outside the tab shell there is no NavigationBar supplying the bottom
+      // inset, so the footer has to clear the system nav bar itself.
+      child: SafeArea(
+        top: false,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FilledButton(
+              onPressed: () {},
+              child: const Text('Start with a quick check'),
+            ),
+            const SizedBox(height: AppSpacing.sm),
+            // Derived, not hardcoded — the estimate stays honest as the topic
+            // gains sub-skills.
+            Text(
+              '$questions questions · about $minutes minutes · not graded',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ],
+        ),
       ),
     );
   }

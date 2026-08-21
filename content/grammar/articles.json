@@ -1,0 +1,3828 @@
+{
+  "id": "articles",
+  "section": "grammar",
+  "order": 10,
+  "title": "Articles",
+  "summary": "a, an, the — and the many places where English uses none at all.",
+  "whyThisTopic": "Bangla has no articles at all, so there is nothing to carry over — every a, an and the has to be learned from scratch. They also appear in almost every sentence you will ever say.",
+  "assessmentConfig": {
+    "questionsPerSubSkill": 2,
+    "qualifyingScore": 2,
+    "bankSize": 6,
+    "_note": "Temporarily 2 for faster testing — production value is 3. questionsPerSubSkill and qualifyingScore must move together: if qualifying > drawn, nobody can ever skip a sub-skill. Six sub-skills here, so a full check is 12 questions at 2 and 18 at 3 — longer than the five-sub-skill tense topics."
+  },
+  "subSkills": [
+    {
+      "id": "a_vs_an_sounds",
+      "title": "a or an: go by the sound",
+      "preAssessmentBank": [
+        {
+          "id": "pre_aan_1",
+          "rule": "silent-h",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We waited half an hours for the bus.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "We waited half hour for the bus.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "We waited half a hour for the bus.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "We waited half an hour for the bus.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_aan_2",
+          "rule": "u-as-you",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "That is a European car.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "That is European car.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "That is a European cars.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "That is an European car.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_aan_3",
+          "rule": "abbreviation",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "There is an SSC exams next month.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "There is an SSC exam next month.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "There is SSC exam next month.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "There is a SSC exam next month.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_aan_4",
+          "rule": "u-as-you",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "This is a useful books for beginners.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "This is an useful book for beginners.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "This is a useful book for beginners.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "This is useful book for beginners.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_aan_5",
+          "rule": "abbreviation",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Her brother has a BA degrees.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Her brother has a BA degree.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "Her brother has an BA degree.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Her brother has BA degree.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_aan_6",
+          "rule": "plain-vowel",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She carried an umbrella to college.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "She carried a umbrella to college.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "She carried an umbrellas to college.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "She carried umbrella to college.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_aan_1",
+          "rule": "silent-h",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Helping them was a honourable act.",
+              "correct": false,
+              "feedback": {
+                "en": "The spelling misleads here. Say the word aloud: it begins with a **vowel sound**, so it takes **an**.",
+                "bn": "বানান দেখে ভুল হচ্ছে। শব্দটি উচ্চারণ করুন — এটি **vowel sound** দিয়ে শুরু, তাই **an** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Helping them was honourable act.",
+              "correct": false,
+              "feedback": {
+                "en": "A singular countable noun can't stand alone. It needs **a**, **an** or **the**.",
+                "bn": "একবচন countable noun একা বসতে পারে না — **a / an / the** লাগে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Helping them was an honourable acts.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Helping them was an honourable act.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The **h** is silent, so the word starts with a vowel sound — **an**.",
+                "bn": "ঠিক আছে। **h** উচ্চারিত হয় না, তাই শব্দটি vowel sound দিয়ে শুরু — **an** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_aan_2",
+          "rule": "u-as-you",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They formed union last month.",
+              "correct": false,
+              "feedback": {
+                "en": "A singular countable noun can't stand alone. It needs **a**, **an** or **the**.",
+                "bn": "একবচন countable noun একা বসতে পারে না — **a / an / the** লাগে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "They formed an union last month.",
+              "correct": false,
+              "feedback": {
+                "en": "Say it aloud: this one begins with a **consonant sound**, so it takes **a** — whatever the spelling looks like.",
+                "bn": "উচ্চারণ করে দেখুন — এটি **consonant sound** দিয়ে শুরু, তাই বানান যাই হোক **a** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "They formed a unions last month.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "They formed a union last month.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. It's spelled with **u**, but it sounds like **you** — a consonant sound, so **a**.",
+                "bn": "ঠিক আছে। বানানে **u** থাকলেও উচ্চারণ **ইউ**-এর মতো, অর্থাৎ consonant sound — তাই **a** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_aan_3",
+          "rule": "abbreviation",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She works for an NGO in Khulna.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Say the letter aloud — that sound decides it, not the letter's shape.",
+                "bn": "ঠিক আছে। অক্ষরটি উচ্চারণ করে দেখুন — বানান নয়, ওই উচ্চারণই ঠিক করে **a** না **an**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She works for an NGOs in Khulna.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She works for a NGO in Khulna.",
+              "correct": false,
+              "feedback": {
+                "en": "The spelling misleads here. Say the word aloud: it begins with a **vowel sound**, so it takes **an**.",
+                "bn": "বানান দেখে ভুল হচ্ছে। শব্দটি উচ্চারণ করুন — এটি **vowel sound** দিয়ে শুরু, তাই **an** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She works for NGO in Khulna.",
+              "correct": false,
+              "feedback": {
+                "en": "A singular countable noun can't stand alone. It needs **a**, **an** or **the**.",
+                "bn": "একবচন countable noun একা বসতে পারে না — **a / an / the** লাগে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_aan_4",
+          "rule": "u-as-you",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "That was an unique experience.",
+              "correct": false,
+              "feedback": {
+                "en": "Say it aloud: this one begins with a **consonant sound**, so it takes **a** — whatever the spelling looks like.",
+                "bn": "উচ্চারণ করে দেখুন — এটি **consonant sound** দিয়ে শুরু, তাই বানান যাই হোক **a** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "That was a unique experiences.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "That was a unique experience.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. It's spelled with **u**, but it sounds like **you** — a consonant sound, so **a**.",
+                "bn": "ঠিক আছে। বানানে **u** থাকলেও উচ্চারণ **ইউ**-এর মতো, অর্থাৎ consonant sound — তাই **a** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "That was unique experience.",
+              "correct": false,
+              "feedback": {
+                "en": "A singular countable noun can't stand alone. It needs **a**, **an** or **the**.",
+                "bn": "একবচন countable noun একা বসতে পারে না — **a / an / the** লাগে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_aan_5",
+          "rule": "abbreviation",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He is doing a MBA in Dhaka.",
+              "correct": false,
+              "feedback": {
+                "en": "The spelling misleads here. Say the word aloud: it begins with a **vowel sound**, so it takes **an**.",
+                "bn": "বানান দেখে ভুল হচ্ছে। শব্দটি উচ্চারণ করুন — এটি **vowel sound** দিয়ে শুরু, তাই **an** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He is doing MBA in Dhaka.",
+              "correct": false,
+              "feedback": {
+                "en": "A singular countable noun can't stand alone. It needs **a**, **an** or **the**.",
+                "bn": "একবচন countable noun একা বসতে পারে না — **a / an / the** লাগে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He is doing an MBA in Dhaka.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Say the letter aloud — that sound decides it, not the letter's shape.",
+                "bn": "ঠিক আছে। অক্ষরটি উচ্চারণ করে দেখুন — বানান নয়, ওই উচ্চারণই ঠিক করে **a** না **an**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He is doing an MBAs in Dhaka.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_aan_6",
+          "rule": "plain-vowel",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I ate egg for breakfast.",
+              "correct": false,
+              "feedback": {
+                "en": "A singular countable noun can't stand alone. It needs **a**, **an** or **the**.",
+                "bn": "একবচন countable noun একা বসতে পারে না — **a / an / the** লাগে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I ate an egg for breakfast.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A plain vowel sound at the start takes **an**.",
+                "bn": "ঠিক আছে। শুরুতে সাধারণ vowel sound থাকলে **an** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I ate a egg for breakfast.",
+              "correct": false,
+              "feedback": {
+                "en": "The spelling misleads here. Say the word aloud: it begins with a **vowel sound**, so it takes **an**.",
+                "bn": "বানান দেখে ভুল হচ্ছে। শব্দটি উচ্চারণ করুন — এটি **vowel sound** দিয়ে শুরু, তাই **an** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I ate an eggs for breakfast.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "first_mention_vs_known",
+      "title": "New, then known",
+      "preAssessmentBank": [
+        {
+          "id": "pre_fm_1",
+          "rule": "refer-back",
+          "instruction": "Complete the sentence",
+          "prompt": "I saw a cat in the garden. ___ cat was black.",
+          "options": [
+            {
+              "id": "a",
+              "text": "The",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Some",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "A",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "An",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_fm_2",
+          "rule": "introduce",
+          "instruction": "Complete the sentence",
+          "prompt": "Look out! There is ___ snake under your chair.",
+          "options": [
+            {
+              "id": "a",
+              "text": "some",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "a",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "the",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "an",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_fm_3",
+          "rule": "refer-back",
+          "instruction": "Complete the sentence",
+          "prompt": "She wrote a letter to her uncle. ___ letter arrived last week.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Some",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "A",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "An",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_fm_4",
+          "rule": "introduce",
+          "instruction": "Complete the sentence",
+          "prompt": "I can't write. Could you lend me ___ pen, please?",
+          "options": [
+            {
+              "id": "a",
+              "text": "an",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "the",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "a",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "some",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_fm_5",
+          "rule": "refer-back",
+          "instruction": "Complete the sentence",
+          "prompt": "A boy came to the door. ___ boy asked for you.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Some",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "A",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "An",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_fm_6",
+          "rule": "introduce",
+          "instruction": "Complete the sentence",
+          "prompt": "She has ___ brother and two sisters.",
+          "options": [
+            {
+              "id": "a",
+              "text": "some",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "the",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "a",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "an",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_fm_1",
+          "rule": "refer-back",
+          "instruction": "Complete the sentence",
+          "prompt": "He bought a bicycle in March. ___ bicycle is already broken.",
+          "options": [
+            {
+              "id": "a",
+              "text": "The",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. It was already mentioned, so **the** points back to it.",
+                "bn": "ঠিক আছে। আগেই উল্লেখ করা হয়েছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "A",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** introduces something new. This one was named in the sentence before, so it takes **the**.",
+                "bn": "**a / an** নতুন কিছু বোঝায়। এটি আগের বাক্যেই বলা হয়েছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Some",
+              "correct": false,
+              "feedback": {
+                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "An",
+              "correct": false,
+              "feedback": {
+                "en": "This one was already mentioned, so it needs **the** — and **an** only goes before a vowel sound anyway.",
+                "bn": "এটি আগেই উল্লেখ করা হয়েছে, তাই **the** বসবে — আর **an** কেবল vowel sound-এর আগেই বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_fm_2",
+          "rule": "introduce",
+          "instruction": "Complete the sentence",
+          "prompt": "Be careful — there is ___ hole in this bag.",
+          "options": [
+            {
+              "id": "a",
+              "text": "some",
+              "correct": false,
+              "feedback": {
+                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "a",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. It's being mentioned for the first time, so **a / an** introduces it.",
+                "bn": "ঠিক আছে। প্রথমবার উল্লেখ করা হচ্ছে, তাই **a / an** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "the",
+              "correct": false,
+              "feedback": {
+                "en": "**the** points at something the listener already knows about. This is the first mention, so use **a / an**.",
+                "bn": "**the** এমন কিছু বোঝায় যা শ্রোতা আগে থেকেই জানে। এটি প্রথমবার উল্লেখ, তাই **a / an** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "an",
+              "correct": false,
+              "feedback": {
+                "en": "Say it aloud: this one begins with a **consonant sound**, so it takes **a** — whatever the spelling looks like.",
+                "bn": "উচ্চারণ করে দেখুন — এটি **consonant sound** দিয়ে শুরু, তাই বানান যাই হোক **a** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_fm_3",
+          "rule": "refer-back",
+          "instruction": "Complete the sentence",
+          "prompt": "They rented a house near the market. ___ house has four rooms.",
+          "options": [
+            {
+              "id": "a",
+              "text": "The",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. It was already mentioned, so **the** points back to it.",
+                "bn": "ঠিক আছে। আগেই উল্লেখ করা হয়েছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Some",
+              "correct": false,
+              "feedback": {
+                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "A",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** introduces something new. This one was named in the sentence before, so it takes **the**.",
+                "bn": "**a / an** নতুন কিছু বোঝায়। এটি আগের বাক্যেই বলা হয়েছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "An",
+              "correct": false,
+              "feedback": {
+                "en": "This one was already mentioned, so it needs **the** — and **an** only goes before a vowel sound anyway.",
+                "bn": "এটি আগেই উল্লেখ করা হয়েছে, তাই **the** বসবে — আর **an** কেবল vowel sound-এর আগেই বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_fm_4",
+          "rule": "introduce",
+          "instruction": "Complete the sentence",
+          "prompt": "I am hungry. Let's find ___ restaurant somewhere.",
+          "options": [
+            {
+              "id": "a",
+              "text": "the",
+              "correct": false,
+              "feedback": {
+                "en": "**the** points at something the listener already knows about. This is the first mention, so use **a / an**.",
+                "bn": "**the** এমন কিছু বোঝায় যা শ্রোতা আগে থেকেই জানে। এটি প্রথমবার উল্লেখ, তাই **a / an** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "a",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. It's being mentioned for the first time, so **a / an** introduces it.",
+                "bn": "ঠিক আছে। প্রথমবার উল্লেখ করা হচ্ছে, তাই **a / an** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "some",
+              "correct": false,
+              "feedback": {
+                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "an",
+              "correct": false,
+              "feedback": {
+                "en": "Say it aloud: this one begins with a **consonant sound**, so it takes **a** — whatever the spelling looks like.",
+                "bn": "উচ্চারণ করে দেখুন — এটি **consonant sound** দিয়ে শুরু, তাই বানান যাই হোক **a** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_fm_5",
+          "rule": "refer-back",
+          "instruction": "Complete the sentence",
+          "prompt": "A parcel came for you this morning. ___ parcel is on your desk.",
+          "options": [
+            {
+              "id": "a",
+              "text": "A",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** introduces something new. This one was named in the sentence before, so it takes **the**.",
+                "bn": "**a / an** নতুন কিছু বোঝায়। এটি আগের বাক্যেই বলা হয়েছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "An",
+              "correct": false,
+              "feedback": {
+                "en": "This one was already mentioned, so it needs **the** — and **an** only goes before a vowel sound anyway.",
+                "bn": "এটি আগেই উল্লেখ করা হয়েছে, তাই **the** বসবে — আর **an** কেবল vowel sound-এর আগেই বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. It was already mentioned, so **the** points back to it.",
+                "bn": "ঠিক আছে। আগেই উল্লেখ করা হয়েছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Some",
+              "correct": false,
+              "feedback": {
+                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_fm_6",
+          "rule": "introduce",
+          "instruction": "Complete the sentence",
+          "prompt": "My father is ___ farmer in Rangpur.",
+          "options": [
+            {
+              "id": "a",
+              "text": "some",
+              "correct": false,
+              "feedback": {
+                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "an",
+              "correct": false,
+              "feedback": {
+                "en": "Say it aloud: this one begins with a **consonant sound**, so it takes **a** — whatever the spelling looks like.",
+                "bn": "উচ্চারণ করে দেখুন — এটি **consonant sound** দিয়ে শুরু, তাই বানান যাই হোক **a** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "the",
+              "correct": false,
+              "feedback": {
+                "en": "**the** points at something the listener already knows about. This is the first mention, so use **a / an**.",
+                "bn": "**the** এমন কিছু বোঝায় যা শ্রোতা আগে থেকেই জানে। এটি প্রথমবার উল্লেখ, তাই **a / an** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "a",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. It's being mentioned for the first time, so **a / an** introduces it.",
+                "bn": "ঠিক আছে। প্রথমবার উল্লেখ করা হচ্ছে, তাই **a / an** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uncountable_nouns",
+      "title": "Nouns you can't count",
+      "preAssessmentBank": [
+        {
+          "id": "pre_unc_1",
+          "rule": "no-a-an",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She gave me two advices about the exam.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "She gave me many advice about the exam.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "She gave me some advice about the exam.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "She gave me an advice about the exam.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_unc_2",
+          "rule": "no-plural-s",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We need an information before we decide.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "We need more informations before we decide.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "We need more information before we decide.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "We need many information before we decide.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_unc_3",
+          "rule": "no-a-an",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He carried some luggage to the room.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "He carried three luggages to the room.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "He carried a luggage to the room.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "He carried many luggage to the room.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_unc_4",
+          "rule": "no-plural-s",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They bought many new furniture for the office.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "They bought new furnitures for the office.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "They bought a new furniture for the office.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "They bought new furniture for the office.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_unc_5",
+          "rule": "no-a-an",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The teacher gave us a homework.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "The teacher gave us some homework.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "The teacher gave us many homework.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The teacher gave us four homeworks.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_unc_6",
+          "rule": "no-plural-s",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The factory needs better equipment.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "The factory needs an equipment.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "The factory needs better equipments.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The factory needs many equipment.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_unc_1",
+          "rule": "no-a-an",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Can you give me many bread?",
+              "correct": false,
+              "feedback": {
+                "en": "**many** counts separate things. Uncountable nouns take **much**.",
+                "bn": "**many** আলাদা আলাদা জিনিস গোনে। Uncountable noun-এর সাথে **much** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Can you give me some bread?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This noun can't be counted, so **some** works where **a / an** can't.",
+                "bn": "ঠিক আছে। এই noun গণনা করা যায় না, তাই **a / an**-এর জায়গায় **some** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Can you give me a bread?",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one*, and this noun can't be counted one by one. Use **some**, or nothing at all.",
+                "bn": "**a / an** মানে *একটি*, কিন্তু এই noun একটি-দুটি করে গোনা যায় না। **some** বসবে, নয়তো কিছুই নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Can you give me two breads?",
+              "correct": false,
+              "feedback": {
+                "en": "You can't put a number straight in front of an uncountable noun. Count the container instead — **two pieces of**, **two glasses of**.",
+                "bn": "Uncountable noun-এর আগে সরাসরি সংখ্যা বসে না। পরিমাপের শব্দ ব্যবহার করুন — **two pieces of**, **two glasses of**।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_unc_2",
+          "rule": "no-plural-s",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He has made good progress this term.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This noun has no plural form — it stays as it is.",
+                "bn": "ঠিক আছে। এই noun-এর বহুবচন হয় না — রূপ একই থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He has made many good progress this term.",
+              "correct": false,
+              "feedback": {
+                "en": "**many** counts separate things. Uncountable nouns take **much**.",
+                "bn": "**many** আলাদা আলাদা জিনিস গোনে। Uncountable noun-এর সাথে **much** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He has made a good progress this term.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one*, and this noun can't be counted one by one. Use **some**, or nothing at all.",
+                "bn": "**a / an** মানে *একটি*, কিন্তু এই noun একটি-দুটি করে গোনা যায় না। **some** বসবে, নয়তো কিছুই নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He has made good progresses this term.",
+              "correct": false,
+              "feedback": {
+                "en": "This noun has no **-s** form. It's already the whole quantity.",
+                "bn": "এই noun-এ **-s** যোগ হয় না — এটি নিজেই সম্পূর্ণ পরিমাণ বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_unc_3",
+          "rule": "no-a-an",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I heard many news about the result.",
+              "correct": false,
+              "feedback": {
+                "en": "**many** counts separate things. Uncountable nouns take **much**.",
+                "bn": "**many** আলাদা আলাদা জিনিস গোনে। Uncountable noun-এর সাথে **much** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I heard two news about the result.",
+              "correct": false,
+              "feedback": {
+                "en": "You can't put a number straight in front of an uncountable noun. Count the container instead — **two pieces of**, **two glasses of**.",
+                "bn": "Uncountable noun-এর আগে সরাসরি সংখ্যা বসে না। পরিমাপের শব্দ ব্যবহার করুন — **two pieces of**, **two glasses of**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I heard a news about the result.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one*, and this noun can't be counted one by one. Use **some**, or nothing at all.",
+                "bn": "**a / an** মানে *একটি*, কিন্তু এই noun একটি-দুটি করে গোনা যায় না। **some** বসবে, নয়তো কিছুই নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I heard some news about the result.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This noun can't be counted, so **some** works where **a / an** can't.",
+                "bn": "ঠিক আছে। এই noun গণনা করা যায় না, তাই **a / an**-এর জায়গায় **some** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_unc_4",
+          "rule": "no-plural-s",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "There was heavy traffics on the road.",
+              "correct": false,
+              "feedback": {
+                "en": "This noun has no **-s** form. It's already the whole quantity.",
+                "bn": "এই noun-এ **-s** যোগ হয় না — এটি নিজেই সম্পূর্ণ পরিমাণ বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "There was a heavy traffic on the road.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one*, and this noun can't be counted one by one. Use **some**, or nothing at all.",
+                "bn": "**a / an** মানে *একটি*, কিন্তু এই noun একটি-দুটি করে গোনা যায় না। **some** বসবে, নয়তো কিছুই নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "There was heavy traffic on the road.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This noun has no plural form — it stays as it is.",
+                "bn": "ঠিক আছে। এই noun-এর বহুবচন হয় না — রূপ একই থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "There was many heavy traffic on the road.",
+              "correct": false,
+              "feedback": {
+                "en": "**many** counts separate things. Uncountable nouns take **much**.",
+                "bn": "**many** আলাদা আলাদা জিনিস গোনে। Uncountable noun-এর সাথে **much** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_unc_5",
+          "rule": "no-a-an",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She poured many water into the glass.",
+              "correct": false,
+              "feedback": {
+                "en": "**many** counts separate things. Uncountable nouns take **much**.",
+                "bn": "**many** আলাদা আলাদা জিনিস গোনে। Uncountable noun-এর সাথে **much** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She poured some water into the glass.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This noun can't be counted, so **some** works where **a / an** can't.",
+                "bn": "ঠিক আছে। এই noun গণনা করা যায় না, তাই **a / an**-এর জায়গায় **some** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She poured two waters into the glass.",
+              "correct": false,
+              "feedback": {
+                "en": "You can't put a number straight in front of an uncountable noun. Count the container instead — **two pieces of**, **two glasses of**.",
+                "bn": "Uncountable noun-এর আগে সরাসরি সংখ্যা বসে না। পরিমাপের শব্দ ব্যবহার করুন — **two pieces of**, **two glasses of**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She poured a water into the glass.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one*, and this noun can't be counted one by one. Use **some**, or nothing at all.",
+                "bn": "**a / an** মানে *একটি*, কিন্তু এই noun একটি-দুটি করে গোনা যায় না। **some** বসবে, নয়তো কিছুই নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_unc_6",
+          "rule": "no-plural-s",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He does not have many money.",
+              "correct": false,
+              "feedback": {
+                "en": "**many** counts separate things. Uncountable nouns take **much**.",
+                "bn": "**many** আলাদা আলাদা জিনিস গোনে। Uncountable noun-এর সাথে **much** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He does not have much moneys.",
+              "correct": false,
+              "feedback": {
+                "en": "This noun has no **-s** form. It's already the whole quantity.",
+                "bn": "এই noun-এ **-s** যোগ হয় না — এটি নিজেই সম্পূর্ণ পরিমাণ বোঝায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He does not have a money.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one*, and this noun can't be counted one by one. Use **some**, or nothing at all.",
+                "bn": "**a / an** মানে *একটি*, কিন্তু এই noun একটি-দুটি করে গোনা যায় না। **some** বসবে, নয়তো কিছুই নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He does not have much money.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This noun has no plural form — it stays as it is.",
+                "bn": "ঠিক আছে। এই noun-এর বহুবচন হয় না — রূপ একই থাকে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zero_article_generalization",
+      "title": "Talking in general",
+      "preAssessmentBank": [
+        {
+          "id": "pre_gen_1",
+          "rule": "general-plural",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about tigers **in general**, not particular ones. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tiger are dangerous animals.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "A tigers are dangerous animals.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "The tigers are dangerous animals.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Tigers are dangerous animals.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_gen_2",
+          "rule": "general-uncountable",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about music **in general**, not one song. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "A music makes people happy.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Music makes people happy.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "Musics make people happy.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The music makes people happy.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_gen_3",
+          "rule": "general-plural",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about doctors **in general**. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Doctor work long hours.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "A doctors work long hours.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Doctors work long hours.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "The doctors work long hours.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_gen_4",
+          "rule": "general-uncountable",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about gold **in general**, not a particular piece. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Gold is more expensive than silver.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "The gold is more expensive than silver.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Golds are more expensive than silver.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "A gold is more expensive than silver.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_gen_5",
+          "rule": "general-plural",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about books **in general**. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "A books are expensive these days.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "The books are expensive these days.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Book is expensive these days.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Books are expensive these days.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_gen_6",
+          "rule": "general-uncountable",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about honey **in general**. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The honey is sweeter than sugar.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Honey is sweeter than sugar.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "Honeys are sweeter than sugar.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "A honey is sweeter than sugar.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_gen_1",
+          "rule": "general-plural",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about elephants **in general**. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "An elephants live in large groups.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** picks out a single one. A general statement about all of them takes no article.",
+                "bn": "**a / an** একটিকে আলাদা করে বোঝায়। সবার সম্পর্কে সাধারণ কথায় কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The elephants live in large groups.",
+              "correct": false,
+              "feedback": {
+                "en": "**the** narrows it to particular ones. For the whole kind in general, use no article at all.",
+                "bn": "**the** নির্দিষ্ট কয়েকটিকে বোঝায়। পুরো জাতি বা শ্রেণি বোঝাতে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Elephant live in large groups.",
+              "correct": false,
+              "feedback": {
+                "en": "For a general statement about countable things, English uses the **plural** with no article.",
+                "bn": "Countable জিনিস সম্পর্কে সাধারণ কথা বলতে **বহুবচন** ব্যবহার হয়, article ছাড়া।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Elephants live in large groups.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A statement about all of them takes the plural with no article.",
+                "bn": "ঠিক আছে। সবার সম্পর্কে সাধারণ কথা বললে বহুবচন বসে, কোনো article নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_gen_2",
+          "rule": "general-uncountable",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about rice **in general**, not the rice on your plate. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The rice grows well in this district.",
+              "correct": false,
+              "feedback": {
+                "en": "**the** narrows it to particular ones. For the whole kind in general, use no article at all.",
+                "bn": "**the** নির্দিষ্ট কয়েকটিকে বোঝায়। পুরো জাতি বা শ্রেণি বোঝাতে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "A rice grows well in this district.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** picks out a single one. A general statement about all of them takes no article.",
+                "bn": "**a / an** একটিকে আলাদা করে বোঝায়। সবার সম্পর্কে সাধারণ কথায় কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Rice grows well in this district.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Spoken about in general, an uncountable noun takes no article.",
+                "bn": "ঠিক আছে। সাধারণভাবে বলা হলে uncountable noun-এর আগে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Rices grow well in this district.",
+              "correct": false,
+              "feedback": {
+                "en": "This noun has no **-s** form. It's already the whole quantity.",
+                "bn": "এই noun-এ **-s** যোগ হয় না — এটি নিজেই সম্পূর্ণ পরিমাণ বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_gen_3",
+          "rule": "general-plural",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about farmers **in general**. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The farmers wake up early.",
+              "correct": false,
+              "feedback": {
+                "en": "**the** narrows it to particular ones. For the whole kind in general, use no article at all.",
+                "bn": "**the** নির্দিষ্ট কয়েকটিকে বোঝায়। পুরো জাতি বা শ্রেণি বোঝাতে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Farmers wake up early.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A statement about all of them takes the plural with no article.",
+                "bn": "ঠিক আছে। সবার সম্পর্কে সাধারণ কথা বললে বহুবচন বসে, কোনো article নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Farmer wake up early.",
+              "correct": false,
+              "feedback": {
+                "en": "For a general statement about countable things, English uses the **plural** with no article.",
+                "bn": "Countable জিনিস সম্পর্কে সাধারণ কথা বলতে **বহুবচন** ব্যবহার হয়, article ছাড়া।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "A farmers wake up early.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** picks out a single one. A general statement about all of them takes no article.",
+                "bn": "**a / an** একটিকে আলাদা করে বোঝায়। সবার সম্পর্কে সাধারণ কথায় কোনো article বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_gen_4",
+          "rule": "general-uncountable",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about iron **in general**. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Iron rusts in wet air.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Spoken about in general, an uncountable noun takes no article.",
+                "bn": "ঠিক আছে। সাধারণভাবে বলা হলে uncountable noun-এর আগে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "An iron rusts in wet air.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** picks out a single one. A general statement about all of them takes no article.",
+                "bn": "**a / an** একটিকে আলাদা করে বোঝায়। সবার সম্পর্কে সাধারণ কথায় কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The iron rusts in wet air.",
+              "correct": false,
+              "feedback": {
+                "en": "**the** narrows it to particular ones. For the whole kind in general, use no article at all.",
+                "bn": "**the** নির্দিষ্ট কয়েকটিকে বোঝায়। পুরো জাতি বা শ্রেণি বোঝাতে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Irons rust in wet air.",
+              "correct": false,
+              "feedback": {
+                "en": "This noun has no **-s** form. It's already the whole quantity.",
+                "bn": "এই noun-এ **-s** যোগ হয় না — এটি নিজেই সম্পূর্ণ পরিমাণ বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_gen_5",
+          "rule": "general-plural",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about children **in general**. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Child need plenty of sleep.",
+              "correct": false,
+              "feedback": {
+                "en": "For a general statement about countable things, English uses the **plural** with no article.",
+                "bn": "Countable জিনিস সম্পর্কে সাধারণ কথা বলতে **বহুবচন** ব্যবহার হয়, article ছাড়া।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "A children need plenty of sleep.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** picks out a single one. A general statement about all of them takes no article.",
+                "bn": "**a / an** একটিকে আলাদা করে বোঝায়। সবার সম্পর্কে সাধারণ কথায় কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Children need plenty of sleep.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A statement about all of them takes the plural with no article.",
+                "bn": "ঠিক আছে। সবার সম্পর্কে সাধারণ কথা বললে বহুবচন বসে, কোনো article নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The children need plenty of sleep.",
+              "correct": false,
+              "feedback": {
+                "en": "**the** narrows it to particular ones. For the whole kind in general, use no article at all.",
+                "bn": "**the** নির্দিষ্ট কয়েকটিকে বোঝায়। পুরো জাতি বা শ্রেণি বোঝাতে কোনো article বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_gen_6",
+          "rule": "general-uncountable",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about salt **in general**. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Salt dissolves quickly in warm water.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Spoken about in general, an uncountable noun takes no article.",
+                "bn": "ঠিক আছে। সাধারণভাবে বলা হলে uncountable noun-এর আগে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The salt dissolves quickly in warm water.",
+              "correct": false,
+              "feedback": {
+                "en": "**the** narrows it to particular ones. For the whole kind in general, use no article at all.",
+                "bn": "**the** নির্দিষ্ট কয়েকটিকে বোঝায়। পুরো জাতি বা শ্রেণি বোঝাতে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "A salt dissolves quickly in warm water.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** picks out a single one. A general statement about all of them takes no article.",
+                "bn": "**a / an** একটিকে আলাদা করে বোঝায়। সবার সম্পর্কে সাধারণ কথায় কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Salts dissolve quickly in warm water.",
+              "correct": false,
+              "feedback": {
+                "en": "This noun has no **-s** form. It's already the whole quantity.",
+                "bn": "এই noun-এ **-s** যোগ হয় না — এটি নিজেই সম্পূর্ণ পরিমাণ বোঝায়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the_unique_and_specific",
+      "title": "the: only one, or already clear",
+      "preAssessmentBank": [
+        {
+          "id": "pre_uni_1",
+          "rule": "unique",
+          "instruction": "Complete the sentence",
+          "prompt": "___ sun rises in the east.",
+          "options": [
+            {
+              "id": "a",
+              "text": "An",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "The",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "A",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Some",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_uni_2",
+          "rule": "superlative",
+          "instruction": "Complete the sentence",
+          "prompt": "He is ___ tallest boy in our class.",
+          "options": [
+            {
+              "id": "a",
+              "text": "an",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "a",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "the",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "some",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_uni_3",
+          "rule": "clear-from-context",
+          "instruction": "Complete the sentence",
+          "prompt": "___ boy who won the prize is my cousin.",
+          "options": [
+            {
+              "id": "a",
+              "text": "A",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "An",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Some",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_uni_4",
+          "rule": "unique",
+          "instruction": "Complete the sentence",
+          "prompt": "Their village stands beside ___ Padma.",
+          "options": [
+            {
+              "id": "a",
+              "text": "a",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "an",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "some",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "the",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_uni_5",
+          "rule": "superlative",
+          "instruction": "Complete the sentence",
+          "prompt": "That was ___ first question of the exam.",
+          "options": [
+            {
+              "id": "a",
+              "text": "the",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "an",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "some",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "a",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_uni_6",
+          "rule": "clear-from-context",
+          "instruction": "Complete the sentence",
+          "prompt": "She is ___ girl I told you about.",
+          "options": [
+            {
+              "id": "a",
+              "text": "the",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "some",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "an",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "a",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_uni_1",
+          "rule": "unique",
+          "instruction": "Complete the sentence",
+          "prompt": "___ moon looked very bright last night.",
+          "options": [
+            {
+              "id": "a",
+              "text": "A",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one of several*. There's only one of this, so it takes **the**.",
+                "bn": "**a / an** মানে *অনেকের মধ্যে একটি*। এটি একটিই আছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. There is only one, so it takes **the**.",
+                "bn": "ঠিক আছে। এটি একটিই আছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Some",
+              "correct": false,
+              "feedback": {
+                "en": "Leaving the article out doesn't work here — this one needs **the**.",
+                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "An",
+              "correct": false,
+              "feedback": {
+                "en": "There is only one of these, so it takes **the**. **an** also needs a vowel sound after it.",
+                "bn": "এটি একটিই আছে, তাই **the** বসে। তাছাড়া **an**-এর পরে vowel sound থাকতে হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_uni_2",
+          "rule": "superlative",
+          "instruction": "Complete the sentence",
+          "prompt": "This is ___ best mango I have eaten.",
+          "options": [
+            {
+              "id": "a",
+              "text": "a",
+              "correct": false,
+              "feedback": {
+                "en": "There can only be one best or one first, so a superlative takes **the**, never **a**.",
+                "bn": "সবচেয়ে ভালো বা প্রথম একটিই হয়, তাই superlative-এ **a** নয়, **the** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "an",
+              "correct": false,
+              "feedback": {
+                "en": "There can only be one best or one first, so a superlative takes **the**, never **a**.",
+                "bn": "সবচেয়ে ভালো বা প্রথম একটিই হয়, তাই superlative-এ **a** নয়, **the** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "the",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Superlatives and ordinals always take **the**.",
+                "bn": "ঠিক আছে। Superlative ও ordinal-এর আগে সবসময় **the** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "some",
+              "correct": false,
+              "feedback": {
+                "en": "Leaving the article out doesn't work here — this one needs **the**.",
+                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_uni_3",
+          "rule": "clear-from-context",
+          "instruction": "Complete the sentence",
+          "prompt": "Give me ___ book that is on the table.",
+          "options": [
+            {
+              "id": "a",
+              "text": "an",
+              "correct": false,
+              "feedback": {
+                "en": "There is only one of these, so it takes **the**. **an** also needs a vowel sound after it.",
+                "bn": "এটি একটিই আছে, তাই **the** বসে। তাছাড়া **an**-এর পরে vowel sound থাকতে হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "some",
+              "correct": false,
+              "feedback": {
+                "en": "Leaving the article out doesn't work here — this one needs **the**.",
+                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "a",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one of several*. There's only one of this, so it takes **the**.",
+                "bn": "**a / an** মানে *অনেকের মধ্যে একটি*। এটি একটিই আছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "the",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Both speakers know which one is meant, so it's **the**.",
+                "bn": "ঠিক আছে। বক্তা ও শ্রোতা দুজনেই জানে কোনটির কথা বলা হচ্ছে, তাই **the** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_uni_4",
+          "rule": "unique",
+          "instruction": "Complete the sentence",
+          "prompt": "Clouds covered ___ sky all afternoon.",
+          "options": [
+            {
+              "id": "a",
+              "text": "some",
+              "correct": false,
+              "feedback": {
+                "en": "Leaving the article out doesn't work here — this one needs **the**.",
+                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "a",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one of several*. There's only one of this, so it takes **the**.",
+                "bn": "**a / an** মানে *অনেকের মধ্যে একটি*। এটি একটিই আছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "the",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. There is only one, so it takes **the**.",
+                "bn": "ঠিক আছে। এটি একটিই আছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "an",
+              "correct": false,
+              "feedback": {
+                "en": "There is only one of these, so it takes **the**. **an** also needs a vowel sound after it.",
+                "bn": "এটি একটিই আছে, তাই **the** বসে। তাছাড়া **an**-এর পরে vowel sound থাকতে হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_uni_5",
+          "rule": "superlative",
+          "instruction": "Complete the sentence",
+          "prompt": "She was ___ second person to arrive.",
+          "options": [
+            {
+              "id": "a",
+              "text": "the",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Superlatives and ordinals always take **the**.",
+                "bn": "ঠিক আছে। Superlative ও ordinal-এর আগে সবসময় **the** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "some",
+              "correct": false,
+              "feedback": {
+                "en": "Leaving the article out doesn't work here — this one needs **the**.",
+                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "an",
+              "correct": false,
+              "feedback": {
+                "en": "There can only be one best or one first, so a superlative takes **the**, never **a**.",
+                "bn": "সবচেয়ে ভালো বা প্রথম একটিই হয়, তাই superlative-এ **a** নয়, **the** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "a",
+              "correct": false,
+              "feedback": {
+                "en": "There can only be one best or one first, so a superlative takes **the**, never **a**.",
+                "bn": "সবচেয়ে ভালো বা প্রথম একটিই হয়, তাই superlative-এ **a** নয়, **the** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_uni_6",
+          "rule": "clear-from-context",
+          "instruction": "Complete the sentence",
+          "prompt": "This is ___ house where I was born.",
+          "options": [
+            {
+              "id": "a",
+              "text": "some",
+              "correct": false,
+              "feedback": {
+                "en": "Leaving the article out doesn't work here — this one needs **the**.",
+                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "the",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Both speakers know which one is meant, so it's **the**.",
+                "bn": "ঠিক আছে। বক্তা ও শ্রোতা দুজনেই জানে কোনটির কথা বলা হচ্ছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "an",
+              "correct": false,
+              "feedback": {
+                "en": "There is only one of these, so it takes **the**. **an** also needs a vowel sound after it.",
+                "bn": "এটি একটিই আছে, তাই **the** বসে। তাছাড়া **an**-এর পরে vowel sound থাকতে হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "a",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one of several*. There's only one of this, so it takes **the**.",
+                "bn": "**a / an** মানে *অনেকের মধ্যে একটি*। এটি একটিই আছে, তাই **the** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixed_article_expressions",
+      "title": "Set phrases",
+      "preAssessmentBank": [
+        {
+          "id": "pre_fix_1",
+          "rule": "zero-institution",
+          "instruction": "Choose the best sentence",
+          "prompt": "You are a student on your way to classes. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I go to a school at eight every morning.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "I go to the school at eight every morning.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "I go to school at eight every morning.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "I go to schools at eight every morning.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_fix_2",
+          "rule": "by-transport",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She travels to Dhaka by the train.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "She travels to Dhaka by a train.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "She travels to Dhaka by train.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "She travels to Dhaka by trains.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_fix_3",
+          "rule": "game-or-instrument",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The boys play the cricket every Friday.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "The boys play a cricket every Friday.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "The boys play crickets every Friday.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The boys play cricket every Friday.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_fix_4",
+          "rule": "zero-institution",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He stayed at home all day.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "He stayed at a home all day.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "He stayed at the home all day.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "He stayed at homes all day.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_fix_5",
+          "rule": "by-transport",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They went to the market on the foot.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "They went to the market on foot.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "They went to the market on feet.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "They went to the market on a foot.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_fix_6",
+          "rule": "game-or-instrument",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My sister plays a guitar very well.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "My sister plays the guitar very well.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "My sister plays the guitars very well.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "My sister plays guitar very well.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_fix_1",
+          "rule": "zero-institution",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The children go to bed at nine.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Named for its purpose rather than the building, it takes no article.",
+                "bn": "ঠিক আছে। ভবন নয়, উদ্দেশ্য বোঝাতে ব্যবহার হলে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The children go to the bed at nine.",
+              "correct": false,
+              "feedback": {
+                "en": "This is a set phrase and it takes no article. Adding **the** breaks it.",
+                "bn": "এটি একটি নির্দিষ্ট বাগধারা — এতে article বসে না। **the** যোগ করলে ভুল হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The children go to beds at nine.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The children go to a bed at nine.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** doesn't fit a fixed expression like this one.",
+                "bn": "এমন নির্দিষ্ট বাগধারায় **a / an** বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_fix_2",
+          "rule": "by-transport",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We reached the village by a bus.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** doesn't fit a fixed expression like this one.",
+                "bn": "এমন নির্দিষ্ট বাগধারায় **a / an** বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We reached the village by the bus.",
+              "correct": false,
+              "feedback": {
+                "en": "This is a set phrase and it takes no article. Adding **the** breaks it.",
+                "bn": "এটি একটি নির্দিষ্ট বাগধারা — এতে article বসে না। **the** যোগ করলে ভুল হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We reached the village by buses.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We reached the village by bus.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **by bus**, **by train**, **on foot** — these take no article.",
+                "bn": "ঠিক আছে। **by bus**, **by train**, **on foot** — এগুলোতে article বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_fix_3",
+          "rule": "game-or-instrument",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They played football until dark.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Games and sports take no article.",
+                "bn": "ঠিক আছে। খেলার নামের আগে article বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "They played the football until dark.",
+              "correct": false,
+              "feedback": {
+                "en": "This is a set phrase and it takes no article. Adding **the** breaks it.",
+                "bn": "এটি একটি নির্দিষ্ট বাগধারা — এতে article বসে না। **the** যোগ করলে ভুল হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "They played a football until dark.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** doesn't fit a fixed expression like this one.",
+                "bn": "এমন নির্দিষ্ট বাগধারায় **a / an** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "They played footballs until dark.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_fix_4",
+          "rule": "zero-institution",
+          "instruction": "Choose the best sentence",
+          "prompt": "You mean attending classes, not visiting the building. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My cousin is still at the college.",
+              "correct": false,
+              "feedback": {
+                "en": "This is a set phrase and it takes no article. Adding **the** breaks it.",
+                "bn": "এটি একটি নির্দিষ্ট বাগধারা — এতে article বসে না। **the** যোগ করলে ভুল হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "My cousin is still at a college.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** doesn't fit a fixed expression like this one.",
+                "bn": "এমন নির্দিষ্ট বাগধারায় **a / an** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "My cousin is still at colleges.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "My cousin is still at college.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Named for its purpose rather than the building, it takes no article.",
+                "bn": "ঠিক আছে। ভবন নয়, উদ্দেশ্য বোঝাতে ব্যবহার হলে কোনো article বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_fix_5",
+          "rule": "by-transport",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The parcel came by airs.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The parcel came by air.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **by bus**, **by train**, **on foot** — these take no article.",
+                "bn": "ঠিক আছে। **by bus**, **by train**, **on foot** — এগুলোতে article বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The parcel came by an air.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** doesn't fit a fixed expression like this one.",
+                "bn": "এমন নির্দিষ্ট বাগধারায় **a / an** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The parcel came by the air.",
+              "correct": false,
+              "feedback": {
+                "en": "This is a set phrase and it takes no article. Adding **the** breaks it.",
+                "bn": "এটি একটি নির্দিষ্ট বাগধারা — এতে article বসে না। **the** যোগ করলে ভুল হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_fix_6",
+          "rule": "game-or-instrument",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He learned to play flute as a child.",
+              "correct": false,
+              "feedback": {
+                "en": "Instruments are the exception: they keep **the**.",
+                "bn": "বাদ্যযন্ত্র এখানে ব্যতিক্রম — এদের আগে **the** থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He learned to play the flutes as a child.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He learned to play the flute as a child.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Musical instruments take **the** — **play the guitar**.",
+                "bn": "ঠিক আছে। বাদ্যযন্ত্রের আগে **the** বসে — **play the guitar**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He learned to play a flute as a child.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** doesn't fit a fixed expression like this one.",
+                "bn": "এমন নির্দিষ্ট বাগধারায় **a / an** বসে না।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson_a_vs_an_sounds",
+      "subSkillId": "a_vs_an_sounds",
+      "title": "Listen, don't look",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**a** or **an** is decided by the **sound** the next word starts with, not by the letter it is spelled with. Say the word aloud and the answer follows."
+        },
+        {
+          "type": "pattern",
+          "text": "vowel sound → an",
+          "highlight": "consonant sound → a"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Looks like",
+            "Sounds like"
+          ],
+          "rows": [
+            [
+              "hour starts with h",
+              "an hour — the h is silent"
+            ],
+            [
+              "university starts with u",
+              "a university — it sounds you"
+            ],
+            [
+              "MP starts with M",
+              "an MP — the letter sounds em"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "I waited an hour.",
+              "highlight": "an hour"
+            },
+            {
+              "text": "He studies at a university.",
+              "highlight": "a university"
+            },
+            {
+              "text": "She ate an apple.",
+              "highlight": "an apple"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "For letters and short forms, say the letter out loud. **M** sounds like *em*, so it's **an MP**. **B** sounds like *bee*, so it's **a BA**."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "**a** না **an** — এটি ঠিক হয় পরের শব্দের **উচ্চারণ** দেখে, বানান দেখে নয়। **hour**-এ **h** উচ্চারিত হয় না, তাই **an hour**। **university** লেখা হয় **u** দিয়ে, কিন্তু উচ্চারণ **ইউ** — consonant sound, তাই **a university**। সংক্ষিপ্ত রূপে অক্ষরটি উচ্চারণ করে দেখুন: **M** = *এম*, তাই **an MP**।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_aan_1",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He is honest man.",
+              "correct": false,
+              "feedback": {
+                "en": "A singular countable noun can't stand alone. It needs **a**, **an** or **the**.",
+                "bn": "একবচন countable noun একা বসতে পারে না — **a / an / the** লাগে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He is an honest man.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The **h** is silent, so the word starts with a vowel sound — **an**.",
+                "bn": "ঠিক আছে। **h** উচ্চারিত হয় না, তাই শব্দটি vowel sound দিয়ে শুরু — **an** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He is a honest man.",
+              "correct": false,
+              "feedback": {
+                "en": "The spelling misleads here. Say the word aloud: it begins with a **vowel sound**, so it takes **an**.",
+                "bn": "বানান দেখে ভুল হচ্ছে। শব্দটি উচ্চারণ করুন — এটি **vowel sound** দিয়ে শুরু, তাই **an** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He is an honest mans.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_aan_2",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The guard wears a uniforms.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The guard wears an uniform.",
+              "correct": false,
+              "feedback": {
+                "en": "Say it aloud: this one begins with a **consonant sound**, so it takes **a** — whatever the spelling looks like.",
+                "bn": "উচ্চারণ করে দেখুন — এটি **consonant sound** দিয়ে শুরু, তাই বানান যাই হোক **a** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The guard wears uniform.",
+              "correct": false,
+              "feedback": {
+                "en": "A singular countable noun can't stand alone. It needs **a**, **an** or **the**.",
+                "bn": "একবচন countable noun একা বসতে পারে না — **a / an / the** লাগে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The guard wears a uniform.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. It's spelled with **u**, but it sounds like **you** — a consonant sound, so **a**.",
+                "bn": "ঠিক আছে। বানানে **u** থাকলেও উচ্চারণ **ইউ**-এর মতো, অর্থাৎ consonant sound — তাই **a** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_aan_3",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She completed a MA in English.",
+              "correct": false,
+              "feedback": {
+                "en": "The spelling misleads here. Say the word aloud: it begins with a **vowel sound**, so it takes **an**.",
+                "bn": "বানান দেখে ভুল হচ্ছে। শব্দটি উচ্চারণ করুন — এটি **vowel sound** দিয়ে শুরু, তাই **an** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She completed an MAs in English.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She completed an MA in English.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Say the letter aloud — that sound decides it, not the letter's shape.",
+                "bn": "ঠিক আছে। অক্ষরটি উচ্চারণ করে দেখুন — বানান নয়, ওই উচ্চারণই ঠিক করে **a** না **an**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She completed MA in English.",
+              "correct": false,
+              "feedback": {
+                "en": "A singular countable noun can't stand alone. It needs **a**, **an** or **the**.",
+                "bn": "একবচন countable noun একা বসতে পারে না — **a / an / the** লাগে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_first_mention_vs_known",
+      "subSkillId": "first_mention_vs_known",
+      "title": "New, then known",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The first time you mention a single countable thing, it is new to the listener, so it takes **a** or **an**. After that both of you know which one is meant, so it becomes **the**."
+        },
+        {
+          "type": "pattern",
+          "text": "first time → a / an",
+          "highlight": "after that → the"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "First mention",
+            "Already known"
+          ],
+          "rows": [
+            [
+              "I bought a shirt.",
+              "The shirt is blue."
+            ],
+            [
+              "A dog followed me.",
+              "The dog was hungry."
+            ],
+            [
+              "She found a key.",
+              "The key opened the gate."
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "I bought a shirt yesterday.",
+              "highlight": "a shirt"
+            },
+            {
+              "text": "The shirt is blue.",
+              "highlight": "The shirt"
+            },
+            {
+              "text": "There is a problem with this plan.",
+              "highlight": "a problem"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "**There is** and **There are** almost always introduce something new, so **a / an** follows them — never **the**."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "কোনো একবচন countable noun প্রথমবার বললে শ্রোতার কাছে সেটি নতুন, তাই **a / an** বসে। এরপর দুজনেই জানে কোনটির কথা বলা হচ্ছে, তাই **the** বসে। **There is / There are**-এর পরে প্রায় সবসময় **a / an** বসে, **the** নয়।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_fm_1",
+          "instruction": "Complete the sentence",
+          "prompt": "I met a doctor on the train. ___ doctor was from Sylhet.",
+          "options": [
+            {
+              "id": "a",
+              "text": "The",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. It was already mentioned, so **the** points back to it.",
+                "bn": "ঠিক আছে। আগেই উল্লেখ করা হয়েছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "A",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** introduces something new. This one was named in the sentence before, so it takes **the**.",
+                "bn": "**a / an** নতুন কিছু বোঝায়। এটি আগের বাক্যেই বলা হয়েছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "An",
+              "correct": false,
+              "feedback": {
+                "en": "This one was already mentioned, so it needs **the** — and **an** only goes before a vowel sound anyway.",
+                "bn": "এটি আগেই উল্লেখ করা হয়েছে, তাই **the** বসবে — আর **an** কেবল vowel sound-এর আগেই বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Some",
+              "correct": false,
+              "feedback": {
+                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_fm_2",
+          "instruction": "Complete the sentence",
+          "prompt": "There is ___ mistake on this page.",
+          "options": [
+            {
+              "id": "a",
+              "text": "the",
+              "correct": false,
+              "feedback": {
+                "en": "**the** points at something the listener already knows about. This is the first mention, so use **a / an**.",
+                "bn": "**the** এমন কিছু বোঝায় যা শ্রোতা আগে থেকেই জানে। এটি প্রথমবার উল্লেখ, তাই **a / an** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "a",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. It's being mentioned for the first time, so **a / an** introduces it.",
+                "bn": "ঠিক আছে। প্রথমবার উল্লেখ করা হচ্ছে, তাই **a / an** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "some",
+              "correct": false,
+              "feedback": {
+                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "an",
+              "correct": false,
+              "feedback": {
+                "en": "Say it aloud: this one begins with a **consonant sound**, so it takes **a** — whatever the spelling looks like.",
+                "bn": "উচ্চারণ করে দেখুন — এটি **consonant sound** দিয়ে শুরু, তাই বানান যাই হোক **a** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_fm_3",
+          "instruction": "Complete the sentence",
+          "prompt": "She adopted a puppy last year. ___ puppy sleeps on her bed.",
+          "options": [
+            {
+              "id": "a",
+              "text": "An",
+              "correct": false,
+              "feedback": {
+                "en": "This one was already mentioned, so it needs **the** — and **an** only goes before a vowel sound anyway.",
+                "bn": "এটি আগেই উল্লেখ করা হয়েছে, তাই **the** বসবে — আর **an** কেবল vowel sound-এর আগেই বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Some",
+              "correct": false,
+              "feedback": {
+                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. It was already mentioned, so **the** points back to it.",
+                "bn": "ঠিক আছে। আগেই উল্লেখ করা হয়েছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "A",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** introduces something new. This one was named in the sentence before, so it takes **the**.",
+                "bn": "**a / an** নতুন কিছু বোঝায়। এটি আগের বাক্যেই বলা হয়েছে, তাই **the** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_uncountable_nouns",
+      "subSkillId": "uncountable_nouns",
+      "title": "Things you can't count",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Some nouns name a substance or an idea rather than separate items. You can't count them one by one, so they take no **a / an** and no plural **-s**. Use **some** when you need a quantity."
+        },
+        {
+          "type": "pattern",
+          "text": "uncountable noun",
+          "highlight": "no a / an, no -s"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Wrong",
+            "Right"
+          ],
+          "rows": [
+            [
+              "an advice",
+              "some advice"
+            ],
+            [
+              "two informations",
+              "two pieces of information"
+            ],
+            [
+              "many furnitures",
+              "much furniture"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "He gave me some advice.",
+              "highlight": "some advice"
+            },
+            {
+              "text": "I need more information.",
+              "highlight": "more information"
+            },
+            {
+              "text": "The room has little furniture.",
+              "highlight": "little furniture"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "To count them, count the container: **a piece of advice**, **two glasses of water**, **three items of news**."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "কিছু noun আলাদা আলাদা করে গোনা যায় না — এগুলো পদার্থ বা ধারণা বোঝায়। এদের আগে **a / an** বসে না, শেষে **-s**ও যোগ হয় না। পরিমাণ বোঝাতে **some** ব্যবহার করুন। গুনতে হলে পরিমাপের শব্দ লাগে: **a piece of advice**, **two glasses of water**। **many** নয়, **much** বসে।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_unc_1",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Could you give me some sugar?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This noun can't be counted, so **some** works where **a / an** can't.",
+                "bn": "ঠিক আছে। এই noun গণনা করা যায় না, তাই **a / an**-এর জায়গায় **some** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Could you give me a sugar?",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one*, and this noun can't be counted one by one. Use **some**, or nothing at all.",
+                "bn": "**a / an** মানে *একটি*, কিন্তু এই noun একটি-দুটি করে গোনা যায় না। **some** বসবে, নয়তো কিছুই নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Could you give me two sugars?",
+              "correct": false,
+              "feedback": {
+                "en": "You can't put a number straight in front of an uncountable noun. Count the container instead — **two pieces of**, **two glasses of**.",
+                "bn": "Uncountable noun-এর আগে সরাসরি সংখ্যা বসে না। পরিমাপের শব্দ ব্যবহার করুন — **two pieces of**, **two glasses of**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Could you give me many sugar?",
+              "correct": false,
+              "feedback": {
+                "en": "**many** counts separate things. Uncountable nouns take **much**.",
+                "bn": "**many** আলাদা আলাদা জিনিস গোনে। Uncountable noun-এর সাথে **much** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_unc_2",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She has a work today.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one*, and this noun can't be counted one by one. Use **some**, or nothing at all.",
+                "bn": "**a / an** মানে *একটি*, কিন্তু এই noun একটি-দুটি করে গোনা যায় না। **some** বসবে, নয়তো কিছুই নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She has a lot of work today.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This noun has no plural form — it stays as it is.",
+                "bn": "ঠিক আছে। এই noun-এর বহুবচন হয় না — রূপ একই থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She has many work today.",
+              "correct": false,
+              "feedback": {
+                "en": "**many** counts separate things. Uncountable nouns take **much**.",
+                "bn": "**many** আলাদা আলাদা জিনিস গোনে। Uncountable noun-এর সাথে **much** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She has a lot of works today.",
+              "correct": false,
+              "feedback": {
+                "en": "This noun has no **-s** form. It's already the whole quantity.",
+                "bn": "এই noun-এ **-s** যোগ হয় না — এটি নিজেই সম্পূর্ণ পরিমাণ বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_unc_3",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The weathers were cold last night.",
+              "correct": false,
+              "feedback": {
+                "en": "This noun has no **-s** form. It's already the whole quantity.",
+                "bn": "এই noun-এ **-s** যোগ হয় না — এটি নিজেই সম্পূর্ণ পরিমাণ বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "A weather was cold last night.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one*, and this noun can't be counted one by one. Use **some**, or nothing at all.",
+                "bn": "**a / an** মানে *একটি*, কিন্তু এই noun একটি-দুটি করে গোনা যায় না। **some** বসবে, নয়তো কিছুই নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The weather was cold last night.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This noun has no plural form — it stays as it is.",
+                "bn": "ঠিক আছে। এই noun-এর বহুবচন হয় না — রূপ একই থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Many weather was cold last night.",
+              "correct": false,
+              "feedback": {
+                "en": "**many** counts separate things. Uncountable nouns take **much**.",
+                "bn": "**many** আলাদা আলাদা জিনিস গোনে। Uncountable noun-এর সাথে **much** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_zero_article_generalization",
+      "subSkillId": "zero_article_generalization",
+      "title": "Talking about things in general",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "To say something true of a whole kind, use the plural with **no article** — or, for an uncountable noun, no article at all. Adding **the** narrows it to particular ones."
+        },
+        {
+          "type": "pattern",
+          "text": "the whole kind",
+          "highlight": "no article"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "In general",
+            "Particular ones"
+          ],
+          "rows": [
+            [
+              "Tigers are dangerous.",
+              "The tigers escaped last night."
+            ],
+            [
+              "I love music.",
+              "I love the music in this film."
+            ],
+            [
+              "Doctors work hard.",
+              "The doctors here work hard."
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "Tigers hunt alone at night.",
+              "highlight": "Tigers"
+            },
+            {
+              "text": "I love music.",
+              "highlight": "music"
+            },
+            {
+              "text": "Water boils at 100 degrees.",
+              "highlight": "Water"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Both sides of that table are correct English. **The** isn't banned — it just changes the meaning from *all of them* to *those particular ones*."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "কোনো পুরো শ্রেণি বা জাতি সম্পর্কে বলতে বহুবচন ব্যবহার হয়, কোনো article ছাড়া; uncountable noun-এর ক্ষেত্রেও article বসে না। **the** যোগ করলে অর্থ বদলে গিয়ে নির্দিষ্ট কয়েকটিকে বোঝায় — **Tigers are dangerous** (সব বাঘ) আর **The tigers escaped** (ওই নির্দিষ্ট বাঘগুলো)।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_gen_1",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about cats **in general**. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "A cats sleep most of the day.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** picks out a single one. A general statement about all of them takes no article.",
+                "bn": "**a / an** একটিকে আলাদা করে বোঝায়। সবার সম্পর্কে সাধারণ কথায় কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Cat sleep most of the day.",
+              "correct": false,
+              "feedback": {
+                "en": "For a general statement about countable things, English uses the **plural** with no article.",
+                "bn": "Countable জিনিস সম্পর্কে সাধারণ কথা বলতে **বহুবচন** ব্যবহার হয়, article ছাড়া।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The cats sleep most of the day.",
+              "correct": false,
+              "feedback": {
+                "en": "**the** narrows it to particular ones. For the whole kind in general, use no article at all.",
+                "bn": "**the** নির্দিষ্ট কয়েকটিকে বোঝায়। পুরো জাতি বা শ্রেণি বোঝাতে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Cats sleep most of the day.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A statement about all of them takes the plural with no article.",
+                "bn": "ঠিক আছে। সবার সম্পর্কে সাধারণ কথা বললে বহুবচন বসে, কোনো article নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_gen_2",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about milk **in general**. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "A milk is good for children.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** picks out a single one. A general statement about all of them takes no article.",
+                "bn": "**a / an** একটিকে আলাদা করে বোঝায়। সবার সম্পর্কে সাধারণ কথায় কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The milk is good for children.",
+              "correct": false,
+              "feedback": {
+                "en": "**the** narrows it to particular ones. For the whole kind in general, use no article at all.",
+                "bn": "**the** নির্দিষ্ট কয়েকটিকে বোঝায়। পুরো জাতি বা শ্রেণি বোঝাতে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Milk is good for children.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Spoken about in general, an uncountable noun takes no article.",
+                "bn": "ঠিক আছে। সাধারণভাবে বলা হলে uncountable noun-এর আগে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Milks are good for children.",
+              "correct": false,
+              "feedback": {
+                "en": "This noun has no **-s** form. It's already the whole quantity.",
+                "bn": "এই noun-এ **-s** যোগ হয় না — এটি নিজেই সম্পূর্ণ পরিমাণ বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_gen_3",
+          "instruction": "Choose the best sentence",
+          "prompt": "Talking about students **in general**. Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Students need quiet places to read.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A statement about all of them takes the plural with no article.",
+                "bn": "ঠিক আছে। সবার সম্পর্কে সাধারণ কথা বললে বহুবচন বসে, কোনো article নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "A students need quiet places to read.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** picks out a single one. A general statement about all of them takes no article.",
+                "bn": "**a / an** একটিকে আলাদা করে বোঝায়। সবার সম্পর্কে সাধারণ কথায় কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Student need quiet places to read.",
+              "correct": false,
+              "feedback": {
+                "en": "For a general statement about countable things, English uses the **plural** with no article.",
+                "bn": "Countable জিনিস সম্পর্কে সাধারণ কথা বলতে **বহুবচন** ব্যবহার হয়, article ছাড়া।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The students need quiet places to read.",
+              "correct": false,
+              "feedback": {
+                "en": "**the** narrows it to particular ones. For the whole kind in general, use no article at all.",
+                "bn": "**the** নির্দিষ্ট কয়েকটিকে বোঝায়। পুরো জাতি বা শ্রেণি বোঝাতে কোনো article বসে না।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_the_unique_and_specific",
+      "subSkillId": "the_unique_and_specific",
+      "title": "When there's only one",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**the** is for things there is only one of, and for things both speakers can already identify. If the listener knows which one you mean, use **the**."
+        },
+        {
+          "type": "pattern",
+          "text": "only one of it, or already clear",
+          "highlight": "→ the"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Why the",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Only one exists",
+              "the sun, the sky, the earth"
+            ],
+            [
+              "Rivers and seas",
+              "the Padma, the Bay of Bengal"
+            ],
+            [
+              "Best, first, tallest",
+              "the best, the first, the tallest"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "The sun is very hot today.",
+              "highlight": "The sun"
+            },
+            {
+              "text": "Please close the door.",
+              "highlight": "the door"
+            },
+            {
+              "text": "He lives near the Padma.",
+              "highlight": "the Padma"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Superlatives and ordinals always take **the** — there can only be one best and one first."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "যেসব জিনিস একটিই আছে, তাদের আগে **the** বসে — **the sun**, **the sky**, **the earth**। নদী ও সাগরের নামেও **the** বসে: **the Padma**, **the Bay of Bengal**। আর বক্তা-শ্রোতা দুজনেই যদি জানে কোনটির কথা বলা হচ্ছে, তখনও **the** — **close the door**। Superlative ও ordinal-এ সবসময় **the**।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_uni_1",
+          "instruction": "Complete the sentence",
+          "prompt": "___ earth moves around the sun.",
+          "options": [
+            {
+              "id": "a",
+              "text": "An",
+              "correct": false,
+              "feedback": {
+                "en": "There is only one of these, so it takes **the**. **an** also needs a vowel sound after it.",
+                "bn": "এটি একটিই আছে, তাই **the** বসে। তাছাড়া **an**-এর পরে vowel sound থাকতে হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "A",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one of several*. There's only one of this, so it takes **the**.",
+                "bn": "**a / an** মানে *অনেকের মধ্যে একটি*। এটি একটিই আছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Some",
+              "correct": false,
+              "feedback": {
+                "en": "Leaving the article out doesn't work here — this one needs **the**.",
+                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. There is only one, so it takes **the**.",
+                "bn": "ঠিক আছে। এটি একটিই আছে, তাই **the** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_uni_2",
+          "instruction": "Complete the sentence",
+          "prompt": "Rana is ___ youngest of the three brothers.",
+          "options": [
+            {
+              "id": "a",
+              "text": "the",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Superlatives and ordinals always take **the**.",
+                "bn": "ঠিক আছে। Superlative ও ordinal-এর আগে সবসময় **the** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "an",
+              "correct": false,
+              "feedback": {
+                "en": "There can only be one best or one first, so a superlative takes **the**, never **a**.",
+                "bn": "সবচেয়ে ভালো বা প্রথম একটিই হয়, তাই superlative-এ **a** নয়, **the** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "some",
+              "correct": false,
+              "feedback": {
+                "en": "Leaving the article out doesn't work here — this one needs **the**.",
+                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "a",
+              "correct": false,
+              "feedback": {
+                "en": "There can only be one best or one first, so a superlative takes **the**, never **a**.",
+                "bn": "সবচেয়ে ভালো বা প্রথম একটিই হয়, তাই superlative-এ **a** নয়, **the** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_uni_3",
+          "instruction": "Complete the sentence",
+          "prompt": "This is ___ pen you lent me yesterday.",
+          "options": [
+            {
+              "id": "a",
+              "text": "a",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** means *one of several*. There's only one of this, so it takes **the**.",
+                "bn": "**a / an** মানে *অনেকের মধ্যে একটি*। এটি একটিই আছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "the",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Both speakers know which one is meant, so it's **the**.",
+                "bn": "ঠিক আছে। বক্তা ও শ্রোতা দুজনেই জানে কোনটির কথা বলা হচ্ছে, তাই **the** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "an",
+              "correct": false,
+              "feedback": {
+                "en": "There is only one of these, so it takes **the**. **an** also needs a vowel sound after it.",
+                "bn": "এটি একটিই আছে, তাই **the** বসে। তাছাড়া **an**-এর পরে vowel sound থাকতে হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "some",
+              "correct": false,
+              "feedback": {
+                "en": "Leaving the article out doesn't work here — this one needs **the**.",
+                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_fixed_article_expressions",
+      "subSkillId": "fixed_article_expressions",
+      "title": "Set phrases",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Some everyday phrases have a settled article — or settled lack of one — that you learn as a unit. Places named for their purpose and ways of travelling take none; musical instruments take **the**."
+        },
+        {
+          "type": "pattern",
+          "text": "go to school, at home, by bus",
+          "highlight": "but: play the guitar"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "No article",
+            "With the"
+          ],
+          "rows": [
+            [
+              "go to school, go to bed",
+              "play the guitar"
+            ],
+            [
+              "at home, at night",
+              "play the piano"
+            ],
+            [
+              "by bus, by train, on foot",
+              "play the flute"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "I go to school by bus.",
+              "highlight": "school by bus"
+            },
+            {
+              "text": "She was at home all evening.",
+              "highlight": "at home"
+            },
+            {
+              "text": "He plays the guitar every evening.",
+              "highlight": "the guitar"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Games take no article but instruments take **the**: **play cricket**, but **play the guitar**."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "কিছু নির্দিষ্ট বাগধারায় article বসে কি বসে না, তা নিয়ম হিসেবে মুখস্থ রাখতে হয়। উদ্দেশ্য বোঝাতে ব্যবহৃত প্রতিষ্ঠান ও যাতায়াতের মাধ্যমে article বসে না — **go to school**, **at home**, **by bus**। খেলার নামেও বসে না — **play cricket**। কিন্তু বাদ্যযন্ত্রের আগে **the** বসে — **play the guitar**।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_fix_1",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She goes to work by rickshaw.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **by bus**, **by train**, **on foot** — these take no article.",
+                "bn": "ঠিক আছে। **by bus**, **by train**, **on foot** — এগুলোতে article বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She goes to work by the rickshaw.",
+              "correct": false,
+              "feedback": {
+                "en": "This is a set phrase and it takes no article. Adding **the** breaks it.",
+                "bn": "এটি একটি নির্দিষ্ট বাগধারা — এতে article বসে না। **the** যোগ করলে ভুল হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She goes to work by rickshaws.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She goes to work by a rickshaw.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** doesn't fit a fixed expression like this one.",
+                "bn": "এমন নির্দিষ্ট বাগধারায় **a / an** বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_fix_2",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We played the badminton in the afternoon.",
+              "correct": false,
+              "feedback": {
+                "en": "This is a set phrase and it takes no article. Adding **the** breaks it.",
+                "bn": "এটি একটি নির্দিষ্ট বাগধারা — এতে article বসে না। **the** যোগ করলে ভুল হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We played badminton in the afternoon.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Games and sports take no article.",
+                "bn": "ঠিক আছে। খেলার নামের আগে article বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We played badmintons in the afternoon.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We played a badminton in the afternoon.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** doesn't fit a fixed expression like this one.",
+                "bn": "এমন নির্দিষ্ট বাগধারায় **a / an** বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_fix_3",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My uncle plays a harmonium at weddings.",
+              "correct": false,
+              "feedback": {
+                "en": "**a / an** doesn't fit a fixed expression like this one.",
+                "bn": "এমন নির্দিষ্ট বাগধারায় **a / an** বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "My uncle plays harmonium at weddings.",
+              "correct": false,
+              "feedback": {
+                "en": "Instruments are the exception: they keep **the**.",
+                "bn": "বাদ্যযন্ত্র এখানে ব্যতিক্রম — এদের আগে **the** থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "My uncle plays the harmoniums at weddings.",
+              "correct": false,
+              "feedback": {
+                "en": "**a** and **an** mean *one*, so they never go with a plural noun.",
+                "bn": "**a** ও **an** মানে *একটি*, তাই বহুবচনের সাথে এগুলো বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "My uncle plays the harmonium at weddings.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Musical instruments take **the** — **play the guitar**.",
+                "bn": "ঠিক আছে। বাদ্যযন্ত্রের আগে **the** বসে — **play the guitar**।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

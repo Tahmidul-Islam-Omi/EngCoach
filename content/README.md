@@ -26,7 +26,9 @@ topic
 - **Banks live inside their sub-skill**, so questions are never mistagged and
   "draw 3 for this sub-skill" is a local operation.
 - **Pre and post banks must not share questions.** If they do, the
-  improvement number measures memory, not learning.
+  improvement number measures memory, not learning. The validator checks
+  both directions — a pre-test answer reappearing as a post-test *distractor*
+  is the worst case, because the learner has already seen it endorsed.
 - **Each bank holds 6 questions and the app draws 3.** Two learners get
   different checks, and the same learner retaking one rarely sees the same
   set — so a score reflects the sub-skill, not a memorised answer. Raise
@@ -40,6 +42,17 @@ topic
   (`qualifyingScore`). Anything less prioritises it.
 - **Every wrong option carries its own `feedback`.** Authored, not generated
   — the app makes no AI call to explain a wrong answer.
+- **Feedback must not describe a fix that lands on another wrong option.**
+  No validator can catch this; read every distractor's advice and apply it.
+  "*She needing more time*" → "it needs **is** in front of it" is wrong when
+  "*She is needing more time*" is option (d) of the same question.
+- **Every distractor must actually be wrong.** Watch for options that are
+  valid English in another reading — "The shop isn't **open** today" is a
+  perfectly good sentence, so it can't be the wrong answer to "which sentence
+  is correct?".
+- **Assessments test only what the topic taught.** Present continuous for a
+  future arrangement ("Are the guests arriving tonight?") is real English,
+  but no lesson here covers it, so it can't be a right answer either.
 - **`bn` is optional on feedback, required on the lesson's bangla block.**
   Grammar terms stay in English inside Bangla sentences.
 - **Inline `**bold**`** is the only markup allowed in text fields.

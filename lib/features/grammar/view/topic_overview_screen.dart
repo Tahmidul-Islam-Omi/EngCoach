@@ -47,8 +47,10 @@ class _Body extends StatelessWidget {
       children: [
         Expanded(
           child: ListView(
+            // Extra bottom room so the last step clears the footer rather
+            // than reading as clipped.
             padding: const EdgeInsets.fromLTRB(
-              AppSpacing.pageH, 0, AppSpacing.pageH, AppSpacing.xxl,
+              AppSpacing.pageH, 0, AppSpacing.pageH, AppSpacing.xxxl,
             ),
             children: [
               _SectionChip(topic.section.toUpperCase()),

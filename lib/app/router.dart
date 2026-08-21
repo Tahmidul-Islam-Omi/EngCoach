@@ -16,6 +16,13 @@ abstract final class Routes {
   static const home = '/';
   static const learn = '/learn';
   static const grammar = '/learn/grammar';
+
+  /// The focused topic flow — assessment, lessons, practice, results.
+  ///
+  /// Deliberately OUTSIDE the tab shell: once a learner starts a topic the
+  /// bottom nav would invite them to wander mid-assessment. These screens
+  /// offer an explicit exit instead.
+  static String topic(String id) => '/topic/$id';
   static const progress = '/progress';
   static const profile = '/profile';
 }
@@ -47,14 +54,6 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(
                   path: 'grammar',
                   builder: (_, _) => const GrammarTopicsScreen(),
-                  routes: [
-                    GoRoute(
-                      path: ':topicId',
-                      builder: (_, state) => TopicOverviewScreen(
-                        topicId: state.pathParameters['topicId']!,
-                      ),
-                    ),
-                  ],
                 ),
               ],
             ),
@@ -72,6 +71,15 @@ final routerProvider = Provider<GoRouter>((ref) {
             ),
           ]),
         ],
+      ),
+
+      // Sits alongside the shell rather than inside it — no tab bar.
+      GoRoute(
+        path: '/topic/:topicId',
+        parentNavigatorKey: _rootKey,
+        builder: (_, state) => TopicOverviewScreen(
+          topicId: state.pathParameters['topicId']!,
+        ),
       ),
     ],
   );

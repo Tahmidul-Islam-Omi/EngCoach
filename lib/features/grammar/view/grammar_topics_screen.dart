@@ -53,7 +53,7 @@ class GrammarTopicsScreen extends ConsumerWidget {
               // the first topic carries the suggestion.
               status: TopicStatus.notStarted,
               suggested: i == 1,
-              onTap: () => context.go('${Routes.grammar}/${topic.id}'),
+              onTap: () => context.push(Routes.topic(topic.id)),
             );
           },
         ),

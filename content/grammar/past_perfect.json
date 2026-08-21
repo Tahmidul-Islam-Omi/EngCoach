@@ -1,0 +1,3193 @@
+{
+  "id": "past_perfect",
+  "section": "grammar",
+  "order": 5,
+  "title": "Past Perfect",
+  "summary": "Talk about what had already happened before another moment in the past — \"The train had left when I arrived\".",
+  "whyThisTopic": "It's how you put two past events in order without explaining the order — one word, **had**, tells the listener which came first.",
+  "assessmentConfig": {
+    "questionsPerSubSkill": 2,
+    "qualifyingScore": 2,
+    "bankSize": 6,
+    "_note": "Temporarily 2 for faster testing — production value is 3. questionsPerSubSkill and qualifyingScore must move together: if qualifying > drawn, nobody can ever skip a sub-skill."
+  },
+  "subSkills": [
+    {
+      "id": "had_form",
+      "title": "had + past participle",
+      "preAssessmentBank": [
+        {
+          "id": "pre_had_1",
+          "rule": "had-singular",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My father had paying the bill before we sat down.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "My father has paid the bill before we sat down.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "My father had pay the bill before we sat down.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "My father had paid the bill before we sat down.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_had_2",
+          "rule": "had-plural",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The workers have built the wall before winter came.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "The workers had built the wall before winter came.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "The workers had building the wall before winter came.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The workers had build the wall before winter came.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_had_3",
+          "rule": "had-i-you",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I have woken up before the alarm rang.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "I had woken up before the alarm rang.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "I woken up before the alarm rang.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "I had wake up before the alarm rang.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_had_4",
+          "rule": "had-singular",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The film begun before we found our seats.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "The film had beginning before we found our seats.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "The film had begun before we found our seats.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "The film has begun before we found our seats.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_had_5",
+          "rule": "had-plural",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They had cleaned the room before the guests came.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "They have cleaned the room before the guests came.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "They had clean the room before the guests came.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "They had cleaning the room before the guests came.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_had_6",
+          "rule": "had-i-you",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "You had told me the answer before the test.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "You have told me the answer before the test.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "You had tell me the answer before the test.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "You had telling me the answer before the test.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_had_1",
+          "rule": "had-singular",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The shop had closing before we reached it.",
+              "correct": false,
+              "feedback": {
+                "en": "**-ing** belongs to the continuous tenses. After **had**, use the past participle.",
+                "bn": "**-ing** continuous tense-এর। **had**-এর পরে past participle বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The shop has closed before we reached it.",
+              "correct": false,
+              "feedback": {
+                "en": "**have / has** makes the present perfect, which links to now. This sentence points at a finished moment in the past, so it needs **had**.",
+                "bn": "**have / has** দিয়ে present perfect হয়, যা বর্তমানের সাথে যুক্ত। এই বাক্য অতীতের একটি শেষ হওয়া মুহূর্ত বোঝাচ্ছে, তাই **had** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The shop had close before we reached it.",
+              "correct": false,
+              "feedback": {
+                "en": "After **had**, use the past participle, not the plain verb.",
+                "bn": "**had**-এর পরে base form নয়, past participle বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The shop had closed before we reached it.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **had** is the same for **he / she / it** as for everyone else.",
+                "bn": "ঠিক আছে। **he / she / it**-এর সাথেও একই **had** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_had_2",
+          "rule": "had-plural",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The children had drink all the milk before dinner.",
+              "correct": false,
+              "feedback": {
+                "en": "After **had**, use the past participle, not the plain verb.",
+                "bn": "**had**-এর পরে base form নয়, past participle বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The children have drunk all the milk before dinner.",
+              "correct": false,
+              "feedback": {
+                "en": "**have / has** makes the present perfect, which links to now. This sentence points at a finished moment in the past, so it needs **had**.",
+                "bn": "**have / has** দিয়ে present perfect হয়, যা বর্তমানের সাথে যুক্ত। এই বাক্য অতীতের একটি শেষ হওয়া মুহূর্ত বোঝাচ্ছে, তাই **had** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The children had drunk all the milk before dinner.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **had** doesn't change for plural subjects either.",
+                "bn": "ঠিক আছে। বহুবচনেও **had** পরিবর্তিত হয় না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The children drunk all the milk before dinner.",
+              "correct": false,
+              "feedback": {
+                "en": "The past participle can't stand alone. It needs **had** in front of it.",
+                "bn": "past participle একা বসতে পারে না — এর আগে **had** লাগে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_had_3",
+          "rule": "had-i-you",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I had knowing him for years before he moved.",
+              "correct": false,
+              "feedback": {
+                "en": "**-ing** belongs to the continuous tenses. After **had**, use the past participle.",
+                "bn": "**-ing** continuous tense-এর। **had**-এর পরে past participle বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I had known him for years before he moved.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I** and **you** take **had**, exactly like every other subject.",
+                "bn": "ঠিক আছে। **I** ও **you**-এর সাথেও একই **had** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I known him for years before he moved.",
+              "correct": false,
+              "feedback": {
+                "en": "The past participle can't stand alone. It needs **had** in front of it.",
+                "bn": "past participle একা বসতে পারে না — এর আগে **had** লাগে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I have known him for years before he moved.",
+              "correct": false,
+              "feedback": {
+                "en": "**have / has** makes the present perfect, which links to now. This sentence points at a finished moment in the past, so it needs **had**.",
+                "bn": "**have / has** দিয়ে present perfect হয়, যা বর্তমানের সাথে যুক্ত। এই বাক্য অতীতের একটি শেষ হওয়া মুহূর্ত বোঝাচ্ছে, তাই **had** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_had_4",
+          "rule": "had-singular",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She chosen a dress before her sister arrived.",
+              "correct": false,
+              "feedback": {
+                "en": "The past participle can't stand alone. It needs **had** in front of it.",
+                "bn": "past participle একা বসতে পারে না — এর আগে **had** লাগে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She had choose a dress before her sister arrived.",
+              "correct": false,
+              "feedback": {
+                "en": "After **had**, use the past participle, not the plain verb.",
+                "bn": "**had**-এর পরে base form নয়, past participle বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She had chosen a dress before her sister arrived.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **had** is the same for **he / she / it** as for everyone else.",
+                "bn": "ঠিক আছে। **he / she / it**-এর সাথেও একই **had** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She has chosen a dress before her sister arrived.",
+              "correct": false,
+              "feedback": {
+                "en": "**have / has** makes the present perfect, which links to now. This sentence points at a finished moment in the past, so it needs **had**.",
+                "bn": "**have / has** দিয়ে present perfect হয়, যা বর্তমানের সাথে যুক্ত। এই বাক্য অতীতের একটি শেষ হওয়া মুহূর্ত বোঝাচ্ছে, তাই **had** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_had_5",
+          "rule": "had-plural",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We had washed the plates before the power went out.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **had** doesn't change for plural subjects either.",
+                "bn": "ঠিক আছে। বহুবচনেও **had** পরিবর্তিত হয় না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We had wash the plates before the power went out.",
+              "correct": false,
+              "feedback": {
+                "en": "After **had**, use the past participle, not the plain verb.",
+                "bn": "**had**-এর পরে base form নয়, past participle বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We have washed the plates before the power went out.",
+              "correct": false,
+              "feedback": {
+                "en": "**have / has** makes the present perfect, which links to now. This sentence points at a finished moment in the past, so it needs **had**.",
+                "bn": "**have / has** দিয়ে present perfect হয়, যা বর্তমানের সাথে যুক্ত। এই বাক্য অতীতের একটি শেষ হওয়া মুহূর্ত বোঝাচ্ছে, তাই **had** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We had washing the plates before the power went out.",
+              "correct": false,
+              "feedback": {
+                "en": "**-ing** belongs to the continuous tenses. After **had**, use the past participle.",
+                "bn": "**-ing** continuous tense-এর। **had**-এর পরে past participle বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_had_6",
+          "rule": "had-i-you",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "You had sending the letter before I called.",
+              "correct": false,
+              "feedback": {
+                "en": "**-ing** belongs to the continuous tenses. After **had**, use the past participle.",
+                "bn": "**-ing** continuous tense-এর। **had**-এর পরে past participle বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "You had send the letter before I called.",
+              "correct": false,
+              "feedback": {
+                "en": "After **had**, use the past participle, not the plain verb.",
+                "bn": "**had**-এর পরে base form নয়, past participle বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "You have sent the letter before I called.",
+              "correct": false,
+              "feedback": {
+                "en": "**have / has** makes the present perfect, which links to now. This sentence points at a finished moment in the past, so it needs **had**.",
+                "bn": "**have / has** দিয়ে present perfect হয়, যা বর্তমানের সাথে যুক্ত। এই বাক্য অতীতের একটি শেষ হওয়া মুহূর্ত বোঝাচ্ছে, তাই **had** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "You had sent the letter before I called.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I** and **you** take **had**, exactly like every other subject.",
+                "bn": "ঠিক আছে। **I** ও **you**-এর সাথেও একই **had** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "participle_forms",
+      "title": "The third form: -ed and irregulars",
+      "preAssessmentBank": [
+        {
+          "id": "pre_part_1",
+          "rule": "regular-ed",
+          "instruction": "Choose the correct form",
+          "prompt": "What is the past participle of **watch**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "watching",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "watch",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "watches",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "watched",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_part_2",
+          "rule": "regular-ed",
+          "instruction": "Complete the sentence",
+          "prompt": "They had ___ the room.  **(paint)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "paints",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "painted",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "painting",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "paint",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_part_3",
+          "rule": "irregular-same",
+          "instruction": "Choose the correct form",
+          "prompt": "What is the past participle of **buy**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "buy",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "buyed",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "bought",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "buying",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_part_4",
+          "rule": "irregular-same",
+          "instruction": "Complete the sentence",
+          "prompt": "She had ___ there for ten years.  **(teach)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "teach",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "teached",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "taught",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "teaching",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_part_5",
+          "rule": "v2-vs-v3",
+          "instruction": "Choose the correct form",
+          "prompt": "What is the past participle of **give**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "given",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "giving",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "gave",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "gived",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_part_6",
+          "rule": "v2-vs-v3",
+          "instruction": "Complete the sentence",
+          "prompt": "He had ___ to the station.  **(drive)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "drived",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "drove",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "drive",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "driven",
+              "correct": true
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_part_1",
+          "rule": "regular-ed",
+          "instruction": "Choose the correct form",
+          "prompt": "What is the past participle of **visit**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "visited",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Regular verbs add **-ed**, the same form as the past simple.",
+                "bn": "ঠিক আছে। Regular verb-এ **-ed** যোগ হয়, past simple-এর মতোই।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "visiting",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form, used in the continuous tenses.",
+                "bn": "এটি **-ing** form, continuous tense-এ ব্যবহৃত হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "visits",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present simple **-s** form, not a participle.",
+                "bn": "এটি present simple-এর **-s** form, participle নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "visit",
+              "correct": false,
+              "feedback": {
+                "en": "That's the plain verb, with no participle ending at all.",
+                "bn": "এটি verb-এর base form — participle-এর কোনো রূপ নেই।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_part_2",
+          "rule": "regular-ed",
+          "instruction": "Complete the sentence",
+          "prompt": "We had ___ them to dinner.  **(invite)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "invited",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Regular verbs add **-ed**, the same form as the past simple.",
+                "bn": "ঠিক আছে। Regular verb-এ **-ed** যোগ হয়, past simple-এর মতোই।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "invites",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present simple **-s** form, not a participle.",
+                "bn": "এটি present simple-এর **-s** form, participle নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "invite",
+              "correct": false,
+              "feedback": {
+                "en": "That's the plain verb, with no participle ending at all.",
+                "bn": "এটি verb-এর base form — participle-এর কোনো রূপ নেই।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "inviting",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form, used in the continuous tenses.",
+                "bn": "এটি **-ing** form, continuous tense-এ ব্যবহৃত হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_part_3",
+          "rule": "irregular-same",
+          "instruction": "Choose the correct form",
+          "prompt": "What is the past participle of **catch**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "catched",
+              "correct": false,
+              "feedback": {
+                "en": "This verb is irregular, so **-ed** doesn't work. Its third form has to be learned.",
+                "bn": "এই verb irregular, তাই **-ed** যোগ হয় না — এর third form মুখস্থ করতে হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "caught",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This verb is irregular, but its second and third forms are the same.",
+                "bn": "ঠিক আছে। এই verb irregular, তবে এর second ও third form একই।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "catching",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form, used in the continuous tenses.",
+                "bn": "এটি **-ing** form, continuous tense-এ ব্যবহৃত হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "catch",
+              "correct": false,
+              "feedback": {
+                "en": "That's the plain verb, with no participle ending at all.",
+                "bn": "এটি verb-এর base form — participle-এর কোনো রূপ নেই।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_part_4",
+          "rule": "irregular-same",
+          "instruction": "Complete the sentence",
+          "prompt": "They had ___ the old car.  **(sell)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "selling",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form, used in the continuous tenses.",
+                "bn": "এটি **-ing** form, continuous tense-এ ব্যবহৃত হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "sell",
+              "correct": false,
+              "feedback": {
+                "en": "That's the plain verb, with no participle ending at all.",
+                "bn": "এটি verb-এর base form — participle-এর কোনো রূপ নেই।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "sold",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This verb is irregular, but its second and third forms are the same.",
+                "bn": "ঠিক আছে। এই verb irregular, তবে এর second ও third form একই।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "selled",
+              "correct": false,
+              "feedback": {
+                "en": "This verb is irregular, so **-ed** doesn't work. Its third form has to be learned.",
+                "bn": "এই verb irregular, তাই **-ed** যোগ হয় না — এর third form মুখস্থ করতে হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_part_5",
+          "rule": "v2-vs-v3",
+          "instruction": "Choose the correct form",
+          "prompt": "What is the past participle of **steal**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "stealing",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form, used in the continuous tenses.",
+                "bn": "এটি **-ing** form, continuous tense-এ ব্যবহৃত হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "stole",
+              "correct": false,
+              "feedback": {
+                "en": "That's the past simple form. After **had**, use the **third** form — **had gone**, never *had went*.",
+                "bn": "এটি past simple form। **had**-এর পরে **third form** বসে — **had gone**, কখনো *had went* নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "stealed",
+              "correct": false,
+              "feedback": {
+                "en": "This verb is irregular, so **-ed** doesn't work. Its third form has to be learned.",
+                "bn": "এই verb irregular, তাই **-ed** যোগ হয় না — এর third form মুখস্থ করতে হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "stolen",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This verb has a separate third form — that's the one that follows **had**.",
+                "bn": "ঠিক আছে। এই verb-এর আলাদা third form আছে — **had**-এর পরে সেটিই বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_part_6",
+          "rule": "v2-vs-v3",
+          "instruction": "Complete the sentence",
+          "prompt": "She had ___ her umbrella at home.  **(forget)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "forgot",
+              "correct": false,
+              "feedback": {
+                "en": "That's the past simple form. After **had**, use the **third** form — **had gone**, never *had went*.",
+                "bn": "এটি past simple form। **had**-এর পরে **third form** বসে — **had gone**, কখনো *had went* নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "forgotten",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This verb has a separate third form — that's the one that follows **had**.",
+                "bn": "ঠিক আছে। এই verb-এর আলাদা third form আছে — **had**-এর পরে সেটিই বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "forget",
+              "correct": false,
+              "feedback": {
+                "en": "That's the plain verb, with no participle ending at all.",
+                "bn": "এটি verb-এর base form — participle-এর কোনো রূপ নেই।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "forgetted",
+              "correct": false,
+              "feedback": {
+                "en": "This verb is irregular, so **-ed** doesn't work. Its third form has to be learned.",
+                "bn": "এই verb irregular, তাই **-ed** যোগ হয় না — এর third form মুখস্থ করতে হয়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "negatives",
+      "title": "Negatives: hadn't",
+      "preAssessmentBank": [
+        {
+          "id": "pre_neg_1",
+          "rule": "no-didnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I hadn't hear the news before you told me.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "I hasn't heard the news before you told me.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "I didn't had heard the news before you told me.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "I hadn't heard the news before you told me.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_neg_2",
+          "rule": "not-placement",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She hadn't found her keys when the taxi came.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "She not had found her keys when the taxi came.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "She had found not her keys when the taxi came.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "She hadn't find her keys when the taxi came.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_neg_3",
+          "rule": "no-didnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They didn't had won a match before that season.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "They hadn't win a match before that season.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "They hadn't won a match before that season.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "They didn't won a match before that season.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_neg_4",
+          "rule": "not-placement",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We not had decided anything before the meeting.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "We had decided not anything before the meeting.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "We hadn't decided anything before the meeting.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "We hadn't decide anything before the meeting.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_neg_5",
+          "rule": "no-didnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The train hadn't arrived when we reached the station.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "The train hasn't arrived when we reached the station.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "The train hadn't arrive when we reached the station.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The train didn't had arrived when we reached the station.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_neg_6",
+          "rule": "not-placement",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "You had started not the work before Friday.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "You hadn't started the work before Friday.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "You not had started the work before Friday.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "You hadn't start the work before Friday.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_neg_1",
+          "rule": "no-didnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He hasn't answered my letter before I visited.",
+              "correct": false,
+              "feedback": {
+                "en": "**hasn't / haven't** is the present perfect. A past time needs **hadn't**.",
+                "bn": "**hasn't / haven't** present perfect-এর। অতীতের সময় বোঝাতে **hadn't** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He hadn't answer my letter before I visited.",
+              "correct": false,
+              "feedback": {
+                "en": "The participle keeps its form after **not**.",
+                "bn": "**not**-এর পরেও participle-এর রূপ একই থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He didn't had answered my letter before I visited.",
+              "correct": false,
+              "feedback": {
+                "en": "**didn't** belongs to the past simple, and it never sits next to **had**. Use **hadn't**.",
+                "bn": "**didn't** past simple-এর, আর এটি **had**-এর পাশে বসে না। **hadn't** ব্যবহার করুন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He hadn't answered my letter before I visited.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The past perfect makes its own negative — no **didn't** needed.",
+                "bn": "ঠিক আছে। past perfect নিজেই না-বোধক করে — **didn't** লাগে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_neg_2",
+          "rule": "not-placement",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The shop not had opened when we got there.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** goes straight after **had**, not before it.",
+                "bn": "**not** **had**-এর ঠিক পরে বসে, আগে নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The shop hadn't opened when we got there.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **not** sits between **had** and the participle, and **had not** shortens to **hadn't**.",
+                "bn": "ঠিক আছে। **had** ও participle-এর মাঝে **not** বসে; **had not** সংক্ষেপে **hadn't**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The shop hadn't open when we got there.",
+              "correct": false,
+              "feedback": {
+                "en": "The participle keeps its form after **not**.",
+                "bn": "**not**-এর পরেও participle-এর রূপ একই থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The shop had opened not when we got there.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** goes between **had** and the participle, not after it.",
+                "bn": "**not** **had** ও participle-এর মাঝে বসে, participle-এর পরে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_neg_3",
+          "rule": "no-didnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I didn't had ridden a horse before that day.",
+              "correct": false,
+              "feedback": {
+                "en": "**didn't** belongs to the past simple, and it never sits next to **had**. Use **hadn't**.",
+                "bn": "**didn't** past simple-এর, আর এটি **had**-এর পাশে বসে না। **hadn't** ব্যবহার করুন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I hadn't ride a horse before that day.",
+              "correct": false,
+              "feedback": {
+                "en": "The participle keeps its form after **not**.",
+                "bn": "**not**-এর পরেও participle-এর রূপ একই থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I didn't ridden a horse before that day.",
+              "correct": false,
+              "feedback": {
+                "en": "**didn't** is followed by the plain verb, never a participle — and this sentence needs **hadn't** in any case.",
+                "bn": "**didn't**-এর পরে base form বসে, participle নয় — আর এই বাক্যে **hadn't** লাগবে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I hadn't ridden a horse before that day.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The past perfect makes its own negative — no **didn't** needed.",
+                "bn": "ঠিক আছে। past perfect নিজেই না-বোধক করে — **didn't** লাগে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_neg_4",
+          "rule": "not-placement",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They not had packed their bags before the taxi arrived.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** goes straight after **had**, not before it.",
+                "bn": "**not** **had**-এর ঠিক পরে বসে, আগে নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "They hadn't pack their bags before the taxi arrived.",
+              "correct": false,
+              "feedback": {
+                "en": "The participle keeps its form after **not**.",
+                "bn": "**not**-এর পরেও participle-এর রূপ একই থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "They hadn't packed their bags before the taxi arrived.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **not** sits between **had** and the participle, and **had not** shortens to **hadn't**.",
+                "bn": "ঠিক আছে। **had** ও participle-এর মাঝে **not** বসে; **had not** সংক্ষেপে **hadn't**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "They had packed not their bags before the taxi arrived.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** goes between **had** and the participle, not after it.",
+                "bn": "**not** **had** ও participle-এর মাঝে বসে, participle-এর পরে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_neg_5",
+          "rule": "no-didnt",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She hadn't understand the rules before the game began.",
+              "correct": false,
+              "feedback": {
+                "en": "The participle keeps its form after **not**.",
+                "bn": "**not**-এর পরেও participle-এর রূপ একই থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She hadn't understood the rules before the game began.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The past perfect makes its own negative — no **didn't** needed.",
+                "bn": "ঠিক আছে। past perfect নিজেই না-বোধক করে — **didn't** লাগে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She hasn't understood the rules before the game began.",
+              "correct": false,
+              "feedback": {
+                "en": "**hasn't / haven't** is the present perfect. A past time needs **hadn't**.",
+                "bn": "**hasn't / haven't** present perfect-এর। অতীতের সময় বোঝাতে **hadn't** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She didn't had understood the rules before the game began.",
+              "correct": false,
+              "feedback": {
+                "en": "**didn't** belongs to the past simple, and it never sits next to **had**. Use **hadn't**.",
+                "bn": "**didn't** past simple-এর, আর এটি **had**-এর পাশে বসে না। **hadn't** ব্যবহার করুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_neg_6",
+          "rule": "not-placement",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We hadn't tasted that dish before the trip.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **not** sits between **had** and the participle, and **had not** shortens to **hadn't**.",
+                "bn": "ঠিক আছে। **had** ও participle-এর মাঝে **not** বসে; **had not** সংক্ষেপে **hadn't**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We hadn't taste that dish before the trip.",
+              "correct": false,
+              "feedback": {
+                "en": "The participle keeps its form after **not**.",
+                "bn": "**not**-এর পরেও participle-এর রূপ একই থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We had tasted not that dish before the trip.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** goes between **had** and the participle, not after it.",
+                "bn": "**not** **had** ও participle-এর মাঝে বসে, participle-এর পরে নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We not had tasted that dish before the trip.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** goes straight after **had**, not before it.",
+                "bn": "**not** **had**-এর ঠিক পরে বসে, আগে নয়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "questions",
+      "title": "Questions: had and wh- words",
+      "preAssessmentBank": [
+        {
+          "id": "pre_ques_1",
+          "rule": "had-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Did the doctor had called before you left?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "The doctor had called before you left?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Had the doctor call before you left?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Had the doctor called before you left?",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_2",
+          "rule": "wh-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Where did they had hidden the money?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Where had they hide the money?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Where they had hidden the money?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Where had they hidden the money?",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_3",
+          "rule": "had-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The rain had stopped before you went out?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Had the rain stop before you went out?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Had the rain stopped before you went out?",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "Did the rain had stopped before you went out?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_4",
+          "rule": "wh-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Why did he had sold his bike?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Why had he sold his bike?",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "Why had he sell his bike?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Why he had sold his bike?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_5",
+          "rule": "had-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Had they built the bridge before the flood?",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Did they had built the bridge before the flood?",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "They had built the bridge before the flood?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Had they build the bridge before the flood?",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_ques_6",
+          "rule": "wh-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "What she had learned from the course?",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "What had she learned from the course?",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "What did she had learned from the course?",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "What had she learn from the course?",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_ques_1",
+          "rule": "had-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Had the team won the match before the rain came?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Had** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Had** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The team had won the match before the rain came?",
+              "correct": false,
+              "feedback": {
+                "en": "That's a statement with a question mark. In a question, **had** comes before the subject.",
+                "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **had** subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Did the team had won the match before the rain came?",
+              "correct": false,
+              "feedback": {
+                "en": "**Did** belongs to the past simple, and it never sits next to **had**. This question starts with **Had**.",
+                "bn": "**Did** past simple-এর, আর এটি **had**-এর পাশে বসে না। এই প্রশ্ন **Had** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Had the team win the match before the rain came?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the past participle too.",
+                "bn": "প্রশ্নেও past participle অপরিবর্তিত থাকে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_2",
+          "rule": "wh-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Where you had kept the money?",
+              "correct": false,
+              "feedback": {
+                "en": "The question word is right, but **had** still has to come before the subject: **Where had ...**",
+                "bn": "প্রশ্নবাচক শব্দ ঠিক আছে, তবে **had** subject-এর আগে বসবে: **Where had ...**"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Where had you keep the money?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the past participle too.",
+                "bn": "প্রশ্নেও past participle অপরিবর্তিত থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Where did you had kept the money?",
+              "correct": false,
+              "feedback": {
+                "en": "**Did** belongs to the past simple, and it never sits next to **had**. This question starts with **Had**.",
+                "bn": "**Did** past simple-এর, আর এটি **had**-এর পাশে বসে না। এই প্রশ্ন **Had** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Where had you kept the money?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The question word comes first, then **had**, then the subject.",
+                "bn": "ঠিক আছে। প্রশ্নবাচক শব্দ আগে, তারপর **had**, তারপর subject।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_3",
+          "rule": "had-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Had he fix the car before the trip?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the past participle too.",
+                "bn": "প্রশ্নেও past participle অপরিবর্তিত থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Did he had fixed the car before the trip?",
+              "correct": false,
+              "feedback": {
+                "en": "**Did** belongs to the past simple, and it never sits next to **had**. This question starts with **Had**.",
+                "bn": "**Did** past simple-এর, আর এটি **had**-এর পাশে বসে না। এই প্রশ্ন **Had** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Had he fixed the car before the trip?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Had** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Had** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He had fixed the car before the trip?",
+              "correct": false,
+              "feedback": {
+                "en": "That's a statement with a question mark. In a question, **had** comes before the subject.",
+                "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **had** subject-এর আগে বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_4",
+          "rule": "wh-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Why had they cancelled the show?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The question word comes first, then **had**, then the subject.",
+                "bn": "ঠিক আছে। প্রশ্নবাচক শব্দ আগে, তারপর **had**, তারপর subject।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Why had they cancel the show?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the past participle too.",
+                "bn": "প্রশ্নেও past participle অপরিবর্তিত থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Why did they had cancelled the show?",
+              "correct": false,
+              "feedback": {
+                "en": "**Did** belongs to the past simple, and it never sits next to **had**. This question starts with **Had**.",
+                "bn": "**Did** past simple-এর, আর এটি **had**-এর পাশে বসে না। এই প্রশ্ন **Had** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Why they had cancelled the show?",
+              "correct": false,
+              "feedback": {
+                "en": "The question word is right, but **had** still has to come before the subject: **Why had ...**",
+                "bn": "প্রশ্নবাচক শব্দ ঠিক আছে, তবে **had** subject-এর আগে বসবে: **Why had ...**"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_5",
+          "rule": "had-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Did you had visited the city before that summer?",
+              "correct": false,
+              "feedback": {
+                "en": "**Did** belongs to the past simple, and it never sits next to **had**. This question starts with **Had**.",
+                "bn": "**Did** past simple-এর, আর এটি **had**-এর পাশে বসে না। এই প্রশ্ন **Had** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Had you visited the city before that summer?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Had** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Had** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "You had visited the city before that summer?",
+              "correct": false,
+              "feedback": {
+                "en": "That's a statement with a question mark. In a question, **had** comes before the subject.",
+                "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **had** subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Had you visit the city before that summer?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the past participle too.",
+                "bn": "প্রশ্নেও past participle অপরিবর্তিত থাকে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_ques_6",
+          "rule": "wh-question",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "What did he had brought from the market?",
+              "correct": false,
+              "feedback": {
+                "en": "**Did** belongs to the past simple, and it never sits next to **had**. This question starts with **Had**.",
+                "bn": "**Did** past simple-এর, আর এটি **had**-এর পাশে বসে না। এই প্রশ্ন **Had** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "What he had brought from the market?",
+              "correct": false,
+              "feedback": {
+                "en": "The question word is right, but **had** still has to come before the subject: **What had ...**",
+                "bn": "প্রশ্নবাচক শব্দ ঠিক আছে, তবে **had** subject-এর আগে বসবে: **What had ...**"
+              }
+            },
+            {
+              "id": "c",
+              "text": "What had he brought from the market?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The question word comes first, then **had**, then the subject.",
+                "bn": "ঠিক আছে। প্রশ্নবাচক শব্দ আগে, তারপর **had**, তারপর subject।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "What had he bring from the market?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the past participle too.",
+                "bn": "প্রশ্নেও past participle অপরিবর্তিত থাকে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sequence",
+      "title": "Which action came first",
+      "preAssessmentBank": [
+        {
+          "id": "pre_seq_1",
+          "rule": "earlier-action",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence means the guests went home **before** I arrived?",
+          "options": [
+            {
+              "id": "a",
+              "text": "When I arrived, the guests went home.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "When I arrived, the guests were going home.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "When I arrived, the guests had gone home.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "When I arrived, the guests have gone home.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_seq_2",
+          "rule": "before-after",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "After she had packed her bag, she called a taxi.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "After she packed her bag, she had called a taxi.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "After she had packed her bag, she call a taxi.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "After she had packed her bag, she has called a taxi.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_seq_3",
+          "rule": "already-never",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The train had already gone when we reached the platform.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "The train has already gone when we reached the platform.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "The train already had gone when we reached the platform.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The train had already go when we reached the platform.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_seq_4",
+          "rule": "earlier-action",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence means the shop closed **before** we got there?",
+          "options": [
+            {
+              "id": "a",
+              "text": "By the time we got there, the shop closed.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "By the time we got there, the shop has closed.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "By the time we got there, the shop closes.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "By the time we got there, the shop had closed.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_seq_5",
+          "rule": "before-after",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "After the film had ended, we walk home.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "After the film had ended, we walked home.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "After the film had ended, we have walked home.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "After the film ended, we had walked home.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_seq_6",
+          "rule": "already-never",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He never had driven a truck before that job.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "He had never drive a truck before that job.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "He has never driven a truck before that job.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "He had never driven a truck before that job.",
+              "correct": true
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_seq_1",
+          "rule": "earlier-action",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence means the rain stopped **before** we went out?",
+          "options": [
+            {
+              "id": "a",
+              "text": "When we went out, the rain had stopped.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **had** marks the action that happened first.",
+                "bn": "ঠিক আছে। যেটি আগে ঘটেছে তাতে **had** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "When we went out, the rain stopped.",
+              "correct": false,
+              "feedback": {
+                "en": "With both verbs in the past simple, nothing shows which came first — it reads as one thing, then the next.",
+                "bn": "দুইটি verb-ই past simple হলে কোনটি আগে ঘটেছে তা বোঝা যায় না — একটির পর আরেকটি ঘটেছে মনে হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "When we went out, the rain has stopped.",
+              "correct": false,
+              "feedback": {
+                "en": "**has / have** links the past to now. Both events here are finished and in the past, so it's **had**.",
+                "bn": "**has / have** অতীতকে বর্তমানের সাথে যুক্ত করে। এখানে দুইটি ঘটনাই অতীতে শেষ, তাই **had** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "When we went out, the rain was stopping.",
+              "correct": false,
+              "feedback": {
+                "en": "**was / were + -ing** means it was still going on — not that it was already over.",
+                "bn": "**was / were + -ing** বোঝায় কাজটি তখনো চলছিল — শেষ হয়ে গিয়েছিল নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_seq_2",
+          "rule": "before-after",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "After he had locked the door, he has walked away.",
+              "correct": false,
+              "feedback": {
+                "en": "The later action stays in the **past simple**. Neither **has** nor **had** belongs on it.",
+                "bn": "পরের ঘটনাটি **past simple**-এ থাকে — সেখানে **has** বা **had** কোনোটিই বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "After he had locked the door, he walk away.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present tense inside a past story.",
+                "bn": "অতীতের ঘটনায় present tense বসেছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "After he had locked the door, he walked away.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **had** goes on the earlier action; the later one stays in the past simple.",
+                "bn": "ঠিক আছে। আগের ঘটনায় **had** বসে; পরেরটি past simple-এ থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "After he locked the door, he had walked away.",
+              "correct": false,
+              "feedback": {
+                "en": "**had** is on the later action here. It belongs on the one that happened **first**.",
+                "bn": "এখানে **had** পরের ঘটনায় বসেছে। এটি **আগের** ঘটনায় বসবে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_seq_3",
+          "rule": "already-never",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The match has already begun when we switched on the TV.",
+              "correct": false,
+              "feedback": {
+                "en": "**has / have** links the past to now. Both events here are finished and in the past, so it's **had**.",
+                "bn": "**has / have** অতীতকে বর্তমানের সাথে যুক্ত করে। এখানে দুইটি ঘটনাই অতীতে শেষ, তাই **had** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The match already had begun when we switched on the TV.",
+              "correct": false,
+              "feedback": {
+                "en": "**already** and **never** go between **had** and the participle, not before **had**.",
+                "bn": "**already** ও **never** **had**-এর আগে নয়, **had** ও participle-এর মাঝে বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The match had already begin when we switched on the TV.",
+              "correct": false,
+              "feedback": {
+                "en": "After **had**, use the past participle, not the plain verb.",
+                "bn": "**had**-এর পরে base form নয়, past participle বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The match had already begun when we switched on the TV.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **already** and **never** sit between **had** and the participle.",
+                "bn": "ঠিক আছে। **already** ও **never** **had** ও participle-এর মাঝে বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_seq_4",
+          "rule": "earlier-action",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence means she finished her meal **before** he came home?",
+          "options": [
+            {
+              "id": "a",
+              "text": "By the time he came home, she finishes her meal.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present tense inside a past story.",
+                "bn": "অতীতের ঘটনায় present tense বসেছে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "By the time he came home, she had finished her meal.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **had** marks the action that happened first.",
+                "bn": "ঠিক আছে। যেটি আগে ঘটেছে তাতে **had** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "By the time he came home, she finished her meal.",
+              "correct": false,
+              "feedback": {
+                "en": "**By the time** points at a moment when something was already over, so it needs **had**.",
+                "bn": "**By the time** এমন এক মুহূর্ত বোঝায় যখন কাজটি আগেই শেষ — তাই **had** লাগে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "By the time he came home, she has finished her meal.",
+              "correct": false,
+              "feedback": {
+                "en": "**has / have** links the past to now. Both events here are finished and in the past, so it's **had**.",
+                "bn": "**has / have** অতীতকে বর্তমানের সাথে যুক্ত করে। এখানে দুইটি ঘটনাই অতীতে শেষ, তাই **had** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_seq_5",
+          "rule": "before-after",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "After the bell had rung, the students have gone out.",
+              "correct": false,
+              "feedback": {
+                "en": "The later action stays in the **past simple**. Neither **has** nor **had** belongs on it.",
+                "bn": "পরের ঘটনাটি **past simple**-এ থাকে — সেখানে **has** বা **had** কোনোটিই বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "After the bell had rung, the students went out.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **had** goes on the earlier action; the later one stays in the past simple.",
+                "bn": "ঠিক আছে। আগের ঘটনায় **had** বসে; পরেরটি past simple-এ থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "After the bell had rung, the students go out.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present tense inside a past story.",
+                "bn": "অতীতের ঘটনায় present tense বসেছে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "After the bell rang, the students had gone out.",
+              "correct": false,
+              "feedback": {
+                "en": "**had** is on the later action here. It belongs on the one that happened **first**.",
+                "bn": "এখানে **had** পরের ঘটনায় বসেছে। এটি **আগের** ঘটনায় বসবে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_seq_6",
+          "rule": "already-never",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She has never spoken to him before that interview.",
+              "correct": false,
+              "feedback": {
+                "en": "**has / have** links the past to now. Both events here are finished and in the past, so it's **had**.",
+                "bn": "**has / have** অতীতকে বর্তমানের সাথে যুক্ত করে। এখানে দুইটি ঘটনাই অতীতে শেষ, তাই **had** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She had never speak to him before that interview.",
+              "correct": false,
+              "feedback": {
+                "en": "After **had**, use the past participle, not the plain verb.",
+                "bn": "**had**-এর পরে base form নয়, past participle বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She had never spoken to him before that interview.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **already** and **never** sit between **had** and the participle.",
+                "bn": "ঠিক আছে। **already** ও **never** **had** ও participle-এর মাঝে বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She never had spoken to him before that interview.",
+              "correct": false,
+              "feedback": {
+                "en": "**already** and **never** go between **had** and the participle, not before **had**.",
+                "bn": "**already** ও **never** **had**-এর আগে নয়, **had** ও participle-এর মাঝে বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson_had_form",
+      "subSkillId": "had_form",
+      "title": "One word for everyone: had",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The past perfect has **two parts**: **had** and the past participle. Unlike **is / are** or **do / does**, **had** never changes — it is the same for I, you, he, she, it, we and they."
+        },
+        {
+          "type": "pattern",
+          "text": "subject + had",
+          "highlight": "+ past participle"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Subject",
+            "Past perfect"
+          ],
+          "rows": [
+            [
+              "I",
+              "I had finished"
+            ],
+            [
+              "He / She / It",
+              "She had finished"
+            ],
+            [
+              "We / You / They",
+              "They had finished"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "I had finished my work before lunch.",
+              "highlight": "had finished"
+            },
+            {
+              "text": "She had gone home by then.",
+              "highlight": "had gone"
+            },
+            {
+              "text": "They had eaten before we arrived.",
+              "highlight": "had eaten"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "**Had** is for the past. **I have finished** means it matters now; **I had finished** means it was already done at some moment in the past."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "Past perfect-এ দুইটি অংশ থাকে — **had** এবং verb-এর **past participle**। **had** কখনো পরিবর্তন হয় না; I, you, he, she, it, we, they — সবার সাথে একই **had** বসে। **have / has** ব্যবহার করলে সেটি present perfect হয়ে যায়।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_had_1",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I had cooked dinner before they came.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **I** and **you** take **had**, exactly like every other subject.",
+                "bn": "ঠিক আছে। **I** ও **you**-এর সাথেও একই **had** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I had cook dinner before they came.",
+              "correct": false,
+              "feedback": {
+                "en": "After **had**, use the past participle, not the plain verb.",
+                "bn": "**had**-এর পরে base form নয়, past participle বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I had cooking dinner before they came.",
+              "correct": false,
+              "feedback": {
+                "en": "**-ing** belongs to the continuous tenses. After **had**, use the past participle.",
+                "bn": "**-ing** continuous tense-এর। **had**-এর পরে past participle বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I have cooked dinner before they came.",
+              "correct": false,
+              "feedback": {
+                "en": "**have / has** makes the present perfect, which links to now. This sentence points at a finished moment in the past, so it needs **had**.",
+                "bn": "**have / has** দিয়ে present perfect হয়, যা বর্তমানের সাথে যুক্ত। এই বাক্য অতীতের একটি শেষ হওয়া মুহূর্ত বোঝাচ্ছে, তাই **had** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_had_2",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She had taken the medicine before the doctor arrived.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **had** is the same for **he / she / it** as for everyone else.",
+                "bn": "ঠিক আছে। **he / she / it**-এর সাথেও একই **had** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She has taken the medicine before the doctor arrived.",
+              "correct": false,
+              "feedback": {
+                "en": "**have / has** makes the present perfect, which links to now. This sentence points at a finished moment in the past, so it needs **had**.",
+                "bn": "**have / has** দিয়ে present perfect হয়, যা বর্তমানের সাথে যুক্ত। এই বাক্য অতীতের একটি শেষ হওয়া মুহূর্ত বোঝাচ্ছে, তাই **had** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She had take the medicine before the doctor arrived.",
+              "correct": false,
+              "feedback": {
+                "en": "After **had**, use the past participle, not the plain verb.",
+                "bn": "**had**-এর পরে base form নয়, past participle বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She taken the medicine before the doctor arrived.",
+              "correct": false,
+              "feedback": {
+                "en": "The past participle can't stand alone. It needs **had** in front of it.",
+                "bn": "past participle একা বসতে পারে না — এর আগে **had** লাগে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_had_3",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We had meeting them before the party started.",
+              "correct": false,
+              "feedback": {
+                "en": "**-ing** belongs to the continuous tenses. After **had**, use the past participle.",
+                "bn": "**-ing** continuous tense-এর। **had**-এর পরে past participle বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We had met them before the party started.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **had** doesn't change for plural subjects either.",
+                "bn": "ঠিক আছে। বহুবচনেও **had** পরিবর্তিত হয় না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We have met them before the party started.",
+              "correct": false,
+              "feedback": {
+                "en": "**have / has** makes the present perfect, which links to now. This sentence points at a finished moment in the past, so it needs **had**.",
+                "bn": "**have / has** দিয়ে present perfect হয়, যা বর্তমানের সাথে যুক্ত। এই বাক্য অতীতের একটি শেষ হওয়া মুহূর্ত বোঝাচ্ছে, তাই **had** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We had meet them before the party started.",
+              "correct": false,
+              "feedback": {
+                "en": "After **had**, use the past participle, not the plain verb.",
+                "bn": "**had**-এর পরে base form নয়, past participle বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_participle_forms",
+      "subSkillId": "participle_forms",
+      "title": "The third form",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every verb has a third form, and that is the one that follows **had**. Regular verbs just add **-ed**. Irregular verbs have a separate form you have to learn."
+        },
+        {
+          "type": "pattern",
+          "text": "had +",
+          "highlight": "the third form"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Past simple",
+            "Past perfect"
+          ],
+          "rows": [
+            [
+              "I went",
+              "I had gone"
+            ],
+            [
+              "I ate",
+              "I had eaten"
+            ],
+            [
+              "I wrote",
+              "I had written"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "She had gone before I called.",
+              "highlight": "gone"
+            },
+            {
+              "text": "We had eaten already.",
+              "highlight": "eaten"
+            },
+            {
+              "text": "He had written three letters.",
+              "highlight": "written"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "**had went** is the most common mistake in this tense. After **had**, use the third form: **had gone**."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "**had**-এর পরে verb-এর **third form** (past participle) বসে। Regular verb-এ **-ed** যোগ হয় (finish → finished)। Irregular verb-এর আলাদা form মুখস্থ করতে হয় (go → went → **gone**)। সবচেয়ে বড় ভুল **had went** — সঠিক হলো **had gone**।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_part_1",
+          "instruction": "Choose the correct form",
+          "prompt": "What is the past participle of **break**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "broken",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This verb has a separate third form — that's the one that follows **had**.",
+                "bn": "ঠিক আছে। এই verb-এর আলাদা third form আছে — **had**-এর পরে সেটিই বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "breaked",
+              "correct": false,
+              "feedback": {
+                "en": "This verb is irregular, so **-ed** doesn't work. Its third form has to be learned.",
+                "bn": "এই verb irregular, তাই **-ed** যোগ হয় না — এর third form মুখস্থ করতে হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "breaking",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form, used in the continuous tenses.",
+                "bn": "এটি **-ing** form, continuous tense-এ ব্যবহৃত হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "broke",
+              "correct": false,
+              "feedback": {
+                "en": "That's the past simple form. After **had**, use the **third** form — **had gone**, never *had went*.",
+                "bn": "এটি past simple form। **had**-এর পরে **third form** বসে — **had gone**, কখনো *had went* নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_part_2",
+          "instruction": "Complete the sentence",
+          "prompt": "She had ___ her keys.  **(lose)**",
+          "options": [
+            {
+              "id": "a",
+              "text": "losing",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form, used in the continuous tenses.",
+                "bn": "এটি **-ing** form, continuous tense-এ ব্যবহৃত হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "lose",
+              "correct": false,
+              "feedback": {
+                "en": "That's the plain verb, with no participle ending at all.",
+                "bn": "এটি verb-এর base form — participle-এর কোনো রূপ নেই।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "losed",
+              "correct": false,
+              "feedback": {
+                "en": "This verb is irregular, so **-ed** doesn't work. Its third form has to be learned.",
+                "bn": "এই verb irregular, তাই **-ed** যোগ হয় না — এর third form মুখস্থ করতে হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "lost",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This verb is irregular, but its second and third forms are the same.",
+                "bn": "ঠিক আছে। এই verb irregular, তবে এর second ও third form একই।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_part_3",
+          "instruction": "Choose the correct form",
+          "prompt": "What is the past participle of **speak**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "speaked",
+              "correct": false,
+              "feedback": {
+                "en": "This verb is irregular, so **-ed** doesn't work. Its third form has to be learned.",
+                "bn": "এই verb irregular, তাই **-ed** যোগ হয় না — এর third form মুখস্থ করতে হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "speaking",
+              "correct": false,
+              "feedback": {
+                "en": "That's the **-ing** form, used in the continuous tenses.",
+                "bn": "এটি **-ing** form, continuous tense-এ ব্যবহৃত হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "spoke",
+              "correct": false,
+              "feedback": {
+                "en": "That's the past simple form. After **had**, use the **third** form — **had gone**, never *had went*.",
+                "bn": "এটি past simple form। **had**-এর পরে **third form** বসে — **had gone**, কখনো *had went* নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "spoken",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This verb has a separate third form — that's the one that follows **had**.",
+                "bn": "ঠিক আছে। এই verb-এর আলাদা third form আছে — **had**-এর পরে সেটিই বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_negatives",
+      "subSkillId": "negatives",
+      "title": "Saying it hadn't happened",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Put **not** between **had** and the past participle. **had not** shortens to **hadn't**, and the participle never changes."
+        },
+        {
+          "type": "pattern",
+          "text": "subject + had",
+          "highlight": "+ not + past participle"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Positive",
+            "Negative"
+          ],
+          "rows": [
+            [
+              "I had finished",
+              "I hadn't finished"
+            ],
+            [
+              "She had gone",
+              "She hadn't gone"
+            ],
+            [
+              "They had eaten",
+              "They hadn't eaten"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "I hadn't seen that film before.",
+              "highlight": "hadn't"
+            },
+            {
+              "text": "She hadn't written to us for years.",
+              "highlight": "hadn't"
+            },
+            {
+              "text": "We hadn't left when the rain started.",
+              "highlight": "hadn't"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "**didn't** belongs to the past simple and never sits next to **had**. **I didn't had finished** is wrong — it's **I hadn't finished**."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "**had** ও past participle-এর মাঝে **not** বসে; **had not** সংক্ষেপে **hadn't**। এখানে **didn't** ব্যবহার হয় না — **I didn't had finished** ভুল, সঠিক **I hadn't finished**।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_neg_1",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I hadn't lock the door before I left.",
+              "correct": false,
+              "feedback": {
+                "en": "The participle keeps its form after **not**.",
+                "bn": "**not**-এর পরেও participle-এর রূপ একই থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "I not had locked the door before I left.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** goes straight after **had**, not before it.",
+                "bn": "**not** **had**-এর ঠিক পরে বসে, আগে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "I hadn't locked the door before I left.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **not** sits between **had** and the participle, and **had not** shortens to **hadn't**.",
+                "bn": "ঠিক আছে। **had** ও participle-এর মাঝে **not** বসে; **had not** সংক্ষেপে **hadn't**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "I didn't had locked the door before I left.",
+              "correct": false,
+              "feedback": {
+                "en": "**didn't** belongs to the past simple, and it never sits next to **had**. Use **hadn't**.",
+                "bn": "**didn't** past simple-এর, আর এটি **had**-এর পাশে বসে না। **hadn't** ব্যবহার করুন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_neg_2",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She didn't had swum in the sea before that day.",
+              "correct": false,
+              "feedback": {
+                "en": "**didn't** belongs to the past simple, and it never sits next to **had**. Use **hadn't**.",
+                "bn": "**didn't** past simple-এর, আর এটি **had**-এর পাশে বসে না। **hadn't** ব্যবহার করুন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She hasn't swum in the sea before that day.",
+              "correct": false,
+              "feedback": {
+                "en": "**hasn't / haven't** is the present perfect. A past time needs **hadn't**.",
+                "bn": "**hasn't / haven't** present perfect-এর। অতীতের সময় বোঝাতে **hadn't** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She hadn't swum in the sea before that day.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The past perfect makes its own negative — no **didn't** needed.",
+                "bn": "ঠিক আছে। past perfect নিজেই না-বোধক করে — **didn't** লাগে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She hadn't swim in the sea before that day.",
+              "correct": false,
+              "feedback": {
+                "en": "The participle keeps its form after **not**.",
+                "bn": "**not**-এর পরেও participle-এর রূপ একই থাকে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_neg_3",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence uses the negative form correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The phone not had rung before he knocked.",
+              "correct": false,
+              "feedback": {
+                "en": "**not** goes straight after **had**, not before it.",
+                "bn": "**not** **had**-এর ঠিক পরে বসে, আগে নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The phone hadn't rung before he knocked.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **not** sits between **had** and the participle, and **had not** shortens to **hadn't**.",
+                "bn": "ঠিক আছে। **had** ও participle-এর মাঝে **not** বসে; **had not** সংক্ষেপে **hadn't**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The phone didn't had rung before he knocked.",
+              "correct": false,
+              "feedback": {
+                "en": "**didn't** belongs to the past simple, and it never sits next to **had**. Use **hadn't**.",
+                "bn": "**didn't** past simple-এর, আর এটি **had**-এর পাশে বসে না। **hadn't** ব্যবহার করুন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The phone hadn't ring before he knocked.",
+              "correct": false,
+              "feedback": {
+                "en": "The participle keeps its form after **not**.",
+                "bn": "**not**-এর পরেও participle-এর রূপ একই থাকে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_questions",
+      "subSkillId": "questions",
+      "title": "Asking with had",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "To ask, move **had** in front of the subject. For **what, where, why** and **who**, the question word goes first, then **had**."
+        },
+        {
+          "type": "pattern",
+          "text": "Had + subject + past participle",
+          "highlight": "?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Statement",
+            "Question"
+          ],
+          "rows": [
+            [
+              "She had left",
+              "Had she left?"
+            ],
+            [
+              "They had eaten",
+              "Had they eaten?"
+            ],
+            [
+              "He had seen it",
+              "What had he seen?"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "Had you finished before the bell rang?",
+              "highlight": "Had you"
+            },
+            {
+              "text": "Where had she gone?",
+              "highlight": "Where had"
+            },
+            {
+              "text": "Why had they left so early?",
+              "highlight": "Why had"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Never use **did** here. **Did you had finished?** is wrong — it's **Had you finished?**"
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "প্রশ্ন করতে **had** subject-এর আগে চলে আসে: **Had she left?** **What / Where / Why** থাকলে সেটি সবার আগে বসে, তারপর **had**: **Where had she gone?** এখানে **did** ব্যবহার হয় না।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_ques_1",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They had flown before that trip?",
+              "correct": false,
+              "feedback": {
+                "en": "That's a statement with a question mark. In a question, **had** comes before the subject.",
+                "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **had** subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Had they flown before that trip?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Had** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Had** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Had they fly before that trip?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the past participle too.",
+                "bn": "প্রশ্নেও past participle অপরিবর্তিত থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Did they had flown before that trip?",
+              "correct": false,
+              "feedback": {
+                "en": "**Did** belongs to the past simple, and it never sits next to **had**. This question starts with **Had**.",
+                "bn": "**Did** past simple-এর, আর এটি **had**-এর পাশে বসে না। এই প্রশ্ন **Had** দিয়ে শুরু হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_ques_2",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "How tall had the tree grow?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the past participle too.",
+                "bn": "প্রশ্নেও past participle অপরিবর্তিত থাকে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "How tall had the tree grown?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The question word comes first, then **had**, then the subject.",
+                "bn": "ঠিক আছে। প্রশ্নবাচক শব্দ আগে, তারপর **had**, তারপর subject।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "How tall the tree had grown?",
+              "correct": false,
+              "feedback": {
+                "en": "The question word is right, but **had** still has to come before the subject: **How tall had ...**",
+                "bn": "প্রশ্নবাচক শব্দ ঠিক আছে, তবে **had** subject-এর আগে বসবে: **How tall had ...**"
+              }
+            },
+            {
+              "id": "d",
+              "text": "How tall did the tree had grown?",
+              "correct": false,
+              "feedback": {
+                "en": "**Did** belongs to the past simple, and it never sits next to **had**. This question starts with **Had**.",
+                "bn": "**Did** past simple-এর, আর এটি **had**-এর পাশে বসে না। এই প্রশ্ন **Had** দিয়ে শুরু হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_ques_3",
+          "instruction": "Choose the correct question",
+          "prompt": "Which question is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Did you had booked the tickets before Monday?",
+              "correct": false,
+              "feedback": {
+                "en": "**Did** belongs to the past simple, and it never sits next to **had**. This question starts with **Had**.",
+                "bn": "**Did** past simple-এর, আর এটি **had**-এর পাশে বসে না। এই প্রশ্ন **Had** দিয়ে শুরু হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "You had booked the tickets before Monday?",
+              "correct": false,
+              "feedback": {
+                "en": "That's a statement with a question mark. In a question, **had** comes before the subject.",
+                "bn": "এটি প্রশ্ন নয়, শুধু শেষে প্রশ্নবোধক চিহ্ন। প্রশ্নে **had** subject-এর আগে বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Had you booked the tickets before Monday?",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Had** moves in front of the subject, and nothing else changes.",
+                "bn": "ঠিক আছে। **Had** subject-এর আগে চলে আসে, বাকি সব একই থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Had you book the tickets before Monday?",
+              "correct": false,
+              "feedback": {
+                "en": "Questions keep the past participle too.",
+                "bn": "প্রশ্নেও past participle অপরিবর্তিত থাকে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_sequence",
+      "subSkillId": "sequence",
+      "title": "Which happened first",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "When two things happened in the past, the past perfect marks the **earlier** one. The later one stays in the past simple."
+        },
+        {
+          "type": "pattern",
+          "text": "earlier action = had + past participle",
+          "highlight": "later action = past simple"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Earlier",
+            "Later"
+          ],
+          "rows": [
+            [
+              "The train had left",
+              "when I arrived"
+            ],
+            [
+              "She had eaten",
+              "before we sat down"
+            ],
+            [
+              "They had gone",
+              "by the time we called"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "When I arrived, the train had left.",
+              "highlight": "had left"
+            },
+            {
+              "text": "She had already eaten before we sat down.",
+              "highlight": "had already eaten"
+            },
+            {
+              "text": "By the time we called, they had gone.",
+              "highlight": "had gone"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Move **had** to the later action and the order flips: **After he locked the door, he had walked away** says the walking came first. And **already** or **never** goes between **had** and the participle: **had already gone**."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "অতীতে দুইটি ঘটনা ঘটলে যেটি **আগে** ঘটেছে সেটিতে past perfect (**had** + past participle) বসে; পরেরটি past simple-এ থাকে। **When I arrived, the train had left** — আমি পৌঁছানোর **আগেই** ট্রেন চলে গিয়েছিল। **already** ও **never** **had**-এর পরে বসে।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_seq_1",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence means the film started **before** I got there?",
+          "options": [
+            {
+              "id": "a",
+              "text": "By the time I got there, the film started.",
+              "correct": false,
+              "feedback": {
+                "en": "**By the time** points at a moment when something was already over, so it needs **had**.",
+                "bn": "**By the time** এমন এক মুহূর্ত বোঝায় যখন কাজটি আগেই শেষ — তাই **had** লাগে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "By the time I got there, the film starts.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present tense inside a past story.",
+                "bn": "অতীতের ঘটনায় present tense বসেছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "By the time I got there, the film has started.",
+              "correct": false,
+              "feedback": {
+                "en": "**has / have** links the past to now. Both events here are finished and in the past, so it's **had**.",
+                "bn": "**has / have** অতীতকে বর্তমানের সাথে যুক্ত করে। এখানে দুইটি ঘটনাই অতীতে শেষ, তাই **had** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "By the time I got there, the film had started.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **had** marks the action that happened first.",
+                "bn": "ঠিক আছে। যেটি আগে ঘটেছে তাতে **had** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_seq_2",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "After they had paid, they have left the restaurant.",
+              "correct": false,
+              "feedback": {
+                "en": "The later action stays in the **past simple**. Neither **has** nor **had** belongs on it.",
+                "bn": "পরের ঘটনাটি **past simple**-এ থাকে — সেখানে **has** বা **had** কোনোটিই বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "After they had paid, they leave the restaurant.",
+              "correct": false,
+              "feedback": {
+                "en": "That's the present tense inside a past story.",
+                "bn": "অতীতের ঘটনায় present tense বসেছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "After they had paid, they left the restaurant.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **had** goes on the earlier action; the later one stays in the past simple.",
+                "bn": "ঠিক আছে। আগের ঘটনায় **had** বসে; পরেরটি past simple-এ থাকে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "After they paid, they had left the restaurant.",
+              "correct": false,
+              "feedback": {
+                "en": "**had** is on the later action here. It belongs on the one that happened **first**.",
+                "bn": "এখানে **had** পরের ঘটনায় বসেছে। এটি **আগের** ঘটনায় বসবে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_seq_3",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She had already left when I called.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **already** and **never** sit between **had** and the participle.",
+                "bn": "ঠিক আছে। **already** ও **never** **had** ও participle-এর মাঝে বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She has already left when I called.",
+              "correct": false,
+              "feedback": {
+                "en": "**has / have** links the past to now. Both events here are finished and in the past, so it's **had**.",
+                "bn": "**has / have** অতীতকে বর্তমানের সাথে যুক্ত করে। এখানে দুইটি ঘটনাই অতীতে শেষ, তাই **had** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She already had left when I called.",
+              "correct": false,
+              "feedback": {
+                "en": "**already** and **never** go between **had** and the participle, not before **had**.",
+                "bn": "**already** ও **never** **had**-এর আগে নয়, **had** ও participle-এর মাঝে বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She had already leave when I called.",
+              "correct": false,
+              "feedback": {
+                "en": "After **had**, use the past participle, not the plain verb.",
+                "bn": "**had**-এর পরে base form নয়, past participle বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

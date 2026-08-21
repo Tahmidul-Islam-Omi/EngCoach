@@ -6,10 +6,10 @@
   "summary": "Talk about habits, routines, facts, and things that are generally true — \"She works from home\", \"Water boils at 100°C\".",
   "whyThisTopic": "It's the foundation for most everyday English — a good place to start before your lessons adapt to how you do on the check.",
   "assessmentConfig": {
-    "questionsPerSubSkill": 3,
-    "qualifyingScore": 3,
+    "questionsPerSubSkill": 2,
+    "qualifyingScore": 2,
     "bankSize": 6,
-    "_note": "3 drawn at random per sub-skill; all 3 correct qualifies the learner to skip it. Pre and post banks must cover the same rules in the same proportion."
+    "_note": "Temporarily 2 for faster testing — production value is 3. questionsPerSubSkill and qualifyingScore must move together: if qualifying > drawn, nobody can ever skip a sub-skill."
   },
   "subSkills": [
     {

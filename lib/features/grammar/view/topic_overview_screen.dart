@@ -36,8 +36,10 @@ class _Body extends StatelessWidget {
 
   final Topic topic;
 
-  /// ~20 seconds per multiple-choice question, rounded to the nearest minute.
-  int get _minutes => (topic.preAssessmentLength * 20 / 60).ceil();
+  /// ~20 seconds per multiple-choice question, to the nearest minute.
+  /// Rounded rather than ceiled — "about 3 minutes" for a 3.3-minute check
+  /// reads better than rounding a third of a minute up to 4.
+  int get _minutes => (topic.preAssessmentLength * 20 / 60).round();
 
   @override
   Widget build(BuildContext context) {

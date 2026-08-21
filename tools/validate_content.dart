@@ -128,6 +128,21 @@ void _validate(Map<String, dynamic> topic, List<String> problems) {
       fail('$id: pre/post rule coverage differs — $preRules vs $postRules');
     }
 
+    // A sentence a learner already met in the pre-test measures memory the
+    // second time round, not learning — so the improvement figure, which is
+    // the whole product claim, stops meaning anything. Both directions
+    // matter: yesterday's correct answer reappearing as today's distractor
+    // is the worst case of all.
+    final preAnswers = {for (final q in pre) _norm(_answer(q))};
+    for (final q in post) {
+      for (final o in (q['options'] as List).cast<Map<String, dynamic>>()) {
+        if (preAnswers.contains(_norm(o['text'] as String))) {
+          fail('${q['id']}: "${o['text']}" is already a correct answer in the '
+              'pre-assessment bank');
+        }
+      }
+    }
+
     for (final entry in [(pre, false), (post, true)]) {
       for (final q in entry.$1) {
         final qid = q['id'] as String;
@@ -198,6 +213,14 @@ void _checkOptions(
       fail('$qid/${o['id']}: pre-assessment options must not carry feedback');
     }
   }
+}
+
+/// The text of a question's correct option, or '' if it has none — the
+/// missing-answer case is already reported by [_checkOptions].
+String _answer(Map<String, dynamic> q) {
+  final options = (q['options'] as List).cast<Map<String, dynamic>>();
+  final correct = options.where((o) => o['correct'] == true);
+  return correct.isEmpty ? '' : correct.first['text'] as String;
 }
 
 Map<String, int> _tally(List<Map<String, dynamic>> bank) {

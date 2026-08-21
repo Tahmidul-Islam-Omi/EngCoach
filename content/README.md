@@ -42,6 +42,13 @@ topic
   (`qualifyingScore`). Anything less prioritises it.
 - **Every wrong option carries its own `feedback`.** Authored, not generated
   — the app makes no AI call to explain a wrong answer.
+- **Shared feedback must not quote an example that only fits some of its
+  questions.** One message per error type is right — the same mistake should
+  get the same explanation — but the moment it quotes a model phrase, it has
+  picked one question's wording. `"**Where had they...**"` shown under
+  *"Why had they cancelled the show?"* teaches the wrong correction. Generate
+  the example from the question, or leave it out. The validator checks this
+  for question words; nothing checks it for verbs.
 - **Feedback must not describe a fix that lands on another wrong option.**
   No validator can catch this; read every distractor's advice and apply it.
   "*She needing more time*" → "it needs **is** in front of it" is wrong when

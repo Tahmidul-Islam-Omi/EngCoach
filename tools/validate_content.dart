@@ -205,6 +205,13 @@ void _checkOptions(
   final texts = options.map((o) => _norm(o['text'] as String)).toSet();
   if (texts.length != options.length) fail('$qid: duplicate option text');
 
+  // Feedback shared by error type saves authoring the same explanation
+  // twice, but a shared message that quotes an example has to pick some
+  // wh- word — and is then wrong for every question using a different one.
+  // "Where had they..." shown under "Why had they cancelled the show?"
+  // teaches the wrong correction.
+  final asked = _asksWith(options);
+
   for (final o in options) {
     final fb = o['feedback'] as Map<String, dynamic>?;
     if (requireFeedback) {
@@ -217,6 +224,16 @@ void _checkOptions(
         if ((fb['bn'] as String?)?.trim().isEmpty ?? true) {
           fail('$qid/${o['id']}: missing Bangla feedback');
         }
+        if (asked.isNotEmpty) {
+          for (final lang in ['en', 'bn']) {
+            for (final named in _quotedWh(fb[lang] as String? ?? '')) {
+              if (!asked.contains(named)) {
+                fail('$qid/${o['id']}: $lang feedback quotes "$named" but '
+                    'the question asks with ${asked.join(" / ")}');
+              }
+            }
+          }
+        }
       }
     } else if (fb != null) {
       // The pre-assessment deliberately shows nothing.
@@ -224,6 +241,31 @@ void _checkOptions(
     }
   }
 }
+
+const _wh = {'what', 'when', 'where', 'which', 'who', 'whose', 'why', 'how'};
+
+/// The question word a wh- question asks with, or empty for other questions.
+///
+/// Only a *leading* word counts. "who" in "I'll see who it is" and "which"
+/// in "shows which came first" are relative pronouns, not question words —
+/// counting those made this check fire on correct content.
+Set<String> _asksWith(List<Map<String, dynamic>> options) => options
+    .map((o) => RegExp(r'[a-zA-Z]+').firstMatch(o['text'] as String)?[0])
+    .whereType<String>()
+    .map((w) => w.toLowerCase())
+    .where(_wh.contains)
+    .toSet();
+
+/// Question words quoted inside a **bold** example in [text].
+///
+/// Bold is what marks a phrase as a model to copy, and copying the wrong
+/// one is the actual failure. Ordinary prose mentioning "which" is fine.
+Set<String> _quotedWh(String text) => RegExp(r'\*\*(.+?)\*\*')
+    .allMatches(text)
+    .expand((m) => RegExp(r'[a-zA-Z]+').allMatches(m[1]!))
+    .map((m) => m[0]!.toLowerCase())
+    .where(_wh.contains)
+    .toSet();
 
 /// The text of a question's correct option, or '' if it has none — the
 /// missing-answer case is already reported by [_checkOptions].

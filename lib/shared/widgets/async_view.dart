@@ -1,8 +1,55 @@
+import 'dart:async';
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_spacing.dart';
+
+/// What went wrong, in terms a learner can act on.
+///
+/// Telling someone to check their connection when the real fault is malformed
+/// content is worse than saying nothing — it sends them (and us) looking in
+/// the wrong place.
+enum _Failure {
+  connection,
+  content,
+  unknown;
+
+  static _Failure from(Object error) {
+    if (error is SocketException || error is TimeoutException) {
+      return _Failure.connection;
+    }
+    // Bad or missing content: a malformed topic, a field the model didn't
+    // expect, an asset that isn't bundled.
+    if (error is FormatException || error is TypeError) {
+      return _Failure.content;
+    }
+    return _Failure.unknown;
+  }
+
+  String get title => switch (this) {
+        _Failure.connection => "You're offline.",
+        _Failure.content => "This content couldn't be opened.",
+        _Failure.unknown => 'Something went wrong.',
+      };
+
+  String get detail => switch (this) {
+        _Failure.connection =>
+          'Check your connection and try again.',
+        _Failure.content =>
+          "It isn't your device — we've been told about it.",
+        _Failure.unknown => 'Please try again.',
+      };
+
+  IconData get icon => switch (this) {
+        _Failure.connection => Icons.wifi_off_rounded,
+        _Failure.content => Icons.report_gmailerrorred_rounded,
+        _Failure.unknown => Icons.error_outline_rounded,
+      };
+}
 
 /// Renders an [AsyncValue] with consistent loading and error states.
 ///
@@ -26,32 +73,73 @@ class AsyncView<T> extends StatelessWidget {
     return value.when(
       data: data,
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, _) => Center(
-        child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.xxl),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.cloud_off_rounded,
-                  size: 32, color: AppColors.textSecondary),
-              const SizedBox(height: AppSpacing.md),
-              Text(
-                "We couldn't load this.",
-                style: Theme.of(context).textTheme.titleLarge,
-                textAlign: TextAlign.center,
+      error: (error, stack) => _ErrorView(
+        failure: _Failure.from(error),
+        error: error,
+        onRetry: onRetry,
+      ),
+    );
+  }
+}
+
+class _ErrorView extends StatelessWidget {
+  const _ErrorView({
+    required this.failure,
+    required this.error,
+    required this.onRetry,
+  });
+
+  final _Failure failure;
+  final Object error;
+  final VoidCallback? onRetry;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Theme.of(context).textTheme;
+
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(AppSpacing.xxl),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(failure.icon, size: 32, color: AppColors.textSecondary),
+            const SizedBox(height: AppSpacing.md),
+            Text(
+              failure.title,
+              style: text.titleLarge,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: AppSpacing.xs),
+            Text(
+              failure.detail,
+              style: text.bodySmall,
+              textAlign: TextAlign.center,
+            ),
+
+            // In debug builds, show what actually happened. The friendly
+            // message is for learners; this is for whoever is fixing it.
+            if (kDebugMode) ...[
+              const SizedBox(height: AppSpacing.lg),
+              Container(
+                padding: const EdgeInsets.all(AppSpacing.md),
+                decoration: BoxDecoration(
+                  color: AppColors.dangerSurface,
+                  borderRadius: BorderRadius.circular(AppRadius.md),
+                ),
+                child: Text(
+                  '$error',
+                  style: text.bodySmall?.copyWith(color: AppColors.danger),
+                  textAlign: TextAlign.left,
+                ),
               ),
-              const SizedBox(height: AppSpacing.xs),
-              Text(
-                'Check your connection and try again.',
-                style: Theme.of(context).textTheme.bodySmall,
-                textAlign: TextAlign.center,
-              ),
-              if (onRetry != null) ...[
-                const SizedBox(height: AppSpacing.lg),
-                OutlinedButton(onPressed: onRetry, child: const Text('Retry')),
-              ],
             ],
-          ),
+
+            if (onRetry != null) ...[
+              const SizedBox(height: AppSpacing.lg),
+              OutlinedButton(onPressed: onRetry, child: const Text('Retry')),
+            ],
+          ],
         ),
       ),
     );

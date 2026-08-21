@@ -48,7 +48,7 @@ class QuestionOption {
 class Question {
   const Question({
     required this.id,
-    required this.rule,
+    this.rule,
     required this.instruction,
     required this.prompt,
     required this.options,
@@ -59,9 +59,13 @@ class Question {
 
   final String id;
 
-  /// Which rule within the sub-skill this tests. Keeps pre and post banks
-  /// comparable — see `tools/validate_content.dart`.
-  final String rule;
+  /// Which rule within the sub-skill this tests — e.g. `y-to-ies`.
+  ///
+  /// Only assessment questions carry one: it exists so the validator can
+  /// prove the pre and post banks cover the same rules in the same
+  /// proportion. Practice questions have no such requirement, so this is
+  /// null for them.
+  final String? rule;
 
   final String instruction;
   final String prompt;

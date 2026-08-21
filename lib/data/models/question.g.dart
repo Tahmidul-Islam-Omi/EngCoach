@@ -21,7 +21,7 @@ QuestionOption _$QuestionOptionFromJson(Map<String, dynamic> json) =>
 
 Question _$QuestionFromJson(Map<String, dynamic> json) => Question(
   id: json['id'] as String,
-  rule: json['rule'] as String,
+  rule: json['rule'] as String?,
   instruction: json['instruction'] as String,
   prompt: json['prompt'] as String,
   options: (json['options'] as List<dynamic>)

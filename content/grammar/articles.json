@@ -655,8 +655,8 @@
               "text": "Some",
               "correct": false,
               "feedback": {
-                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
-                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+                "en": "**some** goes with plurals and uncountables. One countable thing takes **a**, **an** or **the**.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে। একটি countable জিনিসের সাথে **a**, **an** বা **the** বসে।"
               }
             },
             {
@@ -681,8 +681,8 @@
               "text": "some",
               "correct": false,
               "feedback": {
-                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
-                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+                "en": "**some** goes with plurals and uncountables. One countable thing takes **a**, **an** or **the**.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে। একটি countable জিনিসের সাথে **a**, **an** বা **the** বসে।"
               }
             },
             {
@@ -734,8 +734,8 @@
               "text": "Some",
               "correct": false,
               "feedback": {
-                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
-                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+                "en": "**some** goes with plurals and uncountables. One countable thing takes **a**, **an** or **the**.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে। একটি countable জিনিসের সাথে **a**, **an** বা **the** বসে।"
               }
             },
             {
@@ -787,8 +787,8 @@
               "text": "some",
               "correct": false,
               "feedback": {
-                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
-                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+                "en": "**some** goes with plurals and uncountables. One countable thing takes **a**, **an** or **the**.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে। একটি countable জিনিসের সাথে **a**, **an** বা **the** বসে।"
               }
             },
             {
@@ -840,8 +840,8 @@
               "text": "Some",
               "correct": false,
               "feedback": {
-                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
-                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+                "en": "**some** goes with plurals and uncountables. One countable thing takes **a**, **an** or **the**.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে। একটি countable জিনিসের সাথে **a**, **an** বা **the** বসে।"
               }
             }
           ]
@@ -857,8 +857,8 @@
               "text": "some",
               "correct": false,
               "feedback": {
-                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
-                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+                "en": "**some** goes with plurals and uncountables. One countable thing takes **a**, **an** or **the**.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে। একটি countable জিনিসের সাথে **a**, **an** বা **the** বসে।"
               }
             },
             {
@@ -1975,8 +1975,8 @@
               "text": "Some",
               "correct": false,
               "feedback": {
-                "en": "Leaving the article out doesn't work here — this one needs **the**.",
-                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+                "en": "**some** leaves it vague — one of several, or an unknown amount. Here it is clear which one is meant, so it takes **the**.",
+                "bn": "**some** অনির্দিষ্ট কিছু বোঝায় — অনেকের মধ্যে একটি বা অজানা পরিমাণ। এখানে কোনটির কথা বলা হচ্ছে তা স্পষ্ট, তাই **the** বসে।"
               }
             },
             {
@@ -2028,8 +2028,8 @@
               "text": "some",
               "correct": false,
               "feedback": {
-                "en": "Leaving the article out doesn't work here — this one needs **the**.",
-                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+                "en": "**some** leaves it vague — one of several, or an unknown amount. Here it is clear which one is meant, so it takes **the**.",
+                "bn": "**some** অনির্দিষ্ট কিছু বোঝায় — অনেকের মধ্যে একটি বা অজানা পরিমাণ। এখানে কোনটির কথা বলা হচ্ছে তা স্পষ্ট, তাই **the** বসে।"
               }
             }
           ]
@@ -2054,8 +2054,8 @@
               "text": "some",
               "correct": false,
               "feedback": {
-                "en": "Leaving the article out doesn't work here — this one needs **the**.",
-                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+                "en": "**some** leaves it vague — one of several, or an unknown amount. Here it is clear which one is meant, so it takes **the**.",
+                "bn": "**some** অনির্দিষ্ট কিছু বোঝায় — অনেকের মধ্যে একটি বা অজানা পরিমাণ। এখানে কোনটির কথা বলা হচ্ছে তা স্পষ্ট, তাই **the** বসে।"
               }
             },
             {
@@ -2089,8 +2089,8 @@
               "text": "some",
               "correct": false,
               "feedback": {
-                "en": "Leaving the article out doesn't work here — this one needs **the**.",
-                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+                "en": "**some** leaves it vague — one of several, or an unknown amount. Here it is clear which one is meant, so it takes **the**.",
+                "bn": "**some** অনির্দিষ্ট কিছু বোঝায় — অনেকের মধ্যে একটি বা অজানা পরিমাণ। এখানে কোনটির কথা বলা হচ্ছে তা স্পষ্ট, তাই **the** বসে।"
               }
             },
             {
@@ -2142,8 +2142,8 @@
               "text": "some",
               "correct": false,
               "feedback": {
-                "en": "Leaving the article out doesn't work here — this one needs **the**.",
-                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+                "en": "**some** leaves it vague — one of several, or an unknown amount. Here it is clear which one is meant, so it takes **the**.",
+                "bn": "**some** অনির্দিষ্ট কিছু বোঝায় — অনেকের মধ্যে একটি বা অজানা পরিমাণ। এখানে কোনটির কথা বলা হচ্ছে তা স্পষ্ট, তাই **the** বসে।"
               }
             },
             {
@@ -2177,8 +2177,8 @@
               "text": "some",
               "correct": false,
               "feedback": {
-                "en": "Leaving the article out doesn't work here — this one needs **the**.",
-                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+                "en": "**some** leaves it vague — one of several, or an unknown amount. Here it is clear which one is meant, so it takes **the**.",
+                "bn": "**some** অনির্দিষ্ট কিছু বোঝায় — অনেকের মধ্যে একটি বা অজানা পরিমাণ। এখানে কোনটির কথা বলা হচ্ছে তা স্পষ্ট, তাই **the** বসে।"
               }
             },
             {
@@ -2950,8 +2950,8 @@
               "text": "Some",
               "correct": false,
               "feedback": {
-                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
-                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+                "en": "**some** goes with plurals and uncountables. One countable thing takes **a**, **an** or **the**.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে। একটি countable জিনিসের সাথে **a**, **an** বা **the** বসে।"
               }
             }
           ]
@@ -2984,8 +2984,8 @@
               "text": "some",
               "correct": false,
               "feedback": {
-                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
-                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+                "en": "**some** goes with plurals and uncountables. One countable thing takes **a**, **an** or **the**.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে। একটি countable জিনিসের সাথে **a**, **an** বা **the** বসে।"
               }
             },
             {
@@ -3018,8 +3018,8 @@
               "text": "Some",
               "correct": false,
               "feedback": {
-                "en": "**some** goes with plurals and uncountables, not with one countable thing.",
-                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে, একটি countable জিনিসের সাথে নয়।"
+                "en": "**some** goes with plurals and uncountables. One countable thing takes **a**, **an** or **the**.",
+                "bn": "**some** বহুবচন ও uncountable-এর সাথে বসে। একটি countable জিনিসের সাথে **a**, **an** বা **the** বসে।"
               }
             },
             {
@@ -3526,8 +3526,8 @@
               "text": "Some",
               "correct": false,
               "feedback": {
-                "en": "Leaving the article out doesn't work here — this one needs **the**.",
-                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+                "en": "**some** leaves it vague — one of several, or an unknown amount. Here it is clear which one is meant, so it takes **the**.",
+                "bn": "**some** অনির্দিষ্ট কিছু বোঝায় — অনেকের মধ্যে একটি বা অজানা পরিমাণ। এখানে কোনটির কথা বলা হচ্ছে তা স্পষ্ট, তাই **the** বসে।"
               }
             },
             {
@@ -3569,8 +3569,8 @@
               "text": "some",
               "correct": false,
               "feedback": {
-                "en": "Leaving the article out doesn't work here — this one needs **the**.",
-                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+                "en": "**some** leaves it vague — one of several, or an unknown amount. Here it is clear which one is meant, so it takes **the**.",
+                "bn": "**some** অনির্দিষ্ট কিছু বোঝায় — অনেকের মধ্যে একটি বা অজানা পরিমাণ। এখানে কোনটির কথা বলা হচ্ছে তা স্পষ্ট, তাই **the** বসে।"
               }
             },
             {
@@ -3621,8 +3621,8 @@
               "text": "some",
               "correct": false,
               "feedback": {
-                "en": "Leaving the article out doesn't work here — this one needs **the**.",
-                "bn": "এখানে article বাদ দেওয়া যায় না — **the** লাগবেই।"
+                "en": "**some** leaves it vague — one of several, or an unknown amount. Here it is clear which one is meant, so it takes **the**.",
+                "bn": "**some** অনির্দিষ্ট কিছু বোঝায় — অনেকের মধ্যে একটি বা অজানা পরিমাণ। এখানে কোনটির কথা বলা হচ্ছে তা স্পষ্ট, তাই **the** বসে।"
               }
             }
           ]

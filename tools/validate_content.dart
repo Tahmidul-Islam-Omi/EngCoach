@@ -251,6 +251,21 @@ void _checkOptions(
             }
           }
         }
+
+        // A wrong option's feedback must not read as endorsing that same
+        // option. Telling a learner who picked "an" that "it takes **an**"
+        // sends them back to the answer they were just marked wrong for —
+        // which is what a copied-and-inverted message looks like. Only
+        // decidable when the options are single words.
+        final option = _norm(o['text'] as String);
+        if (o['correct'] != true && !_memorable(o['text'] as String)) {
+          final bold = _boldWords(fb['en'] as String? ?? '');
+          if (bold.contains(option) && !bold.contains(_norm(_answer(q)))) {
+            fail('$qid/${o['id']}: feedback on the wrong option "$option" '
+                'recommends "$option" and never names the answer '
+                '"${_answer(q)}"');
+          }
+        }
       }
     } else if (fb != null) {
       // The pre-assessment deliberately shows nothing.
@@ -285,16 +300,22 @@ Set<String> _asksWith(List<Map<String, dynamic>> options) => options
     .where(_wh.contains)
     .toSet();
 
-/// Question words quoted inside a **bold** example in [text].
+/// Words inside a **bold** span in [text], lower-cased.
 ///
-/// Bold is what marks a phrase as a model to copy, and copying the wrong
-/// one is the actual failure. Ordinary prose mentioning "which" is fine.
-Set<String> _quotedWh(String text) => RegExp(r'\*\*(.+?)\*\*')
+/// Bold is what marks a phrase as the model to copy, so it is the part of
+/// a feedback message that carries the instruction.
+Set<String> _boldWords(String text) => RegExp(r'\*\*(.+?)\*\*')
     .allMatches(text)
     .expand((m) => RegExp(r'[a-zA-Z]+').allMatches(m[1]!))
     .map((m) => m[0]!.toLowerCase())
-    .where(_wh.contains)
     .toSet();
+
+/// Question words quoted inside a **bold** example in [text].
+///
+/// Ordinary prose mentioning "which" is fine; copying the wrong model is
+/// the actual failure.
+Set<String> _quotedWh(String text) =>
+    _boldWords(text).where(_wh.contains).toSet();
 
 /// The text of a question's correct option, or '' if it has none — the
 /// missing-answer case is already reported by [_checkOptions].

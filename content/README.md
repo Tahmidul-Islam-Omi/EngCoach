@@ -49,6 +49,12 @@ topic
   *"Why had they cancelled the show?"* teaches the wrong correction. Generate
   the example from the question, or leave it out. The validator checks this
   for question words; nothing checks it for verbs.
+- **Feedback must name what to use, not only what's wrong.** "*`some` goes
+  with plurals, not one countable thing*" leaves the learner still guessing
+  between the three remaining options. For gap-fills the validator enforces
+  this, by rejecting a wrong option whose feedback recommends that same
+  option and never names the answer — which is also what a copied-and-
+  inverted message looks like.
 - **Feedback must not describe a fix that lands on another wrong option.**
   No validator can catch this; read every distractor's advice and apply it.
   "*She needing more time*" → "it needs **is** in front of it" is wrong when

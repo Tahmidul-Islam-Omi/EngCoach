@@ -140,13 +140,29 @@ void _validate(Map<String, dynamic> topic, List<String> problems) {
     // the whole product claim, stops meaning anything. Both directions
     // matter: yesterday's correct answer reappearing as today's distractor
     // is the worst case of all.
-    final preAnswers = {for (final q in pre) _norm(_answer(q))};
+    // Whichever half of a question carries its content is the half that
+    // must not repeat. Sentence options carry it themselves; a gap-fill
+    // choosing between "a" and "the" carries it in the prompt instead,
+    // and its four options are a closed set both banks have to share.
+    final preAnswers = {
+      for (final q in pre)
+        if (_memorable(_answer(q))) _norm(_answer(q)),
+    };
+    final prePrompts = {
+      for (final q in pre)
+        if (!_memorable(_answer(q))) _norm(q['prompt'] as String),
+    };
+
     for (final q in post) {
       for (final o in (q['options'] as List).cast<Map<String, dynamic>>()) {
         if (preAnswers.contains(_norm(o['text'] as String))) {
           fail('${q['id']}: "${o['text']}" is already a correct answer in the '
               'pre-assessment bank');
         }
+      }
+      if (!_memorable(_answer(q)) &&
+          prePrompts.contains(_norm(q['prompt'] as String))) {
+        fail('${q['id']}: asks the same question as the pre-assessment bank');
       }
     }
 
@@ -158,8 +174,9 @@ void _validate(Map<String, dynamic> topic, List<String> problems) {
 
         final options = (q['options'] as List).cast<Map<String, dynamic>>();
         for (final o in options) {
-          if (taught.contains(_norm(o['text'] as String))) {
-            fail('$qid: option "${o['text']}" also appears in a lesson');
+          final text = o['text'] as String;
+          if (_memorable(text) && taught.contains(_norm(text))) {
+            fail('$qid: option "$text" also appears in a lesson');
           }
         }
         _checkOptions(q,
@@ -241,6 +258,18 @@ void _checkOptions(
     }
   }
 }
+
+/// Function words a gap-fill picks between, rather than content to learn.
+const _closedSet = {'a', 'an', 'the', 'some', 'any', 'no article'};
+
+/// Whether repeating this option would mean a learner could recognise it.
+///
+/// A gap-fill choosing between "a", "an", "the" and "some" has only four
+/// possible answers, so every bank and every lesson is bound to share
+/// them — flagging that is arithmetic, not a finding. Content words stay
+/// checked, single ones included: "smiling" drilled in practice and then
+/// used as a test answer is a real overlap.
+bool _memorable(String option) => !_closedSet.contains(_norm(option));
 
 const _wh = {'what', 'when', 'where', 'which', 'who', 'whose', 'why', 'how'};
 

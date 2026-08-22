@@ -1424,7 +1424,7 @@
           "id": "pre_move_4",
           "rule": "into-out-of",
           "instruction": "Choose the correct preposition",
-          "prompt": "We have run ___ sugar.",
+          "prompt": "He climbed ___ the well and sat on the grass.",
           "options": [
             {
               "id": "a",
@@ -1598,7 +1598,7 @@
           "id": "post_move_3",
           "rule": "into-out-of",
           "instruction": "Choose the correct preposition",
-          "prompt": "He bumped ___ an old friend at the station.",
+          "prompt": "This river flows ___ the sea near Barisal.",
           "options": [
             {
               "id": "a",
@@ -3013,8 +3013,8 @@
               "text": "We reached in home before dark.",
               "correct": false,
               "feedback": {
-                "en": "**reach home** needs no preposition after it. Drop the **in**.",
-                "bn": "**reach home**-এর পরে কোনো preposition বসে না — **in** বাদ দিন।"
+                "en": "Two words refuse a preposition here. **reach** takes its object directly, and **home** never takes one either — so it is **reached home**, not *reached in home*.",
+                "bn": "এখানে দুইটি শব্দই preposition নেয় না। **reach**-এর পরে সরাসরি object বসে, আর **home**-এর আগেও কিছু বসে না — তাই **reached home**, *reached in home* নয়।"
               }
             },
             {
@@ -3022,8 +3022,8 @@
               "text": "We reached to home before dark.",
               "correct": false,
               "feedback": {
-                "en": "**reach home** needs no preposition after it. Drop the **to**.",
-                "bn": "**reach home**-এর পরে কোনো preposition বসে না — **to** বাদ দিন।"
+                "en": "Two words refuse a preposition here. **reach** takes its object directly, and **home** never takes one either — so it is **reached home**, not *reached to home*.",
+                "bn": "এখানে দুইটি শব্দই preposition নেয় না। **reach**-এর পরে সরাসরি object বসে, আর **home**-এর আগেও কিছু বসে না — তাই **reached home**, *reached to home* নয়।"
               }
             },
             {
@@ -3031,8 +3031,8 @@
               "text": "We reached at home before dark.",
               "correct": false,
               "feedback": {
-                "en": "**reach home** needs no preposition after it. Drop the **at**.",
-                "bn": "**reach home**-এর পরে কোনো preposition বসে না — **at** বাদ দিন।"
+                "en": "Two words refuse a preposition here. **reach** takes its object directly, and **home** never takes one either — so it is **reached home**, not *reached at home*.",
+                "bn": "এখানে দুইটি শব্দই preposition নেয় না। **reach**-এর পরে সরাসরি object বসে, আর **home**-এর আগেও কিছু বসে না — তাই **reached home**, *reached at home* নয়।"
               }
             },
             {
@@ -3040,8 +3040,8 @@
               "text": "We reached home before dark.",
               "correct": true,
               "feedback": {
-                "en": "Correct. **reach home** takes its object directly, with no preposition at all.",
-                "bn": "ঠিক আছে। **reach home**-এর পরে সরাসরি object বসে, কোনো preposition লাগে না।"
+                "en": "Correct, and for two reasons: **reach** takes its object directly, and **home** never takes a preposition in front of it.",
+                "bn": "ঠিক আছে, দুইটি কারণে: **reach**-এর পরে সরাসরি object বসে, আর **home**-এর আগেও কোনো preposition বসে না।"
               }
             }
           ]
@@ -3057,8 +3057,8 @@
               "text": "Please come at upstairs for a moment.",
               "correct": false,
               "feedback": {
-                "en": "**come upstairs** needs no preposition after it. Drop the **at**.",
-                "bn": "**come upstairs**-এর পরে কোনো preposition বসে না — **at** বাদ দিন।"
+                "en": "**upstairs** takes no preposition in front of it. Say **come upstairs**, not *come at upstairs*.",
+                "bn": "**upstairs**-এর আগে কোনো preposition বসে না। **come upstairs** হবে, *come at upstairs* নয়।"
               }
             },
             {
@@ -3066,8 +3066,8 @@
               "text": "Please come upstairs for a moment.",
               "correct": true,
               "feedback": {
-                "en": "Correct. **come upstairs** takes its object directly, with no preposition at all.",
-                "bn": "ঠিক আছে। **come upstairs**-এর পরে সরাসরি object বসে, কোনো preposition লাগে না।"
+                "en": "Correct. **upstairs** never takes a preposition in front of it — **come upstairs**.",
+                "bn": "ঠিক আছে। **upstairs**-এর আগে কোনো preposition বসে না — **come upstairs**।"
               }
             },
             {
@@ -3075,8 +3075,8 @@
               "text": "Please come in upstairs for a moment.",
               "correct": false,
               "feedback": {
-                "en": "**come upstairs** needs no preposition after it. Drop the **in**.",
-                "bn": "**come upstairs**-এর পরে কোনো preposition বসে না — **in** বাদ দিন।"
+                "en": "**upstairs** takes no preposition in front of it. Say **come upstairs**, not *come in upstairs*.",
+                "bn": "**upstairs**-এর আগে কোনো preposition বসে না। **come upstairs** হবে, *come in upstairs* নয়।"
               }
             },
             {
@@ -3084,8 +3084,8 @@
               "text": "Please come to upstairs for a moment.",
               "correct": false,
               "feedback": {
-                "en": "**come upstairs** needs no preposition after it. Drop the **to**.",
-                "bn": "**come upstairs**-এর পরে কোনো preposition বসে না — **to** বাদ দিন।"
+                "en": "**upstairs** takes no preposition in front of it. Say **come upstairs**, not *come to upstairs*.",
+                "bn": "**upstairs**-এর আগে কোনো preposition বসে না। **come upstairs** হবে, *come to upstairs* নয়।"
               }
             }
           ]

@@ -256,14 +256,13 @@ void _checkOptions(
         // option. Telling a learner who picked "an" that "it takes **an**"
         // sends them back to the answer they were just marked wrong for —
         // which is what a copied-and-inverted message looks like. Only
-        // decidable when the options are single words.
-        final option = _norm(o['text'] as String);
-        if (o['correct'] != true && !_memorable(o['text'] as String)) {
+        // decidable when the options come from a closed class.
+        final option = o['text'] as String;
+        if (o['correct'] != true && !_memorable(option)) {
           final bold = _boldWords(fb['en'] as String? ?? '');
-          if (bold.contains(option) && !bold.contains(_norm(_answer(q)))) {
+          if (_named(bold, option) && !_named(bold, _answer(q))) {
             fail('$qid/${o['id']}: feedback on the wrong option "$option" '
-                'recommends "$option" and never names the answer '
-                '"${_answer(q)}"');
+                'recommends it and never names the answer "${_answer(q)}"');
           }
         }
       }
@@ -274,17 +273,34 @@ void _checkOptions(
   }
 }
 
-/// Function words a gap-fill picks between, rather than content to learn.
-const _closedSet = {'a', 'an', 'the', 'some', 'any', 'no article'};
+/// Closed word classes a gap-fill picks between, rather than content.
+///
+/// English adds new nouns and verbs constantly but never new prepositions,
+/// so these lists are finite and every question that tests them has to draw
+/// from the same small pool.
+const _functionWords = {
+  // determiners
+  'a', 'an', 'the', 'some', 'any', 'no article',
+  // prepositions
+  'about', 'above', 'across', 'after', 'against', 'along', 'among',
+  'around', 'at', 'before', 'behind', 'below', 'beside', 'between',
+  'by', 'down', 'during', 'for', 'from', 'in', 'inside', 'into', 'near',
+  'of', 'off', 'on', 'onto', 'out', 'outside', 'over', 'past', 'since',
+  'through', 'till', 'to', 'toward', 'towards', 'under', 'until', 'up',
+  'upon', 'with', 'within', 'without',
+  // the multi-word ones used as single options
+  'out of', 'in front of', 'next to', 'far from', 'no preposition',
+};
 
 /// Whether repeating this option would mean a learner could recognise it.
 ///
-/// A gap-fill choosing between "a", "an", "the" and "some" has only four
-/// possible answers, so every bank and every lesson is bound to share
-/// them — flagging that is arithmetic, not a finding. Content words stay
-/// checked, single ones included: "smiling" drilled in practice and then
-/// used as a test answer is a real overlap.
-bool _memorable(String option) => !_closedSet.contains(_norm(option));
+/// A gap-fill choosing between "a", "an", "the" and "some" — or between
+/// "at", "on" and "in" — has only a handful of possible answers, so every
+/// bank and every lesson is bound to share them. Flagging that is
+/// arithmetic, not a finding. Content words stay checked, single ones
+/// included: "smiling" drilled in practice and then used as a test answer
+/// is a real overlap.
+bool _memorable(String option) => !_functionWords.contains(_norm(option));
 
 const _wh = {'what', 'when', 'where', 'which', 'who', 'whose', 'why', 'how'};
 
@@ -309,6 +325,14 @@ Set<String> _boldWords(String text) => RegExp(r'\*\*(.+?)\*\*')
     .expand((m) => RegExp(r'[a-zA-Z]+').allMatches(m[1]!))
     .map((m) => m[0]!.toLowerCase())
     .toSet();
+
+/// Whether [phrase] is quoted in a bold span, word by word.
+///
+/// Options are not always one word — "out of" and "in front of" are single
+/// choices — and [_boldWords] splits bold spans into separate words, so a
+/// multi-word phrase counts as named when all of its words appear.
+bool _named(Set<String> bold, String phrase) =>
+    _norm(phrase).split(' ').every(bold.contains);
 
 /// Question words quoted inside a **bold** example in [text].
 ///

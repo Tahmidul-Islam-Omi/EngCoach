@@ -1,0 +1,4467 @@
+{
+  "id": "prepositions",
+  "section": "grammar",
+  "order": 11,
+  "title": "Prepositions",
+  "summary": "The small words that place things in time and space — \"at 5 PM\", \"on Monday\", \"for five years\".",
+  "whyThisTopic": "Bangla uses postpositions that don't line up one-to-one with English, so these are the words that go wrong most often and are noticed most quickly.",
+  "assessmentConfig": {
+    "questionsPerSubSkill": 2,
+    "qualifyingScore": 2,
+    "bankSize": 6,
+    "_note": "Temporarily 2 for faster testing — production value is 3. questionsPerSubSkill and qualifyingScore must move together: if qualifying > drawn, nobody can ever skip a sub-skill. This topic is being built a pair of sub-skills at a time; seven are planned, so a full check will be 14 questions at 2 and 21 at 3."
+  },
+  "subSkills": [
+    {
+      "id": "time_prepositions",
+      "title": "at, on, in for time",
+      "preAssessmentBank": [
+        {
+          "id": "pre_time_1",
+          "rule": "at-clock-and-night",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The class starts ___ 9 AM.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "during",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_time_2",
+          "rule": "on-day-and-date",
+          "instruction": "Choose the correct preposition",
+          "prompt": "My birthday is ___ 12 June.",
+          "options": [
+            {
+              "id": "a",
+              "text": "at",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "on",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "during",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_time_3",
+          "rule": "in-period-and-parts",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She was born ___ 1998.",
+          "options": [
+            {
+              "id": "a",
+              "text": "at",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "on",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_time_4",
+          "rule": "at-clock-and-night",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The shop closes ___ night.",
+          "options": [
+            {
+              "id": "a",
+              "text": "during",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_time_5",
+          "rule": "on-day-and-date",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The exam is ___ Tuesday.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "since",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "in",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_time_6",
+          "rule": "in-period-and-parts",
+          "instruction": "Choose the correct preposition",
+          "prompt": "We usually eat ___ the evening.",
+          "options": [
+            {
+              "id": "a",
+              "text": "in",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "on",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "since",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_time_1",
+          "rule": "at-clock-and-night",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The meeting begins ___ 3 PM.",
+          "options": [
+            {
+              "id": "a",
+              "text": "during",
+              "correct": false,
+              "feedback": {
+                "en": "**during** needs an event or a period with **the** — *during the match*. A plain time expression takes **at**, **on** or **in**.",
+                "bn": "**during**-এর পরে কোনো ঘটনা বা **the**-সহ সময় বসে — *during the match*। সাধারণ সময় বোঝাতে **at**, **on** বা **in** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** is for months, years and long periods. An exact time takes **at**.",
+                "bn": "**in** মাস, বছর ও দীর্ঘ সময়ের জন্য। নির্দিষ্ট সময়ের আগে **at** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. An exact time takes **at**.",
+                "bn": "ঠিক আছে। নির্দিষ্ট সময়ের আগে **at** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** is for days and dates. An exact time takes **at**.",
+                "bn": "**on** বার ও তারিখের জন্য। নির্দিষ্ট সময়ের আগে **at** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_time_2",
+          "rule": "on-day-and-date",
+          "instruction": "Choose the correct preposition",
+          "prompt": "We met her ___ Friday.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Days and dates take **on**.",
+                "bn": "ঠিক আছে। বার ও তারিখের আগে **on** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**at** marks an exact time. A day or a date takes **on**.",
+                "bn": "**at** নির্দিষ্ট সময় বোঝায়। বার বা তারিখের আগে **on** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** is for months and years. A day or a date takes **on**.",
+                "bn": "**in** মাস ও বছরের জন্য। বার বা তারিখের আগে **on** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": false,
+              "feedback": {
+                "en": "**for** measures how long something lasts. To say **when** it happens, use **at**, **on** or **in**.",
+                "bn": "**for** কতক্ষণ স্থায়ী হয় তা বোঝায়। **কখন** ঘটে বোঝাতে **at**, **on** বা **in** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_time_3",
+          "rule": "in-period-and-parts",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The festival is held ___ December.",
+          "options": [
+            {
+              "id": "a",
+              "text": "in",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Months, years and long periods take **in**.",
+                "bn": "ঠিক আছে। মাস, বছর ও দীর্ঘ সময়ের আগে **in** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**at** marks an exact time. A month, a year or a part of the day takes **in**.",
+                "bn": "**at** নির্দিষ্ট সময় বোঝায়। মাস, বছর বা দিনের অংশের আগে **in** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** is for days and dates. A month, a year or a part of the day takes **in**.",
+                "bn": "**on** বার ও তারিখের জন্য। মাস, বছর বা দিনের অংশের আগে **in** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": false,
+              "feedback": {
+                "en": "**for** measures how long something lasts. To say **when** it happens, use **at**, **on** or **in**.",
+                "bn": "**for** কতক্ষণ স্থায়ী হয় তা বোঝায়। **কখন** ঘটে বোঝাতে **at**, **on** বা **in** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_time_4",
+          "rule": "at-clock-and-night",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The guard stays awake ___ night.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** is for days and dates. **night** takes **at** — *at night*.",
+                "bn": "**on** বার ও তারিখের জন্য। **night**-এর আগে **at** বসে — *at night*।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "Every other part of the day takes **in**, but **night** does not. It takes **at**.",
+                "bn": "দিনের অন্য সব অংশে **in** বসলেও **night**-এ বসে না — সেখানে **at** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "during",
+              "correct": false,
+              "feedback": {
+                "en": "**during** needs an event or a period with **the** — *during the match*. A plain time expression takes **at**, **on** or **in**.",
+                "bn": "**during**-এর পরে কোনো ঘটনা বা **the**-সহ সময় বসে — *during the match*। সাধারণ সময় বোঝাতে **at**, **on** বা **in** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **night** is the exception — **at night**, but **in** the morning, afternoon and evening.",
+                "bn": "ঠিক আছে। **night** ব্যতিক্রম — **at night**, কিন্তু morning, afternoon, evening-এর আগে **in** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_time_5",
+          "rule": "on-day-and-date",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The result came out ___ 3 March.",
+          "options": [
+            {
+              "id": "a",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** is for months and years. A day or a date takes **on**.",
+                "bn": "**in** মাস ও বছরের জন্য। বার বা তারিখের আগে **on** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "since",
+              "correct": false,
+              "feedback": {
+                "en": "**since** marks the point something started. To say **when** a single event happens, use **at**, **on** or **in**.",
+                "bn": "**since** কোনো কিছু শুরুর সময় বোঝায়। একটি ঘটনা **কখন** ঘটে বোঝাতে **at**, **on** বা **in** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "on",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Days and dates take **on**.",
+                "bn": "ঠিক আছে। বার ও তারিখের আগে **on** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**at** marks an exact time. A day or a date takes **on**.",
+                "bn": "**at** নির্দিষ্ট সময় বোঝায়। বার বা তারিখের আগে **on** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_time_6",
+          "rule": "in-period-and-parts",
+          "instruction": "Choose the correct preposition",
+          "prompt": "I read the newspaper ___ the morning.",
+          "options": [
+            {
+              "id": "a",
+              "text": "by",
+              "correct": false,
+              "feedback": {
+                "en": "**by** sets a deadline — *finish by Friday*. To say **when** something happens, use **at**, **on** or **in**.",
+                "bn": "**by** শেষ সময়সীমা বোঝায় — *finish by Friday*। কোনো কিছু **কখন** ঘটে বোঝাতে **at**, **on** বা **in** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Parts of the day take **in** — every one except **night**.",
+                "bn": "ঠিক আছে। দিনের অংশের আগে **in** বসে — শুধু **night** ছাড়া।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** is for days and dates. A month, a year or a part of the day takes **in**.",
+                "bn": "**on** বার ও তারিখের জন্য। মাস, বছর বা দিনের অংশের আগে **in** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**at** marks an exact time. A month, a year or a part of the day takes **in**.",
+                "bn": "**at** নির্দিষ্ট সময় বোঝায়। মাস, বছর বা দিনের অংশের আগে **in** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duration_and_relationship",
+      "title": "How long, since when, by when",
+      "preAssessmentBank": [
+        {
+          "id": "pre_dur_1",
+          "rule": "for-since",
+          "instruction": "Choose the correct preposition",
+          "prompt": "I have lived in this house ___ five years.",
+          "options": [
+            {
+              "id": "a",
+              "text": "since",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "from",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "during",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_dur_2",
+          "rule": "by-until",
+          "instruction": "Choose the correct preposition",
+          "prompt": "Please return the book ___ Thursday.",
+          "options": [
+            {
+              "id": "a",
+              "text": "until",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "by",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "during",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "since",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_dur_3",
+          "rule": "during-vs-for",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She fell asleep ___ the lecture.",
+          "options": [
+            {
+              "id": "a",
+              "text": "during",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "by",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "since",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_dur_4",
+          "rule": "for-since",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She has been unwell ___ Monday.",
+          "options": [
+            {
+              "id": "a",
+              "text": "during",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "by",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "since",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_dur_5",
+          "rule": "by-until",
+          "instruction": "Choose the correct preposition",
+          "prompt": "We waited at the gate ___ the bus came.",
+          "options": [
+            {
+              "id": "a",
+              "text": "since",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "by",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "until",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "during",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_dur_6",
+          "rule": "during-vs-for",
+          "instruction": "Choose the correct preposition",
+          "prompt": "He slept ___ eight hours.",
+          "options": [
+            {
+              "id": "a",
+              "text": "by",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "since",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "during",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": true
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_dur_1",
+          "rule": "for-since",
+          "instruction": "Choose the correct preposition",
+          "prompt": "They have been friends ___ ten years.",
+          "options": [
+            {
+              "id": "a",
+              "text": "during",
+              "correct": false,
+              "feedback": {
+                "en": "**during** says *when*, inside an event. How long something lasts takes **for**.",
+                "bn": "**during** কোনো ঘটনার ভেতরে *কখন* বোঝায়। কতক্ষণ স্থায়ী হয় বোঝাতে **for** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "from",
+              "correct": false,
+              "feedback": {
+                "en": "**from** needs a matching **to** — *from nine to five*. On its own, a length of time takes **for**.",
+                "bn": "**from**-এর সাথে **to** লাগে — *from nine to five*। এককভাবে সময়ের দৈর্ঘ্য বোঝাতে **for** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "since",
+              "correct": false,
+              "feedback": {
+                "en": "**since** needs a point in time — *since 2021*, *since Monday*. A length of time takes **for**.",
+                "bn": "**since**-এর পরে নির্দিষ্ট সময় বসে — *since 2021*, *since Monday*। সময়ের দৈর্ঘ্য বোঝাতে **for** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **for** measures how long something lasts.",
+                "bn": "ঠিক আছে। **for** কতক্ষণ স্থায়ী হয় তা বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_dur_2",
+          "rule": "by-until",
+          "instruction": "Choose the correct preposition",
+          "prompt": "Send me your answer ___ Sunday.",
+          "options": [
+            {
+              "id": "a",
+              "text": "by",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **by** sets the deadline — at that moment or before it.",
+                "bn": "ঠিক আছে। **by** শেষ সময়সীমা বোঝায় — ওই সময়ে বা তার আগে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "until",
+              "correct": false,
+              "feedback": {
+                "en": "**until** means continuously up to a moment. A deadline — do it at or before that time — takes **by**.",
+                "bn": "**until** বোঝায় ওই মুহূর্ত পর্যন্ত একটানা। শেষ সময়সীমা বোঝাতে **by** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "since",
+              "correct": false,
+              "feedback": {
+                "en": "**since** marks a starting point. A deadline takes **by**.",
+                "bn": "**since** শুরুর সময় বোঝায়। শেষ সময়সীমা বোঝাতে **by** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "during",
+              "correct": false,
+              "feedback": {
+                "en": "**during** places something inside a period. A deadline takes **by**.",
+                "bn": "**during** সময়ের ভেতরে বোঝায়। শেষ সময়সীমা বোঝাতে **by** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_dur_3",
+          "rule": "during-vs-for",
+          "instruction": "Choose the correct preposition",
+          "prompt": "My phone rang ___ the ceremony.",
+          "options": [
+            {
+              "id": "a",
+              "text": "for",
+              "correct": false,
+              "feedback": {
+                "en": "**for** measures a length of time. Inside an event, use **during**.",
+                "bn": "**for** সময়ের দৈর্ঘ্য বোঝায়। কোনো ঘটনার ভেতরে বোঝাতে **during** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "during",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **during** places it inside an event or a period.",
+                "bn": "ঠিক আছে। **during** কোনো ঘটনা বা সময়ের ভেতরে বোঝায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "by",
+              "correct": false,
+              "feedback": {
+                "en": "**by** sets a deadline. Inside an event, use **during**.",
+                "bn": "**by** শেষ সময়সীমা বোঝায়। কোনো ঘটনার ভেতরে বোঝাতে **during** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "since",
+              "correct": false,
+              "feedback": {
+                "en": "**since** marks a starting point. Inside an event, use **during**.",
+                "bn": "**since** শুরুর সময় বোঝায়। কোনো ঘটনার ভেতরে বোঝাতে **during** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_dur_4",
+          "rule": "for-since",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The shop has been closed ___ last week.",
+          "options": [
+            {
+              "id": "a",
+              "text": "by",
+              "correct": false,
+              "feedback": {
+                "en": "**by** sets a deadline. The point something started from takes **since**.",
+                "bn": "**by** শেষ সময়সীমা বোঝায়। শুরুর নির্দিষ্ট সময় বোঝাতে **since** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "since",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **since** names the point it started from.",
+                "bn": "ঠিক আছে। **since** কোন সময় থেকে শুরু হয়েছে তা বোঝায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "for",
+              "correct": false,
+              "feedback": {
+                "en": "**for** measures a length of time. The point something started from takes **since**.",
+                "bn": "**for** সময়ের দৈর্ঘ্য বোঝায়। শুরুর নির্দিষ্ট সময় বোঝাতে **since** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "during",
+              "correct": false,
+              "feedback": {
+                "en": "**during** places something inside a period. The point it started from takes **since**.",
+                "bn": "**during** সময়ের ভেতরে বোঝায়। শুরুর নির্দিষ্ট সময় বোঝাতে **since** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_dur_5",
+          "rule": "by-until",
+          "instruction": "Choose the correct preposition",
+          "prompt": "Stay here ___ I come back.",
+          "options": [
+            {
+              "id": "a",
+              "text": "by",
+              "correct": false,
+              "feedback": {
+                "en": "**by** marks a deadline. Something that carries on right up to a moment takes **until**.",
+                "bn": "**by** শেষ সময়সীমা বোঝায়। কোনো মুহূর্ত পর্যন্ত একটানা চলতে থাকলে **until** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "since",
+              "correct": false,
+              "feedback": {
+                "en": "**since** marks a starting point. Continuing right up to a moment takes **until**.",
+                "bn": "**since** শুরুর সময় বোঝায়। কোনো মুহূর্ত পর্যন্ত একটানা বোঝাতে **until** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "until",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **until** means continuously, right up to that moment.",
+                "bn": "ঠিক আছে। **until** বোঝায় ওই মুহূর্ত পর্যন্ত একটানা।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "during",
+              "correct": false,
+              "feedback": {
+                "en": "**during** places something inside a period. Continuing right up to a moment takes **until**.",
+                "bn": "**during** সময়ের ভেতরে বোঝায়। কোনো মুহূর্ত পর্যন্ত একটানা বোঝাতে **until** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_dur_6",
+          "rule": "during-vs-for",
+          "instruction": "Choose the correct preposition",
+          "prompt": "We talked ___ two hours.",
+          "options": [
+            {
+              "id": "a",
+              "text": "since",
+              "correct": false,
+              "feedback": {
+                "en": "**since** needs a point in time — *since 2021*, *since Monday*. A length of time takes **for**.",
+                "bn": "**since**-এর পরে নির্দিষ্ট সময় বসে — *since 2021*, *since Monday*। সময়ের দৈর্ঘ্য বোঝাতে **for** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "by",
+              "correct": false,
+              "feedback": {
+                "en": "**by** sets a deadline. A length of time takes **for**.",
+                "bn": "**by** শেষ সময়সীমা বোঝায়। সময়ের দৈর্ঘ্য বোঝাতে **for** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "during",
+              "correct": false,
+              "feedback": {
+                "en": "**during** says *when*, inside an event. How long something lasts takes **for**.",
+                "bn": "**during** কোনো ঘটনার ভেতরে *কখন* বোঝায়। কতক্ষণ স্থায়ী হয় বোঝাতে **for** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **for** measures how long something lasts.",
+                "bn": "ঠিক আছে। **for** কতক্ষণ স্থায়ী হয় তা বোঝায়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "place_and_position",
+      "title": "in, on, at and what sits where",
+      "preAssessmentBank": [
+        {
+          "id": "pre_place_1",
+          "rule": "in-on-at",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The dictionary is ___ the shelf.",
+          "options": [
+            {
+              "id": "a",
+              "text": "at",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "to",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_place_2",
+          "rule": "in-on-at",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She is waiting ___ the bus stop.",
+          "options": [
+            {
+              "id": "a",
+              "text": "in",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "on",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "to",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_place_3",
+          "rule": "under-over",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The cat sleeps ___ the bed.",
+          "options": [
+            {
+              "id": "a",
+              "text": "below",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "above",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "under",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "over",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_place_4",
+          "rule": "under-over",
+          "instruction": "Choose the correct preposition",
+          "prompt": "He jumped ___ the wall and ran away.",
+          "options": [
+            {
+              "id": "a",
+              "text": "over",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "above",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "under",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "below",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_place_5",
+          "rule": "between-among",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The school is ___ the bank and the hospital.",
+          "options": [
+            {
+              "id": "a",
+              "text": "in",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "between",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "among",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_place_6",
+          "rule": "between-among",
+          "instruction": "Choose the correct preposition",
+          "prompt": "He was standing ___ the crowd.",
+          "options": [
+            {
+              "id": "a",
+              "text": "among",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "under",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "between",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_place_1",
+          "rule": "in-on-at",
+          "instruction": "Choose the correct preposition",
+          "prompt": "There are thirty students ___ the classroom.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "**to** shows movement towards something. For where a thing already **is**, use **in**, **on** or **at**.",
+                "bn": "**to** কোনো দিকে যাওয়া বোঝায়। কোনো কিছু কোথায় **আছে** বোঝাতে **in**, **on** বা **at** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**at** marks a spot. Being inside a space takes **in**.",
+                "bn": "**at** নির্দিষ্ট বিন্দু বোঝায়। স্থানের ভেতরে বোঝাতে **in** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** is for a surface. Inside a space takes **in**.",
+                "bn": "**on** তলের উপরে বোঝায়। স্থানের ভেতরে বোঝাতে **in** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "in",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Inside a space takes **in**.",
+                "bn": "ঠিক আছে। কোনো স্থানের ভেতরে বোঝাতে **in** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_place_2",
+          "rule": "in-on-at",
+          "instruction": "Choose the correct preposition",
+          "prompt": "Someone has written a name ___ the wall.",
+          "options": [
+            {
+              "id": "a",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**at** marks a spot. Resting on a surface takes **on**.",
+                "bn": "**at** নির্দিষ্ট বিন্দু বোঝায়। তলের উপরে থাকলে **on** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "on",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Resting on a surface takes **on**.",
+                "bn": "ঠিক আছে। কোনো তলের উপরে থাকলে **on** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "**to** shows movement towards something. For where a thing already **is**, use **in**, **on** or **at**.",
+                "bn": "**to** কোনো দিকে যাওয়া বোঝায়। কোনো কিছু কোথায় **আছে** বোঝাতে **in**, **on** বা **at** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** puts something inside. Lying on a flat surface takes **on**.",
+                "bn": "**in** ভেতরে বোঝায়। কোনো তলের উপরে থাকলে **on** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_place_3",
+          "rule": "under-over",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The dog is hiding ___ the chair.",
+          "options": [
+            {
+              "id": "a",
+              "text": "under",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Directly beneath something takes **under**.",
+                "bn": "ঠিক আছে। কোনো কিছুর ঠিক নিচে বোঝাতে **under** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "above",
+              "correct": false,
+              "feedback": {
+                "en": "**above** is higher up. Directly beneath takes **under**.",
+                "bn": "**above** উঁচুতে বোঝায়। ঠিক নিচে বোঝাতে **under** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "over",
+              "correct": false,
+              "feedback": {
+                "en": "**over** is above. Tucked beneath something takes **under**.",
+                "bn": "**over** উপরে বোঝায়। কোনো কিছুর নিচে বোঝাতে **under** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "below",
+              "correct": false,
+              "feedback": {
+                "en": "**below** means lower than, at a distance. Tucked beneath something takes **under**.",
+                "bn": "**below** কোনো কিছুর চেয়ে নিচে বোঝায়। ঠিক নিচে ঢুকে থাকলে **under** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_place_4",
+          "rule": "under-over",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The plane flew ___ the city.",
+          "options": [
+            {
+              "id": "a",
+              "text": "through",
+              "correct": false,
+              "feedback": {
+                "en": "**through** goes inside something. Passing above it takes **over**.",
+                "bn": "**through** ভেতর দিয়ে বোঝায়। উপর দিয়ে গেলে **over** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "below",
+              "correct": false,
+              "feedback": {
+                "en": "**below** means lower than. Going above something takes **over**.",
+                "bn": "**below** নিচে বোঝায়। উপর দিয়ে যাওয়া বোঝাতে **over** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "under",
+              "correct": false,
+              "feedback": {
+                "en": "**under** is beneath. Passing above something takes **over**.",
+                "bn": "**under** নিচে বোঝায়। উপর দিয়ে যাওয়া বোঝাতে **over** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "over",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Passing above something takes **over**.",
+                "bn": "ঠিক আছে। কোনো কিছুর উপর দিয়ে যাওয়া বোঝাতে **over** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_place_5",
+          "rule": "between-among",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The river runs ___ the two villages.",
+          "options": [
+            {
+              "id": "a",
+              "text": "between",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Exactly two things takes **between**.",
+                "bn": "ঠিক আছে। ঠিক দুটি জিনিসের মাঝে **between** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "among",
+              "correct": false,
+              "feedback": {
+                "en": "**among** is for more than two, seen as a group. Exactly two things takes **between**.",
+                "bn": "**among** দুইয়ের বেশি, দল হিসেবে। ঠিক দুটির মাঝে **between** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This names exactly two things, so it takes **between**.",
+                "bn": "এখানে ঠিক দুটি জিনিসের কথা বলা হয়েছে, তাই **between** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "over",
+              "correct": false,
+              "feedback": {
+                "en": "This names exactly two things, so it takes **between**.",
+                "bn": "এখানে ঠিক দুটি জিনিসের কথা বলা হয়েছে, তাই **between** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_place_6",
+          "rule": "between-among",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She found her name ___ the winners.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "This is a group of more than two, so it takes **among**.",
+                "bn": "এটি দুইয়ের বেশি একটি দল, তাই **among** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "under",
+              "correct": false,
+              "feedback": {
+                "en": "This is a group of more than two, so it takes **among**.",
+                "bn": "এটি দুইয়ের বেশি একটি দল, তাই **among** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "among",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. More than two, seen as a group, takes **among**.",
+                "bn": "ঠিক আছে। দুইয়ের বেশি, একটি দল হিসেবে দেখলে **among** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "between",
+              "correct": false,
+              "feedback": {
+                "en": "**between** is for exactly two. More than two, seen as a group, takes **among**.",
+                "bn": "**between** ঠিক দুটির জন্য। দুইয়ের বেশি, দল হিসেবে দেখলে **among** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "movement_and_direction",
+      "title": "Where to, where from, which path",
+      "preAssessmentBank": [
+        {
+          "id": "pre_move_1",
+          "rule": "to-from",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She went ___ the market this morning.",
+          "options": [
+            {
+              "id": "a",
+              "text": "in",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "to",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "from",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_move_2",
+          "rule": "to-from",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She borrowed a pen ___ her friend.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "of",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "by",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "from",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_move_3",
+          "rule": "into-out-of",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The car crashed ___ a tree.",
+          "options": [
+            {
+              "id": "a",
+              "text": "at",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "into",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_move_4",
+          "rule": "into-out-of",
+          "instruction": "Choose the correct preposition",
+          "prompt": "We have run ___ sugar.",
+          "options": [
+            {
+              "id": "a",
+              "text": "off",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "from",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "out of",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "outside",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_move_5",
+          "rule": "across-through",
+          "instruction": "Choose the correct preposition",
+          "prompt": "A bridge was built ___ the river.",
+          "options": [
+            {
+              "id": "a",
+              "text": "through",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "along",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "into",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "across",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_move_6",
+          "rule": "across-through",
+          "instruction": "Choose the correct preposition",
+          "prompt": "We pushed ___ the crowd to reach the front.",
+          "options": [
+            {
+              "id": "a",
+              "text": "through",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "along",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "over",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "across",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_move_1",
+          "rule": "to-from",
+          "instruction": "Choose the correct preposition",
+          "prompt": "He gave the book ___ his sister.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The destination takes **to**.",
+                "bn": "ঠিক আছে। গন্তব্য বোঝাতে **to** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** says where something already **is**. Movement to a place takes **to** — *go to the market*, never *go in the market*.",
+                "bn": "**in** কোথায় **আছে** তা বোঝায়। কোথাও যাওয়া বোঝাতে **to** বসে — *go to the market*, *go in the market* নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "from",
+              "correct": false,
+              "feedback": {
+                "en": "**from** names the origin. The destination takes **to**.",
+                "bn": "**from** কোথা থেকে বোঝায়। গন্তব্য বোঝাতে **to** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**at** marks where something stays. The place it is heading takes **to**.",
+                "bn": "**at** কোথায় থাকে তা বোঝায়। কোথায় যাচ্ছে বোঝাতে **to** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_move_2",
+          "rule": "to-from",
+          "instruction": "Choose the correct preposition",
+          "prompt": "I received a letter ___ my cousin.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "**to** names the destination. Where something came from takes **from**.",
+                "bn": "**to** গন্তব্য বোঝায়। কোথা থেকে এসেছে বোঝাতে **from** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "from",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Where something came from takes **from**.",
+                "bn": "ঠিক আছে। কোথা থেকে এসেছে বোঝাতে **from** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This names where something came from, so it takes **from**.",
+                "bn": "এখানে কোথা থেকে এসেছে বোঝানো হয়েছে, তাই **from** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "This names where something came from, so it takes **from**.",
+                "bn": "এখানে কোথা থেকে এসেছে বোঝানো হয়েছে, তাই **from** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_move_3",
+          "rule": "into-out-of",
+          "instruction": "Choose the correct preposition",
+          "prompt": "He bumped ___ an old friend at the station.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "This crosses into something, so it takes **into**.",
+                "bn": "এটি ভেতরে ঢোকা বোঝায়, তাই **into** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** says where something already **is**. Crossing a boundary takes **into**.",
+                "bn": "**in** কোথায় **আছে** তা বোঝায়। ভেতরে ঢোকা বোঝাতে **into** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "into",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Crossing into something takes **into**.",
+                "bn": "ঠিক আছে। ভেতরে ঢোকা বোঝাতে **into** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This crosses into something, so it takes **into**.",
+                "bn": "এটি ভেতরে ঢোকা বোঝায়, তাই **into** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_move_4",
+          "rule": "into-out-of",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She got ___ the taxi and paid the driver.",
+          "options": [
+            {
+              "id": "a",
+              "text": "outside",
+              "correct": false,
+              "feedback": {
+                "en": "**outside** says where something is, not that it moved. Coming out takes **out of**.",
+                "bn": "**outside** কোথায় আছে তা বোঝায়, নড়াচড়া নয়। বের হওয়া বোঝাতে **out of** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "off",
+              "correct": false,
+              "feedback": {
+                "en": "**off** leaves a surface — *off the table*. Leaving an enclosed space takes **out of**.",
+                "bn": "**off** কোনো তল থেকে সরা বোঝায় — *off the table*। ঘেরা জায়গা থেকে বের হতে **out of** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "from",
+              "correct": false,
+              "feedback": {
+                "en": "**from** names a starting point in general. Coming out of an enclosed space takes **out of**.",
+                "bn": "**from** সাধারণভাবে শুরুর জায়গা বোঝায়। ঘেরা জায়গা থেকে বের হওয়া বোঝাতে **out of** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "out of",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Leaving an enclosed space takes **out of**.",
+                "bn": "ঠিক আছে। ভেতর থেকে বের হওয়া বোঝাতে **out of** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_move_5",
+          "rule": "across-through",
+          "instruction": "Choose the correct preposition",
+          "prompt": "A wooden plank was placed ___ the ditch.",
+          "options": [
+            {
+              "id": "a",
+              "text": "between",
+              "correct": false,
+              "feedback": {
+                "en": "This goes from one side to the other, so it takes **across**.",
+                "bn": "এটি এক পাশ থেকে অন্য পাশে যাচ্ছে, তাই **across** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "across",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Spanning a flat surface from side to side takes **across**.",
+                "bn": "ঠিক আছে। এক পাশ থেকে অন্য পাশে যাওয়া বোঝাতে **across** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "through",
+              "correct": false,
+              "feedback": {
+                "en": "**through** goes inside something. Spanning a flat surface takes **across**.",
+                "bn": "**through** ভেতর দিয়ে বোঝায়। কোনো তলের এক পাশ থেকে অন্য পাশে যেতে **across** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This goes from one side to the other, so it takes **across**.",
+                "bn": "এটি এক পাশ থেকে অন্য পাশে যাচ্ছে, তাই **across** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_move_6",
+          "rule": "across-through",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The nail went ___ the wood.",
+          "options": [
+            {
+              "id": "a",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This goes inside something and out the far side, so it takes **through**.",
+                "bn": "এটি ভেতর দিয়ে অন্য পাশে যাচ্ছে, তাই **through** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "along",
+              "correct": false,
+              "feedback": {
+                "en": "**along** follows the length of something. Going inside and out the far side takes **through**.",
+                "bn": "**along** দৈর্ঘ্য বরাবর বোঝায়। ভেতর দিয়ে অন্য পাশে যেতে **through** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "through",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Going inside something and out the other side takes **through**.",
+                "bn": "ঠিক আছে। কোনো কিছুর ভেতর দিয়ে যাওয়া বোঝাতে **through** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "across",
+              "correct": false,
+              "feedback": {
+                "en": "**across** spans a flat surface. Going inside something takes **through**.",
+                "bn": "**across** তলের উপর দিয়ে বোঝায়। ভেতর দিয়ে যেতে **through** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "means_instrument_agent",
+      "title": "by the method, with the tool",
+      "preAssessmentBank": [
+        {
+          "id": "pre_means_1",
+          "rule": "by-means",
+          "instruction": "Choose the correct preposition",
+          "prompt": "We travelled to Sylhet ___ train.",
+          "options": [
+            {
+              "id": "a",
+              "text": "with",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "on",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "by",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "in",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_means_2",
+          "rule": "with-instrument",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She cut the rope ___ a knife.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "by",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "with",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_means_3",
+          "rule": "by-agent",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The thief was caught ___ the police.",
+          "options": [
+            {
+              "id": "a",
+              "text": "by",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "with",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "from",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "of",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_means_4",
+          "rule": "by-means",
+          "instruction": "Choose the correct preposition",
+          "prompt": "I sent the documents ___ email.",
+          "options": [
+            {
+              "id": "a",
+              "text": "by",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "on",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "with",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_means_5",
+          "rule": "with-instrument",
+          "instruction": "Choose the correct preposition",
+          "prompt": "He opened the lock ___ a small key.",
+          "options": [
+            {
+              "id": "a",
+              "text": "by",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "with",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "in",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_means_6",
+          "rule": "by-agent",
+          "instruction": "Choose the correct preposition",
+          "prompt": "Our team was defeated ___ a stronger side.",
+          "options": [
+            {
+              "id": "a",
+              "text": "of",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "with",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "from",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "by",
+              "correct": true
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_means_1",
+          "rule": "by-means",
+          "instruction": "Choose the correct preposition",
+          "prompt": "They go to school ___ rickshaw.",
+          "options": [
+            {
+              "id": "a",
+              "text": "with",
+              "correct": false,
+              "feedback": {
+                "en": "**with** introduces a tool you hold. A means of travelling or sending takes **by** — *by bus*, *by email*.",
+                "bn": "**with** হাতে ধরা জিনিস বোঝায়। যাতায়াত বা পাঠানোর উপায় বোঝাতে **by** বসে — *by bus*, *by email*।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** places something inside. The method or channel itself takes **by** — *by train*, *by post*.",
+                "bn": "**in** ভেতরে থাকা বোঝায়। উপায় বা মাধ্যম বোঝাতে **by** বসে — *by train*, *by post*।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** points at a surface, or a vehicle you are aboard. The method or channel itself takes **by** — *by bus*, *by email*.",
+                "bn": "**on** কোনো তল বা যানবাহনের ভেতরে থাকা বোঝায়। উপায় বা মাধ্যম বোঝাতে **by** বসে — *by bus*, *by email*।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "by",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A method or a means of travel takes **by** — and no article after it.",
+                "bn": "ঠিক আছে। উপায় বা যানবাহন বোঝাতে **by** বসে, এবং এর পরে কোনো article বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_means_2",
+          "rule": "with-instrument",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She wiped the table ___ a wet cloth.",
+          "options": [
+            {
+              "id": "a",
+              "text": "by",
+              "correct": false,
+              "feedback": {
+                "en": "**by** names the method or the person who did it. The tool held in the hand takes **with**.",
+                "bn": "**by** উপায় বা কর্তা বোঝায়। হাতে ধরা যন্ত্র বোঝাতে **with** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "with",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A tool held in the hand takes **with**.",
+                "bn": "ঠিক আছে। হাতে ধরা যন্ত্র বা জিনিস বোঝাতে **with** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** does not introduce a tool. The thing used takes **with**.",
+                "bn": "**in** দিয়ে যন্ত্র বোঝানো যায় না। ব্যবহৃত জিনিসের আগে **with** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** does not introduce a tool. The thing used takes **with**.",
+                "bn": "**on** দিয়ে যন্ত্র বোঝানো যায় না। ব্যবহৃত জিনিসের আগে **with** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_means_3",
+          "rule": "by-agent",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The letter was signed ___ the headmaster.",
+          "options": [
+            {
+              "id": "a",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "**of** shows belonging. The one who did the action takes **by**.",
+                "bn": "**of** সম্বন্ধ বোঝায়। যে কাজটি করেছে তার আগে **by** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "from",
+              "correct": false,
+              "feedback": {
+                "en": "**from** names where something came from. The one who did the action takes **by**.",
+                "bn": "**from** উৎস বোঝায়। যে কাজটি করেছে তার আগে **by** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "by",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. In the passive, the person who did it takes **by**.",
+                "bn": "ঠিক আছে। Passive-এ যে কাজটি করেছে তার আগে **by** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "with",
+              "correct": false,
+              "feedback": {
+                "en": "**with** introduces a tool, not a person. The one who did the action takes **by**.",
+                "bn": "**with** যন্ত্র বোঝায়, ব্যক্তি নয়। যে কাজটি করেছে তার আগে **by** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_means_4",
+          "rule": "by-means",
+          "instruction": "Choose the correct preposition",
+          "prompt": "Please inform me ___ phone before you come.",
+          "options": [
+            {
+              "id": "a",
+              "text": "by",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A method or a means of travel takes **by** — and no article after it.",
+                "bn": "ঠিক আছে। উপায় বা যানবাহন বোঝাতে **by** বসে, এবং এর পরে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** points at a surface, or a vehicle you are aboard. The method or channel itself takes **by** — *by bus*, *by email*.",
+                "bn": "**on** কোনো তল বা যানবাহনের ভেতরে থাকা বোঝায়। উপায় বা মাধ্যম বোঝাতে **by** বসে — *by bus*, *by email*।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** places something inside. The method or channel itself takes **by** — *by train*, *by post*.",
+                "bn": "**in** ভেতরে থাকা বোঝায়। উপায় বা মাধ্যম বোঝাতে **by** বসে — *by train*, *by post*।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "with",
+              "correct": false,
+              "feedback": {
+                "en": "**with** introduces a tool you hold. A means of travelling or sending takes **by** — *by bus*, *by email*.",
+                "bn": "**with** হাতে ধরা জিনিস বোঝায়। যাতায়াত বা পাঠানোর উপায় বোঝাতে **by** বসে — *by bus*, *by email*।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_means_5",
+          "rule": "with-instrument",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The child drew a picture ___ a coloured pencil.",
+          "options": [
+            {
+              "id": "a",
+              "text": "with",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A tool held in the hand takes **with**.",
+                "bn": "ঠিক আছে। হাতে ধরা যন্ত্র বা জিনিস বোঝাতে **with** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** does not introduce a tool. The thing used takes **with**.",
+                "bn": "**in** দিয়ে যন্ত্র বোঝানো যায় না। ব্যবহৃত জিনিসের আগে **with** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "by",
+              "correct": false,
+              "feedback": {
+                "en": "**by** names the method or the person who did it. The tool held in the hand takes **with**.",
+                "bn": "**by** উপায় বা কর্তা বোঝায়। হাতে ধরা যন্ত্র বোঝাতে **with** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**at** does not introduce a tool. The thing used takes **with**.",
+                "bn": "**at** দিয়ে যন্ত্র বোঝানো যায় না। ব্যবহৃত জিনিসের আগে **with** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_means_6",
+          "rule": "by-agent",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The prize was announced ___ the chief guest.",
+          "options": [
+            {
+              "id": "a",
+              "text": "from",
+              "correct": false,
+              "feedback": {
+                "en": "**from** names where something came from. The one who did the action takes **by**.",
+                "bn": "**from** উৎস বোঝায়। যে কাজটি করেছে তার আগে **by** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "by",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. In the passive, the person who did it takes **by**.",
+                "bn": "ঠিক আছে। Passive-এ যে কাজটি করেছে তার আগে **by** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "**of** shows belonging. The one who did the action takes **by**.",
+                "bn": "**of** সম্বন্ধ বোঝায়। যে কাজটি করেছে তার আগে **by** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "with",
+              "correct": false,
+              "feedback": {
+                "en": "**with** introduces a tool, not a person. The one who did the action takes **by**.",
+                "bn": "**with** যন্ত্র বোঝায়, ব্যক্তি নয়। যে কাজটি করেছে তার আগে **by** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "word_preposition",
+      "title": "The word decides, not the meaning",
+      "preAssessmentBank": [
+        {
+          "id": "pre_word_1",
+          "rule": "adjective-prep",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She is interested ___ photography.",
+          "options": [
+            {
+              "id": "a",
+              "text": "in",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "for",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_word_2",
+          "rule": "adjective-prep",
+          "instruction": "Choose the correct preposition",
+          "prompt": "My little brother is afraid ___ dogs.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "from",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "of",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_word_3",
+          "rule": "verb-prep",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The result depends ___ your effort.",
+          "options": [
+            {
+              "id": "a",
+              "text": "of",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "from",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_word_4",
+          "rule": "verb-prep",
+          "instruction": "Choose the correct preposition",
+          "prompt": "This umbrella belongs ___ my sister.",
+          "options": [
+            {
+              "id": "a",
+              "text": "at",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "to",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "for",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "of",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_word_5",
+          "rule": "noun-prep",
+          "instruction": "Choose the correct preposition",
+          "prompt": "Nobody knew the reason ___ his absence.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "of",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "for",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_word_6",
+          "rule": "noun-prep",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She has a deep interest ___ music.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "for",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "to",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_word_1",
+          "rule": "adjective-prep",
+          "instruction": "Choose the correct preposition",
+          "prompt": "He is very proud ___ his daughter.",
+          "options": [
+            {
+              "id": "a",
+              "text": "of",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **proud** takes **of**.",
+                "bn": "ঠিক আছে। **proud**-এর পরে **of** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **proud**. The pair is **proud of**.",
+                "bn": "এই preposition **proud**-এর সাথে বসে না। সঠিক জোড়া **proud of**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **proud**. The pair is **proud of**.",
+                "bn": "এই preposition **proud**-এর সাথে বসে না। সঠিক জোড়া **proud of**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **proud**. The pair is **proud of**.",
+                "bn": "এই preposition **proud**-এর সাথে বসে না। সঠিক জোড়া **proud of**।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_word_2",
+          "rule": "adjective-prep",
+          "instruction": "Choose the correct preposition",
+          "prompt": "Her sister is married ___ a doctor.",
+          "options": [
+            {
+              "id": "a",
+              "text": "with",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **married**. The pair is **married to**.",
+                "bn": "এই preposition **married**-এর সাথে বসে না। সঠিক জোড়া **married to**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **married**. The pair is **married to**.",
+                "bn": "এই preposition **married**-এর সাথে বসে না। সঠিক জোড়া **married to**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "to",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **married** takes **to**.",
+                "bn": "ঠিক আছে। **married**-এর পরে **to** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **married**. The pair is **married to**.",
+                "bn": "এই preposition **married**-এর সাথে বসে না। সঠিক জোড়া **married to**।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_word_3",
+          "rule": "verb-prep",
+          "instruction": "Choose the correct preposition",
+          "prompt": "You can rely ___ him in any crisis.",
+          "options": [
+            {
+              "id": "a",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **rely**. The pair is **rely on**.",
+                "bn": "এই preposition **rely**-এর সাথে বসে না। সঠিক জোড়া **rely on**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **rely**. The pair is **rely on**.",
+                "bn": "এই preposition **rely**-এর সাথে বসে না। সঠিক জোড়া **rely on**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **rely**. The pair is **rely on**.",
+                "bn": "এই preposition **rely**-এর সাথে বসে না। সঠিক জোড়া **rely on**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **rely** takes **on**.",
+                "bn": "ঠিক আছে। **rely**-এর পরে **on** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_word_4",
+          "rule": "verb-prep",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She was listening ___ her teacher.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **listen**. The pair is **listen to**.",
+                "bn": "এই preposition **listen**-এর সাথে বসে না। সঠিক জোড়া **listen to**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "to",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **listen** takes **to**.",
+                "bn": "ঠিক আছে। **listen**-এর পরে **to** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **listen**. The pair is **listen to**.",
+                "bn": "এই preposition **listen**-এর সাথে বসে না। সঠিক জোড়া **listen to**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **listen**. The pair is **listen to**.",
+                "bn": "এই preposition **listen**-এর সাথে বসে না। সঠিক জোড়া **listen to**।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_word_5",
+          "rule": "noun-prep",
+          "instruction": "Choose the correct preposition",
+          "prompt": "We must find a solution ___ this problem.",
+          "options": [
+            {
+              "id": "a",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **solution**. The pair is **solution to**.",
+                "bn": "এই preposition **solution**-এর সাথে বসে না। সঠিক জোড়া **solution to**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **solution**. The pair is **solution to**.",
+                "bn": "এই preposition **solution**-এর সাথে বসে না। সঠিক জোড়া **solution to**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "to",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **solution** takes **to**.",
+                "bn": "ঠিক আছে। **solution**-এর পরে **to** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **solution**. The pair is **solution to**.",
+                "bn": "এই preposition **solution**-এর সাথে বসে না। সঠিক জোড়া **solution to**।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_word_6",
+          "rule": "noun-prep",
+          "instruction": "Choose the correct preposition",
+          "prompt": "There is a great need ___ clean water.",
+          "options": [
+            {
+              "id": "a",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **need**. The pair is **need for**.",
+                "bn": "এই preposition **need**-এর সাথে বসে না। সঠিক জোড়া **need for**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **need**. The pair is **need for**.",
+                "bn": "এই preposition **need**-এর সাথে বসে না। সঠিক জোড়া **need for**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **need**. The pair is **need for**.",
+                "bn": "এই preposition **need**-এর সাথে বসে না। সঠিক জোড়া **need for**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **need** takes **for**.",
+                "bn": "ঠিক আছে। **need**-এর পরে **for** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zero_preposition",
+      "title": "When English needs nothing at all",
+      "preAssessmentBank": [
+        {
+          "id": "pre_zero_1",
+          "rule": "transitive-verb",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We discussed over the problem for an hour.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "We discussed about the problem for an hour.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "We discussed the problem for an hour.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "We discussed on the problem for an hour.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_zero_2",
+          "rule": "transitive-verb",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The police investigated on the case quickly.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "The police investigated the case quickly.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "The police investigated about the case quickly.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The police investigated into the case quickly.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_zero_3",
+          "rule": "reach-vs-arrive",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They reached Dhaka late at night.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "They reached to Dhaka late at night.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "They reached in Dhaka late at night.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "They reached at Dhaka late at night.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_zero_4",
+          "rule": "reach-vs-arrive",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We arrived on the station on time.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "We arrived to the station on time.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "We arrived the station on time.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "We arrived at the station on time.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "pre_zero_5",
+          "rule": "home-and-abroad",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She went home early yesterday.",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "She went to home early yesterday.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "She went in home early yesterday.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "She went at home early yesterday.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "pre_zero_6",
+          "rule": "home-and-abroad",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My cousin went in abroad last year.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "My cousin went abroad last year.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "My cousin went at abroad last year.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "My cousin went to abroad last year.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "post_zero_1",
+          "rule": "transitive-verb",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She entered the room without knocking.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **enter** takes its object directly, with no preposition at all.",
+                "bn": "ঠিক আছে। **enter**-এর পরে সরাসরি object বসে, কোনো preposition লাগে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She entered to the room without knocking.",
+              "correct": false,
+              "feedback": {
+                "en": "**enter** needs no preposition after it. Drop the **to**.",
+                "bn": "**enter**-এর পরে কোনো preposition বসে না — **to** বাদ দিন।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She entered into the room without knocking.",
+              "correct": false,
+              "feedback": {
+                "en": "**enter** needs no preposition after it. Drop the **into**.",
+                "bn": "**enter**-এর পরে কোনো preposition বসে না — **into** বাদ দিন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She entered in the room without knocking.",
+              "correct": false,
+              "feedback": {
+                "en": "**enter** needs no preposition after it. Drop the **in**.",
+                "bn": "**enter**-এর পরে কোনো preposition বসে না — **in** বাদ দিন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_zero_2",
+          "rule": "transitive-verb",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She requested a glass of water.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **request** takes its object directly, with no preposition at all.",
+                "bn": "ঠিক আছে। **request**-এর পরে সরাসরি object বসে, কোনো preposition লাগে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She requested for a glass of water.",
+              "correct": false,
+              "feedback": {
+                "en": "**request** needs no preposition after it. Drop the **for**.",
+                "bn": "**request**-এর পরে কোনো preposition বসে না — **for** বাদ দিন।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She requested about a glass of water.",
+              "correct": false,
+              "feedback": {
+                "en": "**request** needs no preposition after it. Drop the **about**.",
+                "bn": "**request**-এর পরে কোনো preposition বসে না — **about** বাদ দিন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She requested to a glass of water.",
+              "correct": false,
+              "feedback": {
+                "en": "**request** needs no preposition after it. Drop the **to**.",
+                "bn": "**request**-এর পরে কোনো preposition বসে না — **to** বাদ দিন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_zero_3",
+          "rule": "reach-vs-arrive",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The train reached to the platform on time.",
+              "correct": false,
+              "feedback": {
+                "en": "**reach** needs no preposition after it. Drop the **to**.",
+                "bn": "**reach**-এর পরে কোনো preposition বসে না — **to** বাদ দিন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The train reached in the platform on time.",
+              "correct": false,
+              "feedback": {
+                "en": "**reach** needs no preposition after it. Drop the **in**.",
+                "bn": "**reach**-এর পরে কোনো preposition বসে না — **in** বাদ দিন।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The train reached the platform on time.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **reach** takes its object directly, with no preposition at all.",
+                "bn": "ঠিক আছে। **reach**-এর পরে সরাসরি object বসে, কোনো preposition লাগে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The train reached at the platform on time.",
+              "correct": false,
+              "feedback": {
+                "en": "**reach** needs no preposition after it. Drop the **at**.",
+                "bn": "**reach**-এর পরে কোনো preposition বসে না — **at** বাদ দিন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_zero_4",
+          "rule": "reach-vs-arrive",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "They arrived on Chittagong on Monday.",
+              "correct": false,
+              "feedback": {
+                "en": "**arrive** takes **at** a place or **in** a city — never **to** or **on**.",
+                "bn": "**arrive**-এর পরে জায়গায় **at** বা শহরে **in** বসে — **to** বা **on** নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "They arrived Chittagong on Monday.",
+              "correct": false,
+              "feedback": {
+                "en": "**reach** takes nothing, but **arrive** is not the same word. It needs **at** a place or **in** a city.",
+                "bn": "**reach**-এর পরে কিছু বসে না, কিন্তু **arrive** আলাদা — এর পরে জায়গায় **at** বা শহরে **in** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "They arrived in Chittagong on Monday.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **arrive** is the exception — it does need a preposition: **at** a place, **in** a town or city.",
+                "bn": "ঠিক আছে। **arrive** ব্যতিক্রম — এর পরে preposition লাগে: কোনো জায়গায় **at**, শহরে **in**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "They arrived to Chittagong on Monday.",
+              "correct": false,
+              "feedback": {
+                "en": "**arrive** takes **at** a place or **in** a city — never **to** or **on**.",
+                "bn": "**arrive**-এর পরে জায়গায় **at** বা শহরে **in** বসে — **to** বা **on** নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_zero_5",
+          "rule": "home-and-abroad",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We reached in home before dark.",
+              "correct": false,
+              "feedback": {
+                "en": "**reach home** needs no preposition after it. Drop the **in**.",
+                "bn": "**reach home**-এর পরে কোনো preposition বসে না — **in** বাদ দিন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We reached to home before dark.",
+              "correct": false,
+              "feedback": {
+                "en": "**reach home** needs no preposition after it. Drop the **to**.",
+                "bn": "**reach home**-এর পরে কোনো preposition বসে না — **to** বাদ দিন।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We reached at home before dark.",
+              "correct": false,
+              "feedback": {
+                "en": "**reach home** needs no preposition after it. Drop the **at**.",
+                "bn": "**reach home**-এর পরে কোনো preposition বসে না — **at** বাদ দিন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We reached home before dark.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **reach home** takes its object directly, with no preposition at all.",
+                "bn": "ঠিক আছে। **reach home**-এর পরে সরাসরি object বসে, কোনো preposition লাগে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "post_zero_6",
+          "rule": "home-and-abroad",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Please come at upstairs for a moment.",
+              "correct": false,
+              "feedback": {
+                "en": "**come upstairs** needs no preposition after it. Drop the **at**.",
+                "bn": "**come upstairs**-এর পরে কোনো preposition বসে না — **at** বাদ দিন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Please come upstairs for a moment.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **come upstairs** takes its object directly, with no preposition at all.",
+                "bn": "ঠিক আছে। **come upstairs**-এর পরে সরাসরি object বসে, কোনো preposition লাগে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Please come in upstairs for a moment.",
+              "correct": false,
+              "feedback": {
+                "en": "**come upstairs** needs no preposition after it. Drop the **in**.",
+                "bn": "**come upstairs**-এর পরে কোনো preposition বসে না — **in** বাদ দিন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Please come to upstairs for a moment.",
+              "correct": false,
+              "feedback": {
+                "en": "**come upstairs** needs no preposition after it. Drop the **to**.",
+                "bn": "**come upstairs**-এর পরে কোনো preposition বসে না — **to** বাদ দিন।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson_time_prepositions",
+      "subSkillId": "time_prepositions",
+      "title": "at, on, in — largest to smallest",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Three prepositions cover almost every time expression, and they narrow from large to small: **in** for long periods, **on** for days and dates, **at** for exact times."
+        },
+        {
+          "type": "pattern",
+          "text": "in a month  →  on a day",
+          "highlight": "→ at a time"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Preposition",
+            "Use it for"
+          ],
+          "rows": [
+            [
+              "in",
+              "in January, in 2020, in the morning"
+            ],
+            [
+              "on",
+              "on Sunday, on 5 May"
+            ],
+            [
+              "at",
+              "at ten o'clock, at night"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "The course starts in January.",
+              "highlight": "in January"
+            },
+            {
+              "text": "We meet on Sunday.",
+              "highlight": "on Sunday"
+            },
+            {
+              "text": "The film ends at ten o'clock.",
+              "highlight": "at ten o'clock"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Parts of the day take **in** — *in the morning, in the afternoon, in the evening*. **Night** is the one exception: **at night**."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "সময় বোঝাতে **in**, **on**, **at** — বড় থেকে ছোট। মাস, বছর ও দীর্ঘ সময়ে **in** (in January, in 2020); বার ও তারিখে **on** (on Sunday, on 5 May); নির্দিষ্ট সময়ে **at** (at ten o'clock)। দিনের অংশে **in** বসে — *in the morning*, *in the evening* — কিন্তু **night** ব্যতিক্রম: **at night**।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_time_1",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The bank opens ___ 10 AM.",
+          "options": [
+            {
+              "id": "a",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** is for months, years and long periods. An exact time takes **at**.",
+                "bn": "**in** মাস, বছর ও দীর্ঘ সময়ের জন্য। নির্দিষ্ট সময়ের আগে **at** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** is for days and dates. An exact time takes **at**.",
+                "bn": "**on** বার ও তারিখের জন্য। নির্দিষ্ট সময়ের আগে **at** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. An exact time takes **at**.",
+                "bn": "ঠিক আছে। নির্দিষ্ট সময়ের আগে **at** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "during",
+              "correct": false,
+              "feedback": {
+                "en": "**during** needs an event or a period with **the** — *during the match*. A plain time expression takes **at**, **on** or **in**.",
+                "bn": "**during**-এর পরে কোনো ঘটনা বা **the**-সহ সময় বসে — *during the match*। সাধারণ সময় বোঝাতে **at**, **on** বা **in** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_time_2",
+          "instruction": "Choose the correct preposition",
+          "prompt": "Our holiday begins ___ Saturday.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Days and dates take **on**.",
+                "bn": "ঠিক আছে। বার ও তারিখের আগে **on** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** is for months and years. A day or a date takes **on**.",
+                "bn": "**in** মাস ও বছরের জন্য। বার বা তারিখের আগে **on** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "during",
+              "correct": false,
+              "feedback": {
+                "en": "**during** needs an event or a period with **the** — *during the match*. A plain time expression takes **at**, **on** or **in**.",
+                "bn": "**during**-এর পরে কোনো ঘটনা বা **the**-সহ সময় বসে — *during the match*। সাধারণ সময় বোঝাতে **at**, **on** বা **in** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**at** marks an exact time. A day or a date takes **on**.",
+                "bn": "**at** নির্দিষ্ট সময় বোঝায়। বার বা তারিখের আগে **on** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_time_3",
+          "instruction": "Choose the correct preposition",
+          "prompt": "It rains a lot ___ July.",
+          "options": [
+            {
+              "id": "a",
+              "text": "for",
+              "correct": false,
+              "feedback": {
+                "en": "**for** measures how long something lasts. To say **when** it happens, use **at**, **on** or **in**.",
+                "bn": "**for** কতক্ষণ স্থায়ী হয় তা বোঝায়। **কখন** ঘটে বোঝাতে **at**, **on** বা **in** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** is for days and dates. A month, a year or a part of the day takes **in**.",
+                "bn": "**on** বার ও তারিখের জন্য। মাস, বছর বা দিনের অংশের আগে **in** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Months, years and long periods take **in**.",
+                "bn": "ঠিক আছে। মাস, বছর ও দীর্ঘ সময়ের আগে **in** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**at** marks an exact time. A month, a year or a part of the day takes **in**.",
+                "bn": "**at** নির্দিষ্ট সময় বোঝায়। মাস, বছর বা দিনের অংশের আগে **in** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_duration_and_relationship",
+      "subSkillId": "duration_and_relationship",
+      "title": "How long, since when, by when",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "These prepositions answer three different questions. **for** measures how long. **since** names the point it started from. **by** sets a deadline, and **until** means right up to a moment without stopping."
+        },
+        {
+          "type": "pattern",
+          "text": "for + how long",
+          "highlight": "since + when it started"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Preposition",
+            "Answers"
+          ],
+          "rows": [
+            [
+              "for",
+              "how long — for three days"
+            ],
+            [
+              "since",
+              "starting when — since Monday"
+            ],
+            [
+              "by",
+              "the deadline — by Friday"
+            ],
+            [
+              "until",
+              "right up to — until Friday"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "I have worked here for three days.",
+              "highlight": "for three days"
+            },
+            {
+              "text": "I have worked here since Monday.",
+              "highlight": "since Monday"
+            },
+            {
+              "text": "The office stays open until six.",
+              "highlight": "until six"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "**since five years** is the commonest mistake here. **since** needs a point in time — *since 2021*, *since Monday*. A length of time takes **for** — *for five years*."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "**for** কতক্ষণ (for three days), **since** কখন থেকে (since Monday), **by** কোন সময়ের মধ্যে (by Friday), আর **until** কোন সময় পর্যন্ত একটানা (until Friday)। সবচেয়ে বড় ভুল — **since five years**। **since**-এর পরে নির্দিষ্ট সময় বসে; সময়ের দৈর্ঘ্য বোঝাতে **for five years** হবে।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_dur_1",
+          "instruction": "Choose the correct preposition",
+          "prompt": "I have been waiting ___ an hour.",
+          "options": [
+            {
+              "id": "a",
+              "text": "for",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **for** measures how long something lasts.",
+                "bn": "ঠিক আছে। **for** কতক্ষণ স্থায়ী হয় তা বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "during",
+              "correct": false,
+              "feedback": {
+                "en": "**during** says *when*, inside an event. How long something lasts takes **for**.",
+                "bn": "**during** কোনো ঘটনার ভেতরে *কখন* বোঝায়। কতক্ষণ স্থায়ী হয় বোঝাতে **for** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "since",
+              "correct": false,
+              "feedback": {
+                "en": "**since** needs a point in time — *since 2021*, *since Monday*. A length of time takes **for**.",
+                "bn": "**since**-এর পরে নির্দিষ্ট সময় বসে — *since 2021*, *since Monday*। সময়ের দৈর্ঘ্য বোঝাতে **for** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "from",
+              "correct": false,
+              "feedback": {
+                "en": "**from** needs a matching **to** — *from nine to five*. On its own, a length of time takes **for**.",
+                "bn": "**from**-এর সাথে **to** লাগে — *from nine to five*। এককভাবে সময়ের দৈর্ঘ্য বোঝাতে **for** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_dur_2",
+          "instruction": "Choose the correct preposition",
+          "prompt": "He has been abroad ___ March.",
+          "options": [
+            {
+              "id": "a",
+              "text": "during",
+              "correct": false,
+              "feedback": {
+                "en": "**during** places something inside a period. The point it started from takes **since**.",
+                "bn": "**during** সময়ের ভেতরে বোঝায়। শুরুর নির্দিষ্ট সময় বোঝাতে **since** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "since",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **since** names the point it started from.",
+                "bn": "ঠিক আছে। **since** কোন সময় থেকে শুরু হয়েছে তা বোঝায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "for",
+              "correct": false,
+              "feedback": {
+                "en": "**for** measures a length of time. The point something started from takes **since**.",
+                "bn": "**for** সময়ের দৈর্ঘ্য বোঝায়। শুরুর নির্দিষ্ট সময় বোঝাতে **since** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "by",
+              "correct": false,
+              "feedback": {
+                "en": "**by** sets a deadline. The point something started from takes **since**.",
+                "bn": "**by** শেষ সময়সীমা বোঝায়। শুরুর নির্দিষ্ট সময় বোঝাতে **since** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_dur_3",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The library stays open ___ nine.",
+          "options": [
+            {
+              "id": "a",
+              "text": "for",
+              "correct": false,
+              "feedback": {
+                "en": "**for** measures a length of time. Continuing right up to a moment takes **until**.",
+                "bn": "**for** সময়ের দৈর্ঘ্য বোঝায়। কোনো মুহূর্ত পর্যন্ত একটানা বোঝাতে **until** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "until",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **until** means continuously, right up to that moment.",
+                "bn": "ঠিক আছে। **until** বোঝায় ওই মুহূর্ত পর্যন্ত একটানা।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "by",
+              "correct": false,
+              "feedback": {
+                "en": "**by** marks a deadline. Something that carries on right up to a moment takes **until**.",
+                "bn": "**by** শেষ সময়সীমা বোঝায়। কোনো মুহূর্ত পর্যন্ত একটানা চলতে থাকলে **until** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "since",
+              "correct": false,
+              "feedback": {
+                "en": "**since** marks a starting point. Continuing right up to a moment takes **until**.",
+                "bn": "**since** শুরুর সময় বোঝায়। কোনো মুহূর্ত পর্যন্ত একটানা বোঝাতে **until** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_place_and_position",
+      "subSkillId": "place_and_position",
+      "title": "in, on, at — and what sits where",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**in** puts something inside a space, **on** puts it on a surface, and **at** marks a point — a place you think of as a spot rather than an area."
+        },
+        {
+          "type": "pattern",
+          "text": "in a space  →  on a surface",
+          "highlight": "→ at a point"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Preposition",
+            "Use it for"
+          ],
+          "rows": [
+            [
+              "in",
+              "in the room, in Dhaka, in the box"
+            ],
+            [
+              "on",
+              "on the table, on the floor, on the bus"
+            ],
+            [
+              "at",
+              "at the door, at the station, at the wedding"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "The letters are in the drawer.",
+              "highlight": "in the drawer"
+            },
+            {
+              "text": "The photo is on the desk.",
+              "highlight": "on the desk"
+            },
+            {
+              "text": "He is waiting at the gate.",
+              "highlight": "at the gate"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "**under** is directly beneath something. **between** needs exactly two things — *between the bank and the hospital* — while **among** needs a group of more than two."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "কোনো স্থানের ভেতরে হলে **in** (in the room), কোনো তলের উপরে হলে **on** (on the table), আর নির্দিষ্ট একটি বিন্দু বোঝাতে **at** (at the gate)। বাস-ট্রেনে **on** বসে — **on the bus**, *in the bus* নয়। **between** ঠিক দুটির মাঝে, আর **among** দুইয়ের বেশি একটি দলের মধ্যে।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_place_1",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The kitten is sitting ___ the box.",
+          "options": [
+            {
+              "id": "a",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**at** marks a spot. Being inside a space takes **in**.",
+                "bn": "**at** নির্দিষ্ট বিন্দু বোঝায়। স্থানের ভেতরে বোঝাতে **in** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "**to** shows movement towards something. For where a thing already **is**, use **in**, **on** or **at**.",
+                "bn": "**to** কোনো দিকে যাওয়া বোঝায়। কোনো কিছু কোথায় **আছে** বোঝাতে **in**, **on** বা **at** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Inside a space takes **in**.",
+                "bn": "ঠিক আছে। কোনো স্থানের ভেতরে বোঝাতে **in** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** is for a surface. Inside a space takes **in**.",
+                "bn": "**on** তলের উপরে বোঝায়। স্থানের ভেতরে বোঝাতে **in** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_place_2",
+          "instruction": "Choose the correct preposition",
+          "prompt": "My shoes are ___ the bed.",
+          "options": [
+            {
+              "id": "a",
+              "text": "above",
+              "correct": false,
+              "feedback": {
+                "en": "**above** is higher up. Directly beneath takes **under**.",
+                "bn": "**above** উঁচুতে বোঝায়। ঠিক নিচে বোঝাতে **under** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "over",
+              "correct": false,
+              "feedback": {
+                "en": "**over** is above. Tucked beneath something takes **under**.",
+                "bn": "**over** উপরে বোঝায়। কোনো কিছুর নিচে বোঝাতে **under** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "below",
+              "correct": false,
+              "feedback": {
+                "en": "**below** means lower than, at a distance. Tucked beneath something takes **under**.",
+                "bn": "**below** কোনো কিছুর চেয়ে নিচে বোঝায়। ঠিক নিচে ঢুকে থাকলে **under** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "under",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Directly beneath something takes **under**.",
+                "bn": "ঠিক আছে। কোনো কিছুর ঠিক নিচে বোঝাতে **under** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_place_3",
+          "instruction": "Choose the correct preposition",
+          "prompt": "I sat ___ my brother and my father.",
+          "options": [
+            {
+              "id": "a",
+              "text": "among",
+              "correct": false,
+              "feedback": {
+                "en": "**among** is for more than two, seen as a group. Exactly two things takes **between**.",
+                "bn": "**among** দুইয়ের বেশি, দল হিসেবে। ঠিক দুটির মাঝে **between** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This names exactly two things, so it takes **between**.",
+                "bn": "এখানে ঠিক দুটি জিনিসের কথা বলা হয়েছে, তাই **between** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "This names exactly two things, so it takes **between**.",
+                "bn": "এখানে ঠিক দুটি জিনিসের কথা বলা হয়েছে, তাই **between** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "between",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Exactly two things takes **between**.",
+                "bn": "ঠিক আছে। ঠিক দুটি জিনিসের মাঝে **between** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_movement_and_direction",
+      "subSkillId": "movement_and_direction",
+      "title": "Where to, where from, which path",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Movement prepositions answer three questions. **to** gives the destination and **from** the origin. **into** and **out of** cross a boundary. **across** and **through** describe the path taken."
+        },
+        {
+          "type": "pattern",
+          "text": "to = where it ends up",
+          "highlight": "from = where it started"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Pair",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "to / from",
+              "destination / origin"
+            ],
+            [
+              "into / out of",
+              "entering / leaving"
+            ],
+            [
+              "across / through",
+              "over a surface / inside something"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "She went to the office.",
+              "highlight": "to the office"
+            },
+            {
+              "text": "He came out of the building.",
+              "highlight": "out of the building"
+            },
+            {
+              "text": "We drove through the tunnel.",
+              "highlight": "through the tunnel"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "**across** is for a flat surface — *across the road*. **through** means going inside something and out the far side — *through the tunnel*, *through the forest*."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "গন্তব্য বোঝাতে **to**, উৎস বোঝাতে **from**। ভেতরে ঢুকলে **into**, বের হলে **out of**। বাংলা থেকে দুইটি ভুল খুব সাধারণ: *He went in the market* — সঠিক **went to the market**; আর *She entered into the room* — **enter**-এর পরে কিছু বসে না, **entered the room** হবে। পথ বোঝাতে সমতল কিছুর উপর দিয়ে হলে **across**, ভেতর দিয়ে হলে **through**।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_move_1",
+          "instruction": "Choose the correct preposition",
+          "prompt": "He is going ___ Dhaka next week.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The destination takes **to**.",
+                "bn": "ঠিক আছে। গন্তব্য বোঝাতে **to** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**at** marks where something stays. The place it is heading takes **to**.",
+                "bn": "**at** কোথায় থাকে তা বোঝায়। কোথায় যাচ্ছে বোঝাতে **to** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "from",
+              "correct": false,
+              "feedback": {
+                "en": "**from** names the origin. The destination takes **to**.",
+                "bn": "**from** কোথা থেকে বোঝায়। গন্তব্য বোঝাতে **to** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** says where something already **is**. Movement to a place takes **to** — *go to the market*, never *go in the market*.",
+                "bn": "**in** কোথায় **আছে** তা বোঝায়। কোথাও যাওয়া বোঝাতে **to** বসে — *go to the market*, *go in the market* নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_move_2",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The thief broke ___ the house at midnight.",
+          "options": [
+            {
+              "id": "a",
+              "text": "into",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Crossing into something takes **into**.",
+                "bn": "ঠিক আছে। ভেতরে ঢোকা বোঝাতে **into** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "This crosses into something, so it takes **into**.",
+                "bn": "এটি ভেতরে ঢোকা বোঝায়, তাই **into** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This crosses into something, so it takes **into**.",
+                "bn": "এটি ভেতরে ঢোকা বোঝায়, তাই **into** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** says where something already **is**. Crossing a boundary takes **into**.",
+                "bn": "**in** কোথায় **আছে** তা বোঝায়। ভেতরে ঢোকা বোঝাতে **into** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_move_3",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The path goes ___ a thick forest.",
+          "options": [
+            {
+              "id": "a",
+              "text": "along",
+              "correct": false,
+              "feedback": {
+                "en": "**along** follows the length of something. Going inside and out the far side takes **through**.",
+                "bn": "**along** দৈর্ঘ্য বরাবর বোঝায়। ভেতর দিয়ে অন্য পাশে যেতে **through** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "over",
+              "correct": false,
+              "feedback": {
+                "en": "This goes inside something and out the far side, so it takes **through**.",
+                "bn": "এটি ভেতর দিয়ে অন্য পাশে যাচ্ছে, তাই **through** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "across",
+              "correct": false,
+              "feedback": {
+                "en": "**across** spans a flat surface. Going inside something takes **through**.",
+                "bn": "**across** তলের উপর দিয়ে বোঝায়। ভেতর দিয়ে যেতে **through** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "through",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Going inside something and out the other side takes **through**.",
+                "bn": "ঠিক আছে। কোনো কিছুর ভেতর দিয়ে যাওয়া বোঝাতে **through** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_means_instrument_agent",
+      "subSkillId": "means_instrument_agent",
+      "title": "by the method, with the tool",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**by** says *how* — the method, the means of travel, or the person who did it. **with** says what you held in your hand while doing it."
+        },
+        {
+          "type": "pattern",
+          "text": "by + method, no article",
+          "highlight": "with + a tool"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "by",
+            "with"
+          ],
+          "rows": [
+            [
+              "by bus, by train, by air",
+              "with a knife"
+            ],
+            [
+              "by email, by post, by phone",
+              "with a pen"
+            ],
+            [
+              "written by him",
+              "opened with a key"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "We travelled by bus.",
+              "highlight": "by bus"
+            },
+            {
+              "text": "She opened the tin with a spoon.",
+              "highlight": "with a spoon"
+            },
+            {
+              "text": "The house was built by my grandfather.",
+              "highlight": "by my grandfather"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Look at the article. **by** + a method takes none — *by bus*, never *by a bus*. **with** + a tool needs one — *with a knife*, never *with knife*."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "উপায় বা যানবাহন বোঝাতে **by** — *by bus*, *by email*; এর পরে কোনো article বসে না। হাতে ধরা যন্ত্র বোঝাতে **with** — *with a knife*; এখানে article লাগে। Passive-এ যে কাজটি করেছে তার আগেও **by** বসে। দুইটি সাধারণ ভুল: *I came with bus* — সঠিক **by bus**; আর *She cut it by a knife* — সঠিক **with a knife**।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_means_1",
+          "instruction": "Choose the correct preposition",
+          "prompt": "He goes to work ___ bus every day.",
+          "options": [
+            {
+              "id": "a",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** places something inside. The method or channel itself takes **by** — *by train*, *by post*.",
+                "bn": "**in** ভেতরে থাকা বোঝায়। উপায় বা মাধ্যম বোঝাতে **by** বসে — *by train*, *by post*।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** points at a surface, or a vehicle you are aboard. The method or channel itself takes **by** — *by bus*, *by email*.",
+                "bn": "**on** কোনো তল বা যানবাহনের ভেতরে থাকা বোঝায়। উপায় বা মাধ্যম বোঝাতে **by** বসে — *by bus*, *by email*।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "by",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A method or a means of travel takes **by** — and no article after it.",
+                "bn": "ঠিক আছে। উপায় বা যানবাহন বোঝাতে **by** বসে, এবং এর পরে কোনো article বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "with",
+              "correct": false,
+              "feedback": {
+                "en": "**with** introduces a tool you hold. A means of travelling or sending takes **by** — *by bus*, *by email*.",
+                "bn": "**with** হাতে ধরা জিনিস বোঝায়। যাতায়াত বা পাঠানোর উপায় বোঝাতে **by** বসে — *by bus*, *by email*।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_means_2",
+          "instruction": "Choose the correct preposition",
+          "prompt": "She painted the wall ___ a wide brush.",
+          "options": [
+            {
+              "id": "a",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**in** does not introduce a tool. The thing used takes **with**.",
+                "bn": "**in** দিয়ে যন্ত্র বোঝানো যায় না। ব্যবহৃত জিনিসের আগে **with** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "by",
+              "correct": false,
+              "feedback": {
+                "en": "**by** names the method or the person who did it. The tool held in the hand takes **with**.",
+                "bn": "**by** উপায় বা কর্তা বোঝায়। হাতে ধরা যন্ত্র বোঝাতে **with** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**on** does not introduce a tool. The thing used takes **with**.",
+                "bn": "**on** দিয়ে যন্ত্র বোঝানো যায় না। ব্যবহৃত জিনিসের আগে **with** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "with",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A tool held in the hand takes **with**.",
+                "bn": "ঠিক আছে। হাতে ধরা যন্ত্র বা জিনিস বোঝাতে **with** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_means_3",
+          "instruction": "Choose the correct preposition",
+          "prompt": "The window was broken ___ a careless boy.",
+          "options": [
+            {
+              "id": "a",
+              "text": "from",
+              "correct": false,
+              "feedback": {
+                "en": "**from** names where something came from. The one who did the action takes **by**.",
+                "bn": "**from** উৎস বোঝায়। যে কাজটি করেছে তার আগে **by** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "by",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. In the passive, the person who did it takes **by**.",
+                "bn": "ঠিক আছে। Passive-এ যে কাজটি করেছে তার আগে **by** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "**of** shows belonging. The one who did the action takes **by**.",
+                "bn": "**of** সম্বন্ধ বোঝায়। যে কাজটি করেছে তার আগে **by** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "with",
+              "correct": false,
+              "feedback": {
+                "en": "**with** introduces a tool, not a person. The one who did the action takes **by**.",
+                "bn": "**with** যন্ত্র বোঝায়, ব্যক্তি নয়। যে কাজটি করেছে তার আগে **by** বসে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_word_preposition",
+      "subSkillId": "word_preposition",
+      "title": "The word decides, not the meaning",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Some prepositions are not chosen by meaning at all. They belong to the word in front of them. **interested** always takes **in**; **depend** always takes **on**. These are learned as pairs, not worked out."
+        },
+        {
+          "type": "pattern",
+          "text": "the word in front decides it",
+          "highlight": "learn them as pairs"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Takes in / on",
+            "Takes to / for / of"
+          ],
+          "rows": [
+            [
+              "interested in, succeed in",
+              "listen to, belong to"
+            ],
+            [
+              "depend on, rely on",
+              "reason for, need for"
+            ],
+            [
+              "insist on, congratulate on",
+              "afraid of, proud of"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "I am interested in history.",
+              "highlight": "interested in"
+            },
+            {
+              "text": "Everything depends on the weather.",
+              "highlight": "depends on"
+            },
+            {
+              "text": "This bag belongs to Rina.",
+              "highlight": "belongs to"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "Bangla often suggests a different preposition. *Interested on*, *depend of*, *afraid from*, *reason of* and *married with* are all common — and all wrong."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "এখানে preposition অর্থ দেখে বাছাই হয় না — আগের শব্দটিই ঠিক করে দেয়। **interested**-এর সাথে **in**, **depend**-এর সাথে **on**, **belong**-এর সাথে **to**। এগুলো জোড়া হিসেবে মনে রাখতে হয়। বাংলা থেকে আসা সাধারণ ভুল: *interested on*, *depend of*, *afraid from*, *reason of*, *married with*।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_word_1",
+          "instruction": "Choose the correct preposition",
+          "prompt": "He is famous ___ his kindness.",
+          "options": [
+            {
+              "id": "a",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **famous**. The pair is **famous for**.",
+                "bn": "এই preposition **famous**-এর সাথে বসে না। সঠিক জোড়া **famous for**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **famous**. The pair is **famous for**.",
+                "bn": "এই preposition **famous**-এর সাথে বসে না। সঠিক জোড়া **famous for**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "for",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **famous** takes **for**.",
+                "bn": "ঠিক আছে। **famous**-এর পরে **for** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **famous**. The pair is **famous for**.",
+                "bn": "এই preposition **famous**-এর সাথে বসে না। সঠিক জোড়া **famous for**।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_word_2",
+          "instruction": "Choose the correct preposition",
+          "prompt": "Please wait ___ me at the gate.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **wait**. The pair is **wait for**.",
+                "bn": "এই preposition **wait**-এর সাথে বসে না। সঠিক জোড়া **wait for**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "for",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **wait** takes **for**.",
+                "bn": "ঠিক আছে। **wait**-এর পরে **for** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **wait**. The pair is **wait for**.",
+                "bn": "এই preposition **wait**-এর সাথে বসে না। সঠিক জোড়া **wait for**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **wait**. The pair is **wait for**.",
+                "bn": "এই preposition **wait**-এর সাথে বসে না। সঠিক জোড়া **wait for**।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_word_3",
+          "instruction": "Choose the correct preposition",
+          "prompt": "He gave no reason ___ his silence.",
+          "options": [
+            {
+              "id": "a",
+              "text": "for",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **reason** takes **for**.",
+                "bn": "ঠিক আছে। **reason**-এর পরে **for** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **reason**. The pair is **reason for**.",
+                "bn": "এই preposition **reason**-এর সাথে বসে না। সঠিক জোড়া **reason for**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **reason**. The pair is **reason for**.",
+                "bn": "এই preposition **reason**-এর সাথে বসে না। সঠিক জোড়া **reason for**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "This preposition does not belong to **reason**. The pair is **reason for**.",
+                "bn": "এই preposition **reason**-এর সাথে বসে না। সঠিক জোড়া **reason for**।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson_zero_preposition",
+      "subSkillId": "zero_preposition",
+      "title": "When English needs nothing at all",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Some English verbs take their object directly, with nothing in between — even where Bangla puts a word there. Adding a preposition to these is one of the most noticeable mistakes a learner can make."
+        },
+        {
+          "type": "pattern",
+          "text": "discuss the problem",
+          "highlight": "not discuss about it"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Wrong",
+            "Right"
+          ],
+          "rows": [
+            [
+              "discuss about it",
+              "discuss it"
+            ],
+            [
+              "reach at Dhaka",
+              "reach Dhaka"
+            ],
+            [
+              "go to home",
+              "go home"
+            ]
+          ]
+        },
+        {
+          "type": "examples",
+          "items": [
+            {
+              "text": "We discussed the plan yesterday.",
+              "highlight": "discussed the plan"
+            },
+            {
+              "text": "They reached Khulna at noon.",
+              "highlight": "reached Khulna"
+            },
+            {
+              "text": "I went home after work.",
+              "highlight": "went home"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Watch out",
+          "text": "**arrive** is the exception. **reach** takes nothing — *reach Dhaka* — but **arrive** needs a preposition: *arrive at the station*, *arrive in Dhaka*."
+        },
+        {
+          "type": "bangla",
+          "label": "ব্যাখ্যা",
+          "text": "কিছু ইংরেজি verb-এর পরে সরাসরি object বসে, মাঝে কোনো preposition লাগে না — যদিও বাংলায় একটি শব্দ থাকে। **discuss**, **enter**, **reach**, **request**, **investigate** — এদের পরে কিছু বসে না। **home**, **abroad**, **upstairs**-এর আগেও **to** বসে না: **go home**, *go to home* নয়। তবে **arrive** ব্যতিক্রম — এর পরে **at** বা **in** লাগে।"
+        }
+      ],
+      "practice": [
+        {
+          "id": "prac_zero_1",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She entered to the hall quietly.",
+              "correct": false,
+              "feedback": {
+                "en": "**enter** needs no preposition after it. Drop the **to**.",
+                "bn": "**enter**-এর পরে কোনো preposition বসে না — **to** বাদ দিন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She entered the hall quietly.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **enter** takes its object directly, with no preposition at all.",
+                "bn": "ঠিক আছে। **enter**-এর পরে সরাসরি object বসে, কোনো preposition লাগে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She entered into the hall quietly.",
+              "correct": false,
+              "feedback": {
+                "en": "**enter** needs no preposition after it. Drop the **into**.",
+                "bn": "**enter**-এর পরে কোনো preposition বসে না — **into** বাদ দিন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She entered in the hall quietly.",
+              "correct": false,
+              "feedback": {
+                "en": "**enter** needs no preposition after it. Drop the **in**.",
+                "bn": "**enter**-এর পরে কোনো preposition বসে না — **in** বাদ দিন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_zero_2",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He ordered at a cup of tea.",
+              "correct": false,
+              "feedback": {
+                "en": "**order** needs no preposition after it. Drop the **at**.",
+                "bn": "**order**-এর পরে কোনো preposition বসে না — **at** বাদ দিন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He ordered to a cup of tea.",
+              "correct": false,
+              "feedback": {
+                "en": "**order** needs no preposition after it. Drop the **to**.",
+                "bn": "**order**-এর পরে কোনো preposition বসে না — **to** বাদ দিন।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He ordered for a cup of tea.",
+              "correct": false,
+              "feedback": {
+                "en": "**order** needs no preposition after it. Drop the **for**.",
+                "bn": "**order**-এর পরে কোনো preposition বসে না — **for** বাদ দিন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He ordered a cup of tea.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **order** takes its object directly, with no preposition at all.",
+                "bn": "ঠিক আছে। **order**-এর পরে সরাসরি object বসে, কোনো preposition লাগে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "prac_zero_3",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We reached the village before sunset.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **reach** takes its object directly, with no preposition at all.",
+                "bn": "ঠিক আছে। **reach**-এর পরে সরাসরি object বসে, কোনো preposition লাগে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "We reached at the village before sunset.",
+              "correct": false,
+              "feedback": {
+                "en": "**reach** needs no preposition after it. Drop the **at**.",
+                "bn": "**reach**-এর পরে কোনো preposition বসে না — **at** বাদ দিন।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "We reached in the village before sunset.",
+              "correct": false,
+              "feedback": {
+                "en": "**reach** needs no preposition after it. Drop the **in**.",
+                "bn": "**reach**-এর পরে কোনো preposition বসে না — **in** বাদ দিন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "We reached to the village before sunset.",
+              "correct": false,
+              "feedback": {
+                "en": "**reach** needs no preposition after it. Drop the **to**.",
+                "bn": "**reach**-এর পরে কোনো preposition বসে না — **to** বাদ দিন।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

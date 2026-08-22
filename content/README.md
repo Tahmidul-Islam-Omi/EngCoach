@@ -63,11 +63,33 @@ topic
   valid English in another reading — "The shop isn't **open** today" is a
   perfectly good sentence, so it can't be the wrong answer to "which sentence
   is correct?".
+- **Where alternatives are valid, pick the options per question, not per
+  sub-skill.** Prepositions forced this: "on the bed" and "under the bed" are
+  both correct, "flew above the city" and "flew over the city" are both
+  correct. Each question offers only the three options that are wrong in
+  *that* sentence, so distractor sets differ between questions testing the
+  same rule. That is deliberate, not an inconsistency.
+- **Let the carrier sentence force the answer.** The verb usually decides.
+  "Finish it ___ Friday" admits **by**; "The class starts ___ 9 AM" does
+  not. "Nobody spoke **for** the meeting" is correct English (spoke on behalf
+  of), so `during` items use punctual verbs — *fell asleep*, *phone rang* —
+  which admit no duration or purpose reading at all.
+- **Sub-skills inside a topic must not contradict one another.** `marry` was
+  dropped from prepositions' zero-preposition sub-skill because the same
+  topic teaches **married to**: correct as an adjective, wrong as a verb.
+  Adjacent sub-skills teaching opposite things about one word is worse than
+  omitting the word.
+- **For lexical sub-skills, feedback names the pair, not a rule.** There is
+  no rule behind *depend on*. "This adjective takes a different preposition"
+  is true and useless; "the pair is **interested in**" is what a learner can
+  act on.
 - **Assessments test only what the topic taught.** Present continuous for a
   future arrangement ("Are the guests arriving tonight?") is real English,
   but no lesson here covers it, so it can't be a right answer either.
-- **`bn` is optional on feedback, required on the lesson's bangla block.**
-  Grammar terms stay in English inside Bangla sentences.
+- **`bn` is required on every feedback pair and on the lesson's bangla
+  block** — the validator fails without it. It is an *explanation* in
+  Bangla, never a translation of the English example, and grammar terms stay
+  in English inside it.
 - **Inline `**bold**`** is the only markup allowed in text fields.
 
 ## Block types

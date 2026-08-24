@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/assessment/view/pre_assessment_screen.dart';
 import '../features/auth/view/sign_in_screen.dart';
 import '../features/grammar/view/grammar_topics_screen.dart';
 import '../features/grammar/view/topic_overview_screen.dart';
@@ -24,6 +25,11 @@ abstract final class Routes {
   /// bottom nav would invite them to wander mid-assessment. These screens
   /// offer an explicit exit instead.
   static String topic(String id) => '/topic/$id';
+
+  /// The topic's pre-assessment. Nested under the topic, so leaving it
+  /// lands back on the overview rather than the tab it was reached from.
+  static String preAssessment(String id) => '/topic/$id/check';
+
   static const progress = '/progress';
   static const profile = '/profile';
 
@@ -91,6 +97,15 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (_, state) => TopicOverviewScreen(
           topicId: state.pathParameters['topicId']!,
         ),
+        routes: [
+          GoRoute(
+            path: 'check',
+            parentNavigatorKey: _rootKey,
+            builder: (_, state) => PreAssessmentScreen(
+              topicId: state.pathParameters['topicId']!,
+            ),
+          ),
+        ],
       ),
     ],
   );

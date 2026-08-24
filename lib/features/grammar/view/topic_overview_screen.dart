@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../../../data/models/topic.dart';
@@ -97,7 +99,11 @@ class _Body extends StatelessWidget {
             ],
           ),
         ),
-        _Footer(minutes: _minutes, questions: topic.preAssessmentLength),
+        _Footer(
+          topicId: topic.id,
+          minutes: _minutes,
+          questions: topic.preAssessmentLength,
+        ),
       ],
     );
   }
@@ -225,8 +231,13 @@ class _Step extends StatelessWidget {
 }
 
 class _Footer extends StatelessWidget {
-  const _Footer({required this.minutes, required this.questions});
+  const _Footer({
+    required this.topicId,
+    required this.minutes,
+    required this.questions,
+  });
 
+  final String topicId;
   final int minutes;
   final int questions;
 
@@ -248,7 +259,7 @@ class _Footer extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             FilledButton(
-              onPressed: () {},
+              onPressed: () => context.push(Routes.preAssessment(topicId)),
               child: const Text('Start with a quick check'),
             ),
             const SizedBox(height: AppSpacing.sm),

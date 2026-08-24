@@ -1,0 +1,401 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_spacing.dart';
+import '../../../shared/widgets/markup_text.dart';
+import '../model/pre_assessment_state.dart';
+import '../viewmodel/pre_assessment_view_model.dart';
+import 'assessment_result_view.dart';
+
+/// The pre-assessment: one question at a time, no feedback until the end.
+///
+/// The result lives in the same route rather than a pushed one, because the
+/// score is a *state* of this flow, not a place — pushing it would leave the
+/// last question sitting behind it, one back-press away from being re-entered
+/// after it had already been scored.
+class PreAssessmentScreen extends ConsumerStatefulWidget {
+  const PreAssessmentScreen({required this.topicId, super.key});
+
+  final String topicId;
+
+  @override
+  ConsumerState<PreAssessmentScreen> createState() =>
+      _PreAssessmentScreenState();
+}
+
+class _PreAssessmentScreenState extends ConsumerState<PreAssessmentScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // The view model is deliberately not auto-disposing, so a leftover paper
+    // from a previous visit would still be there. Clearing on the way in —
+    // rather than on the way out — keeps it off the widget teardown path,
+    // where a ref is no longer safe to use.
+    ref.invalidate(preAssessmentViewModelProvider(widget.topicId));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final provider = preAssessmentViewModelProvider(widget.topicId);
+    final state = ref.watch(provider);
+    final model = ref.read(provider.notifier);
+
+    return switch (state.status) {
+      PreAssessmentStatus.loading => const _Frame(
+          child: Center(child: CircularProgressIndicator()),
+        ),
+      PreAssessmentStatus.failed => _Frame(
+          child: _Failed(message: state.error, onRetry: model.retry),
+        ),
+      PreAssessmentStatus.inProgress => _Questions(
+          state: state,
+          onSelect: model.select,
+          onNext: model.next,
+          onPrevious: model.previous,
+        ),
+      PreAssessmentStatus.finished => AssessmentResultView(
+          topicId: widget.topicId,
+          result: state.result!,
+          onRetake: model.retake,
+        ),
+    };
+  }
+}
+
+/// Chrome shared by the states that have nothing to ask yet.
+class _Frame extends StatelessWidget {
+  const _Frame({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: const Text('Quick check')),
+        body: child,
+      );
+}
+
+class _Failed extends StatelessWidget {
+  const _Failed({required this.message, required this.onRetry});
+
+  final String? message;
+  final VoidCallback onRetry;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Theme.of(context).textTheme;
+
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(AppSpacing.xxl),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(
+              Icons.error_outline_rounded,
+              size: 32,
+              color: AppColors.textSecondary,
+            ),
+            const SizedBox(height: AppSpacing.md),
+            Text(
+              message ?? 'Something went wrong.',
+              style: text.titleLarge,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: AppSpacing.lg),
+            OutlinedButton(onPressed: onRetry, child: const Text('Try again')),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _Questions extends StatelessWidget {
+  const _Questions({
+    required this.state,
+    required this.onSelect,
+    required this.onNext,
+    required this.onPrevious,
+  });
+
+  final PreAssessmentState state;
+  final ValueChanged<String> onSelect;
+  final VoidCallback onNext;
+  final VoidCallback onPrevious;
+
+  Future<void> _confirmExit(BuildContext context) async {
+    final leave = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Leave the check?'),
+        content: const Text(
+          "Your answers won't be saved, and you'll start again from the "
+          'first question.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Keep going'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text('Leave'),
+          ),
+        ],
+      ),
+    );
+
+    if (leave == true && context.mounted) context.pop();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final question = state.current!;
+
+    return PopScope(
+      // The system back gesture would otherwise discard a half-finished
+      // paper silently.
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _confirmExit(context);
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Quick check'),
+          leading: IconButton(
+            icon: const Icon(Icons.close_rounded),
+            tooltip: 'Leave the check',
+            onPressed: () => _confirmExit(context),
+          ),
+        ),
+        body: Column(
+          children: [
+            _Progress(position: state.position, total: state.total),
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.fromLTRB(
+                  AppSpacing.pageH,
+                  AppSpacing.lg,
+                  AppSpacing.pageH,
+                  AppSpacing.xxxl,
+                ),
+                children: [
+                  Text(
+                    question.question.instruction.toUpperCase(),
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
+                  const SizedBox(height: AppSpacing.sm),
+                  MarkupText(
+                    question.question.prompt,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  const SizedBox(height: AppSpacing.xl),
+                  for (var i = 0; i < question.options.length; i++) ...[
+                    _Option(
+                      // Keyed by option id so Flutter cannot carry a
+                      // selection over to the next question's tile in the
+                      // same position.
+                      key: ValueKey(question.options[i].id),
+                      letter: String.fromCharCode(65 + i),
+                      text: question.options[i].text,
+                      selected:
+                          state.selectedOptionId == question.options[i].id,
+                      onTap: () => onSelect(question.options[i].id),
+                    ),
+                    if (i < question.options.length - 1)
+                      const SizedBox(height: AppSpacing.md),
+                  ],
+                ],
+              ),
+            ),
+            _Footer(
+              canGoBack: state.canGoBack,
+              canAdvance: state.canAdvance,
+              isLast: state.isLast,
+              onNext: onNext,
+              onPrevious: onPrevious,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _Progress extends StatelessWidget {
+  const _Progress({required this.position, required this.total});
+
+  final int position;
+  final int total;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.pageH),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(AppRadius.pill),
+            child: LinearProgressIndicator(
+              value: position / total,
+              minHeight: AppSizes.barHeight,
+              backgroundColor: AppColors.divider,
+              color: AppColors.primary,
+            ),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            'Question $position of $total',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Option extends StatelessWidget {
+  const _Option({
+    required this.letter,
+    required this.text,
+    required this.selected,
+    required this.onTap,
+    super.key,
+  });
+
+  final String letter;
+  final String text;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Semantics(
+      inMutuallyExclusiveGroup: true,
+      selected: selected,
+      child: Material(
+        color: selected ? AppColors.infoSurface : AppColors.surface,
+        borderRadius: BorderRadius.circular(AppRadius.lg),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(AppRadius.lg),
+          child: Container(
+            constraints: const BoxConstraints(
+              minHeight: AppSizes.minTapTarget,
+            ),
+            padding: const EdgeInsets.all(AppSpacing.lg),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppRadius.lg),
+              border: Border.all(
+                color: selected ? AppColors.info : AppColors.border,
+                width: selected
+                    ? AppSizes.selectedBorderWidth
+                    : AppSizes.borderWidth,
+              ),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // A letter rather than a radio dot: it never reads as
+                // "already answered" the way a filled circle can.
+                Container(
+                  width: 26,
+                  height: 26,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: selected ? AppColors.info : Colors.transparent,
+                    border: Border.all(
+                      color:
+                          selected ? AppColors.info : AppColors.controlOutline,
+                    ),
+                  ),
+                  child: Text(
+                    letter,
+                    style: theme.textTheme.labelMedium?.copyWith(
+                      color: selected
+                          ? AppColors.onPrimary
+                          : AppColors.textSecondary,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: AppSpacing.md),
+                Expanded(
+                  child: MarkupText(
+                    text,
+                    style: theme.textTheme.bodyLarge,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _Footer extends StatelessWidget {
+  const _Footer({
+    required this.canGoBack,
+    required this.canAdvance,
+    required this.isLast,
+    required this.onNext,
+    required this.onPrevious,
+  });
+
+  final bool canGoBack;
+  final bool canAdvance;
+  final bool isLast;
+  final VoidCallback onNext;
+  final VoidCallback onPrevious;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: AppColors.surface,
+      padding: const EdgeInsets.fromLTRB(
+        AppSpacing.pageH,
+        AppSpacing.lg,
+        AppSpacing.pageH,
+        AppSpacing.lg,
+      ),
+      // Outside the tab shell nothing else supplies the bottom inset.
+      child: SafeArea(
+        top: false,
+        child: Row(
+          children: [
+            if (canGoBack) ...[
+              OutlinedButton(
+                // The theme sizes outlined buttons full-bleed
+                // (`Size.fromHeight`), which is an infinite width inside a
+                // Row. Back sits beside Next, so it states its own width.
+                style: OutlinedButton.styleFrom(
+                  minimumSize: const Size(96, AppSizes.buttonHeight),
+                ),
+                onPressed: onPrevious,
+                child: const Text('Back'),
+              ),
+              const SizedBox(width: AppSpacing.md),
+            ],
+            Expanded(
+              child: FilledButton(
+                // Disabled until something is chosen: a check people can
+                // click past measures patience, not English.
+                onPressed: canAdvance ? onNext : null,
+                child: Text(isLast ? 'Finish' : 'Next'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

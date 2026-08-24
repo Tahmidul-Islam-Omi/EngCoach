@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/auth/view/sign_in_screen.dart';
 import '../features/grammar/view/grammar_topics_screen.dart';
 import '../features/grammar/view/topic_overview_screen.dart';
 import '../features/home/view/home_screen.dart';
@@ -25,6 +26,10 @@ abstract final class Routes {
   static String topic(String id) => '/topic/$id';
   static const progress = '/progress';
   static const profile = '/profile';
+
+  /// Sign-in. Outside the shell for the same reason the topic flow is: the
+  /// tab bar has nothing to offer someone who isn't signed in yet.
+  static const signIn = '/sign-in';
 }
 
 final _rootKey = GlobalKey<NavigatorState>();
@@ -71,6 +76,12 @@ final routerProvider = Provider<GoRouter>((ref) {
             ),
           ]),
         ],
+      ),
+
+      GoRoute(
+        path: Routes.signIn,
+        parentNavigatorKey: _rootKey,
+        builder: (_, _) => const SignInScreen(),
       ),
 
       // Sits alongside the shell rather than inside it — no tab bar.

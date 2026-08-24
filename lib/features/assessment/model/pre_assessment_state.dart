@@ -56,8 +56,9 @@ class PreAssessmentState {
   DrawnQuestion? get current =>
       (paper == null || index < 0 || index >= total) ? null : paper!.questions[index];
 
-  /// One-based, for "Question 3 of 15".
-  int get position => index + 1;
+  /// One-based, for "Question 3 of 15". Zero when there is no paper, so it
+  /// never reads as "Question 1" of nothing.
+  int get position => total == 0 ? 0 : index + 1;
 
   double get progress => total == 0 ? 0 : position / total;
 

@@ -78,6 +78,9 @@ void main() {
 
       expect(stateIn(c).status, PreAssessmentStatus.loading);
       expect(stateIn(c).paper, isNull);
+      // Nothing to count yet, so the counter must not read "1 of 0".
+      expect(stateIn(c).position, 0);
+      expect(stateIn(c).progress, 0);
     });
 
     test('deals a paper once the topic is in', () async {

@@ -1,5 +1,6 @@
 import 'package:engcoach/data/models/topic.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
+import 'package:engcoach/data/repositories/progress_repository.dart';
 import 'package:engcoach/features/assessment/model/assessment_result.dart';
 import 'package:engcoach/features/assessment/model/pre_assessment_state.dart';
 import 'package:engcoach/features/assessment/viewmodel/pre_assessment_view_model.dart';
@@ -28,14 +29,36 @@ class _StubContent implements ContentRepository {
       [?topic];
 }
 
+/// Records what would have been persisted, without touching Firestore.
+class _StubProgress implements ProgressRepository {
+  final saved = <AssessmentResult>[];
+  bool fail = false;
+
+  @override
+  Future<void> saveAssessment(AssessmentResult result) async {
+    if (fail) throw StateError('offline');
+    saved.add(result);
+  }
+
+  @override
+  Future<TopicProgress?> topicProgress(String topicId) async => null;
+
+  @override
+  Future<void> touch() async {}
+}
+
 void main() {
   const topicId = 'test_topic';
 
   late _StubContent content;
+  late _StubProgress progress;
 
   ProviderContainer makeContainer() {
     final c = ProviderContainer(
-      overrides: [contentRepositoryProvider.overrideWithValue(content)],
+      overrides: [
+        contentRepositoryProvider.overrideWithValue(content),
+        progressRepositoryProvider.overrideWithValue(progress),
+      ],
     );
     addTearDown(c.dispose);
     return c;
@@ -70,7 +93,10 @@ void main() {
     model.next();
   }
 
-  setUp(() => content = _StubContent(buildTopic()));
+  setUp(() {
+    content = _StubContent(buildTopic());
+    progress = _StubProgress();
+  });
 
   group('starting', () {
     test('is loading until the topic arrives', () {
@@ -263,6 +289,42 @@ void main() {
 
       expect(stateIn(c).result, same(scored));
       expect(stateIn(c).status, PreAssessmentStatus.finished);
+    });
+
+    test('the finished paper is persisted', () async {
+      final c = await started();
+      for (var i = 0; i < 9; i++) {
+        answerCorrectly(c);
+      }
+      await Future<void>.delayed(Duration.zero);
+
+      expect(progress.saved, hasLength(1));
+      expect(progress.saved.single.topicId, topicId);
+      expect(progress.saved.single.percent, 100);
+    });
+
+    test('a failed save never disturbs the result on screen', () async {
+      // The learner has finished; a write they cannot see failing must not
+      // take their score away.
+      progress.fail = true;
+      final c = await started();
+      for (var i = 0; i < 9; i++) {
+        answerCorrectly(c);
+      }
+      await Future<void>.delayed(Duration.zero);
+
+      expect(stateIn(c).status, PreAssessmentStatus.finished);
+      expect(stateIn(c).result, isNotNull);
+    });
+
+    test('an abandoned paper is never persisted', () async {
+      final c = await started();
+      for (var i = 0; i < 5; i++) {
+        answerCorrectly(c);
+      }
+      await Future<void>.delayed(Duration.zero);
+
+      expect(progress.saved, isEmpty);
     });
 
     test('a retake starts clean', () async {

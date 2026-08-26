@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/models/topic.dart';
 import '../../../data/repositories/content_repository.dart';
+import '../../../data/repositories/progress_repository.dart';
 import '../model/assessment_paper.dart';
 import '../model/assessment_result.dart';
 import '../model/pre_assessment_state.dart';
@@ -110,10 +113,26 @@ class PreAssessmentViewModel extends Notifier<PreAssessmentState> {
     final paper = state.paper;
     if (paper == null) return;
 
+    final result = AssessmentResult.score(paper, state.answers);
+
     state = state.copyWith(
       status: PreAssessmentStatus.finished,
-      result: AssessmentResult.score(paper, state.answers),
+      result: result,
     );
+
+    // Deliberately not awaited: the learner sees their result immediately,
+    // and a slow connection must not hold the screen. Firestore queues the
+    // write offline and sends it when the network returns.
+    unawaited(_save(result));
+  }
+
+  Future<void> _save(AssessmentResult result) async {
+    try {
+      await ref.read(progressRepositoryProvider).saveAssessment(result);
+    } catch (_) {
+      // Nothing useful to tell the learner: the result is on screen, and
+      // Firestore retries the write itself. Reported once Crashlytics is in.
+    }
   }
 }
 

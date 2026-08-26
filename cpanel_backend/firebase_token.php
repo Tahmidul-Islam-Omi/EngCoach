@@ -9,7 +9,16 @@
 // public_html would be a plain static download for anyone who guessed the
 // name.
 
+// Two accepted locations, tried in order.
+//
+// 1. A .json above public_html — nothing web-facing can reach it.
+// 2. firebase_key.php beside this file — a .php executes rather than being
+//    served, so it leaks nothing even though it sits inside public_html.
+//
+// What must never happen is a raw .json inside public_html: LiteSpeed serves
+// those as static downloads, and this key bypasses every Firestore rule.
 define('FIREBASE_KEY_PATH', '/home/bdappsd1/secure/firebase-key.json');
+define('FIREBASE_KEY_PHP', __DIR__ . '/firebase_key.php');
 
 function base64url($data) {
     return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
@@ -21,11 +30,19 @@ function base64url($data) {
  * is unavailable" rather than as an authentication failure.
  */
 function firebase_custom_token($uid, array $claims = []) {
-    if (!is_readable(FIREBASE_KEY_PATH)) {
+    $raw = null;
+    if (is_readable(FIREBASE_KEY_PATH)) {
+        $raw = file_get_contents(FIREBASE_KEY_PATH);
+    } elseif (is_readable(FIREBASE_KEY_PHP)) {
+        // Returns the service-account JSON as a string.
+        $raw = require FIREBASE_KEY_PHP;
+    }
+
+    if (!is_string($raw)) {
         return null;
     }
 
-    $key = json_decode(file_get_contents(FIREBASE_KEY_PATH), true);
+    $key = json_decode($raw, true);
     if (!is_array($key) || empty($key['client_email']) || empty($key['private_key'])) {
         return null;
     }

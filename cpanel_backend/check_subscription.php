@@ -63,7 +63,12 @@ if (!is_array($response)) {
 }
 
 $status = strtoupper(trim($response['subscriptionStatus'] ?? ''));
-$isSubscribed = $status === 'REGISTERED';
+
+// "INITIAL CHARGING PENDING" counts as subscribed. It is the state for the
+// 40-60 seconds after a successful verify, and the charge has already been
+// accepted — treating it as unsubscribed would throw a learner who just paid
+// straight onto the "your subscription has stopped" screen.
+$isSubscribed = $status === 'REGISTERED' || $status === 'INITIAL CHARGING PENDING';
 
 // An already-subscribed number is signed in here, with no code: bdapps
 // refuses a subscription OTP to an existing subscriber (E1351), so there is

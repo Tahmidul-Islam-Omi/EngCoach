@@ -49,6 +49,10 @@ lib/**/*_secrets.dart
 *-service-account*.json
 service-account*.json
 serviceAccountKey*.json
+# Firebase's own download name, e.g.
+# engcoach-app-firebase-adminsdk-fbsvc-9ff50aebd4.json
+*firebase-adminsdk*.json
+firebase-key.json
 *.pem
 *.p12
 *.p8
@@ -57,6 +61,7 @@ serviceAccountKey*.json
 # .log/.txt files hold subscriber phone numbers. config.example.php is the
 # committed template.
 cpanel_backend/config.php
+cpanel_backend/firebase_key.php
 cpanel_backend/*.log
 cpanel_backend/*_log.txt
 

@@ -198,6 +198,25 @@ void main() {
       expect(session.currentPhone, isNull);
     });
 
+    test('a failed handshake can be retried without redoing bdapps',
+        () async {
+      session.failSignIn = true;
+      final c = makeContainer();
+      modelIn(c).phoneChanged(phone);
+      await modelIn(c).sendCode();
+      modelIn(c).codeChanged(_StubAuth.code);
+      await modelIn(c).verify();
+      expect(stateIn(c).error, isNotNull);
+
+      // The token exchange is the only part that failed.
+      session.failSignIn = false;
+      await modelIn(c).retrySession();
+
+      expect(stateIn(c).error, isNull);
+      expect(session.currentPhone, phone);
+      expect(auth.verifies, 1, reason: 'bdapps is not asked twice');
+    });
+
     test('a wrong code keeps the reference, so no second SMS is needed',
         () async {
       final c = makeContainer();

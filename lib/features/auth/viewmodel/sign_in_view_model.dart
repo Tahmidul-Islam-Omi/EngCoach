@@ -139,6 +139,19 @@ class SignInViewModel extends Notifier<SignInState> {
     );
   }
 
+  /// Re-attempts the Firebase handshake after it failed.
+  ///
+  /// bdapps has already verified — and on a new subscription, charged —
+  /// so there is nothing to redo on their side. Only the token exchange
+  /// needs another go.
+  Future<void> retrySession() async {
+    final session = state.session;
+    if (session == null || state.busy) return;
+
+    state = state.copyWith(busy: true, error: null);
+    await _openFirebaseSession(session);
+  }
+
   void restart() {
     _stopCountdown();
     state = const SignInState();

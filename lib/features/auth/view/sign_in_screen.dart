@@ -500,26 +500,59 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
     return switch (state.step) {
       SignInStep.phone => _phoneCard(state),
       SignInStep.code => _codeCard(state),
-      // Held for the moment between a Firebase session existing and the
-      // router acting on it. Anything more would be a screen to dismiss.
-      SignInStep.done => _Card(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(
-                width: 18,
-                height: 18,
-                child: CircularProgressIndicator(strokeWidth: 2),
-              ),
-              const SizedBox(width: AppSpacing.md),
-              Text(
-                'Signing you in…',
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-            ],
-          ),
-        ),
+      SignInStep.done => _doneCard(state),
     };
+  }
+
+  /// The moment between a Firebase session existing and the router acting
+  /// on it — or, if the token exchange failed, the place that says so.
+  ///
+  /// This showed a bare spinner once, which meant a failed exchange span
+  /// forever with the reason sitting unread in the state.
+  Widget _doneCard(SignInState state) {
+    final text = Theme.of(context).textTheme;
+    final model = ref.read(signInViewModelProvider.notifier);
+
+    if (state.error == null) {
+      return _Card(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(
+              width: 18,
+              height: 18,
+              child: CircularProgressIndicator(strokeWidth: 2),
+            ),
+            const SizedBox(width: AppSpacing.md),
+            Text('Signing you in…', style: text.bodyMedium),
+          ],
+        ),
+      );
+    }
+
+    return _Card(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text('ALMOST THERE', style: text.labelSmall),
+          const SizedBox(height: AppSpacing.xs),
+          // Their subscription is real and already paid for; only the
+          // Firebase handshake failed. Say that, rather than implying the
+          // whole sign-in did not work.
+          Text(state.error!, style: text.bodyMedium),
+          const SizedBox(height: AppSpacing.lg),
+          FilledButton(
+            onPressed: state.busy ? null : model.retrySession,
+            child: Text(state.busy ? 'Trying…' : 'Try again'),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          TextButton(
+            onPressed: model.restart,
+            child: const Text('Start over'),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _phoneCard(SignInState state) {
@@ -605,18 +638,24 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
                 ),
               ),
               const SizedBox(height: AppSpacing.lg),
+              // Six fixed-width boxes overflowed a 360dp screen once card
+              // and page padding were taken out. They share whatever width
+              // there is instead, so the row fits any phone.
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  for (var i = 0; i < _boxes.length; i++)
-                    _CodeBox(
-                      controller: _boxes[i],
-                      focusNode: _focus[i],
-                      hasError: state.error != null,
-                      onChanged: (v) => _onChanged(i, v),
-                      onKey: (event) => _onKey(i, event),
-                      autofocus: i == 0,
+                  for (var i = 0; i < _boxes.length; i++) ...[
+                    if (i > 0) const SizedBox(width: AppSpacing.sm),
+                    Expanded(
+                      child: _CodeBox(
+                        controller: _boxes[i],
+                        focusNode: _focus[i],
+                        hasError: state.error != null,
+                        onChanged: (v) => _onChanged(i, v),
+                        onKey: (event) => _onKey(i, event),
+                        autofocus: i == 0,
+                      ),
                     ),
+                  ],
                 ],
               ),
               if (state.error != null) ...[
@@ -723,7 +762,6 @@ class _CodeBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 48,
       height: 58,
       child: Focus(
         onKeyEvent: (_, event) => onKey(event),

@@ -53,6 +53,13 @@ serviceAccountKey*.json
 *.p12
 *.p8
 
+# bdapps backend. config.php holds the live application password, and the
+# .log/.txt files hold subscriber phone numbers. config.example.php is the
+# committed template.
+cpanel_backend/config.php
+cpanel_backend/*.log
+cpanel_backend/*_log.txt
+
 # Symbolication related
 app.*.symbols
 

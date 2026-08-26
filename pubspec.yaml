@@ -71,6 +71,7 @@ flutter:
 
   assets:
     - content/grammar/
+    - assets/brand/
 
   fonts:
     - family: NotoSansBengali

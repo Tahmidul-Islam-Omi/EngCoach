@@ -21,6 +21,13 @@ class SignInScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(signInViewModelProvider);
 
+    // The first screen has to answer "what is this and what does it cost"
+    // before it asks for anything, so it scrolls and carries no step bar —
+    // someone who has not decided to sign in yet is not on step 1 of 3.
+    if (state.step == SignInStep.phone) {
+      return const Scaffold(body: SafeArea(child: _PhoneStep()));
+    }
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -37,9 +44,9 @@ class SignInScreen extends ConsumerWidget {
               const SizedBox(height: AppSpacing.xxxl + AppSpacing.xs),
               Expanded(
                 child: switch (state.step) {
-                  SignInStep.phone => const _PhoneStep(),
                   SignInStep.code => const _CodeStep(),
                   SignInStep.done => const _DoneStep(),
+                  SignInStep.phone => const SizedBox.shrink(),
                 },
               ),
             ],
@@ -132,6 +139,13 @@ class _Dot extends StatelessWidget {
 
 // ------------------------------------------------------------- step 1: phone
 
+/// The first screen anyone sees: what EngCoach is, what it costs, and then
+/// the number field.
+///
+/// Deliberately a landing page rather than a bare form. A cold "enter your
+/// mobile number" asks someone to hand over a billable number before they
+/// know what they are buying — and bdapps charges on the very next screen,
+/// so the price has to be visible before that, not after.
 class _PhoneStep extends ConsumerWidget {
   const _PhoneStep();
 
@@ -141,17 +155,70 @@ class _PhoneStep extends ConsumerWidget {
     final state = ref.watch(signInViewModelProvider);
     final model = ref.read(signInViewModelProvider.notifier);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(
+        AppSpacing.pageH,
+        AppSpacing.xl,
+        AppSpacing.pageH,
+        AppSpacing.xxl,
+      ),
       children: [
-        Text('Sign in to start learning', style: text.headlineLarge),
-        const SizedBox(height: AppSpacing.sm),
-        Text(
-          'Your mobile number is your login and your subscription. '
-          'No password to remember.',
-          style: text.bodyMedium,
+        const _Hero(),
+        const SizedBox(height: AppSpacing.xxl),
+
+        Text("WHAT YOU'LL GET", style: text.labelSmall),
+        const SizedBox(height: AppSpacing.md),
+        const _Feature(
+          icon: Icons.rule_rounded,
+          title: 'A check that finds your gaps',
+          detail:
+              'A few minutes of questions shows exactly which rules you '
+              'already know and which you do not.',
         ),
-        const SizedBox(height: AppSpacing.xxl + AppSpacing.xs),
+        const _Feature(
+          icon: Icons.translate_rounded,
+          title: 'Explained in Bangla',
+          detail:
+              'Every rule and every wrong answer is explained in Bangla, '
+              'with the English examples kept in English.',
+        ),
+        const _Feature(
+          icon: Icons.filter_alt_outlined,
+          title: 'Only what you need',
+          detail:
+              'Lessons skip whatever you already got right, so your time '
+              'goes on the parts that are actually weak.',
+        ),
+        const _Feature(
+          icon: Icons.trending_up_rounded,
+          title: 'Proof that it worked',
+          detail:
+              'The same topic is tested again afterwards, so improvement is '
+              'a number rather than a feeling.',
+          last: true,
+        ),
+
+        const SizedBox(height: AppSpacing.xxl),
+        Text('HOW SIGNING IN WORKS', style: text.labelSmall),
+        const SizedBox(height: AppSpacing.md),
+        const _HowStep(
+          1,
+          'Give your number',
+          "We'll send a one-time code to your Robi or Airtel number.",
+        ),
+        const _HowStep(
+          2,
+          'Enter the code',
+          'Six digits, straight from the SMS. No password to remember.',
+        ),
+        const _HowStep(
+          3,
+          "That's it",
+          'Your number is your account, on any phone.',
+          last: true,
+        ),
+
+        const SizedBox(height: AppSpacing.xxl),
         _Card(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -165,7 +232,6 @@ class _PhoneStep extends ConsumerWidget {
                   Expanded(
                     child: TextField(
                       keyboardType: TextInputType.phone,
-                      autofocus: true,
                       style: text.bodyLarge?.copyWith(fontSize: 15),
                       inputFormatters: [
                         FilteringTextInputFormatter.digitsOnly,
@@ -177,9 +243,8 @@ class _PhoneStep extends ConsumerWidget {
                         hintText: '01XXXXXXXXX',
                         errorText: null,
                         // The message is shown once below, not twice.
-                        enabledBorder: state.error != null
-                            ? _errorBorder
-                            : null,
+                        enabledBorder:
+                            state.error != null ? _errorBorder : null,
                       ),
                       onChanged: model.phoneChanged,
                       onSubmitted: (_) => model.sendCode(),
@@ -196,16 +261,17 @@ class _PhoneStep extends ConsumerWidget {
                 onPressed: state.canSend ? model.sendCode : null,
                 child: Text(state.busy ? 'Sending…' : 'Send code'),
               ),
+              const SizedBox(height: AppSpacing.sm + 2),
+              Text(
+                'By continuing you agree to our Terms and Privacy Policy.',
+                textAlign: TextAlign.center,
+                style: text.bodySmall,
+              ),
             ],
           ),
         ),
+
         const SizedBox(height: AppSpacing.lg),
-        Text(
-          'By continuing you agree to our Terms and Privacy Policy.',
-          textAlign: TextAlign.center,
-          style: text.bodySmall,
-        ),
-        const Spacer(),
         _Note(
           icon: Icons.smartphone_outlined,
           child: Text.rich(
@@ -235,6 +301,13 @@ class _PhoneStep extends ConsumerWidget {
             ),
           ),
         ),
+        const SizedBox(height: AppSpacing.lg),
+        Text(
+          'A BDApps service. Charges apply for Robi and Airtel customers. '
+          'Stop any time by sending STOP engcoach to 21213.',
+          textAlign: TextAlign.center,
+          style: text.bodySmall,
+        ),
       ],
     );
   }
@@ -243,6 +316,213 @@ class _PhoneStep extends ConsumerWidget {
     borderRadius: BorderRadius.circular(AppRadius.md),
     borderSide: const BorderSide(color: AppColors.danger),
   );
+}
+
+/// The pitch, and the price.
+///
+/// The price sits inside the hero rather than in the small print: bdapps
+/// charges on the screen after next, and someone who only discovers the cost
+/// from the confirmation SMS has been ambushed.
+class _Hero extends StatelessWidget {
+  const _Hero();
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Theme.of(context).textTheme;
+
+    return Container(
+      padding: const EdgeInsets.all(AppSpacing.xl),
+      decoration: BoxDecoration(
+        color: AppColors.primary,
+        borderRadius: BorderRadius.circular(AppRadius.xl),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              // The real mark, not a stand-in icon: this is the first
+              // screen anyone sees, and it is what they will look for on
+              // their home screen afterwards.
+              ClipRRect(
+                borderRadius: BorderRadius.circular(AppRadius.sm),
+                child: Image.asset(
+                  'assets/brand/logo_mark.png',
+                  width: 38,
+                  height: 38,
+                  filterQuality: FilterQuality.medium,
+                ),
+              ),
+              const SizedBox(width: AppSpacing.md),
+              Text(
+                'EngCoach',
+                style: text.titleLarge?.copyWith(color: AppColors.onPrimary),
+              ),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.xl),
+          Text(
+            'English that finally makes sense.',
+            style: text.headlineLarge?.copyWith(color: AppColors.onPrimary),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            'Grammar taught in Bangla, tested in English — so you can see '
+            'what you are getting wrong and fix it.',
+            style: text.bodyMedium?.copyWith(color: AppColors.onPrimaryBody),
+          ),
+          const SizedBox(height: AppSpacing.xl),
+          Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.md,
+              vertical: AppSpacing.sm,
+            ),
+            decoration: BoxDecoration(
+              color: AppColors.onPrimary.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(AppRadius.md),
+            ),
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.payments_outlined,
+                  size: 16,
+                  color: AppColors.onPrimaryMuted,
+                ),
+                const SizedBox(width: AppSpacing.sm),
+                Expanded(
+                  child: Text(
+                    'Tk 2.78 a day, including VAT, SD and SC. '
+                    'Robi and Airtel numbers only.',
+                    style: text.bodySmall?.copyWith(
+                      color: AppColors.onPrimaryBody,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// One thing the subscription buys.
+class _Feature extends StatelessWidget {
+  const _Feature({
+    required this.icon,
+    required this.title,
+    required this.detail,
+    this.last = false,
+  });
+
+  final IconData icon;
+  final String title;
+  final String detail;
+  final bool last;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Theme.of(context).textTheme;
+
+    return Padding(
+      padding: EdgeInsets.only(bottom: last ? 0 : AppSpacing.md),
+      child: Container(
+        padding: const EdgeInsets.all(AppSpacing.lg),
+        decoration: BoxDecoration(
+          color: AppColors.surface,
+          borderRadius: BorderRadius.circular(AppRadius.lg),
+          border: Border.all(color: AppColors.border),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 34,
+              height: 34,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: AppColors.divider,
+                borderRadius: BorderRadius.circular(AppRadius.sm),
+              ),
+              child: Icon(icon, size: 18, color: AppColors.textOnMuted),
+            ),
+            const SizedBox(width: AppSpacing.md),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: text.titleLarge),
+                  const SizedBox(height: 2),
+                  Text(detail, style: text.bodySmall),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// One step of the sign-in explanation — the same numbered-circle vocabulary
+/// the topic overview uses for its learning path.
+class _HowStep extends StatelessWidget {
+  const _HowStep(this.number, this.title, this.detail, {this.last = false});
+
+  final int number;
+  final String title;
+  final String detail;
+  final bool last;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Theme.of(context).textTheme;
+
+    return IntrinsicHeight(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Column(
+            children: [
+              Container(
+                width: 26,
+                height: 26,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  color: AppColors.primary,
+                  shape: BoxShape.circle,
+                ),
+                child: Text(
+                  '$number',
+                  style: text.labelSmall?.copyWith(
+                    color: AppColors.onPrimary,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+              if (!last)
+                Expanded(child: Container(width: 1, color: AppColors.border)),
+            ],
+          ),
+          const SizedBox(width: AppSpacing.md),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(bottom: last ? 0 : AppSpacing.lg),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: text.titleLarge),
+                  const SizedBox(height: 2),
+                  Text(detail, style: text.bodySmall),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 /// The +88 prefix. Fixed rather than a picker: bdapps only bills Bangladeshi

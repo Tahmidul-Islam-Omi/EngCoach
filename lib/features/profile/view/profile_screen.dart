@@ -194,8 +194,9 @@ class _UnsubscribeButtonState extends ConsumerState<_UnsubscribeButton> {
 
     try {
       await ref.read(authRepositoryProvider).unsubscribe(widget.phone);
-      // Re-reads bdapps, which sends them through the gate to the
-      // subscription-ended screen. No navigation needed here.
+      // End the device session too, so the gate returns them to a clean
+      // sign-in rather than a half-signed-in state with nothing to see.
+      await ref.read(sessionRepositoryProvider).signOut();
       ref.invalidate(subscriptionProvider);
     } on AuthFailure catch (e) {
       if (mounted) setState(() => _error = e.message);

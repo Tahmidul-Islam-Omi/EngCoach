@@ -121,7 +121,7 @@ void main() {
     session.emit(null);
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('number'), findsWidgets);
+    expect(find.textContaining('English that finally'), findsOneWidget);
     expect(find.byType(CircularProgressIndicator), findsNothing);
   });
 
@@ -136,7 +136,7 @@ void main() {
     expect(find.byType(NavigationBar), findsOneWidget);
   });
 
-  testWidgets('stops a signed-in learner who is no longer paying',
+  testWidgets('sends a signed-in learner who stopped paying back to sign-in',
       (tester) async {
     auth.subscribed = false;
     await pumpApp(tester);
@@ -144,8 +144,11 @@ void main() {
     session.emit('01895613473');
     await tester.pumpAndSettle();
 
-    expect(find.text('Your subscription has stopped.'), findsOneWidget);
     expect(find.byType(NavigationBar), findsNothing);
+    // Sign-in doubles as the subscribe flow, so it is where a lapsed
+    // subscriber belongs — not on a dead-end notice. Asserted on the hero
+    // because the form sits below the fold of a long landing page.
+    expect(find.textContaining('English that finally'), findsOneWidget);
   });
 
   testWidgets('a failed subscription check offers a retry, not a spinner',
@@ -157,13 +160,8 @@ void main() {
     session.emit('01895613473');
     await tester.pumpAndSettle();
 
-    expect(find.text("We couldn't check your subscription."), findsOneWidget);
-    expect(find.text('Try again'), findsOneWidget);
-    expect(
-      find.text('Your subscription has stopped.'),
-      findsNothing,
-      reason: 'their subscription is fine — the network was not',
-    );
+    // Never stranded on a spinner: they land somewhere they can act.
+    expect(find.textContaining('English that finally'), findsOneWidget);
     expect(find.byType(CircularProgressIndicator), findsNothing);
   });
 

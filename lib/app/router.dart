@@ -7,7 +7,6 @@ import '../data/repositories/subscription_provider.dart';
 import '../features/assessment/view/pre_assessment_screen.dart';
 import '../features/auth/view/sign_in_screen.dart';
 import '../features/auth/view/starting_screen.dart';
-import '../features/auth/view/subscription_ended_screen.dart';
 import '../features/grammar/view/grammar_topics_screen.dart';
 import '../features/grammar/view/topic_overview_screen.dart';
 import '../features/home/view/home_screen.dart';
@@ -45,17 +44,10 @@ abstract final class Routes {
   /// never sees sign-in flash past on launch.
   static const starting = '/starting';
 
-  /// Signed in, but no longer being charged — usually because they texted
-  /// STOP engcoach to 21213.
-  static const subscriptionEnded = '/subscription-ended';
 }
 
 /// Where the router may send someone who is not yet past the gate.
-const _outsideTheGate = {
-  Routes.starting,
-  Routes.signIn,
-  Routes.subscriptionEnded,
-};
+const _outsideTheGate = {Routes.starting, Routes.signIn};
 
 final _rootKey = GlobalKey<NavigatorState>();
 
@@ -104,14 +96,13 @@ final routerProvider = Provider<GoRouter>((ref) {
         return here == Routes.starting ? null : Routes.starting;
       }
 
-      // Not subscribed, or the check failed with nothing cached to fall back
-      // on. Both land on the same screen, which offers a retry — a learner
-      // whose connection dropped must never be stranded on a spinner.
+      // Not subscribed, or the check failed with nothing to fall back on.
+      // Both land on sign-in, which doubles as the subscribe flow and
+      // explains the product — so someone whose subscription lapsed sees the
+      // pitch again rather than a dead end, and a learner whose connection
+      // dropped can simply try their number again.
       if (subscribed != true) {
-        // Sign-in is still reachable: it doubles as the resubscribe flow.
-        return here == Routes.subscriptionEnded || here == Routes.signIn
-            ? null
-            : Routes.subscriptionEnded;
+        return here == Routes.signIn ? null : Routes.signIn;
       }
 
       // Past the gate. The three gate routes have nothing left to say.
@@ -122,12 +113,6 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: Routes.starting,
         parentNavigatorKey: _rootKey,
         builder: (_, _) => const StartingScreen(),
-      ),
-
-      GoRoute(
-        path: Routes.subscriptionEnded,
-        parentNavigatorKey: _rootKey,
-        builder: (_, _) => const SubscriptionEndedScreen(),
       ),
 
       // Keeps one Navigator per tab, so each tab remembers where it was.

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../model/sign_in_state.dart';
@@ -19,125 +17,15 @@ class SignInScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(signInViewModelProvider);
-
-    // The first screen has to answer "what is this and what does it cost"
-    // before it asks for anything, so it scrolls and carries no step bar —
-    // someone who has not decided to sign in yet is not on step 1 of 3.
-    if (state.step == SignInStep.phone) {
-      return const Scaffold(body: SafeArea(child: _PhoneStep()));
-    }
-
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(
-            AppSpacing.pageH,
-            AppSpacing.xxxl,
-            AppSpacing.pageH,
-            AppSpacing.xxl,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              _StepBar(step: state.step),
-              const SizedBox(height: AppSpacing.xxxl + AppSpacing.xs),
-              Expanded(
-                child: switch (state.step) {
-                  SignInStep.code => const _CodeStep(),
-                  SignInStep.done => const _DoneStep(),
-                  SignInStep.phone => const SizedBox.shrink(),
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+    // One page throughout. Asking for the code on a screen of its own threw
+    // away everything that explained the product, and the learner is still
+    // deciding until the moment they are charged — so the pitch stays put
+    // and only the card at the bottom changes.
+    return const Scaffold(body: SafeArea(child: _Landing()));
   }
 }
 
-// ---------------------------------------------------------------- progress
-
-/// Numbered circles with connectors — the same vocabulary as the topic
-/// overview's path, turned on its side because a phone has more width than
-/// height to spare here.
-class _StepBar extends StatelessWidget {
-  const _StepBar({required this.step});
-
-  final SignInStep step;
-
-  static const _labels = ['NUMBER', 'CODE', 'READY'];
-
-  @override
-  Widget build(BuildContext context) {
-    final text = Theme.of(context).textTheme;
-    final at = SignInStep.values.indexOf(step);
-
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        for (var i = 0; i < _labels.length; i++) ...[
-          SizedBox(
-            width: 62,
-            child: Column(
-              children: [
-                _Dot(number: i + 1, reached: i <= at),
-                const SizedBox(height: 7),
-                Text(
-                  _labels[i],
-                  textAlign: TextAlign.center,
-                  style: text.labelSmall?.copyWith(
-                    color: i <= at
-                        ? AppColors.textPrimary
-                        : AppColors.controlOutline,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          if (i < _labels.length - 1)
-            const Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(top: 15),
-                child: Divider(height: 1, color: AppColors.border),
-              ),
-            ),
-        ],
-      ],
-    );
-  }
-}
-
-class _Dot extends StatelessWidget {
-  const _Dot({required this.number, required this.reached});
-
-  final int number;
-  final bool reached;
-
-  @override
-  Widget build(BuildContext context) => Container(
-    width: 30,
-    height: 30,
-    alignment: Alignment.center,
-    decoration: BoxDecoration(
-      color: reached ? AppColors.primary : Colors.transparent,
-      border: Border.all(
-        color: reached ? AppColors.primary : AppColors.border,
-      ),
-      shape: BoxShape.circle,
-    ),
-    child: Text(
-      '$number',
-      style: Theme.of(context).textTheme.labelMedium?.copyWith(
-        color: reached ? AppColors.onPrimary : AppColors.textSecondary,
-        fontWeight: FontWeight.w700,
-      ),
-    ),
-  );
-}
-
-// ------------------------------------------------------------- step 1: phone
+// ------------------------------------------------------------- the page
 
 /// The first screen anyone sees: what EngCoach is, what it costs, and then
 /// the number field.
@@ -146,14 +34,12 @@ class _Dot extends StatelessWidget {
 /// mobile number" asks someone to hand over a billable number before they
 /// know what they are buying — and bdapps charges on the very next screen,
 /// so the price has to be visible before that, not after.
-class _PhoneStep extends ConsumerWidget {
-  const _PhoneStep();
+class _Landing extends ConsumerWidget {
+  const _Landing();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final text = Theme.of(context).textTheme;
-    final state = ref.watch(signInViewModelProvider);
-    final model = ref.read(signInViewModelProvider.notifier);
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(
@@ -219,58 +105,7 @@ class _PhoneStep extends ConsumerWidget {
         ),
 
         const SizedBox(height: AppSpacing.xxl),
-        _Card(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text('MOBILE NUMBER', style: text.labelSmall),
-              const SizedBox(height: AppSpacing.sm + 2),
-              Row(
-                children: [
-                  const _CountryChip(),
-                  const SizedBox(width: AppSpacing.sm),
-                  Expanded(
-                    child: TextField(
-                      keyboardType: TextInputType.phone,
-                      style: text.bodyLarge?.copyWith(fontSize: 15),
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        LengthLimitingTextInputFormatter(
-                          SignInState.phoneLength,
-                        ),
-                      ],
-                      decoration: InputDecoration(
-                        hintText: '01XXXXXXXXX',
-                        errorText: null,
-                        // The message is shown once below, not twice.
-                        enabledBorder:
-                            state.error != null ? _errorBorder : null,
-                      ),
-                      onChanged: model.phoneChanged,
-                      onSubmitted: (_) => model.sendCode(),
-                    ),
-                  ),
-                ],
-              ),
-              if (state.error != null) ...[
-                const SizedBox(height: AppSpacing.sm + 2),
-                _ErrorLine(state.error!),
-              ],
-              const SizedBox(height: AppSpacing.xl),
-              FilledButton(
-                onPressed: state.canSend ? model.sendCode : null,
-                child: Text(state.busy ? 'Sending…' : 'Send code'),
-              ),
-              const SizedBox(height: AppSpacing.sm + 2),
-              Text(
-                'By continuing you agree to our Terms and Privacy Policy.',
-                textAlign: TextAlign.center,
-                style: text.bodySmall,
-              ),
-            ],
-          ),
-        ),
-
+        const _AuthCard(),
         const SizedBox(height: AppSpacing.lg),
         _Note(
           icon: Icons.smartphone_outlined,
@@ -312,10 +147,6 @@ class _PhoneStep extends ConsumerWidget {
     );
   }
 
-  static final _errorBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(AppRadius.md),
-    borderSide: const BorderSide(color: AppColors.danger),
-  );
 }
 
 /// The pitch, and the price.
@@ -572,16 +403,21 @@ class _CountryChip extends StatelessWidget {
   );
 }
 
-// -------------------------------------------------------------- step 2: code
+// ------------------------------------------------------- the changing card
 
-class _CodeStep extends ConsumerStatefulWidget {
-  const _CodeStep();
+/// The only part of the page that changes.
+///
+/// Number in, then code in, then gone — the router takes the learner into
+/// the app the instant Firebase has a session, so there is no "you're signed
+/// in" screen to sit through.
+class _AuthCard extends ConsumerStatefulWidget {
+  const _AuthCard();
 
   @override
-  ConsumerState<_CodeStep> createState() => _CodeStepState();
+  ConsumerState<_AuthCard> createState() => _AuthCardState();
 }
 
-class _CodeStepState extends ConsumerState<_CodeStep> {
+class _AuthCardState extends ConsumerState<_AuthCard> {
   late final List<TextEditingController> _boxes = List.generate(
     SignInState.codeLength,
     (_) => TextEditingController(),
@@ -589,6 +425,11 @@ class _CodeStepState extends ConsumerState<_CodeStep> {
   late final List<FocusNode> _focus = List.generate(
     SignInState.codeLength,
     (_) => FocusNode(),
+  );
+
+  static final _errorBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(AppRadius.md),
+    borderSide: const BorderSide(color: AppColors.danger),
   );
 
   @override
@@ -644,9 +485,7 @@ class _CodeStepState extends ConsumerState<_CodeStep> {
 
   @override
   Widget build(BuildContext context) {
-    final text = Theme.of(context).textTheme;
     final state = ref.watch(signInViewModelProvider);
-    final model = ref.read(signInViewModelProvider.notifier);
 
     // A rejected code is cleared by the view model; the boxes follow.
     ref.listen(signInViewModelProvider.select((s) => s.code), (_, code) {
@@ -658,40 +497,114 @@ class _CodeStepState extends ConsumerState<_CodeStep> {
       }
     });
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text('Enter the code', style: text.headlineLarge),
-        const SizedBox(height: AppSpacing.sm),
-        Text.rich(
-          TextSpan(
-            style: text.bodyMedium,
+    return switch (state.step) {
+      SignInStep.phone => _phoneCard(state),
+      SignInStep.code => _codeCard(state),
+      // Held for the moment between a Firebase session existing and the
+      // router acting on it. Anything more would be a screen to dismiss.
+      SignInStep.done => _Card(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const TextSpan(text: 'We sent a 6-digit code to '),
-              TextSpan(
-                text: state.prettyPhone,
-                style: const TextStyle(
-                  color: AppColors.textPrimary,
-                  fontWeight: FontWeight.w500,
-                ),
+              const SizedBox(
+                width: 18,
+                height: 18,
+                child: CircularProgressIndicator(strokeWidth: 2),
               ),
-              const TextSpan(text: '. '),
+              const SizedBox(width: AppSpacing.md),
+              Text(
+                'Signing you in…',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
             ],
           ),
         ),
-        const SizedBox(height: AppSpacing.xs),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: TextButton(
-            onPressed: model.changeNumber,
-            child: const Text('Change number'),
+    };
+  }
+
+  Widget _phoneCard(SignInState state) {
+    final text = Theme.of(context).textTheme;
+    final model = ref.read(signInViewModelProvider.notifier);
+
+    return _Card(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text('MOBILE NUMBER', style: text.labelSmall),
+          const SizedBox(height: AppSpacing.sm + 2),
+          Row(
+            children: [
+              const _CountryChip(),
+              const SizedBox(width: AppSpacing.sm),
+              Expanded(
+                child: TextField(
+                  keyboardType: TextInputType.phone,
+                  style: text.bodyLarge?.copyWith(fontSize: 15),
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    LengthLimitingTextInputFormatter(SignInState.phoneLength),
+                  ],
+                  decoration: InputDecoration(
+                    hintText: '01XXXXXXXXX',
+                    errorText: null,
+                    // The message is shown once below, not twice.
+                    enabledBorder: state.error != null ? _errorBorder : null,
+                  ),
+                  onChanged: model.phoneChanged,
+                  onSubmitted: (_) => model.sendCode(),
+                ),
+              ),
+            ],
           ),
-        ),
-        const SizedBox(height: AppSpacing.md),
+          if (state.error != null) ...[
+            const SizedBox(height: AppSpacing.sm + 2),
+            _ErrorLine(state.error!),
+          ],
+          const SizedBox(height: AppSpacing.xl),
+          FilledButton(
+            onPressed: state.canSend ? model.sendCode : null,
+            child: Text(state.busy ? 'Sending…' : 'Send code'),
+          ),
+          const SizedBox(height: AppSpacing.sm + 2),
+          Text(
+            'By continuing you agree to our Terms and Privacy Policy.',
+            textAlign: TextAlign.center,
+            style: text.bodySmall,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _codeCard(SignInState state) {
+    final text = Theme.of(context).textTheme;
+    final model = ref.read(signInViewModelProvider.notifier);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
         _Card(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              Text('ENTER THE CODE', style: text.labelSmall),
+              const SizedBox(height: AppSpacing.xs),
+              Text.rich(
+                TextSpan(
+                  style: text.bodySmall,
+                  children: [
+                    const TextSpan(text: 'Sent by SMS to '),
+                    TextSpan(
+                      text: state.prettyPhone,
+                      style: const TextStyle(
+                        color: AppColors.textPrimary,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: AppSpacing.lg),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -713,48 +626,52 @@ class _CodeStepState extends ConsumerState<_CodeStep> {
               const SizedBox(height: AppSpacing.xl),
               FilledButton(
                 onPressed: state.canVerify ? model.verify : null,
-                child: Text(
-                  state.busy ? 'Checking…' : 'Verify and continue',
-                ),
+                child: Text(state.busy ? 'Checking…' : 'Verify and continue'),
               ),
               const SizedBox(height: AppSpacing.sm),
-              Center(
-                child: state.canResend
-                    ? TextButton(
-                        onPressed: model.resend,
-                        child: const Text('Resend code'),
-                      )
-                    : Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: AppSpacing.md,
-                        ),
-                        child: Text.rich(
-                          TextSpan(
-                            style: text.bodyMedium,
-                            children: [
-                              const TextSpan(text: 'Resend code in '),
-                              TextSpan(
-                                text: state.clock,
-                                style: const TextStyle(
-                                  color: AppColors.textPrimary,
-                                  fontWeight: FontWeight.w500,
-                                  fontFeatures: [
-                                    FontFeature.tabularFigures(),
-                                  ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                    onPressed: model.changeNumber,
+                    child: const Text('Change number'),
+                  ),
+                  state.canResend
+                      ? TextButton(
+                          onPressed: model.resend,
+                          child: const Text('Resend code'),
+                        )
+                      : Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.md,
+                          ),
+                          child: Text.rich(
+                            TextSpan(
+                              style: text.bodySmall,
+                              children: [
+                                const TextSpan(text: 'Resend in '),
+                                TextSpan(
+                                  text: state.clock,
+                                  style: const TextStyle(
+                                    color: AppColors.textPrimary,
+                                    fontWeight: FontWeight.w500,
+                                    fontFeatures: [
+                                      FontFeature.tabularFigures(),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
-                      ),
+                ],
               ),
             ],
           ),
         ),
-        const Spacer(),
+        const SizedBox(height: AppSpacing.md),
         // Verifying is what subscribes the learner and starts the daily
-        // charge, so the price is stated on the screen where they commit to
-        // it — not buried in the terms.
+        // charge, so the price sits where they commit to it.
         _Note(
           icon: Icons.payments_outlined,
           tone: AppColors.warning,
@@ -832,79 +749,6 @@ class _CodeBox extends StatelessWidget {
           onChanged: onChanged,
         ),
       ),
-    );
-  }
-}
-
-// -------------------------------------------------------------- step 3: done
-
-class _DoneStep extends ConsumerWidget {
-  const _DoneStep();
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final text = Theme.of(context).textTheme;
-    final state = ref.watch(signInViewModelProvider);
-
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 64,
-          height: 64,
-          alignment: Alignment.center,
-          decoration: const BoxDecoration(
-            color: AppColors.successSurface,
-            shape: BoxShape.circle,
-          ),
-          child: const Icon(
-            Icons.check_rounded,
-            size: 30,
-            color: AppColors.success,
-          ),
-        ),
-        const SizedBox(height: AppSpacing.xl),
-        Text(
-          "You're signed in",
-          textAlign: TextAlign.center,
-          style: text.headlineLarge,
-        ),
-        const SizedBox(height: AppSpacing.sm),
-        SizedBox(
-          width: 260,
-          child: Text(
-            '${state.prettyPhone} is now your account. '
-            "We won't ask for a code again on this phone.",
-            textAlign: TextAlign.center,
-            style: text.bodyMedium,
-          ),
-        ),
-        if (state.syncUnavailable) ...[
-          const SizedBox(height: AppSpacing.lg),
-          SizedBox(
-            width: 280,
-            child: _Note(
-              icon: Icons.cloud_off_rounded,
-              tone: AppColors.warning,
-              background: AppColors.warningSurface,
-              border: AppColors.warning,
-              child: Text(
-                state.error ??
-                    "Signed in, but your progress can't be saved yet.",
-                style: text.bodyMedium?.copyWith(color: AppColors.warning),
-              ),
-            ),
-          ),
-        ],
-        const SizedBox(height: AppSpacing.xl),
-        SizedBox(
-          width: 280,
-          child: FilledButton(
-            onPressed: () => context.go(Routes.home),
-            child: const Text('Start learning'),
-          ),
-        ),
-      ],
     );
   }
 }

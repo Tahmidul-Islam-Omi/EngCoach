@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "470609214868",
+    "project_id": "engcoach-app",
+    "storage_bucket": "engcoach-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470609214868:android:916f9f6c62e13441dce381",
+        "android_client_info": {
+          "package_name": "com.engcoach.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwvFRub1ljhMUQsZR2MOg7fV3KjQE1-Zg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

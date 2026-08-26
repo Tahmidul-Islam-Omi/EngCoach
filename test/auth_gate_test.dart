@@ -52,6 +52,9 @@ class _StubAuth implements AuthRepository {
       throw UnimplementedError();
 
   @override
+  Future<void> unsubscribe(String phone) async => subscribed = false;
+
+  @override
   Future<Session> verify({
     required String phone,
     required String code,

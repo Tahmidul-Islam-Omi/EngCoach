@@ -201,6 +201,47 @@ void main() {
     });
   });
 
+  group('unsubscribing', () {
+    test('ends the subscription', () async {
+      final h = repoWith({
+        'unsubscribe.php':
+            '{"success":true,"subscriberId":"tel:8801895613473",'
+            '"statusCode":"S1000","statusDetail":"Success",'
+            '"subscriptionStatus":"UNREGISTERED"}',
+      });
+
+      await h.repo.unsubscribe(phone);
+
+      expect(h.calls, ['unsubscribe.php']);
+      expect(h.posts.single, {'user_mobile': phone});
+    });
+
+    test('a number that was already off counts as done', () async {
+      final h = repoWith({
+        'unsubscribe.php':
+            '{"success":false,"subscriptionStatus":"UNREGISTERED"}',
+      });
+
+      // The caller asked for it to be off, and it is off.
+      await h.repo.unsubscribe(phone);
+    });
+
+    test('a refusal throws rather than reporting success', () async {
+      // Reporting success here would tell someone the charging had stopped
+      // when it had not.
+      final h = repoWith({
+        'unsubscribe.php':
+            '{"success":false,"statusDetail":"Service unavailable",'
+            '"subscriptionStatus":"REGISTERED"}',
+      });
+
+      await expectLater(
+        h.repo.unsubscribe(phone),
+        throwsA(isA<AuthFailure>()),
+      );
+    });
+  });
+
   group('failures', () {
     test('a dead connection reads as a connection problem', () async {
       final repo = BdappsAuthRepository(

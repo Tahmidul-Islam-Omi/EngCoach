@@ -78,6 +78,13 @@ abstract interface class AuthRepository {
   /// cached: people unsubscribe by texting STOP to 21213, entirely outside
   /// the app.
   Future<bool> isSubscribed(String phone);
+
+  /// Ends the subscription and the daily charge.
+  ///
+  /// Access stops immediately — there is no paid period left to run out.
+  /// Throws [AuthFailure] if bdapps refused, so the caller never reports
+  /// success for a subscription that is still charging.
+  Future<void> unsubscribe(String phone);
 }
 
 /// Talks to the PHP endpoints on cPanel.
@@ -160,6 +167,25 @@ class BdappsAuthRepository implements AuthRepository {
   Future<bool> isSubscribed(String phone) async {
     final status = await _post('check_subscription.php', {'user_mobile': phone});
     return status['isSubscribed'] == true;
+  }
+
+  @override
+  Future<void> unsubscribe(String phone) async {
+    final result = await _post('unsubscribe.php', {'user_mobile': phone});
+
+    // bdapps answers UNREGISTERED for a number that was already off, which
+    // is the outcome asked for either way.
+    final done = result['success'] == true ||
+        (result['subscriptionStatus'] as String?)?.toUpperCase() ==
+            'UNREGISTERED';
+
+    if (!done) {
+      throw AuthFailure(
+        (result['statusDetail'] as String?) ??
+            (result['error'] as String?) ??
+            "Couldn't unsubscribe just now. Please try again.",
+      );
+    }
   }
 
   /// bdapps reports failures inside a 200 body, so the wording comes from the

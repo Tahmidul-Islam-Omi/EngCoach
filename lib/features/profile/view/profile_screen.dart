@@ -5,7 +5,9 @@ import 'package:go_router/go_router.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
+import '../../../data/repositories/auth_repository.dart';
 import '../../../data/repositories/session_repository.dart';
+import '../../../data/repositories/subscription_provider.dart';
 
 /// Account and subscription.
 ///
@@ -129,6 +131,107 @@ class _SignedIn extends ConsumerWidget {
         Text(
           'Signing out does not unsubscribe you.',
           style: text.bodySmall?.copyWith(color: AppColors.textSecondary),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: AppSpacing.xxl),
+        const Divider(),
+        const SizedBox(height: AppSpacing.lg),
+        _UnsubscribeButton(phone: phone, text: text),
+      ],
+    );
+  }
+}
+
+/// Ends the subscription, the charge and access — all at once.
+///
+/// Kept visually quiet and behind a confirmation: it costs money to undo
+/// (resubscribing charges again) and takes effect immediately. But it must be
+/// findable — someone who cannot cancel in the app will cancel by texting
+/// 21213 and remember EngCoach as the thing that was hard to leave.
+class _UnsubscribeButton extends ConsumerStatefulWidget {
+  const _UnsubscribeButton({required this.phone, required this.text});
+
+  final String phone;
+  final TextTheme text;
+
+  @override
+  ConsumerState<_UnsubscribeButton> createState() => _UnsubscribeButtonState();
+}
+
+class _UnsubscribeButtonState extends ConsumerState<_UnsubscribeButton> {
+  bool _busy = false;
+  String? _error;
+
+  Future<void> _confirmAndUnsubscribe() async {
+    final sure = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Unsubscribe from EngCoach?'),
+        content: const Text(
+          'The daily charge stops, and so does your access — straight away, '
+          'not at the end of the day. Your progress is kept, so subscribing '
+          'again picks up where you left off.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Keep my subscription'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text('Unsubscribe'),
+          ),
+        ],
+      ),
+    );
+
+    if (sure != true || !mounted) return;
+
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+
+    try {
+      await ref.read(authRepositoryProvider).unsubscribe(widget.phone);
+      // Re-reads bdapps, which sends them through the gate to the
+      // subscription-ended screen. No navigation needed here.
+      ref.invalidate(subscriptionProvider);
+    } on AuthFailure catch (e) {
+      if (mounted) setState(() => _error = e.message);
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        TextButton(
+          onPressed: _busy ? null : _confirmAndUnsubscribe,
+          style: TextButton.styleFrom(foregroundColor: AppColors.danger),
+          child: _busy
+              ? const SizedBox(
+                  width: 18,
+                  height: 18,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : const Text('Unsubscribe'),
+        ),
+        if (_error != null) ...[
+          const SizedBox(height: AppSpacing.xs),
+          Text(
+            _error!,
+            style: widget.text.bodySmall?.copyWith(color: AppColors.danger),
+            textAlign: TextAlign.center,
+          ),
+        ],
+        const SizedBox(height: AppSpacing.xs),
+        Text(
+          'You can also unsubscribe any time by sending '
+          'STOP engcoach to 21213.',
+          style: widget.text.bodySmall,
           textAlign: TextAlign.center,
         ),
       ],

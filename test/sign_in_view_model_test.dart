@@ -53,6 +53,9 @@ class _StubAuth implements AuthRepository {
 
   @override
   Future<bool> isSubscribed(String phone) async => subscribed;
+
+  @override
+  Future<void> unsubscribe(String phone) async => subscribed = false;
 }
 
 /// Stands in for Firebase Auth, which needs a real plugin and a device.

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../model/sign_in_state.dart';
@@ -597,10 +599,30 @@ class _DoneStep extends ConsumerWidget {
             style: text.bodyMedium,
           ),
         ),
+        if (state.syncUnavailable) ...[
+          const SizedBox(height: AppSpacing.lg),
+          SizedBox(
+            width: 280,
+            child: _Note(
+              icon: Icons.cloud_off_rounded,
+              tone: AppColors.warning,
+              background: AppColors.warningSurface,
+              border: AppColors.warning,
+              child: Text(
+                state.error ??
+                    "Signed in, but your progress can't be saved yet.",
+                style: text.bodyMedium?.copyWith(color: AppColors.warning),
+              ),
+            ),
+          ),
+        ],
         const SizedBox(height: AppSpacing.xl),
-        TextButton(
-          onPressed: ref.read(signInViewModelProvider.notifier).restart,
-          child: const Text('Run through it again'),
+        SizedBox(
+          width: 280,
+          child: FilledButton(
+            onPressed: () => context.go(Routes.home),
+            child: const Text('Start learning'),
+          ),
         ),
       ],
     );

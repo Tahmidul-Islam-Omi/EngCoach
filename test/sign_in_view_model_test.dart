@@ -1,4 +1,5 @@
 import 'package:engcoach/data/repositories/auth_repository.dart';
+import 'package:engcoach/data/repositories/session_repository.dart';
 import 'package:engcoach/features/auth/model/sign_in_state.dart';
 import 'package:engcoach/features/auth/viewmodel/sign_in_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -54,10 +55,34 @@ class _StubAuth implements AuthRepository {
   Future<bool> isSubscribed(String phone) async => subscribed;
 }
 
+/// Stands in for Firebase Auth, which needs a real plugin and a device.
+class _StubSession implements SessionRepository {
+  String? phone;
+  bool failSignIn = false;
+
+  @override
+  String? get currentPhone => phone;
+
+  @override
+  Stream<String?> phoneChanges() => Stream.value(phone);
+
+  @override
+  Future<void> signIn(Session session) async {
+    if (failSignIn || session.firebaseToken == null) {
+      throw const AuthFailure("Signed in, but your progress can't be saved yet.");
+    }
+    phone = session.phone;
+  }
+
+  @override
+  Future<void> signOut() async => phone = null;
+}
+
 void main() {
   const phone = '01895613473';
 
   late _StubAuth auth;
+  late _StubSession session;
 
   SignInViewModel modelIn(ProviderContainer c) =>
       c.read(signInViewModelProvider.notifier);
@@ -65,13 +90,19 @@ void main() {
 
   ProviderContainer makeContainer() {
     final c = ProviderContainer(
-      overrides: [authRepositoryProvider.overrideWithValue(auth)],
+      overrides: [
+        authRepositoryProvider.overrideWithValue(auth),
+        sessionRepositoryProvider.overrideWithValue(session),
+      ],
     );
     addTearDown(c.dispose);
     return c;
   }
 
-  setUp(() => auth = _StubAuth());
+  setUp(() {
+    auth = _StubAuth();
+    session = _StubSession();
+  });
 
   group('phone entry', () {
     test('keeps digits only and stops at eleven', () {
@@ -86,6 +117,28 @@ void main() {
       expect(stateIn(c).canSend, isFalse);
       modelIn(c).phoneChanged(phone);
       expect(stateIn(c).canSend, isTrue);
+    });
+
+    test('rejects a carrier bdapps does not serve', () async {
+      final c = makeContainer();
+      modelIn(c).phoneChanged('01712345678');
+      await modelIn(c).sendCode();
+
+      expect(stateIn(c).error, contains('Robi and Airtel'));
+      expect(auth.starts, 0, reason: 'answered without a round trip');
+    });
+
+    test('accepts both Robi and Airtel prefixes', () async {
+      for (final number in ['01812345678', '01612345678']) {
+        auth = _StubAuth();
+        session = _StubSession();
+        final c = makeContainer();
+        modelIn(c).phoneChanged(number);
+        await modelIn(c).sendCode();
+
+        expect(stateIn(c).error, isNull, reason: number);
+        expect(stateIn(c).step, SignInStep.code, reason: number);
+      }
     });
 
     test('rejects a number that does not start with 01', () async {
@@ -111,7 +164,8 @@ void main() {
       expect(state.busy, isFalse);
     });
 
-    test('the right code signs them in', () async {
+    test('the right code signs them in and opens a Firebase session',
+        () async {
       final c = makeContainer();
       modelIn(c).phoneChanged(phone);
       await modelIn(c).sendCode();
@@ -121,7 +175,24 @@ void main() {
       final state = stateIn(c);
       expect(state.step, SignInStep.done);
       expect(state.session?.isSubscribed, isTrue);
-      expect(state.session?.firebaseToken, 'token');
+      expect(session.currentPhone, phone, reason: 'token was exchanged');
+      expect(state.syncUnavailable, isFalse);
+    });
+
+    test('a failed token exchange still leaves them signed in', () async {
+      // bdapps verified them and, on this path, already charged them. Sending
+      // them back to the phone screen would be wrong.
+      session.failSignIn = true;
+      final c = makeContainer();
+      modelIn(c).phoneChanged(phone);
+      await modelIn(c).sendCode();
+      modelIn(c).codeChanged(_StubAuth.code);
+      await modelIn(c).verify();
+
+      final state = stateIn(c);
+      expect(state.step, SignInStep.done);
+      expect(state.error, contains("can't be saved"));
+      expect(session.currentPhone, isNull);
     });
 
     test('a wrong code keeps the reference, so no second SMS is needed',
@@ -164,6 +235,7 @@ void main() {
       expect(state.referenceNo, isNull);
       expect(state.signedInWithoutCode, isTrue);
       expect(state.session?.isSubscribed, isTrue);
+      expect(session.currentPhone, phone);
       expect(auth.verifies, 0);
     });
 

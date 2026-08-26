@@ -47,13 +47,26 @@ class SignInState {
   /// Set once sign-in succeeds, by either route.
   final Session? session;
 
+  /// Signed in with bdapps, but Firestore is out of reach — the server could
+  /// not mint a token. Worth showing: progress will not be saved.
+  bool get syncUnavailable =>
+      step == SignInStep.done && session?.firebaseToken == null;
+
   /// A request is in flight; the buttons should not fire twice.
   final bool busy;
 
   static const phoneLength = 11;
   static const codeLength = 6;
 
+  /// Robi (018) and Airtel (016). bdapps rejects every other carrier with
+  /// E1325 — checked here only so the learner hears why immediately, rather
+  /// than after a round trip that answers "Format of the address is invalid".
+  static const carrierPrefixes = {'016', '018'};
+
   bool get phoneComplete => phone.length == phoneLength;
+
+  bool get carrierSupported =>
+      phone.length >= 3 && carrierPrefixes.contains(phone.substring(0, 3));
   bool get codeComplete => code.length == codeLength;
   bool get canResend => secondsLeft == 0;
 

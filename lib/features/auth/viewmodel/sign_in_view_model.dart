@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/repositories/auth_repository.dart';
+import '../../../data/repositories/session_repository.dart';
 import '../model/sign_in_state.dart';
 
 /// Drives the sign-in flow.
@@ -45,6 +46,15 @@ class SignInViewModel extends Notifier<SignInState> {
       return;
     }
 
+    // Answered without a round trip. bdapps would reject it anyway, but with
+    // wording no learner can act on.
+    if (!state.carrierSupported) {
+      state = state.copyWith(
+        error: 'EngCoach works with Robi and Airtel numbers only.',
+      );
+      return;
+    }
+
     state = state.copyWith(busy: true, error: null);
     try {
       switch (await _auth.start(state.phone)) {
@@ -52,12 +62,7 @@ class SignInViewModel extends Notifier<SignInState> {
         // nothing to ask for and the learner is straight in.
         case AlreadySignedIn(:final session):
           _stopCountdown();
-          state = state.copyWith(
-            step: SignInStep.done,
-            busy: false,
-            error: null,
-            session: session,
-          );
+          await _openFirebaseSession(session);
 
         case CodeSent(:final referenceNo, :final resendAfter):
           state = state.copyWith(
@@ -88,11 +93,7 @@ class SignInViewModel extends Notifier<SignInState> {
         referenceNo: referenceNo,
       );
       _stopCountdown();
-      state = state.copyWith(
-        step: SignInStep.done,
-        busy: false,
-        session: session,
-      );
+      await _openFirebaseSession(session);
     } on AuthFailure catch (e) {
       // Clear the boxes but keep the number and the reference: a wrong code
       // does not invalidate the reference, so retrying costs no second SMS.
@@ -111,11 +112,7 @@ class SignInViewModel extends Notifier<SignInState> {
       switch (await _auth.start(state.phone)) {
         case AlreadySignedIn(:final session):
           _stopCountdown();
-          state = state.copyWith(
-            step: SignInStep.done,
-            busy: false,
-            session: session,
-          );
+          await _openFirebaseSession(session);
 
         case CodeSent(:final referenceNo, :final resendAfter):
           state = state.copyWith(
@@ -145,6 +142,27 @@ class SignInViewModel extends Notifier<SignInState> {
   void restart() {
     _stopCountdown();
     state = const SignInState();
+  }
+
+  /// Trades the bdapps token for a Firebase session, then finishes.
+  ///
+  /// A failure here does NOT undo sign-in: bdapps has verified the learner
+  /// and, on the new-subscriber path, already charged them. All that is lost
+  /// is Firestore, so the screen says so rather than sending them back.
+  Future<void> _openFirebaseSession(Session session) async {
+    String? warning;
+    try {
+      await ref.read(sessionRepositoryProvider).signIn(session);
+    } on AuthFailure catch (e) {
+      warning = e.message;
+    }
+
+    state = state.copyWith(
+      step: SignInStep.done,
+      busy: false,
+      error: warning,
+      session: session,
+    );
   }
 
   void _startCountdown(Duration window) {

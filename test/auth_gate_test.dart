@@ -185,6 +185,23 @@ void main() {
     );
   });
 
+  testWidgets('sign-in never opens showing a previous visit',
+      (tester) async {
+    // Unsubscribing sends someone back here, and the view model outlives the
+    // screen — so a stale "done" would leave them staring at a spinner.
+    auth.subscribed = true;
+    await pumpApp(tester);
+    session.emit('01895613473');
+    await tester.pumpAndSettle();
+
+    auth.subscribed = false;
+    session.emit(null);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Signing you in…'), findsNothing);
+    expect(find.textContaining('English that finally'), findsOneWidget);
+  });
+
   testWidgets('signing out from inside the app returns to sign-in',
       (tester) async {
     auth.subscribed = true;

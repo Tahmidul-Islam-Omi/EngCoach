@@ -12,11 +12,29 @@ import '../viewmodel/sign_in_view_model.dart';
 /// The number is both the login and the subscription (bdapps bills the SIM),
 /// so there is no password anywhere in this flow — the reset path for one
 /// would be the same one-time code, which makes the password pure friction.
-class SignInScreen extends ConsumerWidget {
+class SignInScreen extends ConsumerStatefulWidget {
   const SignInScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends ConsumerState<SignInScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // The view model outlives this screen, so a previous visit that ended
+    // in "done" would still be showing "Signing you in…" — which is what an
+    // unsubscribe used to land on.
+    //
+    // Invalidate rather than calling restart(): mutating a notifier from a
+    // widget life-cycle is forbidden, while disposing and rebuilding it is
+    // exactly what a fresh visit wants.
+    ref.invalidate(signInViewModelProvider);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     // One page throughout. Asking for the code on a screen of its own threw
     // away everything that explained the product, and the learner is still
     // deciding until the moment they are charged — so the pitch stays put

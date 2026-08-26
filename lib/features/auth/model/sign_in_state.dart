@@ -1,6 +1,12 @@
 import 'package:flutter/foundation.dart';
 
+import '../../../data/repositories/auth_repository.dart';
+
 /// Where the learner is in the sign-in flow.
+///
+/// [code] is skipped entirely for a number that is already subscribed:
+/// bdapps refuses to issue a subscription OTP to an existing subscriber, so
+/// there is no code to ask for.
 enum SignInStep { phone, code, done }
 
 /// Everything the sign-in screen draws from.
@@ -15,7 +21,8 @@ class SignInState {
     this.code = '',
     this.secondsLeft = 0,
     this.error,
-    this.debugCode,
+    this.referenceNo,
+    this.session,
     this.busy = false,
   });
 
@@ -33,8 +40,12 @@ class SignInState {
   /// Wording to show under the field, already learner-facing.
   final String? error;
 
-  /// Only ever set in debug builds, by the fake repository.
-  final String? debugCode;
+  /// bdapps' handle on the code it sent. Must go back with the code, and
+  /// survives a wrong attempt — so a mistyped code costs no second SMS.
+  final String? referenceNo;
+
+  /// Set once sign-in succeeds, by either route.
+  final Session? session;
 
   /// A request is in flight; the buttons should not fire twice.
   final bool busy;
@@ -47,7 +58,12 @@ class SignInState {
   bool get canResend => secondsLeft == 0;
 
   bool get canSend => phoneComplete && !busy;
-  bool get canVerify => codeComplete && !busy;
+  bool get canVerify => codeComplete && !busy && referenceNo != null;
+
+  /// True when the learner reached the end without ever seeing a code —
+  /// they were already subscribed.
+  bool get signedInWithoutCode =>
+      step == SignInStep.done && referenceNo == null;
 
   /// "+880 1712-345678" — how a Bangladeshi number is normally read back.
   String get prettyPhone => phoneComplete
@@ -71,7 +87,8 @@ class SignInState {
     String? code,
     int? secondsLeft,
     Object? error = _keep,
-    Object? debugCode = _keep,
+    Object? referenceNo = _keep,
+    Object? session = _keep,
     bool? busy,
   }) {
     return SignInState(
@@ -80,8 +97,10 @@ class SignInState {
       code: code ?? this.code,
       secondsLeft: secondsLeft ?? this.secondsLeft,
       error: identical(error, _keep) ? this.error : error as String?,
-      debugCode:
-          identical(debugCode, _keep) ? this.debugCode : debugCode as String?,
+      referenceNo: identical(referenceNo, _keep)
+          ? this.referenceNo
+          : referenceNo as String?,
+      session: identical(session, _keep) ? this.session : session as Session?,
       busy: busy ?? this.busy,
     );
   }

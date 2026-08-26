@@ -470,40 +470,35 @@ class _CodeStepState extends ConsumerState<_CodeStep> {
           ),
         ),
         const Spacer(),
-        if (state.debugCode != null)
-          _Note(
-            icon: Icons.code_rounded,
-            tone: AppColors.warning,
-            background: AppColors.warningSurface,
-            border: AppColors.warning,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'DEV BUILD — NO SMS SENT',
-                  style: text.labelSmall?.copyWith(color: AppColors.warning),
+        // Verifying is what subscribes the learner and starts the daily
+        // charge, so the price is stated on the screen where they commit to
+        // it — not buried in the terms.
+        _Note(
+          icon: Icons.payments_outlined,
+          tone: AppColors.warning,
+          background: AppColors.warningSurface,
+          border: AppColors.warning,
+          child: Text.rich(
+            TextSpan(
+              style: text.bodyMedium?.copyWith(color: AppColors.warning),
+              children: const [
+                TextSpan(text: 'Entering this code subscribes you at '),
+                TextSpan(
+                  text: 'Tk 2.78 per day',
+                  style: TextStyle(fontWeight: FontWeight.w700),
                 ),
-                Text.rich(
-                  TextSpan(
-                    style: text.bodyMedium?.copyWith(
-                      color: AppColors.warning,
-                    ),
-                    children: [
-                      const TextSpan(text: 'Code is '),
-                      TextSpan(
-                        text: state.debugCode,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: 1,
-                          fontFeatures: [FontFeature.tabularFigures()],
-                        ),
-                      ),
-                    ],
-                  ),
+                TextSpan(
+                  text: ', charged from your mobile balance. To stop, send ',
                 ),
+                TextSpan(
+                  text: 'STOP engcoach',
+                  style: TextStyle(fontWeight: FontWeight.w700),
+                ),
+                TextSpan(text: ' to 21213.'),
               ],
             ),
           ),
+        ),
       ],
     );
   }

@@ -47,31 +47,55 @@ class SignInViewModel extends Notifier<SignInState> {
 
     state = state.copyWith(busy: true, error: null);
     try {
-      final request = await _auth.requestCode(state.phone);
-      state = state.copyWith(
-        step: SignInStep.code,
-        busy: false,
-        code: '',
-        error: null,
-        debugCode: request.debugCode,
-      );
-      _startCountdown(request.resendAfter);
+      switch (await _auth.start(state.phone)) {
+        // Already subscribed: bdapps will not issue a code, so there is
+        // nothing to ask for and the learner is straight in.
+        case AlreadySignedIn(:final session):
+          _stopCountdown();
+          state = state.copyWith(
+            step: SignInStep.done,
+            busy: false,
+            error: null,
+            session: session,
+          );
+
+        case CodeSent(:final referenceNo, :final resendAfter):
+          state = state.copyWith(
+            step: SignInStep.code,
+            busy: false,
+            code: '',
+            error: null,
+            referenceNo: referenceNo,
+          );
+          _startCountdown(resendAfter);
+      }
     } on AuthFailure catch (e) {
       state = state.copyWith(busy: false, error: e.message);
     }
   }
 
+  /// Finishes the new-subscriber flow. This is the call that subscribes the
+  /// learner and starts the daily charge.
   Future<void> verify() async {
-    if (state.busy || !state.codeComplete) return;
+    final referenceNo = state.referenceNo;
+    if (state.busy || !state.codeComplete || referenceNo == null) return;
 
     state = state.copyWith(busy: true, error: null);
     try {
-      await _auth.verifyCode(state.phone, state.code);
+      final session = await _auth.verify(
+        phone: state.phone,
+        code: state.code,
+        referenceNo: referenceNo,
+      );
       _stopCountdown();
-      state = state.copyWith(step: SignInStep.done, busy: false);
+      state = state.copyWith(
+        step: SignInStep.done,
+        busy: false,
+        session: session,
+      );
     } on AuthFailure catch (e) {
-      // Clear the boxes but keep the number: retyping a correct number the
-      // learner already entered is pure friction.
+      // Clear the boxes but keep the number and the reference: a wrong code
+      // does not invalidate the reference, so retrying costs no second SMS.
       state = state.copyWith(busy: false, code: '', error: e.message);
     }
   }
@@ -81,9 +105,26 @@ class SignInViewModel extends Notifier<SignInState> {
 
     state = state.copyWith(busy: true, error: null);
     try {
-      final request = await _auth.requestCode(state.phone);
-      state = state.copyWith(busy: false, code: '', debugCode: request.debugCode);
-      _startCountdown(request.resendAfter);
+      // Deliberately the same call as the first attempt: it re-reads the
+      // subscription, so someone who subscribed by texting 21213 while this
+      // screen was open is signed in rather than sent a code that cannot come.
+      switch (await _auth.start(state.phone)) {
+        case AlreadySignedIn(:final session):
+          _stopCountdown();
+          state = state.copyWith(
+            step: SignInStep.done,
+            busy: false,
+            session: session,
+          );
+
+        case CodeSent(:final referenceNo, :final resendAfter):
+          state = state.copyWith(
+            busy: false,
+            code: '',
+            referenceNo: referenceNo,
+          );
+          _startCountdown(resendAfter);
+      }
     } on AuthFailure catch (e) {
       state = state.copyWith(busy: false, error: e.message);
     }
@@ -97,7 +138,7 @@ class SignInViewModel extends Notifier<SignInState> {
       step: SignInStep.phone,
       code: '',
       error: null,
-      debugCode: null,
+      referenceNo: null,
     );
   }
 

@@ -4,29 +4,59 @@ import 'package:engcoach/features/auth/viewmodel/sign_in_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-/// Answers immediately and with a code the test chose, so nothing here
-/// depends on timing or randomness.
+/// Answers immediately, so nothing here depends on timing or the network.
 class _StubAuth implements AuthRepository {
   _StubAuth({this.resendAfter = const Duration(seconds: 45)});
 
   static const code = '123456';
+  static const reference = 'ref-8801895613473';
+
+  /// When true, [start] signs the learner in with no code — the real
+  /// behaviour for a number bdapps already has as REGISTERED.
+  bool subscribed = false;
+
   final Duration resendAfter;
-  int requests = 0;
+
+  /// Set to make [start] throw, standing in for a dead network.
+  String? failStartWith;
+
+  int starts = 0;
+  int verifies = 0;
 
   @override
-  Future<CodeRequest> requestCode(String phone) async {
-    requests++;
-    return CodeRequest(resendAfter: resendAfter, debugCode: code);
+  Future<SignInStart> start(String phone) async {
+    starts++;
+    final failure = failStartWith;
+    if (failure != null) throw AuthFailure(failure);
+
+    if (subscribed) {
+      return AlreadySignedIn(
+        Session(phone: phone, isSubscribed: true, firebaseToken: 'token'),
+      );
+    }
+    return CodeSent(referenceNo: reference, resendAfter: resendAfter);
   }
 
   @override
-  Future<Session> verifyCode(String phone, String entered) async {
-    if (entered != code) throw const AuthFailure('wrong');
-    return Session(phone: phone);
+  Future<Session> verify({
+    required String phone,
+    required String code,
+    required String referenceNo,
+  }) async {
+    verifies++;
+    if (code != _StubAuth.code) {
+      throw const AuthFailure('That code is not right.');
+    }
+    return Session(phone: phone, isSubscribed: true, firebaseToken: 'token');
   }
+
+  @override
+  Future<bool> isSubscribed(String phone) async => subscribed;
 }
 
 void main() {
+  const phone = '01895613473';
+
   late _StubAuth auth;
 
   SignInViewModel modelIn(ProviderContainer c) =>
@@ -46,144 +76,178 @@ void main() {
   group('phone entry', () {
     test('keeps digits only and stops at eleven', () {
       final c = makeContainer();
-      modelIn(c).phoneChanged('017-12 345 6789999');
-      expect(stateIn(c).phone, '01712345678');
+      modelIn(c).phoneChanged('018-95 613 4739999');
+      expect(stateIn(c).phone, '01895613473');
     });
 
     test('is not sendable until eleven digits are in', () {
       final c = makeContainer();
-      modelIn(c).phoneChanged('0171234');
+      modelIn(c).phoneChanged('0189561');
       expect(stateIn(c).canSend, isFalse);
-      modelIn(c).phoneChanged('01712345678');
+      modelIn(c).phoneChanged(phone);
       expect(stateIn(c).canSend, isTrue);
     });
 
     test('rejects a number that does not start with 01', () async {
       final c = makeContainer();
-      modelIn(c).phoneChanged('11712345678');
+      modelIn(c).phoneChanged('11895613473');
       await modelIn(c).sendCode();
 
-      expect(stateIn(c).step, SignInStep.phone);
       expect(stateIn(c).error, contains('starting with 01'));
-      expect(auth.requests, 0, reason: 'must not reach the repository');
-    });
-
-    test('typing again clears the error', () async {
-      final c = makeContainer();
-      modelIn(c).phoneChanged('11712345678');
-      await modelIn(c).sendCode();
-      modelIn(c).phoneChanged('01712345678');
-
-      expect(stateIn(c).error, isNull);
-    });
-
-    test('formats the number the way it is read back', () {
-      final c = makeContainer();
-      modelIn(c).phoneChanged('01712345678');
-      expect(stateIn(c).prettyPhone, '+880 1712-345678');
+      expect(auth.starts, 0, reason: 'never reaches the network');
     });
   });
 
-  group('sending a code', () {
-    Future<ProviderContainer> atCodeStep() async {
+  group('a new number', () {
+    test('is sent a code and moves to the code step', () async {
       final c = makeContainer();
-      modelIn(c).phoneChanged('01712345678');
+      modelIn(c).phoneChanged(phone);
       await modelIn(c).sendCode();
-      return c;
-    }
 
-    test('moves to the code step and starts the countdown', () async {
-      final c = await atCodeStep();
-
-      expect(stateIn(c).step, SignInStep.code);
-      expect(stateIn(c).secondsLeft, 45);
-      expect(stateIn(c).canResend, isFalse);
-      expect(stateIn(c).busy, isFalse);
+      final state = stateIn(c);
+      expect(state.step, SignInStep.code);
+      expect(state.referenceNo, _StubAuth.reference);
+      expect(state.secondsLeft, 45);
+      expect(state.busy, isFalse);
     });
 
-    test('carries the debug code through for the dev banner', () async {
-      final c = await atCodeStep();
-      expect(stateIn(c).debugCode, '123456');
-    });
-
-    test('resend is refused while the countdown is running', () async {
-      final c = await atCodeStep();
-      await modelIn(c).resend();
-
-      expect(auth.requests, 1, reason: 'a second code must not be requested');
-    });
-
-    test('a second tap while in flight does not ask twice', () async {
+    test('the right code signs them in', () async {
       final c = makeContainer();
-      modelIn(c).phoneChanged('01712345678');
-
-      await Future.wait([modelIn(c).sendCode(), modelIn(c).sendCode()]);
-
-      expect(auth.requests, 1);
-    });
-
-    test('the countdown actually ticks down', () async {
-      auth = _StubAuth(resendAfter: const Duration(seconds: 1));
-      final c = await atCodeStep();
-      expect(stateIn(c).secondsLeft, 1);
-
-      await Future<void>.delayed(const Duration(milliseconds: 1300));
-
-      expect(stateIn(c).secondsLeft, 0);
-      expect(stateIn(c).canResend, isTrue);
-    });
-  });
-
-  group('verifying', () {
-    Future<ProviderContainer> atCodeStep() async {
-      final c = makeContainer();
-      modelIn(c).phoneChanged('01712345678');
+      modelIn(c).phoneChanged(phone);
       await modelIn(c).sendCode();
-      return c;
-    }
-
-    test('the right code signs the learner in', () async {
-      final c = await atCodeStep();
-      modelIn(c).codeChanged('123456');
+      modelIn(c).codeChanged(_StubAuth.code);
       await modelIn(c).verify();
 
-      expect(stateIn(c).step, SignInStep.done);
-      expect(stateIn(c).error, isNull);
+      final state = stateIn(c);
+      expect(state.step, SignInStep.done);
+      expect(state.session?.isSubscribed, isTrue);
+      expect(state.session?.firebaseToken, 'token');
     });
 
-    test('a wrong code clears the boxes but keeps the number', () async {
-      final c = await atCodeStep();
+    test('a wrong code keeps the reference, so no second SMS is needed',
+        () async {
+      final c = makeContainer();
+      modelIn(c).phoneChanged(phone);
+      await modelIn(c).sendCode();
       modelIn(c).codeChanged('000000');
       await modelIn(c).verify();
 
-      expect(stateIn(c).step, SignInStep.code);
-      expect(stateIn(c).code, isEmpty);
-      expect(stateIn(c).phone, '01712345678');
-      expect(stateIn(c).error, isNotNull);
+      final state = stateIn(c);
+      expect(state.step, SignInStep.code);
+      expect(state.code, isEmpty, reason: 'boxes cleared to retype');
+      expect(state.phone, phone, reason: 'the number is kept');
+      expect(state.referenceNo, _StubAuth.reference);
+      expect(state.error, isNotNull);
+      expect(auth.starts, 1, reason: 'the retry costs no new code');
     });
 
-    test('an incomplete code never reaches the repository', () async {
-      final c = await atCodeStep();
-      modelIn(c).codeChanged('123');
+    test('verifying without a reference never reaches the network', () async {
+      final c = makeContainer();
+      modelIn(c).phoneChanged(phone);
+      modelIn(c).codeChanged(_StubAuth.code);
       await modelIn(c).verify();
 
-      expect(stateIn(c).step, SignInStep.code);
-      expect(stateIn(c).error, isNull, reason: 'not an error, just not ready');
+      expect(auth.verifies, 0);
+      expect(stateIn(c).step, SignInStep.phone);
+    });
+  });
+
+  group('a number that is already subscribed', () {
+    test('is signed in without ever seeing a code', () async {
+      auth.subscribed = true;
+      final c = makeContainer();
+      modelIn(c).phoneChanged(phone);
+      await modelIn(c).sendCode();
+
+      final state = stateIn(c);
+      expect(state.step, SignInStep.done);
+      expect(state.referenceNo, isNull);
+      expect(state.signedInWithoutCode, isTrue);
+      expect(state.session?.isSubscribed, isTrue);
+      expect(auth.verifies, 0);
+    });
+
+    test('runs no countdown, because there is nothing to resend', () async {
+      auth.subscribed = true;
+      final c = makeContainer();
+      modelIn(c).phoneChanged(phone);
+      await modelIn(c).sendCode();
+
+      expect(stateIn(c).secondsLeft, 0);
+    });
+  });
+
+  group('resending', () {
+    test('asks again and restarts the countdown', () async {
+      final c = makeContainer();
+      modelIn(c).phoneChanged(phone);
+      await modelIn(c).sendCode();
+
+      // The countdown must be clear before a resend is allowed.
+      modelIn(c).codeChanged('12');
+      await modelIn(c).resend();
+      expect(auth.starts, 1, reason: 'blocked while the countdown runs');
+    });
+
+    test('signs them in if they subscribed by SMS while the screen was open',
+        () async {
+      // No resend lock, so the second call is allowed straight away.
+      auth = _StubAuth(resendAfter: Duration.zero);
+      final c = makeContainer();
+      modelIn(c).phoneChanged(phone);
+      await modelIn(c).sendCode();
+
+      // Someone texting "engcoach" to 21213 mid-flow becomes REGISTERED, and
+      // bdapps would then refuse another code.
+      auth.subscribed = true;
+      await modelIn(c).resend();
+
+      expect(stateIn(c).step, SignInStep.done);
+      expect(auth.starts, 2);
+    });
+
+    test('a resend after the lock clears asks for a new code', () async {
+      auth = _StubAuth(resendAfter: Duration.zero);
+      final c = makeContainer();
+      modelIn(c).phoneChanged(phone);
+      await modelIn(c).sendCode();
+      modelIn(c).codeChanged('12');
+
+      await modelIn(c).resend();
+
+      expect(auth.starts, 2);
+      expect(stateIn(c).code, isEmpty, reason: 'the old code is cleared');
+    });
+  });
+
+  group('failures', () {
+    test('a network failure shows wording and stays put', () async {
+      auth.failStartWith = "Couldn't reach the network.";
+      final c = makeContainer();
+      modelIn(c).phoneChanged(phone);
+      await modelIn(c).sendCode();
+
+      final state = stateIn(c);
+      expect(state.step, SignInStep.phone);
+      expect(state.error, contains('network'));
+      expect(state.busy, isFalse);
     });
   });
 
   group('changing the number', () {
-    test('goes back with the number intact and the code cleared', () async {
+    test('goes back with the number kept and the code cleared', () async {
       final c = makeContainer();
-      modelIn(c).phoneChanged('01712345678');
+      modelIn(c).phoneChanged(phone);
       await modelIn(c).sendCode();
-      modelIn(c).codeChanged('9999');
+      modelIn(c).codeChanged('123');
+
       modelIn(c).changeNumber();
 
-      expect(stateIn(c).step, SignInStep.phone);
-      expect(stateIn(c).phone, '01712345678');
-      expect(stateIn(c).code, isEmpty);
-      expect(stateIn(c).debugCode, isNull);
+      final state = stateIn(c);
+      expect(state.step, SignInStep.phone);
+      expect(state.phone, phone);
+      expect(state.code, isEmpty);
+      expect(state.referenceNo, isNull);
     });
   });
 }

@@ -1,35 +1,57 @@
-import 'dart:math';
+import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:http/http.dart' as http;
 
 /// A signed-in learner.
 ///
-/// The phone number IS the identity — there is no separate user id. bdapps
-/// supplies the one-time code, and everything user-scoped keys on the
-/// number, so no account linking is needed when real auth replaces the fake.
+/// The phone number IS the identity — there is no separate user id. It is
+/// also the Firebase uid, so Firestore rules can compare `request.auth.uid`
+/// against the document path directly.
 class Session {
-  const Session({required this.phone});
+  const Session({
+    required this.phone,
+    required this.isSubscribed,
+    this.firebaseToken,
+  });
 
   final String phone;
+
+  /// True while bdapps is charging. Counts the ~40-50s "INITIAL CHARGING
+  /// PENDING" window, because the charge has already been accepted and
+  /// locking a new subscriber out during it would be wrong.
+  final bool isSubscribed;
+
+  /// Exchanged for a Firebase session by the auth layer. Null when the
+  /// server could not sign one — the learner is still signed in with bdapps,
+  /// but nothing can reach Firestore.
+  final String? firebaseToken;
 }
 
-/// What asking for a code tells the app.
+/// What starting sign-in led to.
 ///
-/// [debugCode] is the seam that lets the whole sign-in flow be built and
-/// tested before any SMS exists: the fake implementation hands the code
-/// straight back and the screen shows it. The real one leaves it null,
-/// because by then bdapps is doing the delivering.
-class CodeRequest {
-  const CodeRequest({required this.resendAfter, this.debugCode});
-
-  /// How long before the learner may ask for another code.
-  final Duration resendAfter;
-
-  final String? debugCode;
+/// Sealed so the view model must handle both — an existing subscriber never
+/// sees a code, and a new one always does.
+sealed class SignInStart {
+  const SignInStart();
 }
 
-/// A code was rejected. Carries wording the screen can show as-is.
+/// The number was already subscribed, so there was nothing to verify.
+class AlreadySignedIn extends SignInStart {
+  const AlreadySignedIn(this.session);
+
+  final Session session;
+}
+
+/// A new number: bdapps sent a code, and [referenceNo] must come back with it.
+class CodeSent extends SignInStart {
+  const CodeSent({required this.referenceNo, required this.resendAfter});
+
+  final String referenceNo;
+  final Duration resendAfter;
+}
+
+/// Something went wrong. Carries wording the screen can show as-is.
 class AuthFailure implements Exception {
   const AuthFailure(this.message);
 
@@ -39,63 +61,148 @@ class AuthFailure implements Exception {
   String toString() => message;
 }
 
-/// Sends and checks one-time codes.
-///
-/// Implementations differ only in how the code travels. Nothing above this
-/// interface changes when the Cloud Function and bdapps replace the fake —
-/// the same swap point that [ContentRepository] uses for Firestore.
+/// Signs learners in against bdapps.
 abstract interface class AuthRepository {
-  Future<CodeRequest> requestCode(String phone);
+  /// Decides which flow applies and starts it.
+  Future<SignInStart> start(String phone);
 
-  /// Exchanges a code for a session, or throws [AuthFailure].
-  Future<Session> verifyCode(String phone, String code);
+  /// Finishes the new-subscriber flow. This is what subscribes the learner
+  /// and starts the daily charge.
+  Future<Session> verify({
+    required String phone,
+    required String code,
+    required String referenceNo,
+  });
+
+  /// Whether the number is subscribed right now. Read live rather than
+  /// cached: people unsubscribe by texting STOP to 21213, entirely outside
+  /// the app.
+  Future<bool> isSubscribed(String phone);
 }
 
-/// Generates and checks codes on the device.
+/// Talks to the PHP endpoints on cPanel.
 ///
-/// Everything except delivery is real: generation, the wrong-code path, the
-/// resend window. So swapping in the Cloud Function changes how the code
-/// reaches the learner, not what the screen does with it.
-class FakeAuthRepository implements AuthRepository {
-  FakeAuthRepository({
-    Random? random,
-    this.latency = const Duration(milliseconds: 600),
-    this.resendAfter = const Duration(seconds: 45),
-  }) : _random = random ?? Random();
+/// Those hold the bdapps application password and the Firebase
+/// service-account key, neither of which can ship inside an APK — anyone can
+/// unzip one and read its strings.
+class BdappsAuthRepository implements AuthRepository {
+  BdappsAuthRepository({http.Client? client, this.baseUrl = _defaultBaseUrl})
+      : _client = client ?? http.Client();
 
-  final Random _random;
+  static const _defaultBaseUrl = 'https://bdappsdigitalapps.com/engcoach';
 
-  /// Stands in for a round trip, so the screen's busy state is exercised.
-  final Duration latency;
+  /// bdapps itself takes a couple of seconds; a slow mobile connection adds
+  /// to that, so this is generous rather than snappy.
+  static const _timeout = Duration(seconds: 30);
 
-  final Duration resendAfter;
+  /// Matches the resend lock the sign-in screen shows.
+  static const _resendAfter = Duration(seconds: 45);
 
-  String? _issued;
+  final http.Client _client;
+  final String baseUrl;
 
   @override
-  Future<CodeRequest> requestCode(String phone) async {
-    await Future<void>.delayed(latency);
-    _issued = (_random.nextInt(900000) + 100000).toString();
-    return CodeRequest(
-      resendAfter: resendAfter,
-      // Never hand a code to the UI outside a debug build, even from here.
-      debugCode: kDebugMode ? _issued : null,
+  Future<SignInStart> start(String phone) async {
+    final status = await _post('check_subscription.php', {'user_mobile': phone});
+
+    if (status['isSubscribed'] == true) {
+      return AlreadySignedIn(
+        Session(
+          phone: (status['phone'] as String?) ?? phone,
+          isSubscribed: true,
+          firebaseToken: status['firebaseToken'] as String?,
+        ),
+      );
+    }
+
+    final sent = await _post('send_otp.php', {'user_mobile': phone});
+
+    final referenceNo = (sent['referenceNo'] as String?) ?? '';
+    if (sent['success'] != true || referenceNo.isEmpty) {
+      throw AuthFailure(_startFailure(sent));
+    }
+
+    return CodeSent(referenceNo: referenceNo, resendAfter: _resendAfter);
+  }
+
+  @override
+  Future<Session> verify({
+    required String phone,
+    required String code,
+    required String referenceNo,
+  }) async {
+    final result = await _post('verify_otp.php', {
+      'Otp': code,
+      'referenceNo': referenceNo,
+    });
+
+    final statusCode = (result['statusCode'] as String?)?.toUpperCase() ?? '';
+
+    if (statusCode != 'S1000') {
+      // A wrong code does not invalidate the reference — verified against the
+      // live API — so the screen can let them retype without a new SMS.
+      throw AuthFailure(
+        statusCode == 'E1850'
+            ? 'That code is not right. Check the digits and try again.'
+            : (result['statusDetail'] as String?) ??
+                'That code could not be checked. Try again.',
+      );
+    }
+
+    return Session(
+      phone: (result['phone'] as String?) ?? phone,
+      isSubscribed: result['isSubscribed'] == true,
+      firebaseToken: result['firebaseToken'] as String?,
     );
   }
 
   @override
-  Future<Session> verifyCode(String phone, String code) async {
-    await Future<void>.delayed(latency);
-    if (_issued == null || code != _issued) {
+  Future<bool> isSubscribed(String phone) async {
+    final status = await _post('check_subscription.php', {'user_mobile': phone});
+    return status['isSubscribed'] == true;
+  }
+
+  /// bdapps reports failures inside a 200 body, so the wording comes from the
+  /// payload rather than the status line.
+  String _startFailure(Map<String, dynamic> body) {
+    final code = (body['statusCode'] as String?)?.toUpperCase() ?? '';
+    if (code == 'E1351') {
+      // Only reachable if a subscription settles between the two calls.
+      return 'This number is already subscribed. Try again.';
+    }
+    return (body['message'] as String?) ??
+        (body['statusDetail'] as String?) ??
+        "The code couldn't be sent. Try again in a moment.";
+  }
+
+  Future<Map<String, dynamic>> _post(
+    String path,
+    Map<String, String> fields,
+  ) async {
+    final http.Response response;
+    try {
+      response = await _client
+          .post(Uri.parse('$baseUrl/$path'), body: fields)
+          .timeout(_timeout);
+    } catch (_) {
+      // Every transport fault reads the same to a learner on mobile data.
       throw const AuthFailure(
-        'That code is not right. Check the digits and try again.',
+        "Couldn't reach the network. Check your connection and try again.",
       );
     }
-    return Session(phone: phone);
+
+    if (response.statusCode != 200) {
+      throw const AuthFailure('Something went wrong. Try again in a moment.');
+    }
+
+    try {
+      return jsonDecode(response.body) as Map<String, dynamic>;
+    } catch (_) {
+      throw const AuthFailure('Something went wrong. Try again in a moment.');
+    }
   }
 }
 
-/// The one line that changes when the Cloud Function lands.
 final authRepositoryProvider = Provider<AuthRepository>(
-  (ref) => FakeAuthRepository(),
+  (ref) => BdappsAuthRepository(),
 );

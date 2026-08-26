@@ -1,0 +1,37 @@
+rules_version = '2';
+
+// EngCoach access model, in one sentence: a learner may read and write their
+// own subtree and nothing else.
+//
+// The uid IS the phone number — firebase_token.php on cPanel mints the custom
+// token with `uid: 01895613473` after bdapps has verified the number. So
+// comparing uid to the document path is the whole check.
+//
+// Operator restriction (Robi/Airtel only) is deliberately NOT here. bdapps
+// rejects other carriers with E1325 before any token can be minted, so a
+// Grameenphone number can never reach Firestore at all. Repeating that rule
+// here would only mean redeploying rules the day another carrier is added.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isOwner(phone) {
+      return request.auth != null
+          && request.auth.uid == phone
+          // Belt and braces: a token is only ever minted for a verified
+          // number, but a malformed uid must never create a document path.
+          && phone.matches('^01[3-9][0-9]{8}$');
+    }
+
+    match /users/{phone} {
+      allow read, write: if isOwner(phone);
+
+      // Progress per topic, and anything added under the user later.
+      match /{document=**} {
+        allow read, write: if isOwner(phone);
+      }
+    }
+
+    // Everything else is denied by default — Firestore allows nothing that no
+    // rule matches, so there is no catch-all deny to write here.
+  }
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../../../shared/widgets/app_card.dart';
@@ -68,7 +69,11 @@ class AssessmentResultView extends StatelessWidget {
               ],
             ),
           ),
-          _Footer(onRetake: onRetake),
+          _Footer(
+          topicId: topicId,
+          firstWeakSubSkill: weak.firstOrNull?.subSkillId,
+          onRetake: onRetake,
+        ),
         ],
       ),
     );
@@ -190,7 +195,16 @@ class _SubSkillRow extends StatelessWidget {
 }
 
 class _Footer extends StatelessWidget {
-  const _Footer({required this.onRetake});
+  const _Footer({
+    required this.topicId,
+    required this.firstWeakSubSkill,
+    required this.onRetake,
+  });
+
+  final String topicId;
+
+  /// Null when every sub-skill qualified — there is nothing to teach.
+  final String? firstWeakSubSkill;
 
   final VoidCallback onRetake;
 
@@ -209,12 +223,21 @@ class _Footer extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Becomes "Start learning" once Phase 2 exists. Until then this
-            // goes where it says it goes, rather than to a dead end.
-            FilledButton(
-              onPressed: () => context.pop(),
-              child: const Text('Back to topic'),
-            ),
+            // Straight into the first thing they got wrong. The full path
+            // through every weak sub-skill comes next; for now this is the
+            // one that matters most, and it is in authored teaching order.
+            if (firstWeakSubSkill != null)
+              FilledButton(
+                onPressed: () => context.push(
+                  Routes.lesson(topicId, firstWeakSubSkill!),
+                ),
+                child: const Text('Start learning'),
+              )
+            else
+              FilledButton(
+                onPressed: () => context.pop(),
+                child: const Text('Back to topic'),
+              ),
             const SizedBox(height: AppSpacing.xs),
             TextButton(
               onPressed: onRetake,

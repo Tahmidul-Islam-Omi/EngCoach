@@ -8,6 +8,7 @@ import '../features/assessment/view/pre_assessment_screen.dart';
 import '../features/auth/view/sign_in_screen.dart';
 import '../features/auth/view/starting_screen.dart';
 import '../features/grammar/view/grammar_topics_screen.dart';
+import '../features/lesson/view/lesson_screen.dart';
 import '../features/grammar/view/topic_overview_screen.dart';
 import '../features/home/view/home_screen.dart';
 import '../features/learn/view/learn_screen.dart';
@@ -32,6 +33,10 @@ abstract final class Routes {
   /// The topic's pre-assessment. Nested under the topic, so leaving it
   /// lands back on the overview rather than the tab it was reached from.
   static String preAssessment(String id) => '/topic/$id/check';
+
+  /// One sub-skill's lesson, under its topic.
+  static String lesson(String topicId, String subSkillId) =>
+      '/topic/$topicId/lesson/$subSkillId';
 
   static const progress = '/progress';
   static const profile = '/profile';
@@ -171,6 +176,14 @@ final routerProvider = Provider<GoRouter>((ref) {
             parentNavigatorKey: _rootKey,
             builder: (_, state) => PreAssessmentScreen(
               topicId: state.pathParameters['topicId']!,
+            ),
+          ),
+          GoRoute(
+            path: 'lesson/:subSkillId',
+            parentNavigatorKey: _rootKey,
+            builder: (_, state) => LessonScreen(
+              topicId: state.pathParameters['topicId']!,
+              subSkillId: state.pathParameters['subSkillId']!,
             ),
           ),
         ],

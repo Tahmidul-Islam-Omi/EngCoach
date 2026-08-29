@@ -39,8 +39,10 @@ enum _Failure {
   String get detail => switch (this) {
         _Failure.connection =>
           'Check your connection and try again.',
-        _Failure.content =>
-          "It isn't your device — we've been told about it.",
+        // Said nothing about being reported: there is no error reporting,
+        // and "we've been told about it" leaves a learner waiting for a fix
+        // nobody knows is needed.
+        _Failure.content => 'Please try again.',
         _Failure.unknown => 'Please try again.',
       };
 

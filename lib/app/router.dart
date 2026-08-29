@@ -11,7 +11,7 @@ import '../features/auth/view/starting_screen.dart';
 import '../features/grammar/view/grammar_topics_screen.dart';
 import '../features/lesson/view/learning_path_screen.dart';
 import '../features/lesson/view/lesson_screen.dart';
-import '../features/lesson/view/practice_screen.dart';
+import '../features/practice/view/practice_screen.dart';
 import '../features/grammar/view/topic_overview_screen.dart';
 import '../features/home/view/home_screen.dart';
 import '../features/learn/view/learn_screen.dart';

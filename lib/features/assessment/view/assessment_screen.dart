@@ -4,7 +4,10 @@ import 'package:go_router/go_router.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
+import '../../../shared/widgets/answer_option.dart';
 import '../../../shared/widgets/markup_text.dart';
+import '../../../shared/widgets/question_progress.dart';
+import '../../../shared/widgets/retry_message.dart';
 import '../../../data/models/assessment_paper.dart';
 import '../model/assessment_state.dart';
 import '../viewmodel/assessment_view_model.dart';
@@ -56,7 +59,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen> {
           child: Center(child: CircularProgressIndicator()),
         ),
       AssessmentStatus.failed => _Frame(
-          child: _Failed(message: state.error, onRetry: model.retry),
+          child: RetryMessage(message: state.error, onRetry: model.retry),
         ),
       AssessmentStatus.inProgress => _Questions(
           phase: widget.phase,
@@ -87,41 +90,6 @@ class _Frame extends StatelessWidget {
       );
 }
 
-class _Failed extends StatelessWidget {
-  const _Failed({required this.message, required this.onRetry});
-
-  final String? message;
-  final VoidCallback onRetry;
-
-  @override
-  Widget build(BuildContext context) {
-    final text = Theme.of(context).textTheme;
-
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(AppSpacing.xxl),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(
-              Icons.error_outline_rounded,
-              size: 32,
-              color: AppColors.textSecondary,
-            ),
-            const SizedBox(height: AppSpacing.md),
-            Text(
-              message ?? 'Something went wrong.',
-              style: text.titleLarge,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: AppSpacing.lg),
-            OutlinedButton(onPressed: onRetry, child: const Text('Try again')),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 class _Questions extends StatelessWidget {
   const _Questions({
@@ -187,7 +155,7 @@ class _Questions extends StatelessWidget {
         ),
         body: Column(
           children: [
-            _Progress(position: state.position, total: state.total),
+            QuestionProgress(position: state.position, total: state.total),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(
@@ -208,14 +176,14 @@ class _Questions extends StatelessWidget {
                   ),
                   const SizedBox(height: AppSpacing.xl),
                   for (var i = 0; i < question.options.length; i++) ...[
-                    _Option(
+                    AnswerOption(
                       // Keyed by option id so Flutter cannot carry a
                       // selection over to the next question's tile in the
                       // same position.
                       key: ValueKey(question.options[i].id),
                       letter: String.fromCharCode(65 + i),
                       text: question.options[i].text,
-                      selected:
+                      isChosen:
                           state.selectedOptionId == question.options[i].id,
                       onTap: () => onSelect(question.options[i].id),
                     ),
@@ -239,122 +207,6 @@ class _Questions extends StatelessWidget {
   }
 }
 
-class _Progress extends StatelessWidget {
-  const _Progress({required this.position, required this.total});
-
-  final int position;
-  final int total;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.pageH),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(AppRadius.pill),
-            child: LinearProgressIndicator(
-              value: position / total,
-              minHeight: AppSizes.barHeight,
-              backgroundColor: AppColors.divider,
-              color: AppColors.primary,
-            ),
-          ),
-          const SizedBox(height: AppSpacing.sm),
-          Text(
-            'Question $position of $total',
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _Option extends StatelessWidget {
-  const _Option({
-    required this.letter,
-    required this.text,
-    required this.selected,
-    required this.onTap,
-    super.key,
-  });
-
-  final String letter;
-  final String text;
-  final bool selected;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return Semantics(
-      inMutuallyExclusiveGroup: true,
-      selected: selected,
-      child: Material(
-        color: selected ? AppColors.infoSurface : AppColors.surface,
-        borderRadius: BorderRadius.circular(AppRadius.lg),
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(AppRadius.lg),
-          child: Container(
-            constraints: const BoxConstraints(
-              minHeight: AppSizes.minTapTarget,
-            ),
-            padding: const EdgeInsets.all(AppSpacing.lg),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(AppRadius.lg),
-              border: Border.all(
-                color: selected ? AppColors.info : AppColors.border,
-                width: selected
-                    ? AppSizes.selectedBorderWidth
-                    : AppSizes.borderWidth,
-              ),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // A letter rather than a radio dot: it never reads as
-                // "already answered" the way a filled circle can.
-                Container(
-                  width: 26,
-                  height: 26,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: selected ? AppColors.info : Colors.transparent,
-                    border: Border.all(
-                      color:
-                          selected ? AppColors.info : AppColors.controlOutline,
-                    ),
-                  ),
-                  child: Text(
-                    letter,
-                    style: theme.textTheme.labelMedium?.copyWith(
-                      color: selected
-                          ? AppColors.onPrimary
-                          : AppColors.textSecondary,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: AppSpacing.md),
-                Expanded(
-                  child: MarkupText(
-                    text,
-                    style: theme.textTheme.bodyLarge,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class _Footer extends StatelessWidget {
   const _Footer({

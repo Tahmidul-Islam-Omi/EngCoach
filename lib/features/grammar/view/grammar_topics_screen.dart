@@ -8,6 +8,7 @@ import '../../../app/theme/app_spacing.dart';
 import '../../../data/models/topic.dart';
 import '../../../data/models/topic_status.dart';
 import '../../../data/repositories/content_repository.dart';
+import '../../../data/repositories/progress_repository.dart';
 import '../../../shared/widgets/async_view.dart';
 import '../../../shared/widgets/status_badge.dart';
 
@@ -49,9 +50,6 @@ class GrammarTopicsScreen extends ConsumerWidget {
             final topic = list[i - 1];
             return _TopicCard(
               topic: topic,
-              // No progress store yet, so everything reads Not Started and
-              // the first topic carries the suggestion.
-              status: TopicStatus.notStarted,
               suggested: i == 1,
               onTap: () => context.push(Routes.topic(topic.id)),
             );
@@ -62,22 +60,27 @@ class GrammarTopicsScreen extends ConsumerWidget {
   }
 }
 
-class _TopicCard extends StatelessWidget {
+class _TopicCard extends ConsumerWidget {
   const _TopicCard({
     required this.topic,
-    required this.status,
     required this.suggested,
     required this.onTap,
   });
 
   final Topic topic;
-  final TopicStatus status;
   final bool suggested;
   final VoidCallback onTap;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final text = Theme.of(context).textTheme;
+
+    // Read per card rather than for the whole list: each is one document,
+    // Firestore caches them, and a topic the learner has never opened costs
+    // a single miss. Unread progress falls back to Not Started, which is
+    // what it means.
+    final status = ref.watch(topicProgressProvider(topic.id)).value?.status ??
+        TopicStatus.notStarted;
 
     return Card(
       clipBehavior: Clip.antiAlias,
@@ -112,7 +115,10 @@ class _TopicCard extends StatelessWidget {
                     // Long topic names wrap rather than truncate.
                     Text(topic.title, style: text.titleLarge),
                     const SizedBox(height: AppSpacing.sm),
-                    if (suggested)
+                    // The suggestion gives way once there is real progress
+                    // to report: telling someone to start a topic they are
+                    // halfway through reads as the app not knowing them.
+                    if (suggested && status == TopicStatus.notStarted)
                       const _SuggestedPill()
                     else
                       StatusBadge(status),
@@ -149,12 +155,18 @@ class _SuggestedPill extends StatelessWidget {
             const Icon(Icons.star_rounded,
                 size: 12, color: AppColors.onPrimary),
             const SizedBox(width: 4),
-            Text(
-              'GOOD PLACE TO START',
-              style: Theme.of(context)
-                  .textTheme
-                  .labelSmall
-                  ?.copyWith(color: AppColors.onPrimary),
+            // Flexible and shortened: the old label overflowed a 360dp card
+            // by 43px, and "START HERE" is the same phrase the topic
+            // overview already uses for its first step.
+            Flexible(
+              child: Text(
+                'START HERE',
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context)
+                    .textTheme
+                    .labelSmall
+                    ?.copyWith(color: AppColors.onPrimary),
+              ),
             ),
           ],
         ),

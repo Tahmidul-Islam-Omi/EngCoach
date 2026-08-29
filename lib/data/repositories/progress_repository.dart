@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../models/assessment_paper.dart';
@@ -71,6 +72,36 @@ class SubSkillSnapshot {
   final bool qualified;
 }
 
+/// What a saved result changes about the plan.
+///
+/// Only the first check sets the plan. The final check measures whether the
+/// lessons worked — treating its result as a new plan silently invalidated
+/// the ticks beside the old one, and could re-offer the final check the
+/// instant it was finished.
+///
+/// When the plan *is* rewritten, completions are kept only for sub-skills
+/// still in it. Otherwise "3 of 2 done" is reachable, and work on a
+/// sub-skill the learner has since passed keeps counting.
+///
+/// Pure and separate so it can be tested without Firestore.
+@visibleForTesting
+Map<String, Object?> planUpdate({
+  required AssessmentResult result,
+  required List<String> storedDone,
+}) {
+  if (result.phase != AssessmentPhase.pre) return const {};
+
+  final weak = [for (final s in result.weakSubSkills) s.subSkillId];
+
+  return {
+    'weakSubSkills': weak,
+    'completedSubSkills': [
+      for (final id in storedDone)
+        if (weak.contains(id)) id,
+    ],
+  };
+}
+
 /// Reads and writes a learner's progress.
 abstract interface class ProgressRepository {
   /// Records a scored assessment and moves the topic's status on.
@@ -127,18 +158,21 @@ class FirestoreProgressRepository implements ProgressRepository {
     // than a transaction: get() falls back to the local cache offline and
     // set() queues, so an assessment taken with no signal is still saved.
     // A transaction would need the network and would lose the result.
-    final stored = (await doc.get()).data()?['status'] as String?;
+    final data = (await doc.get()).data();
     final current = TopicStatus.values.firstWhere(
-      (s) => s.name == stored,
+      (s) => s.name == data?['status'],
       orElse: () => TopicStatus.notStarted,
     );
 
     await doc.set(
         {
           'status': current.furthest(result.phase.reaches).name,
-          'weakSubSkills': [
-            for (final s in result.weakSubSkills) s.subSkillId,
-          ],
+          ...planUpdate(
+            result: result,
+            storedDone:
+                (data?['completedSubSkills'] as List?)?.cast<String>() ??
+                    const [],
+          ),
           field: {
             'correct': result.correct,
             'total': result.total,

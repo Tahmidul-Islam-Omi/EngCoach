@@ -5,8 +5,9 @@ import 'package:go_router/go_router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../../../shared/widgets/markup_text.dart';
-import '../model/pre_assessment_state.dart';
-import '../viewmodel/pre_assessment_view_model.dart';
+import '../../../data/models/assessment_paper.dart';
+import '../model/assessment_state.dart';
+import '../viewmodel/assessment_view_model.dart';
 import 'assessment_result_view.dart';
 
 /// The pre-assessment: one question at a time, no feedback until the end.
@@ -15,17 +16,25 @@ import 'assessment_result_view.dart';
 /// score is a *state* of this flow, not a place — pushing it would leave the
 /// last question sitting behind it, one back-press away from being re-entered
 /// after it had already been scored.
-class PreAssessmentScreen extends ConsumerStatefulWidget {
-  const PreAssessmentScreen({required this.topicId, super.key});
+class AssessmentScreen extends ConsumerStatefulWidget {
+  const AssessmentScreen({
+    required this.topicId,
+    this.phase = AssessmentPhase.pre,
+    super.key,
+  });
 
   final String topicId;
+  final AssessmentPhase phase;
 
   @override
-  ConsumerState<PreAssessmentScreen> createState() =>
-      _PreAssessmentScreenState();
+  ConsumerState<AssessmentScreen> createState() =>
+      _AssessmentScreenState();
 }
 
-class _PreAssessmentScreenState extends ConsumerState<PreAssessmentScreen> {
+class _AssessmentScreenState extends ConsumerState<AssessmentScreen> {
+  late final AssessmentKey _key =
+      (topicId: widget.topicId, phase: widget.phase);
+
   @override
   void initState() {
     super.initState();
@@ -33,29 +42,30 @@ class _PreAssessmentScreenState extends ConsumerState<PreAssessmentScreen> {
     // from a previous visit would still be there. Clearing on the way in —
     // rather than on the way out — keeps it off the widget teardown path,
     // where a ref is no longer safe to use.
-    ref.invalidate(preAssessmentViewModelProvider(widget.topicId));
+    ref.invalidate(assessmentViewModelProvider(_key));
   }
 
   @override
   Widget build(BuildContext context) {
-    final provider = preAssessmentViewModelProvider(widget.topicId);
+    final provider = assessmentViewModelProvider(_key);
     final state = ref.watch(provider);
     final model = ref.read(provider.notifier);
 
     return switch (state.status) {
-      PreAssessmentStatus.loading => const _Frame(
+      AssessmentStatus.loading => const _Frame(
           child: Center(child: CircularProgressIndicator()),
         ),
-      PreAssessmentStatus.failed => _Frame(
+      AssessmentStatus.failed => _Frame(
           child: _Failed(message: state.error, onRetry: model.retry),
         ),
-      PreAssessmentStatus.inProgress => _Questions(
+      AssessmentStatus.inProgress => _Questions(
+          phase: widget.phase,
           state: state,
           onSelect: model.select,
           onNext: model.next,
           onPrevious: model.previous,
         ),
-      PreAssessmentStatus.finished => AssessmentResultView(
+      AssessmentStatus.finished => AssessmentResultView(
           topicId: widget.topicId,
           result: state.result!,
           onRetake: model.retake,
@@ -72,7 +82,7 @@ class _Frame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('Quick check')),
+        appBar: AppBar(title: const Text('Check')),
         body: child,
       );
 }
@@ -115,13 +125,15 @@ class _Failed extends StatelessWidget {
 
 class _Questions extends StatelessWidget {
   const _Questions({
+    required this.phase,
     required this.state,
     required this.onSelect,
     required this.onNext,
     required this.onPrevious,
   });
 
-  final PreAssessmentState state;
+  final AssessmentPhase phase;
+  final AssessmentState state;
   final ValueChanged<String> onSelect;
   final VoidCallback onNext;
   final VoidCallback onPrevious;
@@ -164,7 +176,9 @@ class _Questions extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Quick check'),
+          title: Text(
+            phase == AssessmentPhase.pre ? 'Quick check' : 'Final check',
+          ),
           leading: IconButton(
             icon: const Icon(Icons.close_rounded),
             tooltip: 'Leave the check',

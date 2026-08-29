@@ -1,9 +1,10 @@
 import 'package:engcoach/data/models/topic.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
 import 'package:engcoach/data/repositories/progress_repository.dart';
+import 'package:engcoach/data/models/assessment_paper.dart';
 import 'package:engcoach/data/models/assessment_result.dart';
-import 'package:engcoach/features/assessment/model/pre_assessment_state.dart';
-import 'package:engcoach/features/assessment/viewmodel/pre_assessment_view_model.dart';
+import 'package:engcoach/features/assessment/model/assessment_state.dart';
+import 'package:engcoach/features/assessment/viewmodel/assessment_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -55,6 +56,7 @@ class _StubProgress implements ProgressRepository {
 
 void main() {
   const topicId = 'test_topic';
+  const key = (topicId: topicId, phase: AssessmentPhase.pre);
 
   late _StubContent content;
   late _StubProgress progress;
@@ -70,16 +72,16 @@ void main() {
     return c;
   }
 
-  PreAssessmentViewModel modelIn(ProviderContainer c) =>
-      c.read(preAssessmentViewModelProvider(topicId).notifier);
+  AssessmentViewModel modelIn(ProviderContainer c) =>
+      c.read(assessmentViewModelProvider(key).notifier);
 
-  PreAssessmentState stateIn(ProviderContainer c) =>
-      c.read(preAssessmentViewModelProvider(topicId));
+  AssessmentState stateIn(ProviderContainer c) =>
+      c.read(assessmentViewModelProvider(key));
 
   /// Waits for the topic to arrive, so the paper is dealt.
   Future<ProviderContainer> started() async {
     final c = makeContainer();
-    c.read(preAssessmentViewModelProvider(topicId));
+    c.read(assessmentViewModelProvider(key));
     await c.read(topicProvider(topicId).future).catchError((_) => buildTopic());
     await Future<void>.delayed(Duration.zero);
     return c;
@@ -108,7 +110,7 @@ void main() {
     test('is loading until the topic arrives', () {
       final c = makeContainer();
 
-      expect(stateIn(c).status, PreAssessmentStatus.loading);
+      expect(stateIn(c).status, AssessmentStatus.loading);
       expect(stateIn(c).paper, isNull);
       // Nothing to count yet, so the counter must not read "1 of 0".
       expect(stateIn(c).position, 0);
@@ -119,7 +121,7 @@ void main() {
       final c = await started();
       final state = stateIn(c);
 
-      expect(state.status, PreAssessmentStatus.inProgress);
+      expect(state.status, AssessmentStatus.inProgress);
       expect(state.total, 9);
       expect(state.index, 0);
       expect(state.position, 1);
@@ -130,14 +132,14 @@ void main() {
     test('fails when the topic cannot be read', () async {
       content = _StubContent(null);
       final c = makeContainer();
-      c.read(preAssessmentViewModelProvider(topicId));
+      c.read(assessmentViewModelProvider(key));
       await expectLater(
         c.read(topicProvider(topicId).future),
         throwsStateError,
       );
       await Future<void>.delayed(Duration.zero);
 
-      expect(stateIn(c).status, PreAssessmentStatus.failed);
+      expect(stateIn(c).status, AssessmentStatus.failed);
       expect(stateIn(c).error, isNotNull);
     });
 
@@ -145,17 +147,17 @@ void main() {
       content = _StubContent(buildTopic(bankSize: 0));
       final c = await started();
 
-      expect(stateIn(c).status, PreAssessmentStatus.failed);
+      expect(stateIn(c).status, AssessmentStatus.failed);
       expect(stateIn(c).error, contains('no assessment'));
     });
 
     test('retry reloads the topic', () async {
       content = _StubContent(null);
       final c = makeContainer();
-      c.read(preAssessmentViewModelProvider(topicId));
+      c.read(assessmentViewModelProvider(key));
       await c.read(topicProvider(topicId).future).catchError((_) => buildTopic());
       await Future<void>.delayed(Duration.zero);
-      expect(stateIn(c).status, PreAssessmentStatus.failed);
+      expect(stateIn(c).status, AssessmentStatus.failed);
 
       final before = content.loads;
       modelIn(c).retry();
@@ -245,12 +247,12 @@ void main() {
     test('the last question scores the paper instead of advancing', () async {
       final c = await started();
       for (var i = 0; i < 9; i++) {
-        expect(stateIn(c).status, PreAssessmentStatus.inProgress);
+        expect(stateIn(c).status, AssessmentStatus.inProgress);
         answerCorrectly(c);
       }
 
       final state = stateIn(c);
-      expect(state.status, PreAssessmentStatus.finished);
+      expect(state.status, AssessmentStatus.finished);
       expect(state.result, isNotNull);
       expect(state.result!.percent, 100);
       expect(state.result!.outcome, AssessmentOutcome.fullPass);
@@ -294,7 +296,7 @@ void main() {
       modelIn(c).previous();
 
       expect(stateIn(c).result, same(scored));
-      expect(stateIn(c).status, PreAssessmentStatus.finished);
+      expect(stateIn(c).status, AssessmentStatus.finished);
     });
 
     test('the finished paper is persisted', () async {
@@ -319,7 +321,7 @@ void main() {
       }
       await Future<void>.delayed(Duration.zero);
 
-      expect(stateIn(c).status, PreAssessmentStatus.finished);
+      expect(stateIn(c).status, AssessmentStatus.finished);
       expect(stateIn(c).result, isNotNull);
     });
 
@@ -342,7 +344,7 @@ void main() {
       modelIn(c).retake();
 
       final state = stateIn(c);
-      expect(state.status, PreAssessmentStatus.inProgress);
+      expect(state.status, AssessmentStatus.inProgress);
       expect(state.index, 0);
       expect(state.answers, isEmpty);
       expect(state.result, isNull);

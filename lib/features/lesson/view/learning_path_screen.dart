@@ -131,7 +131,65 @@ class _Plan extends StatelessWidget {
             done: progress.isDone(weak[i].id),
           ),
         ],
+        if (done == weak.length) ...[
+          const SizedBox(height: AppSpacing.xl),
+          _FinalCheck(topicId: topic.id),
+        ],
       ],
+    );
+  }
+}
+
+/// Offered only once every lesson in the plan is done.
+///
+/// The post-assessment draws from the other bank — the same rules asked
+/// differently — so its score can be set against the first one. Taking it
+/// early would measure nothing.
+class _FinalCheck extends StatelessWidget {
+  const _FinalCheck({required this.topicId});
+
+  final String topicId;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Theme.of(context).textTheme;
+
+    return Container(
+      padding: const EdgeInsets.all(AppSpacing.xl),
+      decoration: BoxDecoration(
+        color: AppColors.primary,
+        borderRadius: BorderRadius.circular(AppRadius.xl),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'THAT’S EVERY LESSON',
+            style: text.labelSmall?.copyWith(color: AppColors.onPrimaryMuted),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            'Now see how much changed.',
+            style: text.headlineSmall?.copyWith(color: AppColors.onPrimary),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            'The same rules, asked with different questions, set against '
+            'the check you took at the start.',
+            style: text.bodySmall?.copyWith(color: AppColors.onPrimaryBody),
+          ),
+          const SizedBox(height: AppSpacing.lg),
+          FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: AppColors.onPrimary,
+              foregroundColor: AppColors.primary,
+            ),
+            onPressed: () =>
+                context.push(Routes.postAssessment(topicId)),
+            child: const Text('Take the final check'),
+          ),
+        ],
+      ),
     );
   }
 }

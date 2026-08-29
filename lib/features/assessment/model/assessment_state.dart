@@ -4,7 +4,7 @@ import '../../../data/models/assessment_paper.dart';
 import '../../../data/models/assessment_result.dart';
 
 /// Where a pre-assessment is.
-enum PreAssessmentStatus {
+enum AssessmentStatus {
   /// The topic is still being read.
   loading,
 
@@ -14,7 +14,7 @@ enum PreAssessmentStatus {
   /// A paper is dealt and the learner is working through it.
   inProgress,
 
-  /// Every question is behind them and [PreAssessmentState.result] is set.
+  /// Every question is behind them and [AssessmentState.result] is set.
   finished,
 }
 
@@ -23,9 +23,9 @@ enum PreAssessmentStatus {
 /// Immutable, like the sign-in state before it: a rebuild can only come from
 /// the view model assigning new state, never from a widget reaching in.
 @immutable
-class PreAssessmentState {
-  const PreAssessmentState({
-    this.status = PreAssessmentStatus.loading,
+class AssessmentState {
+  const AssessmentState({
+    this.status = AssessmentStatus.loading,
     this.paper,
     this.index = 0,
     this.answers = const {},
@@ -33,7 +33,7 @@ class PreAssessmentState {
     this.error,
   });
 
-  final PreAssessmentStatus status;
+  final AssessmentStatus status;
 
   /// The dealt paper. Null until the topic has loaded.
   final AssessmentPaper? paper;
@@ -81,15 +81,15 @@ class PreAssessmentState {
   /// nullable parameter cannot do.
   static const _keep = Object();
 
-  PreAssessmentState copyWith({
-    PreAssessmentStatus? status,
+  AssessmentState copyWith({
+    AssessmentStatus? status,
     AssessmentPaper? paper,
     int? index,
     Map<String, String>? answers,
     Object? result = _keep,
     Object? error = _keep,
   }) {
-    return PreAssessmentState(
+    return AssessmentState(
       status: status ?? this.status,
       paper: paper ?? this.paper,
       index: index ?? this.index,

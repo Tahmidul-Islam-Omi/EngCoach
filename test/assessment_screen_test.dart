@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:engcoach/app/theme/app_theme.dart';
 import 'package:engcoach/data/models/topic.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
-import 'package:engcoach/features/assessment/view/pre_assessment_screen.dart';
+import 'package:engcoach/features/assessment/view/assessment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -48,7 +48,7 @@ void main() {
             GoRoute(
               path: 'check',
               builder: (_, _) =>
-                  const PreAssessmentScreen(topicId: 'test_topic'),
+                  const AssessmentScreen(topicId: 'test_topic'),
             ),
           ],
         ),

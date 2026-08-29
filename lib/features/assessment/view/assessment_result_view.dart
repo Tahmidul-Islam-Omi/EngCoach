@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
-import '../../../shared/widgets/app_card.dart';
+import '../../../data/models/assessment_paper.dart';
 import '../../../data/models/assessment_result.dart';
+import '../../../data/repositories/progress_repository.dart';
+import '../../../shared/widgets/app_card.dart';
 
 /// What a finished pre-assessment tells the learner.
 ///
@@ -14,7 +17,7 @@ import '../../../data/models/assessment_result.dart';
 /// question nobody asked. The score is shown, but smaller.
 ///
 /// Nothing here is persisted yet — that arrives with `ProgressRepository`.
-class AssessmentResultView extends StatelessWidget {
+class AssessmentResultView extends ConsumerWidget {
   const AssessmentResultView({
     required this.topicId,
     required this.result,
@@ -27,9 +30,16 @@ class AssessmentResultView extends StatelessWidget {
   final VoidCallback onRetake;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final text = Theme.of(context).textTheme;
     final weak = result.weakSubSkills;
+
+    // The pre-assessment score, for the comparison that is the whole point
+    // of taking the second one. Read from what was stored, not from this
+    // paper — the two are different questions by design.
+    final before = result.phase == AssessmentPhase.post
+        ? ref.watch(topicProgressProvider(topicId)).value?.preAssessment
+        : null;
 
     return Scaffold(
       appBar: AppBar(
@@ -47,6 +57,10 @@ class AssessmentResultView extends StatelessWidget {
                 AppSpacing.xxxl,
               ),
               children: [
+                if (before != null) ...[
+                  _Improvement(before: before.percent, after: result.percent),
+                  const SizedBox(height: AppSpacing.lg),
+                ],
                 _Headline(result: result),
                 const SizedBox(height: AppSpacing.xl),
                 Text('SUB-SKILL BY SUB-SKILL', style: text.labelSmall),
@@ -76,6 +90,101 @@ class AssessmentResultView extends StatelessWidget {
         ),
         ],
       ),
+    );
+  }
+}
+
+/// Pre against post, which is the product's actual claim (SPEC §6).
+///
+/// Shown above everything else on a post-assessment: the sub-skill
+/// breakdown matters for deciding what to do next, but this is what the
+/// learner came back to see.
+class _Improvement extends StatelessWidget {
+  const _Improvement({required this.before, required this.after});
+
+  final int before;
+  final int after;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Theme.of(context).textTheme;
+    final gain = after - before;
+    final better = gain > 0;
+
+    return Container(
+      padding: const EdgeInsets.all(AppSpacing.xl),
+      decoration: BoxDecoration(
+        color: AppColors.primary,
+        borderRadius: BorderRadius.circular(AppRadius.xl),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            better ? 'YOU IMPROVED' : 'BEFORE AND AFTER',
+            style: text.labelSmall?.copyWith(color: AppColors.onPrimaryMuted),
+          ),
+          const SizedBox(height: AppSpacing.md),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              _Score(label: 'Before', percent: before, muted: true),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+                child: Icon(
+                  Icons.arrow_forward_rounded,
+                  color: AppColors.onPrimaryMuted,
+                ),
+              ),
+              _Score(label: 'After', percent: after, muted: false),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.md),
+          Text(
+            switch (gain) {
+              > 0 => 'Up $gain points on the same rules, asked differently.',
+              0 => 'The same score on different questions covering the same '
+                  'rules.',
+              _ => 'Down ${-gain} points. Worth going back over the lessons '
+                  'before moving on.',
+            },
+            style: text.bodySmall?.copyWith(color: AppColors.onPrimaryBody),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Score extends StatelessWidget {
+  const _Score({
+    required this.label,
+    required this.percent,
+    required this.muted,
+  });
+
+  final String label;
+  final int percent;
+  final bool muted;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Theme.of(context).textTheme;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: text.bodySmall?.copyWith(color: AppColors.onPrimaryMuted),
+        ),
+        Text(
+          '$percent%',
+          style: text.headlineLarge?.copyWith(
+            color: muted ? AppColors.onPrimaryMuted : AppColors.onPrimary,
+          ),
+        ),
+      ],
     );
   }
 }

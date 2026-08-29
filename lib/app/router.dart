@@ -4,7 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../data/services/session_service.dart';
 import '../data/services/auth_service.dart';
-import '../features/assessment/view/pre_assessment_screen.dart';
+import '../data/models/assessment_paper.dart';
+import '../features/assessment/view/assessment_screen.dart';
 import '../features/auth/view/sign_in_screen.dart';
 import '../features/auth/view/starting_screen.dart';
 import '../features/grammar/view/grammar_topics_screen.dart';
@@ -35,6 +36,9 @@ abstract final class Routes {
   /// The topic's pre-assessment. Nested under the topic, so leaving it
   /// lands back on the overview rather than the tab it was reached from.
   static String preAssessment(String id) => '/topic/$id/check';
+
+  /// The check taken after the lessons, against the other question bank.
+  static String postAssessment(String id) => '/topic/$id/final-check';
 
   /// The learner's plan for a topic — the sub-skills their check flagged.
   static String learningPath(String id) => '/topic/$id/learn';
@@ -183,8 +187,16 @@ final routerProvider = Provider<GoRouter>((ref) {
           GoRoute(
             path: 'check',
             parentNavigatorKey: _rootKey,
-            builder: (_, state) => PreAssessmentScreen(
+            builder: (_, state) => AssessmentScreen(
               topicId: state.pathParameters['topicId']!,
+            ),
+          ),
+          GoRoute(
+            path: 'final-check',
+            parentNavigatorKey: _rootKey,
+            builder: (_, state) => AssessmentScreen(
+              topicId: state.pathParameters['topicId']!,
+              phase: AssessmentPhase.post,
             ),
           ),
           GoRoute(

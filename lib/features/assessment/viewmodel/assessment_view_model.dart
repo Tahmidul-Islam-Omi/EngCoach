@@ -7,9 +7,13 @@ import '../../../data/repositories/content_repository.dart';
 import '../../../data/repositories/progress_repository.dart';
 import '../../../data/models/assessment_paper.dart';
 import '../../../data/models/assessment_result.dart';
-import '../model/pre_assessment_state.dart';
+import '../model/assessment_state.dart';
 
-/// Runs one topic's pre-assessment.
+/// Which assessment this is: the diagnostic, or the one that proves it
+/// worked.
+typedef AssessmentKey = ({String topicId, AssessmentPhase phase});
+
+/// Runs one topic's assessment, in either phase.
 ///
 /// Holds no widgets and touches no context, so the whole flow — dealing,
 /// answering, going back, scoring — is testable without a device.
@@ -17,16 +21,18 @@ import '../model/pre_assessment_state.dart';
 /// Not auto-disposing on purpose: the result screen is pushed after the
 /// question screen pops, and an auto-disposing provider would throw the
 /// score away in between. Whoever leaves the flow invalidates it.
-class PreAssessmentViewModel extends Notifier<PreAssessmentState> {
-  PreAssessmentViewModel(this.topicId);
+class AssessmentViewModel extends Notifier<AssessmentState> {
+  AssessmentViewModel(this.key);
 
-  final String topicId;
+  final AssessmentKey key;
+
+  String get topicId => key.topicId;
 
   /// Kept so [retake] can deal a fresh paper without reloading the topic.
   Topic? _topic;
 
   @override
-  PreAssessmentState build() {
+  AssessmentState build() {
     // Watched, not read: the topic arrives asynchronously, and this rebuilds
     // when it does. That also means a topic reload restarts the assessment —
     // which only happens before answering, since nothing invalidates content
@@ -35,27 +41,30 @@ class PreAssessmentViewModel extends Notifier<PreAssessmentState> {
 
     return switch (topic) {
       AsyncData(:final value) => _deal(value),
-      AsyncError() => const PreAssessmentState(
-          status: PreAssessmentStatus.failed,
+      AsyncError() => const AssessmentState(
+          status: AssessmentStatus.failed,
           error: "This topic couldn't be loaded. Check your connection.",
         ),
-      _ => const PreAssessmentState(),
+      _ => const AssessmentState(),
     };
   }
 
-  PreAssessmentState _deal(Topic topic) {
+  AssessmentState _deal(Topic topic) {
     _topic = topic;
-    final paper = AssessmentPaper.draw(topic);
+    // The post-assessment draws from the other bank — different questions
+    // covering the same rules in the same proportion, which is what makes
+    // the two scores comparable at all.
+    final paper = AssessmentPaper.draw(topic, phase: key.phase);
 
     if (paper.isEmpty) {
-      return const PreAssessmentState(
-        status: PreAssessmentStatus.failed,
+      return const AssessmentState(
+        status: AssessmentStatus.failed,
         error: 'This topic has no assessment yet.',
       );
     }
 
-    return PreAssessmentState(
-      status: PreAssessmentStatus.inProgress,
+    return AssessmentState(
+      status: AssessmentStatus.inProgress,
       paper: paper,
     );
   }
@@ -64,7 +73,7 @@ class PreAssessmentViewModel extends Notifier<PreAssessmentState> {
   /// it — nothing is committed until the learner moves on.
   void select(String optionId) {
     final question = state.current;
-    if (question == null || state.status != PreAssessmentStatus.inProgress) {
+    if (question == null || state.status != AssessmentStatus.inProgress) {
       return;
     }
 
@@ -75,7 +84,7 @@ class PreAssessmentViewModel extends Notifier<PreAssessmentState> {
 
   /// Moves on, or scores the paper if this was the last question.
   void next() {
-    if (state.status != PreAssessmentStatus.inProgress || !state.canAdvance) {
+    if (state.status != AssessmentStatus.inProgress || !state.canAdvance) {
       return;
     }
 
@@ -90,7 +99,7 @@ class PreAssessmentViewModel extends Notifier<PreAssessmentState> {
   /// Back one question, keeping the answer so it can be changed rather than
   /// re-entered.
   void previous() {
-    if (state.status != PreAssessmentStatus.inProgress || !state.canGoBack) {
+    if (state.status != AssessmentStatus.inProgress || !state.canGoBack) {
       return;
     }
 
@@ -116,7 +125,7 @@ class PreAssessmentViewModel extends Notifier<PreAssessmentState> {
     final result = AssessmentResult.score(paper, state.answers);
 
     state = state.copyWith(
-      status: PreAssessmentStatus.finished,
+      status: AssessmentStatus.finished,
       result: result,
     );
 
@@ -136,7 +145,7 @@ class PreAssessmentViewModel extends Notifier<PreAssessmentState> {
   }
 }
 
-final preAssessmentViewModelProvider = NotifierProvider.family<
-    PreAssessmentViewModel, PreAssessmentState, String>(
-  PreAssessmentViewModel.new,
+final assessmentViewModelProvider = NotifierProvider.family<
+    AssessmentViewModel, AssessmentState, AssessmentKey>(
+  AssessmentViewModel.new,
 );

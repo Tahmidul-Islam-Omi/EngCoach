@@ -1,9 +1,11 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/models/topic.dart';
 import '../../../data/repositories/content_repository.dart';
+import '../../../data/repositories/progress_repository.dart';
 import '../model/practice_state.dart';
 
 /// Which lesson's practice this is.
@@ -92,6 +94,9 @@ class PracticeViewModel extends Notifier<PracticeState> {
 
     if (state.isLast) {
       state = state.copyWith(status: PracticeStatus.finished);
+      // Finishing the practice is what marks the sub-skill done — reading
+      // the lesson alone is attendance, not evidence.
+      unawaited(_recordCompletion());
       return;
     }
 
@@ -99,6 +104,24 @@ class PracticeViewModel extends Notifier<PracticeState> {
       index: state.index + 1,
       chosenOptionId: null,
     );
+  }
+
+  /// Records the completion and refreshes the plan, so returning to it
+  /// shows this lesson ticked off.
+  ///
+  /// Not awaited by the caller: the summary is already on screen, and a slow
+  /// connection must not hold it. Firestore queues the write offline.
+  Future<void> _recordCompletion() async {
+    try {
+      await ref.read(progressRepositoryProvider).markSubSkillComplete(
+            topicId: key.topicId,
+            subSkillId: key.subSkillId,
+          );
+      ref.invalidate(topicProgressProvider(key.topicId));
+    } catch (_) {
+      // Nothing useful to tell the learner: they did the work either way,
+      // and the write retries. Reported once Crashlytics is in.
+    }
   }
 
   /// Same questions, freshly shuffled and unanswered.

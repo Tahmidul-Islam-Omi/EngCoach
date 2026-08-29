@@ -45,6 +45,12 @@ class _StubProgress implements ProgressRepository {
 
   @override
   Future<void> touch() async {}
+
+  @override
+  Future<void> markSubSkillComplete({
+    required String topicId,
+    required String subSkillId,
+  }) async {}
 }
 
 void main() {

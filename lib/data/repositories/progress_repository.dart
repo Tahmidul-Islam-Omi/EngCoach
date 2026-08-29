@@ -12,6 +12,7 @@ class TopicProgress {
     required this.topicId,
     required this.status,
     this.weakSubSkills = const [],
+    this.completedSubSkills = const [],
     this.preAssessment,
     this.postAssessment,
   });
@@ -24,8 +25,19 @@ class TopicProgress {
   /// the learning phase asks for on every screen.
   final List<String> weakSubSkills;
 
+  /// Sub-skills whose practice the learner has finished. Reading a lesson
+  /// is not enough — completion means they answered questions about it
+  /// (SPEC §7: finishing lessons is not the same as knowing).
+  final List<String> completedSubSkills;
+
   final ScoreSnapshot? preAssessment;
   final ScoreSnapshot? postAssessment;
+
+  /// How much of the plan is behind them.
+  int get doneCount =>
+      weakSubSkills.where(completedSubSkills.contains).length;
+
+  bool isDone(String subSkillId) => completedSubSkills.contains(subSkillId);
 }
 
 /// One assessment, flattened for storage.
@@ -65,6 +77,13 @@ abstract interface class ProgressRepository {
   Future<void> saveAssessment(AssessmentResult result);
 
   Future<TopicProgress?> topicProgress(String topicId);
+
+  /// Records that a sub-skill's practice is finished, and moves the topic to
+  /// at least [TopicStatus.learning].
+  Future<void> markSubSkillComplete({
+    required String topicId,
+    required String subSkillId,
+  });
 
   /// Called on launch, so retention can be measured.
   Future<void> touch();
@@ -161,6 +180,39 @@ class FirestoreProgressRepository implements ProgressRepository {
       };
 
   @override
+  Future<void> markSubSkillComplete({
+    required String topicId,
+    required String subSkillId,
+  }) async {
+    final user = _user;
+    if (user == null) return;
+
+    final doc = user.collection('topics').doc(topicId);
+
+    // A transaction because the new status depends on the stored one, and
+    // TopicStatus.furthest must never walk a learner backwards — a second
+    // device finishing an older lesson cannot undo a completed topic.
+    await _firestore.runTransaction((tx) async {
+      final snapshot = await tx.get(doc);
+      final stored = snapshot.data()?['status'] as String?;
+
+      final current = TopicStatus.values.firstWhere(
+        (s) => s.name == stored,
+        orElse: () => TopicStatus.notStarted,
+      );
+
+      tx.set(
+        doc,
+        {
+          'status': current.furthest(TopicStatus.learning).name,
+          'completedSubSkills': FieldValue.arrayUnion([subSkillId]),
+        },
+        SetOptions(merge: true),
+      );
+    });
+  }
+
+  @override
   Future<TopicProgress?> topicProgress(String topicId) async {
     final user = _user;
     if (user == null) return null;
@@ -175,7 +227,10 @@ class FirestoreProgressRepository implements ProgressRepository {
         (s) => s.name == data['status'],
         orElse: () => TopicStatus.notStarted,
       ),
-      weakSubSkills: (data['weakSubSkills'] as List?)?.cast<String>() ?? const [],
+      weakSubSkills:
+          (data['weakSubSkills'] as List?)?.cast<String>() ?? const [],
+      completedSubSkills:
+          (data['completedSubSkills'] as List?)?.cast<String>() ?? const [],
       preAssessment: _snapshotFrom(data['preAssessment']),
       postAssessment: _snapshotFrom(data['postAssessment']),
     );

@@ -10,6 +10,13 @@ enum TopicStatus {
   completed,
   mastered;
 
+  /// The further along of the two.
+  ///
+  /// Progress is one-way (SPEC §7), so anything that sets a status has to be
+  /// able to say "at least this far" without ever walking a learner back —
+  /// finishing a lesson must not undo a completed topic.
+  TopicStatus furthest(TopicStatus other) => index >= other.index ? this : other;
+
   String get label => switch (this) {
         TopicStatus.notStarted => 'NOT STARTED',
         TopicStatus.tested => 'TESTED',

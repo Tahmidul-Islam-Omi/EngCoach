@@ -76,6 +76,12 @@ class _StubProgress implements ProgressRepository {
 
   @override
   Future<TopicProgress?> topicProgress(String topicId) async => null;
+
+  @override
+  Future<void> markSubSkillComplete({
+    required String topicId,
+    required String subSkillId,
+  }) async {}
 }
 
 class _StubContent implements ContentRepository {

@@ -46,7 +46,7 @@ class LearningPathScreen extends ConsumerWidget {
               return const _NothingToTeach();
             }
 
-            return _Plan(topic: t, weak: weak);
+            return _Plan(topic: t, weak: weak, progress: p);
           },
         ),
       ),
@@ -69,15 +69,21 @@ List<SubSkill> weakSubSkillsOf(Topic topic, List<String> weakIds) {
 }
 
 class _Plan extends StatelessWidget {
-  const _Plan({required this.topic, required this.weak});
+  const _Plan({
+    required this.topic,
+    required this.weak,
+    required this.progress,
+  });
 
   final Topic topic;
   final List<SubSkill> weak;
+  final TopicProgress progress;
 
   @override
   Widget build(BuildContext context) {
     final text = Theme.of(context).textTheme;
     final skipped = topic.subSkills.length - weak.length;
+    final done = progress.doneCount;
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(
@@ -97,7 +103,23 @@ class _Plan extends StatelessWidget {
           style: text.bodyMedium,
         ),
         const SizedBox(height: AppSpacing.xl),
-        Text('YOUR LESSONS', style: text.labelSmall),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('YOUR LESSONS', style: text.labelSmall),
+            Text('$done of ${weak.length} done', style: text.labelSmall),
+          ],
+        ),
+        const SizedBox(height: AppSpacing.sm),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(AppRadius.pill),
+          child: LinearProgressIndicator(
+            value: weak.isEmpty ? 0 : done / weak.length,
+            minHeight: AppSizes.barHeightThin,
+            backgroundColor: AppColors.divider,
+            color: AppColors.success,
+          ),
+        ),
         const SizedBox(height: AppSpacing.md),
         for (var i = 0; i < weak.length; i++) ...[
           if (i > 0) const SizedBox(height: AppSpacing.sm),
@@ -106,6 +128,7 @@ class _Plan extends StatelessWidget {
             subSkill: weak[i],
             title: topic.lessonFor(weak[i].id).title,
             topicId: topic.id,
+            done: progress.isDone(weak[i].id),
           ),
         ],
       ],
@@ -119,12 +142,17 @@ class _Step extends StatelessWidget {
     required this.subSkill,
     required this.title,
     required this.topicId,
+    required this.done,
   });
 
   final int number;
   final SubSkill subSkill;
   final String title;
   final String topicId;
+
+  /// Its practice is finished. Still tappable — going back over a lesson is
+  /// exactly what someone should be able to do.
+  final bool done;
 
   @override
   Widget build(BuildContext context) {
@@ -144,17 +172,23 @@ class _Step extends StatelessWidget {
                 width: 30,
                 height: 30,
                 alignment: Alignment.center,
-                decoration: const BoxDecoration(
-                  color: AppColors.primary,
+                decoration: BoxDecoration(
+                  color: done ? AppColors.success : AppColors.primary,
                   shape: BoxShape.circle,
                 ),
-                child: Text(
-                  '$number',
-                  style: text.labelMedium?.copyWith(
-                    color: AppColors.onPrimary,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
+                child: done
+                    ? const Icon(
+                        Icons.check_rounded,
+                        size: 18,
+                        color: AppColors.onPrimary,
+                      )
+                    : Text(
+                        '$number',
+                        style: text.labelMedium?.copyWith(
+                          color: AppColors.onPrimary,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
               ),
               const SizedBox(width: AppSpacing.md),
               Expanded(

@@ -38,13 +38,28 @@ class _StubProgress implements ProgressRepository {
 
   @override
   Future<void> touch() async {}
+
+  final completed = <String>[];
+
+  @override
+  Future<void> markSubSkillComplete({
+    required String topicId,
+    required String subSkillId,
+  }) async =>
+      completed.add(subSkillId);
 }
 
 void main() {
-  TopicProgress progressWith(List<String> weak) => TopicProgress(
+  TopicProgress progressWith(
+    List<String> weak, {
+    List<String> done = const [],
+    TopicStatus status = TopicStatus.tested,
+  }) =>
+      TopicProgress(
         topicId: 'test_topic',
-        status: TopicStatus.tested,
+        status: status,
         weakSubSkills: weak,
+        completedSubSkills: done,
       );
 
   Future<void> pumpPath(
@@ -149,6 +164,46 @@ void main() {
       );
 
       expect(find.text('Nothing to study here.'), findsOneWidget);
+    });
+
+    testWidgets('ticks off what has been practised', (tester) async {
+      await pumpPath(
+        tester,
+        topic: buildTopic(subSkills: 3),
+        progress: progressWith(['s1', 's2', 's3'], done: ['s1', 's3']),
+      );
+
+      expect(find.text('2 of 3 done'), findsOneWidget);
+      // A number becomes a tick; the unfinished one keeps its number.
+      expect(find.byIcon(Icons.check_rounded), findsNWidgets(2));
+      expect(find.text('2'), findsOneWidget);
+    });
+
+    testWidgets('counts only plan sub-skills as done', (tester) async {
+      // Completed work on a sub-skill that is not in the plan must not
+      // inflate the count.
+      await pumpPath(
+        tester,
+        topic: buildTopic(subSkills: 3),
+        progress: progressWith(['s1'], done: ['s1', 's2']),
+      );
+
+      expect(find.text('1 of 1 done'), findsOneWidget);
+    });
+
+    testWidgets('a finished lesson is still openable', (tester) async {
+      // Going back over a lesson is exactly what someone should be able
+      // to do.
+      await pumpPath(
+        tester,
+        topic: buildTopic(subSkills: 2),
+        progress: progressWith(['s1'], done: ['s1']),
+      );
+
+      await tester.tap(find.text('Sub-skill 1'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('LESSON 1 OF 1'), findsOneWidget);
     });
 
     testWidgets('opens the lesson it points at', (tester) async {

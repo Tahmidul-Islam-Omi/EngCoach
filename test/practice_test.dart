@@ -3,7 +3,9 @@ import 'dart:io';
 
 import 'package:engcoach/app/theme/app_theme.dart';
 import 'package:engcoach/data/models/topic.dart';
+import 'package:engcoach/data/models/assessment_result.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
+import 'package:engcoach/data/repositories/progress_repository.dart';
 import 'package:engcoach/features/lesson/model/practice_state.dart';
 import 'package:engcoach/features/lesson/view/practice_screen.dart';
 import 'package:engcoach/features/lesson/viewmodel/practice_view_model.dart';
@@ -24,6 +26,27 @@ class _StubContent implements ContentRepository {
   Future<List<Topic>> topicsForSection(String section) async => [topic];
 }
 
+/// Records what practice reported as finished.
+class _StubProgress implements ProgressRepository {
+  final completed = <String>[];
+
+  @override
+  Future<void> markSubSkillComplete({
+    required String topicId,
+    required String subSkillId,
+  }) async =>
+      completed.add(subSkillId);
+
+  @override
+  Future<TopicProgress?> topicProgress(String topicId) async => null;
+
+  @override
+  Future<void> saveAssessment(AssessmentResult result) async {}
+
+  @override
+  Future<void> touch() async {}
+}
+
 /// A real authored topic — practice questions carry feedback in two
 /// languages, which no fixture would reproduce faithfully.
 Topic realTopic([String name = 'present_simple']) => Topic.fromJson(
@@ -34,13 +57,17 @@ Topic realTopic([String name = 'present_simple']) => Topic.fromJson(
 void main() {
   group('the view model', () {
     late Topic topic;
+    late _StubProgress progress;
 
     PracticeKey keyFor(Topic t) =>
         (topicId: t.id, subSkillId: t.subSkills.first.id);
 
     Future<ProviderContainer> started(Topic t) async {
       final c = ProviderContainer(
-        overrides: [contentRepositoryProvider.overrideWithValue(_StubContent(t))],
+        overrides: [
+          contentRepositoryProvider.overrideWithValue(_StubContent(t)),
+          progressRepositoryProvider.overrideWithValue(progress),
+        ],
       );
       addTearDown(c.dispose);
       c.read(practiceViewModelProvider(keyFor(t)));
@@ -49,7 +76,10 @@ void main() {
       return c;
     }
 
-    setUp(() => topic = realTopic());
+    setUp(() {
+      topic = realTopic();
+      progress = _StubProgress();
+    });
 
     test('loads the lesson\'s questions', () async {
       final c = await started(topic);
@@ -103,6 +133,54 @@ void main() {
       expect(state.status, PracticeStatus.finished);
       expect(state.correctCount, 2);
       expect(state.total, 3);
+    });
+
+    test('finishing marks the sub-skill complete', () async {
+      final c = await started(topic);
+      final key = keyFor(topic);
+      final model = c.read(practiceViewModelProvider(key).notifier);
+
+      for (var i = 0; i < 3; i++) {
+        model.choose(
+          c.read(practiceViewModelProvider(key)).current!.correctOptionId,
+        );
+        model.next();
+      }
+      await Future<void>.delayed(Duration.zero);
+
+      expect(progress.completed, [key.subSkillId]);
+    });
+
+    test('stopping part way marks nothing', () async {
+      // Reading and answering one question is not finishing the practice.
+      final c = await started(topic);
+      final key = keyFor(topic);
+      final model = c.read(practiceViewModelProvider(key).notifier);
+
+      model.choose(
+        c.read(practiceViewModelProvider(key)).current!.correctOptionId,
+      );
+      model.next();
+      await Future<void>.delayed(Duration.zero);
+
+      expect(progress.completed, isEmpty);
+    });
+
+    test('a wrong answer still counts as having practised', () async {
+      // Completion means they did the work, not that they got it all right.
+      final c = await started(topic);
+      final key = keyFor(topic);
+      final model = c.read(practiceViewModelProvider(key).notifier);
+
+      for (var i = 0; i < 3; i++) {
+        final item = c.read(practiceViewModelProvider(key)).current!;
+        model.choose(item.options.firstWhere((o) => !o.correct).id);
+        model.next();
+      }
+      await Future<void>.delayed(Duration.zero);
+
+      expect(progress.completed, [key.subSkillId]);
+      expect(c.read(practiceViewModelProvider(key)).correctCount, 0);
     });
 
     test('a restart clears the answers', () async {

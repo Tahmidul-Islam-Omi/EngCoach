@@ -211,6 +211,23 @@ class FirestoreProgressRepository implements ProgressRepository {
   }
 }
 
+/// Stamps `lastSeenAt` — and creates the user document on the first visit —
+/// whenever a session exists.
+///
+/// A provider rather than a `ref.listen` in a widget: WidgetRef.listen only
+/// reports *changes*, so a session that had already resolved by the time the
+/// widget registered would never be stamped at all. Watching re-runs on the
+/// first value as well as every later one.
+final visitStampProvider = Provider<void>((ref) {
+  final phone = ref.watch(signedInPhoneProvider).value;
+  if (phone == null) return;
+
+  final repository = ref.watch(progressRepositoryProvider);
+  // Off the build turn, and never surfaced: a missed timestamp is not worth
+  // interrupting anyone for.
+  Future<void>.microtask(repository.touch);
+});
+
 final progressRepositoryProvider = Provider<ProgressRepository>(
   (ref) => FirestoreProgressRepository(
     FirebaseFirestore.instance,

@@ -1,11 +1,12 @@
 import 'dart:async';
 
-import 'package:engcoach/app/router.dart';
-import 'package:engcoach/app/theme/app_theme.dart';
+import 'package:engcoach/app/app.dart';
 import 'package:engcoach/data/models/topic.dart';
 import 'package:engcoach/data/repositories/auth_repository.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
+import 'package:engcoach/data/repositories/progress_repository.dart';
 import 'package:engcoach/data/repositories/session_repository.dart';
+import 'package:engcoach/features/assessment/model/assessment_result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -63,6 +64,20 @@ class _StubAuth implements AuthRepository {
       throw UnimplementedError();
 }
 
+/// Records the visit stamps, so the test can prove one actually happens.
+class _StubProgress implements ProgressRepository {
+  int touches = 0;
+
+  @override
+  Future<void> touch() async => touches++;
+
+  @override
+  Future<void> saveAssessment(AssessmentResult result) async {}
+
+  @override
+  Future<TopicProgress?> topicProgress(String topicId) async => null;
+}
+
 class _StubContent implements ContentRepository {
   @override
   Future<Topic> topicById(String id) async => buildTopic();
@@ -74,10 +89,12 @@ class _StubContent implements ContentRepository {
 void main() {
   late _StubSession session;
   late _StubAuth auth;
+  late _StubProgress progress;
 
   setUp(() {
     session = _StubSession();
     auth = _StubAuth();
+    progress = _StubProgress();
   });
 
   tearDown(() => session.dispose());
@@ -88,19 +105,17 @@ void main() {
         sessionRepositoryProvider.overrideWithValue(session),
         authRepositoryProvider.overrideWithValue(auth),
         contentRepositoryProvider.overrideWithValue(_StubContent()),
+        progressRepositoryProvider.overrideWithValue(progress),
       ],
     );
     addTearDown(container.dispose);
 
+    // The real app root, not a hand-rolled MaterialApp: the visit stamp is
+    // wired there, and a harness that skips it cannot prove it works.
     await tester.pumpWidget(
       UncontrolledProviderScope(
         container: container,
-        child: Consumer(
-          builder: (context, ref, _) => MaterialApp.router(
-            routerConfig: ref.watch(routerProvider),
-            theme: AppTheme.light,
-          ),
-        ),
+        child: const EngCoachApp(),
       ),
     );
     await tester.pump();
@@ -183,6 +198,19 @@ void main() {
       findsOneWidget,
       reason: 'still in the app while the check refreshes',
     );
+  });
+
+  testWidgets('a session stamps the user document', (tester) async {
+    // The write that creates users/{phone}. It used to be wired with a
+    // ref.listen, which never fired for an already-resolved session.
+    auth.subscribed = true;
+    await pumpApp(tester);
+    expect(progress.touches, 0, reason: 'nobody is signed in yet');
+
+    session.emit('01895613473');
+    await tester.pumpAndSettle();
+
+    expect(progress.touches, greaterThan(0));
   });
 
   testWidgets('sign-in never opens showing a previous visit',

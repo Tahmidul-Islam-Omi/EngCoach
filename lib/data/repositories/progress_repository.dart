@@ -121,9 +121,21 @@ class FirestoreProgressRepository implements ProgressRepository {
 
     await _ensureUser(user);
 
-    await user.collection('topics').doc(result.topicId).set(
+    final doc = user.collection('topics').doc(result.topicId);
+
+    // Read first so the status can only move forward. A plain get rather
+    // than a transaction: get() falls back to the local cache offline and
+    // set() queues, so an assessment taken with no signal is still saved.
+    // A transaction would need the network and would lose the result.
+    final stored = (await doc.get()).data()?['status'] as String?;
+    final current = TopicStatus.values.firstWhere(
+      (s) => s.name == stored,
+      orElse: () => TopicStatus.notStarted,
+    );
+
+    await doc.set(
         {
-          'status': _statusAfter(result).name,
+          'status': current.furthest(result.phase.reaches).name,
           'weakSubSkills': [
             for (final s in result.weakSubSkills) s.subSkillId,
           ],
@@ -169,15 +181,6 @@ class FirestoreProgressRepository implements ProgressRepository {
       );
     });
   }
-
-  /// A pre-assessment leaves the topic `tested`; a post-assessment leaves it
-  /// `completed`. Mastery is only reachable through a later review
-  /// (SPEC §7), never from an assessment alone.
-  TopicStatus _statusAfter(AssessmentResult result) =>
-      switch (result.phase) {
-        AssessmentPhase.pre => TopicStatus.tested,
-        AssessmentPhase.post => TopicStatus.completed,
-      };
 
   @override
   Future<void> markSubSkillComplete({

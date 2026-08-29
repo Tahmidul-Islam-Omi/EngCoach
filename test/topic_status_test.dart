@@ -1,3 +1,4 @@
+import 'package:engcoach/data/models/assessment_paper.dart';
 import 'package:engcoach/data/models/topic_status.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -23,6 +24,34 @@ void main() {
     expect(
       TopicStatus.notStarted.furthest(TopicStatus.learning),
       TopicStatus.learning,
+    );
+  });
+
+  test('an assessment establishes a floor, not a value', () {
+    expect(AssessmentPhase.pre.reaches, TopicStatus.tested);
+    expect(AssessmentPhase.post.reaches, TopicStatus.completed);
+  });
+
+  test('retaking the first check cannot undo a finished topic', () {
+    // The bug this replaced: saveAssessment wrote `tested` outright, so a
+    // learner who retook the opening check lost a completed topic.
+    expect(
+      TopicStatus.completed.furthest(AssessmentPhase.pre.reaches),
+      TopicStatus.completed,
+    );
+    expect(
+      TopicStatus.mastered.furthest(AssessmentPhase.pre.reaches),
+      TopicStatus.mastered,
+    );
+    // But a first check on an untouched topic still moves it along.
+    expect(
+      TopicStatus.notStarted.furthest(AssessmentPhase.pre.reaches),
+      TopicStatus.tested,
+    );
+    // And the final check still completes a topic being learned.
+    expect(
+      TopicStatus.learning.furthest(AssessmentPhase.post.reaches),
+      TopicStatus.completed,
     );
   });
 

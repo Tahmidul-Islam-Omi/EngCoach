@@ -1,7 +1,7 @@
 import 'package:engcoach/data/models/topic.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
 import 'package:engcoach/data/repositories/progress_repository.dart';
-import 'package:engcoach/features/assessment/model/assessment_result.dart';
+import 'package:engcoach/data/models/assessment_result.dart';
 import 'package:engcoach/features/assessment/model/pre_assessment_state.dart';
 import 'package:engcoach/features/assessment/viewmodel/pre_assessment_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

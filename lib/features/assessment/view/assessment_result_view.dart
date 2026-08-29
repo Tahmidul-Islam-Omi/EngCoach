@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../../../shared/widgets/app_card.dart';
-import '../model/assessment_result.dart';
+import '../../../data/models/assessment_result.dart';
 
 /// What a finished pre-assessment tells the learner.
 ///

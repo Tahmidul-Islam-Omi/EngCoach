@@ -5,8 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../data/models/topic.dart';
 import '../../../data/repositories/content_repository.dart';
 import '../../../data/repositories/progress_repository.dart';
-import '../model/assessment_paper.dart';
-import '../model/assessment_result.dart';
+import '../../../data/models/assessment_paper.dart';
+import '../../../data/models/assessment_result.dart';
 import '../model/pre_assessment_state.dart';
 
 /// Runs one topic's pre-assessment.

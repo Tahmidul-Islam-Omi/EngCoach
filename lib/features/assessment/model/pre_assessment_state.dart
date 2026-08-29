@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
-import 'assessment_paper.dart';
-import 'assessment_result.dart';
+import '../../../data/models/assessment_paper.dart';
+import '../../../data/models/assessment_result.dart';
 
 /// Where a pre-assessment is.
 enum PreAssessmentStatus {

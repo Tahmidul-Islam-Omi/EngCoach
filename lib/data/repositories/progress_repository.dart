@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../features/assessment/model/assessment_paper.dart';
-import '../../features/assessment/model/assessment_result.dart';
+import '../models/assessment_paper.dart';
+import '../models/assessment_result.dart';
 import '../models/topic_status.dart';
 import '../services/session_service.dart';
 

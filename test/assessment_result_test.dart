@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:engcoach/features/assessment/model/assessment_paper.dart';
-import 'package:engcoach/features/assessment/model/assessment_result.dart';
+import 'package:engcoach/data/models/assessment_paper.dart';
+import 'package:engcoach/data/models/assessment_result.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'support/topic_fixture.dart';

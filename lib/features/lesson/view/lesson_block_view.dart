@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
-import '../../../app/theme/app_typography.dart';
 import '../../../data/models/lesson_block.dart';
+import '../../../shared/widgets/bangla_text.dart';
 import '../../../shared/widgets/markup_text.dart';
 
 /// Renders one authored lesson block.
@@ -355,15 +355,7 @@ class _Bangla extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppSpacing.sm),
-          // Bengali needs more line height than Latin at the same size —
-          // the conjuncts and matras collide otherwise.
-          MarkupText(
-            text,
-            style: theme.bodyMedium?.copyWith(
-              height: 1.75,
-              fontFamily: AppTypography.bengali,
-            ),
-          ),
+          BanglaText(text),
         ],
       ),
     );

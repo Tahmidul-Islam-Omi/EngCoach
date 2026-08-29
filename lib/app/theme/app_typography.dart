@@ -25,6 +25,13 @@ abstract final class AppTypography {
   /// The Bengali family — currently the same file as [sans].
   static const bengali = 'NotoSansBengali';
 
+  /// Line height for Bengali running text.
+  ///
+  /// Higher than the Latin body's 1.55: conjuncts and matras extend further
+  /// above and below the baseline, and collide at Latin spacing. Applied
+  /// through [BanglaText] rather than by each caller.
+  static const bengaliHeight = 1.75;
+
   static const fontFamilyFallback = <String>[bengali];
 
   /// Aligns digits in columns, so the numbers in a score table line up

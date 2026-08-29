@@ -6,9 +6,9 @@ import 'package:go_router/go_router.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
-import '../../../app/theme/app_typography.dart';
 import '../../../data/models/question.dart';
 import '../../../shared/widgets/answer_option.dart';
+import '../../../shared/widgets/bangla_text.dart';
 import '../../../shared/widgets/markup_text.dart';
 import '../../../shared/widgets/question_progress.dart';
 import '../../../shared/widgets/retry_message.dart';
@@ -197,14 +197,7 @@ class _Explanation extends StatelessWidget {
               style: text.bodyMedium?.copyWith(color: tone),
             ),
             const SizedBox(height: AppSpacing.md),
-            MarkupText(
-              feedback!.bn,
-              style: text.bodyMedium?.copyWith(
-                color: tone,
-                height: 1.75,
-                fontFamily: AppTypography.bengali,
-              ),
-            ),
+            BanglaText(feedback!.bn, color: tone),
           ],
         ],
       ),

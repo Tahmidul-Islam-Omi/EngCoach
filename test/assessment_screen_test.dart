@@ -10,19 +10,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
+import 'support/fakes.dart';
 import 'support/topic_fixture.dart';
 
-class _StubContent implements ContentRepository {
-  _StubContent(this.topic);
-
-  final Topic topic;
-
-  @override
-  Future<Topic> topicById(String id) async => topic;
-
-  @override
-  Future<List<Topic>> topicsForSection(String section) async => [topic];
-}
 
 void main() {
   /// Four questions over two sub-skills, both qualifying at 2 — short enough
@@ -59,7 +49,7 @@ void main() {
       ProviderScope(
         overrides: [
           contentRepositoryProvider
-              .overrideWithValue(_StubContent(topic ?? shortTopic())),
+              .overrideWithValue(FakeContentRepository(topic ?? shortTopic())),
         ],
         child: MaterialApp.router(
           routerConfig: router,

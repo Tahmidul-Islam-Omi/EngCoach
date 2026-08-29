@@ -1,4 +1,3 @@
-import 'package:engcoach/data/models/topic.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
 import 'package:engcoach/data/repositories/progress_repository.dart';
 import 'package:engcoach/data/models/assessment_paper.dart';
@@ -8,62 +7,19 @@ import 'package:engcoach/features/assessment/viewmodel/assessment_view_model.dar
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'support/fakes.dart';
 import 'support/topic_fixture.dart';
 
-/// Hands back one topic, or fails on demand.
-class _StubContent implements ContentRepository {
-  _StubContent(this.topic);
 
-  final Topic? topic;
-  int loads = 0;
 
-  @override
-  Future<Topic> topicById(String id) async {
-    loads++;
-    final t = topic;
-    if (t == null) throw StateError('no such topic');
-    return t;
-  }
 
-  @override
-  Future<List<Topic>> topicsForSection(String section) async =>
-      [?topic];
-}
-
-/// Records what would have been persisted, without touching Firestore.
-class _StubProgress implements ProgressRepository {
-  final saved = <AssessmentResult>[];
-  bool fail = false;
-  int reads = 0;
-
-  @override
-  Future<void> saveAssessment(AssessmentResult result) async {
-    if (fail) throw StateError('offline');
-    saved.add(result);
-  }
-
-  @override
-  Future<TopicProgress?> topicProgress(String topicId) async {
-    reads++;
-    return null;
-  }
-
-  @override
-  Future<void> touch() async {}
-
-  @override
-  Future<void> markSubSkillComplete({
-    required String topicId,
-    required String subSkillId,
-  }) async {}
-}
 
 void main() {
   const topicId = 'test_topic';
   const key = (topicId: topicId, phase: AssessmentPhase.pre);
 
-  late _StubContent content;
-  late _StubProgress progress;
+  late FakeContentRepository content;
+  late FakeProgressRepository progress;
 
   ProviderContainer makeContainer() {
     final c = ProviderContainer(
@@ -106,8 +62,8 @@ void main() {
   }
 
   setUp(() {
-    content = _StubContent(buildTopic());
-    progress = _StubProgress();
+    content = FakeContentRepository(buildTopic());
+    progress = FakeProgressRepository();
   });
 
   group('starting', () {
@@ -134,7 +90,7 @@ void main() {
     });
 
     test('fails when the topic cannot be read', () async {
-      content = _StubContent(null);
+      content = FakeContentRepository(null);
       final c = makeContainer();
       c.read(assessmentViewModelProvider(key));
       await expectLater(
@@ -148,7 +104,7 @@ void main() {
     });
 
     test('fails rather than deals an empty paper', () async {
-      content = _StubContent(buildTopic(bankSize: 0));
+      content = FakeContentRepository(buildTopic(bankSize: 0));
       final c = await started();
 
       expect(stateIn(c).status, AssessmentStatus.failed);
@@ -156,7 +112,7 @@ void main() {
     });
 
     test('retry reloads the topic', () async {
-      content = _StubContent(null);
+      content = FakeContentRepository(null);
       final c = makeContainer();
       c.read(assessmentViewModelProvider(key));
       await c.read(topicProvider(topicId).future).catchError((_) => buildTopic());

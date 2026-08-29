@@ -1,7 +1,5 @@
 import 'package:engcoach/app/theme/app_theme.dart';
 import 'package:engcoach/data/models/assessment_paper.dart';
-import 'package:engcoach/data/models/assessment_result.dart';
-import 'package:engcoach/data/models/topic.dart';
 import 'package:engcoach/data/models/topic_status.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
 import 'package:engcoach/data/repositories/progress_repository.dart';
@@ -13,42 +11,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
+import 'support/fakes.dart';
 import 'support/topic_fixture.dart';
 
-class _StubContent implements ContentRepository {
-  _StubContent(this.topic);
-
-  final Topic topic;
-
-  @override
-  Future<Topic> topicById(String id) async => topic;
-
-  @override
-  Future<List<Topic>> topicsForSection(String section) async => [topic];
-}
-
-class _StubProgress implements ProgressRepository {
-  _StubProgress(this.progress);
-
-  final TopicProgress? progress;
-  final saved = <AssessmentResult>[];
-
-  @override
-  Future<TopicProgress?> topicProgress(String topicId) async => progress;
-
-  @override
-  Future<void> saveAssessment(AssessmentResult result) async =>
-      saved.add(result);
-
-  @override
-  Future<void> markSubSkillComplete({
-    required String topicId,
-    required String subSkillId,
-  }) async {}
-
-  @override
-  Future<void> touch() async {}
-}
 
 void main() {
   TopicProgress progressWith({
@@ -77,9 +42,9 @@ void main() {
       final topic = buildTopic();
       final c = ProviderContainer(
         overrides: [
-          contentRepositoryProvider.overrideWithValue(_StubContent(topic)),
+          contentRepositoryProvider.overrideWithValue(FakeContentRepository(topic)),
           progressRepositoryProvider
-              .overrideWithValue(_StubProgress(null)),
+              .overrideWithValue(FakeProgressRepository(null)),
         ],
       );
       addTearDown(c.dispose);
@@ -103,9 +68,9 @@ void main() {
       final topic = buildTopic();
       final c = ProviderContainer(
         overrides: [
-          contentRepositoryProvider.overrideWithValue(_StubContent(topic)),
+          contentRepositoryProvider.overrideWithValue(FakeContentRepository(topic)),
           progressRepositoryProvider
-              .overrideWithValue(_StubProgress(null)),
+              .overrideWithValue(FakeProgressRepository(null)),
         ],
       );
       addTearDown(c.dispose);
@@ -157,9 +122,9 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: [
-            contentRepositoryProvider.overrideWithValue(_StubContent(topic)),
+            contentRepositoryProvider.overrideWithValue(FakeContentRepository(topic)),
             progressRepositoryProvider
-                .overrideWithValue(_StubProgress(progress)),
+                .overrideWithValue(FakeProgressRepository(progress)),
           ],
           child:
               MaterialApp.router(routerConfig: router, theme: AppTheme.light),

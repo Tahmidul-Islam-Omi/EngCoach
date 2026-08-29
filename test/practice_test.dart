@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:engcoach/app/theme/app_theme.dart';
 import 'package:engcoach/data/models/topic.dart';
-import 'package:engcoach/data/models/assessment_result.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
 import 'package:engcoach/data/repositories/progress_repository.dart';
 import 'package:engcoach/features/lesson/model/practice_state.dart';
@@ -14,38 +13,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
-class _StubContent implements ContentRepository {
-  _StubContent(this.topic);
+import 'support/fakes.dart';
 
-  final Topic topic;
 
-  @override
-  Future<Topic> topicById(String id) async => topic;
 
-  @override
-  Future<List<Topic>> topicsForSection(String section) async => [topic];
-}
-
-/// Records what practice reported as finished.
-class _StubProgress implements ProgressRepository {
-  final completed = <String>[];
-
-  @override
-  Future<void> markSubSkillComplete({
-    required String topicId,
-    required String subSkillId,
-  }) async =>
-      completed.add(subSkillId);
-
-  @override
-  Future<TopicProgress?> topicProgress(String topicId) async => null;
-
-  @override
-  Future<void> saveAssessment(AssessmentResult result) async {}
-
-  @override
-  Future<void> touch() async {}
-}
 
 /// A real authored topic — practice questions carry feedback in two
 /// languages, which no fixture would reproduce faithfully.
@@ -57,7 +28,7 @@ Topic realTopic([String name = 'present_simple']) => Topic.fromJson(
 void main() {
   group('the view model', () {
     late Topic topic;
-    late _StubProgress progress;
+    late FakeProgressRepository progress;
 
     PracticeKey keyFor(Topic t) =>
         (topicId: t.id, subSkillId: t.subSkills.first.id);
@@ -65,7 +36,7 @@ void main() {
     Future<ProviderContainer> started(Topic t) async {
       final c = ProviderContainer(
         overrides: [
-          contentRepositoryProvider.overrideWithValue(_StubContent(t)),
+          contentRepositoryProvider.overrideWithValue(FakeContentRepository(t)),
           progressRepositoryProvider.overrideWithValue(progress),
         ],
       );
@@ -78,7 +49,7 @@ void main() {
 
     setUp(() {
       topic = realTopic();
-      progress = _StubProgress();
+      progress = FakeProgressRepository();
     });
 
     test('loads the lesson\'s questions', () async {
@@ -234,7 +205,7 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: [
-            contentRepositoryProvider.overrideWithValue(_StubContent(topic)),
+            contentRepositoryProvider.overrideWithValue(FakeContentRepository(topic)),
           ],
           child:
               MaterialApp.router(routerConfig: router, theme: AppTheme.light),

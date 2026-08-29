@@ -10,19 +10,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
+import 'support/fakes.dart';
 import 'support/topic_fixture.dart';
 
-class _StubContent implements ContentRepository {
-  _StubContent(this.topic);
-
-  final Topic topic;
-
-  @override
-  Future<Topic> topicById(String id) async => topic;
-
-  @override
-  Future<List<Topic>> topicsForSection(String section) async => [topic];
-}
 
 void main() {
   Future<GoRouter> pumpLesson(
@@ -55,7 +45,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          contentRepositoryProvider.overrideWithValue(_StubContent(topic)),
+          contentRepositoryProvider.overrideWithValue(FakeContentRepository(topic)),
         ],
         child: MaterialApp.router(routerConfig: router, theme: AppTheme.light),
       ),

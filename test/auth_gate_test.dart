@@ -1,16 +1,15 @@
 import 'dart:async';
 
 import 'package:engcoach/app/app.dart';
-import 'package:engcoach/data/models/topic.dart';
 import 'package:engcoach/data/services/auth_service.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
 import 'package:engcoach/data/repositories/progress_repository.dart';
 import 'package:engcoach/data/services/session_service.dart';
-import 'package:engcoach/data/models/assessment_result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'support/fakes.dart';
 import 'support/topic_fixture.dart';
 
 /// Emits sessions on demand, standing in for Firebase Auth.
@@ -64,43 +63,18 @@ class _StubAuth implements AuthService {
       throw UnimplementedError();
 }
 
-/// Records the visit stamps, so the test can prove one actually happens.
-class _StubProgress implements ProgressRepository {
-  int touches = 0;
 
-  @override
-  Future<void> touch() async => touches++;
 
-  @override
-  Future<void> saveAssessment(AssessmentResult result) async {}
-
-  @override
-  Future<TopicProgress?> topicProgress(String topicId) async => null;
-
-  @override
-  Future<void> markSubSkillComplete({
-    required String topicId,
-    required String subSkillId,
-  }) async {}
-}
-
-class _StubContent implements ContentRepository {
-  @override
-  Future<Topic> topicById(String id) async => buildTopic();
-
-  @override
-  Future<List<Topic>> topicsForSection(String section) async => [buildTopic()];
-}
 
 void main() {
   late _StubSession session;
   late _StubAuth auth;
-  late _StubProgress progress;
+  late FakeProgressRepository progress;
 
   setUp(() {
     session = _StubSession();
     auth = _StubAuth();
-    progress = _StubProgress();
+    progress = FakeProgressRepository();
   });
 
   tearDown(() => session.dispose());
@@ -110,7 +84,8 @@ void main() {
       overrides: [
         sessionServiceProvider.overrideWithValue(session),
         authServiceProvider.overrideWithValue(auth),
-        contentRepositoryProvider.overrideWithValue(_StubContent()),
+        contentRepositoryProvider
+            .overrideWithValue(FakeContentRepository(buildTopic())),
         progressRepositoryProvider.overrideWithValue(progress),
       ],
     );

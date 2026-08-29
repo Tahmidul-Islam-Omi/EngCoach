@@ -4,13 +4,20 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   const bold = TextStyle(fontWeight: FontWeight.w700);
+  const italic = TextStyle(fontStyle: FontStyle.italic);
 
-  List<String> runs(String text) => markupSpans(text, boldStyle: bold)
-      .map((s) => (s as TextSpan).text!)
+  List<InlineSpan> spans(String text) =>
+      markupSpans(text, boldStyle: bold, italicStyle: italic);
+
+  List<String> runs(String text) =>
+      spans(text).map((s) => (s as TextSpan).text!).toList();
+
+  List<bool> emphasis(String text) => spans(text)
+      .map((s) => (s as TextSpan).style?.fontWeight == FontWeight.w700)
       .toList();
 
-  List<bool> emphasis(String text) => markupSpans(text, boldStyle: bold)
-      .map((s) => (s as TextSpan).style?.fontWeight == FontWeight.w700)
+  List<bool> slanted(String text) => spans(text)
+      .map((s) => (s as TextSpan).style?.fontStyle == FontStyle.italic)
       .toList();
 
   test('plain text stays one run', () {
@@ -38,9 +45,23 @@ void main() {
     );
   });
 
+  test('marks a wrong form in italics', () {
+    // Lessons use single asterisks to show the mistake being corrected.
+    const line = 'Adding it — *I works* — is the common slip.';
+    expect(runs(line), ['Adding it — ', 'I works', ' — is the common slip.']);
+    expect(slanted(line), [false, true, false]);
+  });
+
+  test('bold wins over italic, so ** is never read as two markers', () {
+    const line = 'The **-s** belongs to *he* only.';
+    expect(runs(line), ['The ', '-s', ' belongs to ', 'he', ' only.']);
+    expect(emphasis(line), [false, true, false, false, false]);
+    expect(slanted(line), [false, false, false, true, false]);
+  });
+
   test('leaves an unclosed marker as written', () {
-    expect(runs('2 ** 3 is not markup'), ['2 ** 3 is not markup']);
     expect(runs('**unclosed'), ['**unclosed']);
+    expect(runs('5 * 3 = 15'), ['5 * 3 = 15']);
   });
 
   test('leaves a gap-fill blank alone', () {

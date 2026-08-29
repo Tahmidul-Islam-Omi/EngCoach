@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 
-/// Splits authored text into plain and bold runs.
+/// Splits authored text into plain, bold and italic runs.
 ///
-/// `**` is the only markup authored content is allowed to use
-/// (`content/README.md`), and it is what highlights the word a question turns
-/// on — "She **have** finished". Rendering it literally would put asterisks
-/// in front of learners, so every widget that shows authored text goes
-/// through here.
+/// `**bold**` marks the word a question or rule turns on — "She **have**
+/// finished". `*italic*` marks a form that is *wrong*, which lessons use to
+/// show the mistake being corrected: "*I works*, *they lives*". Rendering
+/// either literally would put asterisks in front of learners, so every widget
+/// that shows authored text goes through here.
 ///
-/// Anything that isn't a closed `**…**` pair is left exactly as written: an
-/// odd asterisk is text, not a broken tag.
-List<InlineSpan> markupSpans(String text, {required TextStyle? boldStyle}) {
-  final pattern = RegExp(r'\*\*(.+?)\*\*', dotAll: true);
+/// Bold is matched first, so `**` is never mistaken for two italic markers.
+/// Anything that isn't a closed pair is left exactly as written: an odd
+/// asterisk is text, not a broken tag.
+List<InlineSpan> markupSpans(
+  String text, {
+  required TextStyle? boldStyle,
+  TextStyle? italicStyle,
+}) {
+  final pattern = RegExp(r'\*\*(.+?)\*\*|\*(.+?)\*', dotAll: true);
   final spans = <InlineSpan>[];
   var cursor = 0;
 
@@ -19,7 +24,13 @@ List<InlineSpan> markupSpans(String text, {required TextStyle? boldStyle}) {
     if (match.start > cursor) {
       spans.add(TextSpan(text: text.substring(cursor, match.start)));
     }
-    spans.add(TextSpan(text: match[1], style: boldStyle));
+
+    final bold = match[1];
+    spans.add(
+      bold != null
+          ? TextSpan(text: bold, style: boldStyle)
+          : TextSpan(text: match[2], style: italicStyle),
+    );
     cursor = match.end;
   }
 
@@ -52,12 +63,13 @@ class MarkupText extends StatelessWidget {
         children: markupSpans(
           text,
           boldStyle: const TextStyle(fontWeight: FontWeight.w700),
+          italicStyle: const TextStyle(fontStyle: FontStyle.italic),
         ),
       ),
       style: base,
       textAlign: textAlign,
       // Screen readers should hear the sentence, not the emphasis runs.
-      semanticsLabel: text.replaceAll('**', ''),
+      semanticsLabel: text.replaceAll('*', ''),
     );
   }
 }

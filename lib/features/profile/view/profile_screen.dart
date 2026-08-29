@@ -6,9 +6,8 @@ import '../../../app/router.dart';
 import '../../../core/extensions/phone_format.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
-import '../../../data/repositories/auth_repository.dart';
-import '../../../data/repositories/session_repository.dart';
-import '../../../data/repositories/subscription_provider.dart';
+import '../../../data/services/auth_service.dart';
+import '../../../data/services/session_service.dart';
 
 /// Account and subscription.
 ///
@@ -119,7 +118,7 @@ class _SignedIn extends ConsumerWidget {
           onPressed: () async {
             // Only ends the session on this device. The subscription and the
             // daily charge are unaffected — unsubscribing is a separate act.
-            await ref.read(sessionRepositoryProvider).signOut();
+            await ref.read(sessionServiceProvider).signOut();
           },
           child: const Text('Sign out'),
         ),
@@ -189,10 +188,10 @@ class _UnsubscribeButtonState extends ConsumerState<_UnsubscribeButton> {
     });
 
     try {
-      await ref.read(authRepositoryProvider).unsubscribe(widget.phone);
+      await ref.read(authServiceProvider).unsubscribe(widget.phone);
       // End the device session too, so the gate returns them to a clean
       // sign-in rather than a half-signed-in state with nothing to see.
-      await ref.read(sessionRepositoryProvider).signOut();
+      await ref.read(sessionServiceProvider).signOut();
       ref.invalidate(subscriptionProvider);
     } on AuthFailure catch (e) {
       if (mounted) setState(() => _error = e.message);

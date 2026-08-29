@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../features/assessment/model/assessment_paper.dart';
 import '../../features/assessment/model/assessment_result.dart';
 import '../models/topic_status.dart';
-import 'session_repository.dart';
+import '../services/session_service.dart';
 
 /// What a learner has done with one topic.
 class TopicProgress {
@@ -79,7 +79,7 @@ class FirestoreProgressRepository implements ProgressRepository {
   FirestoreProgressRepository(this._firestore, this._session);
 
   final FirebaseFirestore _firestore;
-  final SessionRepository _session;
+  final SessionService _session;
 
   DocumentReference<Map<String, dynamic>>? get _user {
     final phone = _session.currentPhone;
@@ -211,26 +211,9 @@ class FirestoreProgressRepository implements ProgressRepository {
   }
 }
 
-/// Stamps `lastSeenAt` — and creates the user document on the first visit —
-/// whenever a session exists.
-///
-/// A provider rather than a `ref.listen` in a widget: WidgetRef.listen only
-/// reports *changes*, so a session that had already resolved by the time the
-/// widget registered would never be stamped at all. Watching re-runs on the
-/// first value as well as every later one.
-final visitStampProvider = Provider<void>((ref) {
-  final phone = ref.watch(signedInPhoneProvider).value;
-  if (phone == null) return;
-
-  final repository = ref.watch(progressRepositoryProvider);
-  // Off the build turn, and never surfaced: a missed timestamp is not worth
-  // interrupting anyone for.
-  Future<void>.microtask(repository.touch);
-});
-
 final progressRepositoryProvider = Provider<ProgressRepository>(
   (ref) => FirestoreProgressRepository(
     FirebaseFirestore.instance,
-    ref.watch(sessionRepositoryProvider),
+    ref.watch(sessionServiceProvider),
   ),
 );

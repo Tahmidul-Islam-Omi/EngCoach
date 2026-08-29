@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../data/repositories/auth_repository.dart';
-import '../../../data/repositories/session_repository.dart';
+import '../../../data/services/auth_service.dart';
+import '../../../data/services/session_service.dart';
 import '../model/sign_in_state.dart';
 
 /// Drives the sign-in flow.
@@ -20,7 +20,7 @@ class SignInViewModel extends Notifier<SignInState> {
     return const SignInState();
   }
 
-  AuthRepository get _auth => ref.read(authRepositoryProvider);
+  AuthService get _auth => ref.read(authServiceProvider);
 
   /// Keeps digits only — the field's formatters do the same, but the view
   /// model cannot assume a particular widget is in front of it.
@@ -165,7 +165,7 @@ class SignInViewModel extends Notifier<SignInState> {
   Future<void> _openFirebaseSession(Session session) async {
     String? warning;
     try {
-      await ref.read(sessionRepositoryProvider).signIn(session);
+      await ref.read(sessionServiceProvider).signIn(session);
     } on AuthFailure catch (e) {
       warning = e.message;
     }

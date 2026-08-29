@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'auth_repository.dart';
+import 'auth_service.dart';
 
 /// Who is signed in, and for how long.
 ///
@@ -9,7 +9,7 @@ import 'auth_repository.dart';
 /// storage and restores the session on launch, which is why a subscriber
 /// signs in once and then never sees the phone screen again. Nothing here
 /// writes its own copy of that.
-abstract interface class SessionRepository {
+abstract interface class SessionService {
   /// The signed-in learner's phone number, or null. This is the Firebase
   /// uid — `firebase_token.php` mints the token with the number as uid.
   String? get currentPhone;
@@ -28,8 +28,8 @@ abstract interface class SessionRepository {
   Future<void> signOut();
 }
 
-class FirebaseSessionRepository implements SessionRepository {
-  FirebaseSessionRepository(this._auth);
+class FirebaseSessionService implements SessionService {
+  FirebaseSessionService(this._auth);
 
   final FirebaseAuth _auth;
 
@@ -74,12 +74,12 @@ class FirebaseSessionRepository implements SessionRepository {
   Future<void> signOut() => _auth.signOut();
 }
 
-final sessionRepositoryProvider = Provider<SessionRepository>(
-  (ref) => FirebaseSessionRepository(FirebaseAuth.instance),
+final sessionServiceProvider = Provider<SessionService>(
+  (ref) => FirebaseSessionService(FirebaseAuth.instance),
 );
 
 /// The signed-in phone number, or null. Null while the stored session is
 /// still being restored, so callers must tolerate a brief null at startup.
 final signedInPhoneProvider = StreamProvider<String?>(
-  (ref) => ref.watch(sessionRepositoryProvider).phoneChanges(),
+  (ref) => ref.watch(sessionServiceProvider).phoneChanges(),
 );

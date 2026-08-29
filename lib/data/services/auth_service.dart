@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 
+import 'session_service.dart';
+
 /// A signed-in learner.
 ///
 /// The phone number IS the identity — there is no separate user id. It is
@@ -62,7 +64,7 @@ class AuthFailure implements Exception {
 }
 
 /// Signs learners in against bdapps.
-abstract interface class AuthRepository {
+abstract interface class AuthService {
   /// Decides which flow applies and starts it.
   Future<SignInStart> start(String phone);
 
@@ -92,8 +94,8 @@ abstract interface class AuthRepository {
 /// Those hold the bdapps application password and the Firebase
 /// service-account key, neither of which can ship inside an APK — anyone can
 /// unzip one and read its strings.
-class BdappsAuthRepository implements AuthRepository {
-  BdappsAuthRepository({http.Client? client, this.baseUrl = _defaultBaseUrl})
+class BdappsAuthService implements AuthService {
+  BdappsAuthService({http.Client? client, this.baseUrl = _defaultBaseUrl})
       : _client = client ?? http.Client();
 
   static const _defaultBaseUrl = 'https://bdappsdigitalapps.com/engcoach';
@@ -229,6 +231,33 @@ class BdappsAuthRepository implements AuthRepository {
   }
 }
 
-final authRepositoryProvider = Provider<AuthRepository>(
-  (ref) => BdappsAuthRepository(),
+final authServiceProvider = Provider<AuthService>(
+  (ref) => BdappsAuthService(),
+);
+
+/// Whether the signed-in learner is currently paying.
+///
+/// Read live from bdapps rather than cached, because people unsubscribe
+/// outside the app entirely — by texting STOP engcoach to 21213, or through
+/// the USSD menu. A flag stored at sign-in would keep saying "subscribed"
+/// long after the charging stopped.
+///
+/// Null phone means signed out, which is not the same as unsubscribed: the
+/// router sends those to sign-in instead.
+final subscriptionProvider = FutureProvider<bool>(
+  // Riverpod retries a failed provider on its own, with backoff. Not here:
+  // the failure screen offers an explicit "Try again", and a silent loop
+  // would keep calling bdapps over the mobile connection that just failed.
+  retry: (_, _) => null,
+  (ref) async {
+    // Pattern-matched rather than read as a nullable, so "still restoring
+    // the session" is not mistaken for "signed out".
+    final phone = switch (ref.watch(signedInPhoneProvider)) {
+      AsyncData(:final value) => value,
+      _ => null,
+    };
+    if (phone == null) return false;
+
+    return ref.watch(authServiceProvider).isSubscribed(phone);
+  },
 );

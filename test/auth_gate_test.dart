@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:engcoach/app/app.dart';
 import 'package:engcoach/data/models/topic.dart';
-import 'package:engcoach/data/repositories/auth_repository.dart';
+import 'package:engcoach/data/services/auth_service.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
 import 'package:engcoach/data/repositories/progress_repository.dart';
-import 'package:engcoach/data/repositories/session_repository.dart';
+import 'package:engcoach/data/services/session_service.dart';
 import 'package:engcoach/features/assessment/model/assessment_result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,7 +14,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'support/topic_fixture.dart';
 
 /// Emits sessions on demand, standing in for Firebase Auth.
-class _StubSession implements SessionRepository {
+class _StubSession implements SessionService {
   final _controller = StreamController<String?>.broadcast();
   String? phone;
 
@@ -38,7 +38,7 @@ class _StubSession implements SessionRepository {
   void dispose() => _controller.close();
 }
 
-class _StubAuth implements AuthRepository {
+class _StubAuth implements AuthService {
   bool subscribed = true;
   bool failCheck = false;
 
@@ -102,8 +102,8 @@ void main() {
   Future<void> pumpApp(WidgetTester tester) async {
     final container = ProviderContainer(
       overrides: [
-        sessionRepositoryProvider.overrideWithValue(session),
-        authRepositoryProvider.overrideWithValue(auth),
+        sessionServiceProvider.overrideWithValue(session),
+        authServiceProvider.overrideWithValue(auth),
         contentRepositoryProvider.overrideWithValue(_StubContent()),
         progressRepositoryProvider.overrideWithValue(progress),
       ],

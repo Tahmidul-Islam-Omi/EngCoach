@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 import '../../../core/extensions/phone_format.dart';
-import '../../../data/repositories/auth_repository.dart';
+import '../../../data/services/auth_service.dart';
 
 /// Where the learner is in the sign-in flow.
 ///

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:engcoach/data/repositories/auth_repository.dart';
+import 'package:engcoach/data/services/auth_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
@@ -45,7 +45,7 @@ void main() {
 
   /// Answers each endpoint from [bodies], keyed by file name, and records
   /// what was asked for.
-  ({BdappsAuthRepository repo, List<String> calls, List<Map<String, String>> posts})
+  ({BdappsAuthService repo, List<String> calls, List<Map<String, String>> posts})
       repoWith(Map<String, String> bodies) {
     final calls = <String>[];
     final posts = <Map<String, String>>[];
@@ -61,7 +61,7 @@ void main() {
     });
 
     return (
-      repo: BdappsAuthRepository(client: client, baseUrl: 'https://example.test'),
+      repo: BdappsAuthService(client: client, baseUrl: 'https://example.test'),
       calls: calls,
       posts: posts,
     );
@@ -244,7 +244,7 @@ void main() {
 
   group('failures', () {
     test('a dead connection reads as a connection problem', () async {
-      final repo = BdappsAuthRepository(
+      final repo = BdappsAuthService(
         client: MockClient((_) => throw const SocketExceptionStub()),
         baseUrl: 'https://example.test',
       );
@@ -262,7 +262,7 @@ void main() {
     });
 
     test('a 500 never reaches the learner as a status code', () async {
-      final repo = BdappsAuthRepository(
+      final repo = BdappsAuthService(
         client: MockClient((_) async => http.Response('<html>500</html>', 500)),
         baseUrl: 'https://example.test',
       );
@@ -274,7 +274,7 @@ void main() {
     });
 
     test('a non-JSON body does not crash the screen', () async {
-      final repo = BdappsAuthRepository(
+      final repo = BdappsAuthService(
         client: MockClient((_) async => http.Response('<br />warning', 200)),
         baseUrl: 'https://example.test',
       );

@@ -1,12 +1,12 @@
-import 'package:engcoach/data/repositories/auth_repository.dart';
-import 'package:engcoach/data/repositories/session_repository.dart';
+import 'package:engcoach/data/services/auth_service.dart';
+import 'package:engcoach/data/services/session_service.dart';
 import 'package:engcoach/features/auth/model/sign_in_state.dart';
 import 'package:engcoach/features/auth/viewmodel/sign_in_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// Answers immediately, so nothing here depends on timing or the network.
-class _StubAuth implements AuthRepository {
+class _StubAuth implements AuthService {
   _StubAuth({this.resendAfter = const Duration(seconds: 45)});
 
   static const code = '123456';
@@ -59,7 +59,7 @@ class _StubAuth implements AuthRepository {
 }
 
 /// Stands in for Firebase Auth, which needs a real plugin and a device.
-class _StubSession implements SessionRepository {
+class _StubSession implements SessionService {
   String? phone;
   bool failSignIn = false;
 
@@ -94,8 +94,8 @@ void main() {
   ProviderContainer makeContainer() {
     final c = ProviderContainer(
       overrides: [
-        authRepositoryProvider.overrideWithValue(auth),
-        sessionRepositoryProvider.overrideWithValue(session),
+        authServiceProvider.overrideWithValue(auth),
+        sessionServiceProvider.overrideWithValue(session),
       ],
     );
     addTearDown(c.dispose);

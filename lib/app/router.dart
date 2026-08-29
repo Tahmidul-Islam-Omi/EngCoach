@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../data/repositories/session_repository.dart';
-import '../data/repositories/subscription_provider.dart';
+import '../data/services/session_service.dart';
+import '../data/services/auth_service.dart';
 import '../features/assessment/view/pre_assessment_screen.dart';
 import '../features/auth/view/sign_in_screen.dart';
 import '../features/auth/view/starting_screen.dart';

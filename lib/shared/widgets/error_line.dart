@@ -14,26 +14,25 @@ class ErrorLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 1),
-            child: Icon(
-              Icons.error_outline_rounded,
-              size: 15,
-              color: AppColors.danger,
-            ),
-          ),
-          const SizedBox(width: AppSpacing.xs + 2),
-          Expanded(
-            child: Text(
-              message,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall
-                  ?.copyWith(color: AppColors.danger),
-            ),
-          ),
-        ],
-      );
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      const Padding(
+        padding: EdgeInsets.only(top: 1),
+        child: Icon(
+          Icons.error_outline_rounded,
+          size: 15,
+          color: AppColors.danger,
+        ),
+      ),
+      const SizedBox(width: AppSpacing.xs + 2),
+      Expanded(
+        child: Text(
+          message,
+          style: Theme.of(
+            context,
+          ).textTheme.bodySmall?.copyWith(color: AppColors.danger),
+        ),
+      ),
+    ],
+  );
 }

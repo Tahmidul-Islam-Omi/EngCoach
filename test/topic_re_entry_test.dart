@@ -13,7 +13,6 @@ import 'package:go_router/go_router.dart';
 import 'support/fakes.dart';
 import 'support/topic_fixture.dart';
 
-
 void main() {
   final topic = buildTopic(subSkills: 3);
 
@@ -35,15 +34,13 @@ void main() {
         ),
         GoRoute(
           path: '/topic/:topicId',
-          builder: (_, state) => TopicOverviewScreen(
-            topicId: state.pathParameters['topicId']!,
-          ),
+          builder: (_, state) =>
+              TopicOverviewScreen(topicId: state.pathParameters['topicId']!),
         ),
         GoRoute(
           path: '/topic/:topicId/learn',
-          builder: (_, state) => LearningPathScreen(
-            topicId: state.pathParameters['topicId']!,
-          ),
+          builder: (_, state) =>
+              LearningPathScreen(topicId: state.pathParameters['topicId']!),
         ),
       ],
     );
@@ -51,8 +48,12 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          contentRepositoryProvider.overrideWithValue(FakeContentRepository(topic)),
-          progressRepositoryProvider.overrideWithValue(FakeProgressRepository(progress)),
+          contentRepositoryProvider.overrideWithValue(
+            FakeContentRepository(topic),
+          ),
+          progressRepositoryProvider.overrideWithValue(
+            FakeProgressRepository(progress),
+          ),
         ],
         child: MaterialApp.router(routerConfig: router, theme: AppTheme.light),
       ),
@@ -119,8 +120,9 @@ void main() {
   });
 
   group('the topic list', () {
-    testWidgets('suggests the first topic while it is untouched',
-        (tester) async {
+    testWidgets('suggests the first topic while it is untouched', (
+      tester,
+    ) async {
       await pump(tester, at: '/topics');
 
       expect(find.text('START HERE'), findsOneWidget);

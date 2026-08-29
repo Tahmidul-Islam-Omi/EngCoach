@@ -84,7 +84,7 @@ class _Plan extends StatelessWidget {
         Text(
           skipped > 0
               ? 'Your check said ${weak.length} of these need work. '
-                  "The other $skipped you can skip."
+                    "The other $skipped you can skip."
               : 'Your check said all ${weak.length} need work.',
           style: text.bodyMedium,
         ),
@@ -170,8 +170,7 @@ class _FinalCheck extends StatelessWidget {
               backgroundColor: AppColors.onPrimary,
               foregroundColor: AppColors.primary,
             ),
-            onPressed: () =>
-                context.push(Routes.postAssessment(topicId)),
+            onPressed: () => context.push(Routes.postAssessment(topicId)),
             child: const Text('Take the final check'),
           ),
         ],
@@ -287,8 +286,7 @@ class _TakeTheCheckFirst extends StatelessWidget {
             ),
             const SizedBox(height: AppSpacing.xl),
             FilledButton(
-              onPressed: () =>
-                  context.push(Routes.preAssessment(topicId)),
+              onPressed: () => context.push(Routes.preAssessment(topicId)),
               child: const Text('Start the check'),
             ),
           ],

@@ -14,12 +14,12 @@ class StatusBadge extends StatelessWidget {
   final TopicStatus status;
 
   AppColorPair get _colors => switch (status) {
-        TopicStatus.notStarted => AppStatusColors.notStarted,
-        TopicStatus.tested => AppStatusColors.tested,
-        TopicStatus.learning => AppStatusColors.learning,
-        TopicStatus.completed => AppStatusColors.completed,
-        TopicStatus.mastered => AppStatusColors.mastered,
-      };
+    TopicStatus.notStarted => AppStatusColors.notStarted,
+    TopicStatus.tested => AppStatusColors.tested,
+    TopicStatus.learning => AppStatusColors.learning,
+    TopicStatus.completed => AppStatusColors.completed,
+    TopicStatus.mastered => AppStatusColors.mastered,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +34,9 @@ class StatusBadge extends StatelessWidget {
       ),
       child: Text(
         status.label,
-        style: Theme.of(context)
-            .textTheme
-            .labelSmall
-            ?.copyWith(color: _colors.foreground),
+        style: Theme.of(
+          context,
+        ).textTheme.labelSmall?.copyWith(color: _colors.foreground),
       ),
     );
   }

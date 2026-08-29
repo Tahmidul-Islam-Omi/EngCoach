@@ -34,9 +34,9 @@ class PracticeViewModel extends Notifier<PracticeState> {
     return switch (topic) {
       AsyncData(:final value) => _start(value),
       AsyncError() => const PracticeState(
-          status: PracticeStatus.failed,
-          error: "This lesson couldn't be loaded. Check your connection.",
-        ),
+        status: PracticeStatus.failed,
+        error: "This lesson couldn't be loaded. Check your connection.",
+      ),
       _ => const PracticeState(),
     };
   }
@@ -44,8 +44,9 @@ class PracticeViewModel extends Notifier<PracticeState> {
   PracticeState _start(Topic topic) {
     _topic = topic;
 
-    final lesson =
-        topic.lessons.where((l) => l.subSkillId == key.subSkillId).firstOrNull;
+    final lesson = topic.lessons
+        .where((l) => l.subSkillId == key.subSkillId)
+        .firstOrNull;
 
     if (lesson == null || lesson.practice.isEmpty) {
       return const PracticeState(
@@ -100,10 +101,7 @@ class PracticeViewModel extends Notifier<PracticeState> {
       return;
     }
 
-    state = state.copyWith(
-      index: state.index + 1,
-      chosenOptionId: null,
-    );
+    state = state.copyWith(index: state.index + 1, chosenOptionId: null);
   }
 
   /// Records the completion and refreshes the plan, so returning to it
@@ -113,7 +111,9 @@ class PracticeViewModel extends Notifier<PracticeState> {
   /// connection must not hold it. Firestore queues the write offline.
   Future<void> _recordCompletion() async {
     try {
-      await ref.read(progressRepositoryProvider).markSubSkillComplete(
+      await ref
+          .read(progressRepositoryProvider)
+          .markSubSkillComplete(
             topicId: key.topicId,
             subSkillId: key.subSkillId,
           );
@@ -136,5 +136,7 @@ class PracticeViewModel extends Notifier<PracticeState> {
   void retry() => ref.invalidate(topicProvider(key.topicId));
 }
 
-final practiceViewModelProvider = NotifierProvider.family<PracticeViewModel,
-    PracticeState, PracticeKey>(PracticeViewModel.new);
+final practiceViewModelProvider =
+    NotifierProvider.family<PracticeViewModel, PracticeState, PracticeKey>(
+      PracticeViewModel.new,
+    );

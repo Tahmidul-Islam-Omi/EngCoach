@@ -12,13 +12,13 @@ void main() {
   List<String> runs(String text) =>
       spans(text).map((s) => (s as TextSpan).text!).toList();
 
-  List<bool> emphasis(String text) => spans(text)
-      .map((s) => (s as TextSpan).style?.fontWeight == FontWeight.w700)
-      .toList();
+  List<bool> emphasis(String text) => spans(
+    text,
+  ).map((s) => (s as TextSpan).style?.fontWeight == FontWeight.w700).toList();
 
-  List<bool> slanted(String text) => spans(text)
-      .map((s) => (s as TextSpan).style?.fontStyle == FontStyle.italic)
-      .toList();
+  List<bool> slanted(String text) => spans(
+    text,
+  ).map((s) => (s as TextSpan).style?.fontStyle == FontStyle.italic).toList();
 
   test('plain text stays one run', () {
     expect(runs('Which sentence is correct?'), ['Which sentence is correct?']);

@@ -42,21 +42,22 @@ void main() {
       .toList();
 
   group('each block type', () {
-    testWidgets('a paragraph shows its text without the markers',
-        (tester) async {
+    testWidgets('a paragraph shows its text without the markers', (
+      tester,
+    ) async {
       await pumpBlocks(tester, [
         const TextBlock(text: 'With **I** and **you**, the verb stays.'),
       ]);
 
-      expect(
-        renderedText(tester),
-        contains('With I and you, the verb stays.'),
-      );
+      expect(renderedText(tester), contains('With I and you, the verb stays.'));
     });
 
     testWidgets('a pattern shows the rule and its tail', (tester) async {
       await pumpBlocks(tester, [
-        const PatternBlock(text: 'I / you / we / they + verb', highlight: 'no change'),
+        const PatternBlock(
+          text: 'I / you / we / they + verb',
+          highlight: 'no change',
+        ),
       ]);
 
       expect(renderedText(tester), contains('I / you / we / they + verb'));
@@ -87,8 +88,9 @@ void main() {
       }
     });
 
-    testWidgets('an example marks the taught word inside the sentence',
-        (tester) async {
+    testWidgets('an example marks the taught word inside the sentence', (
+      tester,
+    ) async {
       await pumpBlocks(tester, [
         const ExamplesBlock(
           items: [ExampleItem(text: 'I work in Dhaka.', highlight: 'work')],
@@ -99,8 +101,9 @@ void main() {
       expect(renderedText(tester), contains('I work in Dhaka.'));
     });
 
-    testWidgets('an example survives a highlight that is not in the text',
-        (tester) async {
+    testWidgets('an example survives a highlight that is not in the text', (
+      tester,
+    ) async {
       // Never true of authored content, but a lesson must not lose its
       // sentence if it ever becomes true.
       await pumpBlocks(tester, [
@@ -132,12 +135,13 @@ void main() {
   });
 
   group('every authored block', () {
-    final files = Directory('content')
-        .listSync(recursive: true)
-        .whereType<File>()
-        .where((f) => f.path.endsWith('.json'))
-        .toList()
-      ..sort((a, b) => a.path.compareTo(b.path));
+    final files =
+        Directory('content')
+            .listSync(recursive: true)
+            .whereType<File>()
+            .where((f) => f.path.endsWith('.json'))
+            .toList()
+          ..sort((a, b) => a.path.compareTo(b.path));
 
     for (final file in files) {
       final name = file.path.split('/').last.replaceAll('.json', '');

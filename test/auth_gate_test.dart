@@ -48,8 +48,7 @@ class _StubAuth implements AuthService {
   }
 
   @override
-  Future<SignInStart> start(String phone) async =>
-      throw UnimplementedError();
+  Future<SignInStart> start(String phone) async => throw UnimplementedError();
 
   @override
   Future<void> unsubscribe(String phone) async => subscribed = false;
@@ -59,12 +58,8 @@ class _StubAuth implements AuthService {
     required String phone,
     required String code,
     required String referenceNo,
-  }) async =>
-      throw UnimplementedError();
+  }) async => throw UnimplementedError();
 }
-
-
-
 
 void main() {
   late _StubSession session;
@@ -84,8 +79,9 @@ void main() {
       overrides: [
         sessionServiceProvider.overrideWithValue(session),
         authServiceProvider.overrideWithValue(auth),
-        contentRepositoryProvider
-            .overrideWithValue(FakeContentRepository(buildTopic())),
+        contentRepositoryProvider.overrideWithValue(
+          FakeContentRepository(buildTopic()),
+        ),
         progressRepositoryProvider.overrideWithValue(progress),
       ],
     );
@@ -102,8 +98,9 @@ void main() {
     await tester.pump();
   }
 
-  testWidgets('holds on the splash while the session is restoring',
-      (tester) async {
+  testWidgets('holds on the splash while the session is restoring', (
+    tester,
+  ) async {
     await pumpApp(tester);
 
     // Nothing emitted yet: the stored session has not resolved.
@@ -132,8 +129,9 @@ void main() {
     expect(find.byType(NavigationBar), findsOneWidget);
   });
 
-  testWidgets('sends a signed-in learner who stopped paying back to sign-in',
-      (tester) async {
+  testWidgets('sends a signed-in learner who stopped paying back to sign-in', (
+    tester,
+  ) async {
     auth.subscribed = false;
     await pumpApp(tester);
 
@@ -147,8 +145,9 @@ void main() {
     expect(find.textContaining('English that finally'), findsOneWidget);
   });
 
-  testWidgets('a failed subscription check offers a retry, not a spinner',
-      (tester) async {
+  testWidgets('a failed subscription check offers a retry, not a spinner', (
+    tester,
+  ) async {
     // A learner on bad mobile data must never be stranded on the splash.
     auth.failCheck = true;
     await pumpApp(tester);
@@ -161,8 +160,9 @@ void main() {
     expect(find.byType(CircularProgressIndicator), findsNothing);
   });
 
-  testWidgets('a re-check does not throw a learner out of the app',
-      (tester) async {
+  testWidgets('a re-check does not throw a learner out of the app', (
+    tester,
+  ) async {
     // Re-fetching arrives as loading-with-a-previous-value. Treating that as
     // "unknown" would bounce them to the splash mid-task.
     auth.subscribed = true;
@@ -194,8 +194,7 @@ void main() {
     expect(progress.touches, greaterThan(0));
   });
 
-  testWidgets('sign-in never opens showing a previous visit',
-      (tester) async {
+  testWidgets('sign-in never opens showing a previous visit', (tester) async {
     // Unsubscribing sends someone back here, and the view model outlives the
     // screen — so a stale "done" would leave them staring at a spinner.
     auth.subscribed = true;
@@ -211,8 +210,9 @@ void main() {
     expect(find.textContaining('English that finally'), findsOneWidget);
   });
 
-  testWidgets('signing out from inside the app returns to sign-in',
-      (tester) async {
+  testWidgets('signing out from inside the app returns to sign-in', (
+    tester,
+  ) async {
     auth.subscribed = true;
     await pumpApp(tester);
     session.emit('01895613473');

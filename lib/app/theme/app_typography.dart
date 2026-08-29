@@ -41,65 +41,91 @@ abstract final class AppTypography {
   static const _textTheme = TextTheme(
     // Topic name on the Mastered screen.
     headlineLarge: TextStyle(
-      fontSize: 25, fontWeight: FontWeight.w700, height: 1.2,
-      letterSpacing: -0.4, color: AppColors.textPrimary,
+      fontSize: 25,
+      fontWeight: FontWeight.w700,
+      height: 1.2,
+      letterSpacing: -0.4,
+      color: AppColors.textPrimary,
     ),
     // Home greeting.
     headlineMedium: TextStyle(
-      fontSize: 23, fontWeight: FontWeight.w700, height: 1.25,
-      letterSpacing: -0.3, color: AppColors.textPrimary,
+      fontSize: 23,
+      fontWeight: FontWeight.w700,
+      height: 1.25,
+      letterSpacing: -0.3,
+      color: AppColors.textPrimary,
     ),
     // Screen titles and question prompts.
     headlineSmall: TextStyle(
-      fontSize: 19, fontWeight: FontWeight.w700, height: 1.35,
-      letterSpacing: -0.2, color: AppColors.textPrimary,
+      fontSize: 19,
+      fontWeight: FontWeight.w700,
+      height: 1.35,
+      letterSpacing: -0.2,
+      color: AppColors.textPrimary,
     ),
     // Card titles.
     titleLarge: TextStyle(
-      fontSize: 16, fontWeight: FontWeight.w700, height: 1.35,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+      height: 1.35,
       color: AppColors.textPrimary,
     ),
     // Primary button text.
     titleMedium: TextStyle(
-      fontSize: 15, fontWeight: FontWeight.w700, height: 1.3,
+      fontSize: 15,
+      fontWeight: FontWeight.w700,
+      height: 1.3,
       color: AppColors.textPrimary,
     ),
     // Answer options.
     bodyLarge: TextStyle(
-      fontSize: 14.5, fontWeight: FontWeight.w400, height: 1.5,
+      fontSize: 14.5,
+      fontWeight: FontWeight.w400,
+      height: 1.5,
       color: AppColors.textPrimary,
     ),
     // Explanations and rules.
     bodyMedium: TextStyle(
-      fontSize: 13.5, fontWeight: FontWeight.w400, height: 1.55,
+      fontSize: 13.5,
+      fontWeight: FontWeight.w400,
+      height: 1.55,
       color: AppColors.textPrimary,
     ),
     // Supporting and meta text.
     bodySmall: TextStyle(
-      fontSize: 12.5, fontWeight: FontWeight.w400, height: 1.5,
+      fontSize: 12.5,
+      fontWeight: FontWeight.w400,
+      height: 1.5,
       color: AppColors.textSecondary,
     ),
     // Secondary/text buttons.
     labelLarge: TextStyle(
-      fontSize: 14, fontWeight: FontWeight.w500, height: 1.3,
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      height: 1.3,
       color: AppColors.textSecondary,
     ),
     labelMedium: TextStyle(
-      fontSize: 12.5, fontWeight: FontWeight.w500, height: 1.3,
+      fontSize: 12.5,
+      fontWeight: FontWeight.w500,
+      height: 1.3,
       color: AppColors.textSecondary,
     ),
     // The letter-spaced uppercase section labels.
     labelSmall: TextStyle(
-      fontSize: 10, fontWeight: FontWeight.w500, height: 1.4,
-      letterSpacing: 1.1, color: AppColors.textSecondary,
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
+      height: 1.4,
+      letterSpacing: 1.1,
+      color: AppColors.textSecondary,
     ),
   );
 
   /// Applies the font family and Bengali fallback to every slot.
   static TextTheme get textTheme => _textTheme.apply(
-        fontFamily: sans,
-        fontFamilyFallback: fontFamilyFallback,
-      );
+    fontFamily: sans,
+    fontFamilyFallback: fontFamilyFallback,
+  );
 
   // ------------------------------------------------------------ extra styles
   // Styles with no natural Material slot. Read them from the theme's

@@ -20,7 +20,10 @@ class LearnScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Learn')),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(
-          AppSpacing.pageH, 0, AppSpacing.pageH, AppSpacing.xxl,
+          AppSpacing.pageH,
+          0,
+          AppSpacing.pageH,
+          AppSpacing.xxl,
         ),
         children: [
           Text('Choose a section to begin.', style: text.bodySmall),
@@ -78,61 +81,62 @@ class _SectionCard extends StatelessWidget {
     final text = Theme.of(context).textTheme;
     final enabled = onTap != null;
 
-    final titleColor =
-        enabled ? AppColors.textPrimary : AppColors.textSecondary;
+    final titleColor = enabled
+        ? AppColors.textPrimary
+        : AppColors.textSecondary;
 
     return Card(
       clipBehavior: Clip.antiAlias,
       child: InkWell(
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(AppSpacing.lg),
-            child: Row(
-              children: [
-                Container(
-                  width: 44,
-                  height: 44,
-                  decoration: BoxDecoration(
-                    color: AppColors.divider,
-                    borderRadius: BorderRadius.circular(AppRadius.md),
-                  ),
-                  child: Icon(icon, size: 22, color: AppColors.textOnMuted),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.lg),
+          child: Row(
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: AppColors.divider,
+                  borderRadius: BorderRadius.circular(AppRadius.md),
                 ),
-                const SizedBox(width: AppSpacing.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              title,
-                              style: text.titleLarge?.copyWith(color: titleColor),
-                            ),
+                child: Icon(icon, size: 22, color: AppColors.textOnMuted),
+              ),
+              const SizedBox(width: AppSpacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            title,
+                            style: text.titleLarge?.copyWith(color: titleColor),
                           ),
-                          if (badge != null) ...[
-                            const SizedBox(width: AppSpacing.sm),
-                            _Pill(badge!),
-                          ],
+                        ),
+                        if (badge != null) ...[
+                          const SizedBox(width: AppSpacing.sm),
+                          _Pill(badge!),
                         ],
-                      ),
-                      const SizedBox(height: 2),
-                      Text(subtitle, style: text.bodySmall),
-                    ],
-                  ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    Text(subtitle, style: text.bodySmall),
+                  ],
                 ),
-                Icon(
-                  enabled
-                      ? Icons.chevron_right_rounded
-                      : Icons.lock_outline_rounded,
-                  color: AppColors.textSecondary,
-                ),
-              ],
-            ),
+              ),
+              Icon(
+                enabled
+                    ? Icons.chevron_right_rounded
+                    : Icons.lock_outline_rounded,
+                color: AppColors.textSecondary,
+              ),
+            ],
           ),
         ),
-      );
+      ),
+    );
   }
 }
 
@@ -143,22 +147,18 @@ class _Pill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.sm,
-          vertical: 3,
-        ),
-        decoration: BoxDecoration(
-          color: AppColors.primary,
-          borderRadius: BorderRadius.circular(AppRadius.pill),
-        ),
-        child: Text(
-          label,
-          style: Theme.of(context)
-              .textTheme
-              .labelSmall
-              ?.copyWith(color: AppColors.onPrimary),
-        ),
-      );
+    padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: 3),
+    decoration: BoxDecoration(
+      color: AppColors.primary,
+      borderRadius: BorderRadius.circular(AppRadius.pill),
+    ),
+    child: Text(
+      label,
+      style: Theme.of(
+        context,
+      ).textTheme.labelSmall?.copyWith(color: AppColors.onPrimary),
+    ),
+  );
 }
 
 class _ComingSoon extends StatelessWidget {
@@ -187,12 +187,12 @@ class _NoticeBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: AppSpacing.xl),
-        decoration: BoxDecoration(
-          border: Border.all(color: AppColors.border),
-          borderRadius: BorderRadius.circular(AppRadius.md),
-        ),
-        child: child,
-      );
+    width: double.infinity,
+    padding: const EdgeInsets.symmetric(vertical: AppSpacing.xl),
+    decoration: BoxDecoration(
+      border: Border.all(color: AppColors.border),
+      borderRadius: BorderRadius.circular(AppRadius.md),
+    ),
+    child: child,
+  );
 }

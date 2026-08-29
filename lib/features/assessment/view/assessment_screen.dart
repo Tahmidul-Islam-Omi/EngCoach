@@ -30,13 +30,14 @@ class AssessmentScreen extends ConsumerStatefulWidget {
   final AssessmentPhase phase;
 
   @override
-  ConsumerState<AssessmentScreen> createState() =>
-      _AssessmentScreenState();
+  ConsumerState<AssessmentScreen> createState() => _AssessmentScreenState();
 }
 
 class _AssessmentScreenState extends ConsumerState<AssessmentScreen> {
-  late final AssessmentKey _key =
-      (topicId: widget.topicId, phase: widget.phase);
+  late final AssessmentKey _key = (
+    topicId: widget.topicId,
+    phase: widget.phase,
+  );
 
   @override
   void initState() {
@@ -56,23 +57,23 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen> {
 
     return switch (state.status) {
       AssessmentStatus.loading => const _Frame(
-          child: Center(child: CircularProgressIndicator()),
-        ),
+        child: Center(child: CircularProgressIndicator()),
+      ),
       AssessmentStatus.failed => _Frame(
-          child: RetryMessage(message: state.error, onRetry: model.retry),
-        ),
+        child: RetryMessage(message: state.error, onRetry: model.retry),
+      ),
       AssessmentStatus.inProgress => _Questions(
-          phase: widget.phase,
-          state: state,
-          onSelect: model.select,
-          onNext: model.next,
-          onPrevious: model.previous,
-        ),
+        phase: widget.phase,
+        state: state,
+        onSelect: model.select,
+        onNext: model.next,
+        onPrevious: model.previous,
+      ),
       AssessmentStatus.finished => AssessmentResultView(
-          topicId: widget.topicId,
-          result: state.result!,
-          onRetake: model.retake,
-        ),
+        topicId: widget.topicId,
+        result: state.result!,
+        onRetake: model.retake,
+      ),
     };
   }
 }
@@ -85,11 +86,10 @@ class _Frame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('Check')),
-        body: child,
-      );
+    appBar: AppBar(title: const Text('Check')),
+    body: child,
+  );
 }
-
 
 class _Questions extends StatelessWidget {
   const _Questions({
@@ -206,7 +206,6 @@ class _Questions extends StatelessWidget {
     );
   }
 }
-
 
 class _Footer extends StatelessWidget {
   const _Footer({

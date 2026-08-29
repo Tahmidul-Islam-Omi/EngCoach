@@ -103,11 +103,15 @@ class AssessmentResult {
   int get percent => total == 0 ? 0 : (correct * 100 / total).round();
 
   /// Sub-skills to teach, in authored order — which is teaching order.
-  List<SubSkillScore> get weakSubSkills =>
-      [for (final s in subSkills) if (!s.qualified) s];
+  List<SubSkillScore> get weakSubSkills => [
+    for (final s in subSkills)
+      if (!s.qualified) s,
+  ];
 
-  List<SubSkillScore> get strongSubSkills =>
-      [for (final s in subSkills) if (s.qualified) s];
+  List<SubSkillScore> get strongSubSkills => [
+    for (final s in subSkills)
+      if (s.qualified) s,
+  ];
 
   AssessmentOutcome get outcome {
     // An empty paper proves nothing; it must not read as a pass.

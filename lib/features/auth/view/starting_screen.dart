@@ -11,24 +11,24 @@ class StartingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset(
-                'assets/brand/logo_mark.png',
-                width: 72,
-                height: 72,
-                filterQuality: FilterQuality.medium,
-              ),
-              const SizedBox(height: AppSpacing.xl),
-              const SizedBox(
-                width: 20,
-                height: 20,
-                child: CircularProgressIndicator(strokeWidth: 2),
-              ),
-            ],
+    body: Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(
+            'assets/brand/logo_mark.png',
+            width: 72,
+            height: 72,
+            filterQuality: FilterQuality.medium,
           ),
-        ),
-      );
+          const SizedBox(height: AppSpacing.xl),
+          const SizedBox(
+            width: 20,
+            height: 20,
+            child: CircularProgressIndicator(strokeWidth: 2),
+          ),
+        ],
+      ),
+    ),
+  );
 }

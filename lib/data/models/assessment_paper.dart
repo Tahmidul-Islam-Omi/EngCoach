@@ -16,9 +16,9 @@ enum AssessmentPhase {
   post;
 
   List<Question> bankOf(SubSkill subSkill) => switch (this) {
-        AssessmentPhase.pre => subSkill.preAssessmentBank,
-        AssessmentPhase.post => subSkill.postAssessmentBank,
-      };
+    AssessmentPhase.pre => subSkill.preAssessmentBank,
+    AssessmentPhase.post => subSkill.postAssessmentBank,
+  };
 
   /// How far finishing this phase carries a topic (SPEC §7).
   ///
@@ -26,9 +26,9 @@ enum AssessmentPhase {
   /// result establishes, never a value to assign outright. Retaking the
   /// first check on a finished topic must not undo it.
   TopicStatus get reaches => switch (this) {
-        AssessmentPhase.pre => TopicStatus.tested,
-        AssessmentPhase.post => TopicStatus.completed,
-      };
+    AssessmentPhase.pre => TopicStatus.tested,
+    AssessmentPhase.post => TopicStatus.completed,
+  };
 }
 
 /// One question as a single learner sees it: which sub-skill it came from,
@@ -93,8 +93,10 @@ class AssessmentPaper {
       final bank = phase.bankOf(subSkill);
       // A bank too small for the configured draw is an authoring fault the
       // validator catches. At runtime, ask what exists rather than crash.
-      final wanted =
-          min(topic.assessmentConfig.questionsPerSubSkill, bank.length);
+      final wanted = min(
+        topic.assessmentConfig.questionsPerSubSkill,
+        bank.length,
+      );
 
       final dealt = List.of(bank)..shuffle(rng);
       for (final question in dealt.take(wanted)) {
@@ -132,6 +134,8 @@ class AssessmentPaper {
   int get length => questions.length;
   bool get isEmpty => questions.isEmpty;
 
-  List<DrawnQuestion> questionsFor(String subSkillId) =>
-      [for (final q in questions) if (q.subSkillId == subSkillId) q];
+  List<DrawnQuestion> questionsFor(String subSkillId) => [
+    for (final q in questions)
+      if (q.subSkillId == subSkillId) q,
+  ];
 }

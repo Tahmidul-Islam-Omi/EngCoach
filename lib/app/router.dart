@@ -61,7 +61,6 @@ abstract final class Routes {
   /// Shown while the stored session is being restored, so a returning learner
   /// never sees sign-in flash past on launch.
   static const starting = '/starting';
-
 }
 
 /// Where the router may send someone who is not yet past the gate.
@@ -137,36 +136,41 @@ final routerProvider = Provider<GoRouter>((ref) {
       StatefulShellRoute.indexedStack(
         builder: (context, state, shell) => AppShell(shell: shell),
         branches: [
-          StatefulShellBranch(routes: [
-            GoRoute(
-              path: Routes.home,
-              builder: (_, _) => const HomeScreen(),
-            ),
-          ]),
-          StatefulShellBranch(routes: [
-            GoRoute(
-              path: Routes.learn,
-              builder: (_, _) => const LearnScreen(),
-              routes: [
-                GoRoute(
-                  path: 'grammar',
-                  builder: (_, _) => const GrammarTopicsScreen(),
-                ),
-              ],
-            ),
-          ]),
-          StatefulShellBranch(routes: [
-            GoRoute(
-              path: Routes.progress,
-              builder: (_, _) => const ProgressScreen(),
-            ),
-          ]),
-          StatefulShellBranch(routes: [
-            GoRoute(
-              path: Routes.profile,
-              builder: (_, _) => const ProfileScreen(),
-            ),
-          ]),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(path: Routes.home, builder: (_, _) => const HomeScreen()),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: Routes.learn,
+                builder: (_, _) => const LearnScreen(),
+                routes: [
+                  GoRoute(
+                    path: 'grammar',
+                    builder: (_, _) => const GrammarTopicsScreen(),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: Routes.progress,
+                builder: (_, _) => const ProgressScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: Routes.profile,
+                builder: (_, _) => const ProfileScreen(),
+              ),
+            ],
+          ),
         ],
       ),
 
@@ -180,16 +184,14 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/topic/:topicId',
         parentNavigatorKey: _rootKey,
-        builder: (_, state) => TopicOverviewScreen(
-          topicId: state.pathParameters['topicId']!,
-        ),
+        builder: (_, state) =>
+            TopicOverviewScreen(topicId: state.pathParameters['topicId']!),
         routes: [
           GoRoute(
             path: 'check',
             parentNavigatorKey: _rootKey,
-            builder: (_, state) => AssessmentScreen(
-              topicId: state.pathParameters['topicId']!,
-            ),
+            builder: (_, state) =>
+                AssessmentScreen(topicId: state.pathParameters['topicId']!),
           ),
           GoRoute(
             path: 'final-check',
@@ -202,9 +204,8 @@ final routerProvider = Provider<GoRouter>((ref) {
           GoRoute(
             path: 'learn',
             parentNavigatorKey: _rootKey,
-            builder: (_, state) => LearningPathScreen(
-              topicId: state.pathParameters['topicId']!,
-            ),
+            builder: (_, state) =>
+                LearningPathScreen(topicId: state.pathParameters['topicId']!),
           ),
           GoRoute(
             path: 'lesson/:subSkillId',

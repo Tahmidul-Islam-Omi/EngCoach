@@ -73,21 +73,21 @@ class AssessmentResultView extends ConsumerWidget {
                 Text(
                   weak.isEmpty
                       ? 'Nothing here needs teaching. Take the check again '
-                          'any time to confirm it.'
+                            'any time to confirm it.'
                       : 'Your lessons will cover the '
-                          '${weak.length == 1 ? 'one' : weak.length} '
-                          '${weak.length == 1 ? 'sub-skill' : 'sub-skills'} '
-                          'marked Focus. The rest you can skip.',
+                            '${weak.length == 1 ? 'one' : weak.length} '
+                            '${weak.length == 1 ? 'sub-skill' : 'sub-skills'} '
+                            'marked Focus. The rest you can skip.',
                   style: text.bodySmall,
                 ),
               ],
             ),
           ),
           _Footer(
-          topicId: topicId,
-          firstWeakSubSkill: weak.firstOrNull?.subSkillId,
-          onRetake: onRetake,
-        ),
+            topicId: topicId,
+            firstWeakSubSkill: weak.firstOrNull?.subSkillId,
+            onRetake: onRetake,
+          ),
         ],
       ),
     );
@@ -140,16 +140,15 @@ class _Improvement extends StatelessWidget {
             ],
           ),
           const SizedBox(height: AppSpacing.md),
-          Text(
-            switch (gain) {
-              > 0 => 'Up $gain points on the same rules, asked differently.',
-              0 => 'The same score on different questions covering the same '
+          Text(switch (gain) {
+            > 0 => 'Up $gain points on the same rules, asked differently.',
+            0 =>
+              'The same score on different questions covering the same '
                   'rules.',
-              _ => 'Down ${-gain} points. Worth going back over the lessons '
+            _ =>
+              'Down ${-gain} points. Worth going back over the lessons '
                   'before moving on.',
-            },
-            style: text.bodySmall?.copyWith(color: AppColors.onPrimaryBody),
-          ),
+          }, style: text.bodySmall?.copyWith(color: AppColors.onPrimaryBody)),
         ],
       ),
     );
@@ -197,21 +196,21 @@ class _Headline extends StatelessWidget {
   /// Addressed to the learner, and specific about what happens next — the
   /// outcome names a decision, so the wording should too.
   (String, String) get _wording => switch (result.outcome) {
-        AssessmentOutcome.fullPass => (
-            'You already know this.',
-            'Every sub-skill came back clear, so the lessons are optional.',
-          ),
-        AssessmentOutcome.partial => (
-            "Here's what to work on.",
-            'Some of this is already solid. The lessons will skip that and '
-                'go straight to the gaps.',
-          ),
-        AssessmentOutcome.insufficient => (
-            "We'll start from the beginning.",
-            'Nothing came back solid enough to skip yet — which is exactly '
-                'what the lessons are for.',
-          ),
-      };
+    AssessmentOutcome.fullPass => (
+      'You already know this.',
+      'Every sub-skill came back clear, so the lessons are optional.',
+    ),
+    AssessmentOutcome.partial => (
+      "Here's what to work on.",
+      'Some of this is already solid. The lessons will skip that and '
+          'go straight to the gaps.',
+    ),
+    AssessmentOutcome.insufficient => (
+      "We'll start from the beginning.",
+      'Nothing came back solid enough to skip yet — which is exactly '
+          'what the lessons are for.',
+    ),
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -227,9 +226,7 @@ class _Headline extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Text(title, style: text.headlineSmall),
-                ),
+                Expanded(child: Text(title, style: text.headlineSmall)),
                 const SizedBox(width: AppSpacing.md),
                 // Present, but not the point.
                 Text(
@@ -337,8 +334,7 @@ class _Footer extends StatelessWidget {
             // makes the skipping believable.
             if (firstWeakSubSkill != null)
               FilledButton(
-                onPressed: () =>
-                    context.push(Routes.learningPath(topicId)),
+                onPressed: () => context.push(Routes.learningPath(topicId)),
                 child: const Text('Start learning'),
               )
             else

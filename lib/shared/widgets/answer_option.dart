@@ -43,15 +43,15 @@ class AnswerOption extends StatelessWidget {
       (false, _, true) => (AppColors.info, AppColors.infoSurface, null),
       (false, _, false) => (AppColors.border, AppColors.surface, null),
       (true, true, _) => (
-          AppColors.success,
-          AppColors.successSurface,
-          Icons.check_rounded,
-        ),
+        AppColors.success,
+        AppColors.successSurface,
+        Icons.check_rounded,
+      ),
       (true, false, true) => (
-          AppColors.danger,
-          AppColors.dangerSurface,
-          Icons.close_rounded,
-        ),
+        AppColors.danger,
+        AppColors.dangerSurface,
+        Icons.close_rounded,
+      ),
       // Untouched and not the answer: fades back so the eye goes to the two
       // that matter.
       (true, false, false) => (AppColors.border, AppColors.surface, null),
@@ -80,8 +80,9 @@ class AnswerOption extends StatelessWidget {
             onTap: revealed ? null : onTap,
             borderRadius: BorderRadius.circular(AppRadius.lg),
             child: Container(
-              constraints:
-                  const BoxConstraints(minHeight: AppSizes.minTapTarget),
+              constraints: const BoxConstraints(
+                minHeight: AppSizes.minTapTarget,
+              ),
               padding: const EdgeInsets.all(AppSpacing.lg),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(AppRadius.lg),

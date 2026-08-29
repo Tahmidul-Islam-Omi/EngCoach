@@ -31,11 +31,12 @@ class AssetContentRepository implements ContentRepository {
 
   Future<List<Topic>> _load() async {
     final manifest = await AssetManifest.loadFromAssetBundle(_bundle);
-    final paths = manifest
-        .listAssets()
-        .where((p) => p.startsWith(_prefix) && p.endsWith('.json'))
-        .toList()
-      ..sort();
+    final paths =
+        manifest
+            .listAssets()
+            .where((p) => p.startsWith(_prefix) && p.endsWith('.json'))
+            .toList()
+          ..sort();
 
     final topics = <Topic>[];
     for (final path in paths) {
@@ -62,8 +63,10 @@ final contentRepositoryProvider = Provider<ContentRepository>(
 );
 
 /// Topics in a section, for the topic-list screen.
-final sectionTopicsProvider =
-    FutureProvider.family<List<Topic>, String>((ref, section) {
+final sectionTopicsProvider = FutureProvider.family<List<Topic>, String>((
+  ref,
+  section,
+) {
   return ref.watch(contentRepositoryProvider).topicsForSection(section);
 });
 

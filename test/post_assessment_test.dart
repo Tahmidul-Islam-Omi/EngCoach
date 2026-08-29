@@ -14,37 +14,38 @@ import 'package:go_router/go_router.dart';
 import 'support/fakes.dart';
 import 'support/topic_fixture.dart';
 
-
 void main() {
   TopicProgress progressWith({
     required List<String> weak,
     required List<String> done,
     int? prePercent,
-  }) =>
-      TopicProgress(
-        topicId: 'test_topic',
-        status: TopicStatus.learning,
-        weakSubSkills: weak,
-        completedSubSkills: done,
-        preAssessment: prePercent == null
-            ? null
-            : ScoreSnapshot(
-                correct: prePercent ~/ 10,
-                total: 10,
-                percent: prePercent,
-                takenAt: DateTime(2026, 8, 29),
-                subSkills: const [],
-              ),
-      );
+  }) => TopicProgress(
+    topicId: 'test_topic',
+    status: TopicStatus.learning,
+    weakSubSkills: weak,
+    completedSubSkills: done,
+    preAssessment: prePercent == null
+        ? null
+        : ScoreSnapshot(
+            correct: prePercent ~/ 10,
+            total: 10,
+            percent: prePercent,
+            takenAt: DateTime(2026, 8, 29),
+            subSkills: const [],
+          ),
+  );
 
   group('the view model', () {
     test('draws from the post bank, not the pre one', () async {
       final topic = buildTopic();
       final c = ProviderContainer(
         overrides: [
-          contentRepositoryProvider.overrideWithValue(FakeContentRepository(topic)),
-          progressRepositoryProvider
-              .overrideWithValue(FakeProgressRepository(null)),
+          contentRepositoryProvider.overrideWithValue(
+            FakeContentRepository(topic),
+          ),
+          progressRepositoryProvider.overrideWithValue(
+            FakeProgressRepository(null),
+          ),
         ],
       );
       addTearDown(c.dispose);
@@ -68,9 +69,12 @@ void main() {
       final topic = buildTopic();
       final c = ProviderContainer(
         overrides: [
-          contentRepositoryProvider.overrideWithValue(FakeContentRepository(topic)),
-          progressRepositoryProvider
-              .overrideWithValue(FakeProgressRepository(null)),
+          contentRepositoryProvider.overrideWithValue(
+            FakeContentRepository(topic),
+          ),
+          progressRepositoryProvider.overrideWithValue(
+            FakeProgressRepository(null),
+          ),
         ],
       );
       addTearDown(c.dispose);
@@ -83,7 +87,9 @@ void main() {
       await Future<void>.delayed(Duration.zero);
 
       final model = c.read(assessmentViewModelProvider(pre).notifier);
-      model.select(c.read(assessmentViewModelProvider(pre)).current!.correctOptionId);
+      model.select(
+        c.read(assessmentViewModelProvider(pre)).current!.correctOptionId,
+      );
 
       expect(c.read(assessmentViewModelProvider(pre)).answers, hasLength(1));
       expect(c.read(assessmentViewModelProvider(post)).answers, isEmpty);
@@ -105,9 +111,8 @@ void main() {
         routes: [
           GoRoute(
             path: '/topic/:topicId/learn',
-            builder: (_, state) => LearningPathScreen(
-              topicId: state.pathParameters['topicId']!,
-            ),
+            builder: (_, state) =>
+                LearningPathScreen(topicId: state.pathParameters['topicId']!),
           ),
           GoRoute(
             path: '/topic/:topicId/final-check',
@@ -122,19 +127,25 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: [
-            contentRepositoryProvider.overrideWithValue(FakeContentRepository(topic)),
-            progressRepositoryProvider
-                .overrideWithValue(FakeProgressRepository(progress)),
+            contentRepositoryProvider.overrideWithValue(
+              FakeContentRepository(topic),
+            ),
+            progressRepositoryProvider.overrideWithValue(
+              FakeProgressRepository(progress),
+            ),
           ],
-          child:
-              MaterialApp.router(routerConfig: router, theme: AppTheme.light),
+          child: MaterialApp.router(
+            routerConfig: router,
+            theme: AppTheme.light,
+          ),
         ),
       );
       await tester.pumpAndSettle();
     }
 
-    testWidgets('offers the final check only when every lesson is done',
-        (tester) async {
+    testWidgets('offers the final check only when every lesson is done', (
+      tester,
+    ) async {
       await pumpPath(
         tester,
         progress: progressWith(weak: ['s1', 's2'], done: ['s1']),

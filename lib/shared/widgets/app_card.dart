@@ -29,12 +29,12 @@ class AppCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: padding,
-        decoration: BoxDecoration(
-          color: background,
-          border: Border.all(color: border),
-          borderRadius: BorderRadius.circular(radius),
-        ),
-        child: child,
-      );
+    padding: padding,
+    decoration: BoxDecoration(
+      color: background,
+      border: Border.all(color: border),
+      borderRadius: BorderRadius.circular(radius),
+    ),
+    child: child,
+  );
 }

@@ -199,5 +199,6 @@ class SignInViewModel extends Notifier<SignInState> {
   }
 }
 
-final signInViewModelProvider =
-    NotifierProvider<SignInViewModel, SignInState>(SignInViewModel.new);
+final signInViewModelProvider = NotifierProvider<SignInViewModel, SignInState>(
+  SignInViewModel.new,
+);

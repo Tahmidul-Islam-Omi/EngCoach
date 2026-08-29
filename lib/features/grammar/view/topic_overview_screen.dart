@@ -280,8 +280,8 @@ class _Footer extends StatelessWidget {
                   progress!.weakSubSkills.isEmpty
                       ? 'See your result'
                       : 'Continue learning · '
-                          '${progress!.doneCount} of '
-                          '${progress!.weakSubSkills.length} done',
+                            '${progress!.doneCount} of '
+                            '${progress!.weakSubSkills.length} done',
                 ),
               ),
               const SizedBox(height: AppSpacing.sm),

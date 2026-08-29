@@ -8,7 +8,6 @@ extension PhoneFormat on String {
   ///
   /// Returns the string untouched if it is not 11 digits, so a partly typed
   /// number never renders as something misleading.
-  String get asPrettyPhone => length == 11
-      ? '+880 ${substring(1, 5)}-${substring(5)}'
-      : this;
+  String get asPrettyPhone =>
+      length == 11 ? '+880 ${substring(1, 5)}-${substring(5)}' : this;
 }

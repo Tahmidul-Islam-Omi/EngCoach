@@ -9,10 +9,7 @@ void main() {
     test('keeps authored order, whatever order it is asked in', () {
       // Teaching order is the content's. Stored progress can hold the ids in
       // any order, and must not reorder the plan.
-      expect(
-        topic.subSkillsNamed(['s3', 's1']).map((s) => s.id),
-        ['s1', 's3'],
-      );
+      expect(topic.subSkillsNamed(['s3', 's1']).map((s) => s.id), ['s1', 's3']);
     });
 
     test('drops ids the content no longer has', () {
@@ -33,10 +30,12 @@ void main() {
     });
 
     test('every id returns every sub-skill, in order', () {
-      expect(
-        topic.subSkillsNamed(['s4', 's3', 's2', 's1']).map((s) => s.id),
-        ['s1', 's2', 's3', 's4'],
-      );
+      expect(topic.subSkillsNamed(['s4', 's3', 's2', 's1']).map((s) => s.id), [
+        's1',
+        's2',
+        's3',
+        's4',
+      ]);
     });
   });
 }

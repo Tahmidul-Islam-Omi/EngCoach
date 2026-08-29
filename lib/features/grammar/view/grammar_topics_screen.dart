@@ -30,7 +30,10 @@ class GrammarTopicsScreen extends ConsumerWidget {
         onRetry: () => ref.invalidate(sectionTopicsProvider('grammar')),
         data: (list) => ListView.separated(
           padding: const EdgeInsets.fromLTRB(
-            AppSpacing.pageH, 0, AppSpacing.pageH, AppSpacing.xxl,
+            AppSpacing.pageH,
+            0,
+            AppSpacing.pageH,
+            AppSpacing.xxl,
           ),
           itemCount: list.length + 1,
           separatorBuilder: (_, _) => const SizedBox(height: AppSpacing.md),
@@ -42,7 +45,7 @@ class GrammarTopicsScreen extends ConsumerWidget {
                   list.length == 1
                       ? '1 topic · Start with the suggested one.'
                       : '${list.length} topics · Not sure where to begin? '
-                          'Start with the suggested one.',
+                            'Start with the suggested one.',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               );
@@ -79,7 +82,8 @@ class _TopicCard extends ConsumerWidget {
     // Firestore caches them, and a topic the learner has never opened costs
     // a single miss. Unread progress falls back to Not Started, which is
     // what it means.
-    final status = ref.watch(topicProgressProvider(topic.id)).value?.status ??
+    final status =
+        ref.watch(topicProgressProvider(topic.id)).value?.status ??
         TopicStatus.notStarted;
 
     return Card(
@@ -88,7 +92,9 @@ class _TopicCard extends ConsumerWidget {
         borderRadius: BorderRadius.circular(AppRadius.lg),
         side: BorderSide(
           color: suggested ? AppColors.primary : AppColors.border,
-          width: suggested ? AppSizes.selectedBorderWidth : AppSizes.borderWidth,
+          width: suggested
+              ? AppSizes.selectedBorderWidth
+              : AppSizes.borderWidth,
         ),
       ),
       child: InkWell(
@@ -104,8 +110,11 @@ class _TopicCard extends ConsumerWidget {
                   color: AppColors.divider,
                   borderRadius: BorderRadius.circular(AppRadius.md),
                 ),
-                child: const Icon(Icons.menu_book_outlined,
-                    size: 20, color: AppColors.textOnMuted),
+                child: const Icon(
+                  Icons.menu_book_outlined,
+                  size: 20,
+                  color: AppColors.textOnMuted,
+                ),
               ),
               const SizedBox(width: AppSpacing.md),
               Expanded(
@@ -126,8 +135,10 @@ class _TopicCard extends ConsumerWidget {
                 ),
               ),
               const SizedBox(width: AppSpacing.sm),
-              const Icon(Icons.chevron_right_rounded,
-                  color: AppColors.textSecondary),
+              const Icon(
+                Icons.chevron_right_rounded,
+                color: AppColors.textSecondary,
+              ),
             ],
           ),
         ),
@@ -141,34 +152,32 @@ class _SuggestedPill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.sm + 2,
-          vertical: 3,
+    padding: const EdgeInsets.symmetric(
+      horizontal: AppSpacing.sm + 2,
+      vertical: 3,
+    ),
+    decoration: BoxDecoration(
+      color: AppColors.primary,
+      borderRadius: BorderRadius.circular(AppRadius.pill),
+    ),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Icon(Icons.star_rounded, size: 12, color: AppColors.onPrimary),
+        const SizedBox(width: 4),
+        // Flexible and shortened: the old label overflowed a 360dp card
+        // by 43px, and "START HERE" is the same phrase the topic
+        // overview already uses for its first step.
+        Flexible(
+          child: Text(
+            'START HERE',
+            overflow: TextOverflow.ellipsis,
+            style: Theme.of(
+              context,
+            ).textTheme.labelSmall?.copyWith(color: AppColors.onPrimary),
+          ),
         ),
-        decoration: BoxDecoration(
-          color: AppColors.primary,
-          borderRadius: BorderRadius.circular(AppRadius.pill),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(Icons.star_rounded,
-                size: 12, color: AppColors.onPrimary),
-            const SizedBox(width: 4),
-            // Flexible and shortened: the old label overflowed a 360dp card
-            // by 43px, and "START HERE" is the same phrase the topic
-            // overview already uses for its first step.
-            Flexible(
-              child: Text(
-                'START HERE',
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelSmall
-                    ?.copyWith(color: AppColors.onPrimary),
-              ),
-            ),
-          ],
-        ),
-      );
+      ],
+    ),
+  );
 }

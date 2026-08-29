@@ -9,9 +9,7 @@ Future<void> main() async {
   // Firebase has to be up before any provider can read Firestore, and
   // plugin channels need the binding first.
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const ProviderScope(child: EngCoachApp()));
 }

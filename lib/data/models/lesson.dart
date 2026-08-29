@@ -37,7 +37,6 @@ class Lesson {
   /// and an explanation immediately (SPEC §6, Phase 2).
   final List<Question> practice;
 
-  static List<LessonBlock> _blocksFromJson(List<dynamic> json) => json
-      .map((b) => LessonBlock.fromJson(b as Map<String, dynamic>))
-      .toList();
+  static List<LessonBlock> _blocksFromJson(List<dynamic> json) =>
+      json.map((b) => LessonBlock.fromJson(b as Map<String, dynamic>)).toList();
 }

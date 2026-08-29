@@ -60,8 +60,9 @@ class LessonScreen extends ConsumerWidget {
             lesson: lesson,
             position: at < 0 ? null : at + 1,
             total: path.length,
-            nextSubSkillId:
-                at >= 0 && at + 1 < path.length ? path[at + 1] : null,
+            nextSubSkillId: at >= 0 && at + 1 < path.length
+                ? path[at + 1]
+                : null,
             topicId: topicId,
           );
         },

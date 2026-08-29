@@ -7,7 +7,7 @@ class ProgressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => const PlaceholderScreen(
-        title: 'Progress',
-        note: 'Scores, improvement and time invested.',
-      );
+    title: 'Progress',
+    note: 'Scores, improvement and time invested.',
+  );
 }

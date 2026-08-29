@@ -36,8 +36,10 @@ class PracticeScreen extends ConsumerStatefulWidget {
 }
 
 class _PracticeScreenState extends ConsumerState<PracticeScreen> {
-  late final PracticeKey _key =
-      (topicId: widget.topicId, subSkillId: widget.subSkillId);
+  late final PracticeKey _key = (
+    topicId: widget.topicId,
+    subSkillId: widget.subSkillId,
+  );
 
   @override
   void initState() {
@@ -56,22 +58,23 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Practice')),
       body: switch (state.status) {
-        PracticeStatus.loading =>
-          const Center(child: CircularProgressIndicator()),
+        PracticeStatus.loading => const Center(
+          child: CircularProgressIndicator(),
+        ),
         PracticeStatus.failed => RetryMessage(
-            message: state.error,
-            onRetry: model.retry,
-          ),
+          message: state.error,
+          onRetry: model.retry,
+        ),
         PracticeStatus.inProgress => _Question(
-            state: state,
-            onChoose: model.choose,
-            onNext: model.next,
-          ),
+          state: state,
+          onChoose: model.choose,
+          onNext: model.next,
+        ),
         PracticeStatus.finished => _Summary(
-            correct: state.correctCount,
-            total: state.total,
-            onRetry: model.restart,
-          ),
+          correct: state.correctCount,
+          total: state.total,
+          onRetry: model.restart,
+        ),
       },
     );
   }
@@ -134,18 +137,11 @@ class _Question extends StatelessWidget {
             ],
           ),
         ),
-        _Footer(
-          enabled: state.revealed,
-          isLast: state.isLast,
-          onNext: onNext,
-        ),
+        _Footer(enabled: state.revealed, isLast: state.isLast, onNext: onNext),
       ],
     );
   }
 }
-
-
-
 
 /// The authored explanation for whatever they picked, in both languages.
 ///
@@ -265,8 +261,7 @@ class _Summary extends StatelessWidget {
             height: 64,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color:
-                  perfect ? AppColors.successSurface : AppColors.infoSurface,
+              color: perfect ? AppColors.successSurface : AppColors.infoSurface,
               shape: BoxShape.circle,
             ),
             child: Icon(
@@ -286,7 +281,7 @@ class _Summary extends StatelessWidget {
             perfect
                 ? 'That rule has stuck. Move on to the next lesson.'
                 : 'Worth another go — the explanations change nothing, but '
-                    'the order of the options will.',
+                      'the order of the options will.',
             style: text.bodyMedium,
             textAlign: TextAlign.center,
           ),
@@ -299,13 +294,9 @@ class _Summary extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppSpacing.sm),
-          TextButton(
-            onPressed: onRetry,
-            child: const Text('Practise again'),
-          ),
+          TextButton(onPressed: onRetry, child: const Text('Practise again')),
         ],
       ),
     );
   }
 }
-

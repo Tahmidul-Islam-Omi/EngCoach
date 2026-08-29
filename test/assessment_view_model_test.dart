@@ -10,10 +10,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'support/fakes.dart';
 import 'support/topic_fixture.dart';
 
-
-
-
-
 void main() {
   const topicId = 'test_topic';
   const key = (topicId: topicId, phase: AssessmentPhase.pre);
@@ -115,13 +111,17 @@ void main() {
       content = FakeContentRepository(null);
       final c = makeContainer();
       c.read(assessmentViewModelProvider(key));
-      await c.read(topicProvider(topicId).future).catchError((_) => buildTopic());
+      await c
+          .read(topicProvider(topicId).future)
+          .catchError((_) => buildTopic());
       await Future<void>.delayed(Duration.zero);
       expect(stateIn(c).status, AssessmentStatus.failed);
 
       final before = content.loads;
       modelIn(c).retry();
-      await c.read(topicProvider(topicId).future).catchError((_) => buildTopic());
+      await c
+          .read(topicProvider(topicId).future)
+          .catchError((_) => buildTopic());
       await Future<void>.delayed(Duration.zero);
 
       expect(content.loads, greaterThan(before));
@@ -290,8 +290,7 @@ void main() {
       );
     });
 
-    test('a failed save still refreshes, because the cache moved on',
-        () async {
+    test('a failed save still refreshes, because the cache moved on', () async {
       progress.fail = true;
       final c = await started();
       await c.read(topicProgressProvider(topicId).future);
@@ -357,19 +356,21 @@ void main() {
   });
 
   group('progress', () {
-    test('reads as one of nine at the start and nine of nine at the end',
-        () async {
-      final c = await started();
-      expect(stateIn(c).position, 1);
-      expect(stateIn(c).progress, closeTo(1 / 9, 0.001));
+    test(
+      'reads as one of nine at the start and nine of nine at the end',
+      () async {
+        final c = await started();
+        expect(stateIn(c).position, 1);
+        expect(stateIn(c).progress, closeTo(1 / 9, 0.001));
 
-      for (var i = 0; i < 8; i++) {
-        answerCorrectly(c);
-      }
+        for (var i = 0; i < 8; i++) {
+          answerCorrectly(c);
+        }
 
-      expect(stateIn(c).position, 9);
-      expect(stateIn(c).progress, 1);
-      expect(stateIn(c).answeredCount, 8);
-    });
+        expect(stateIn(c).position, 9);
+        expect(stateIn(c).progress, 1);
+        expect(stateIn(c).answeredCount, 8);
+      },
+    );
   });
 }

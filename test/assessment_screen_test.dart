@@ -13,15 +13,11 @@ import 'package:go_router/go_router.dart';
 import 'support/fakes.dart';
 import 'support/topic_fixture.dart';
 
-
 void main() {
   /// Four questions over two sub-skills, both qualifying at 2 — short enough
   /// to answer end to end in a test.
-  Topic shortTopic() => buildTopic(
-        subSkills: 2,
-        questionsPerSubSkill: 2,
-        qualifyingScore: 2,
-      );
+  Topic shortTopic() =>
+      buildTopic(subSkills: 2, questionsPerSubSkill: 2, qualifyingScore: 2);
 
   /// The fixture's correct option always reads "Option a", so a test can
   /// answer without knowing where the shuffle put it.
@@ -37,8 +33,7 @@ void main() {
           routes: [
             GoRoute(
               path: 'check',
-              builder: (_, _) =>
-                  const AssessmentScreen(topicId: 'test_topic'),
+              builder: (_, _) => const AssessmentScreen(topicId: 'test_topic'),
             ),
           ],
         ),
@@ -48,13 +43,11 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          contentRepositoryProvider
-              .overrideWithValue(FakeContentRepository(topic ?? shortTopic())),
+          contentRepositoryProvider.overrideWithValue(
+            FakeContentRepository(topic ?? shortTopic()),
+          ),
         ],
-        child: MaterialApp.router(
-          routerConfig: router,
-          theme: AppTheme.light,
-        ),
+        child: MaterialApp.router(routerConfig: router, theme: AppTheme.light),
       ),
     );
     await tester.pumpAndSettle();
@@ -81,8 +74,9 @@ void main() {
   }
 
   group('the question screen', () {
-    testWidgets('opens on the first question with nothing chosen',
-        (tester) async {
+    testWidgets('opens on the first question with nothing chosen', (
+      tester,
+    ) async {
       await pumpCheck(tester);
 
       expect(find.text('Question 1 of 4'), findsOneWidget);
@@ -104,8 +98,9 @@ void main() {
       expect(find.text('Next'), findsOneWidget);
     });
 
-    testWidgets('moves to the next question with a clean slate',
-        (tester) async {
+    testWidgets('moves to the next question with a clean slate', (
+      tester,
+    ) async {
       await pumpCheck(tester);
       final first = promptOnScreen(tester);
 
@@ -141,8 +136,7 @@ void main() {
       );
     });
 
-    testWidgets('there is no way back from the first question',
-        (tester) async {
+    testWidgets('there is no way back from the first question', (tester) async {
       await pumpCheck(tester);
       expect(find.text('Back'), findsNothing);
     });
@@ -162,8 +156,9 @@ void main() {
       expect(find.text('Next'), findsNothing);
     });
 
-    testWidgets('leaving asks first, and staying keeps the answers',
-        (tester) async {
+    testWidgets('leaving asks first, and staying keeps the answers', (
+      tester,
+    ) async {
       await pumpCheck(tester);
       await tester.tap(find.text(right));
       await tester.pump();
@@ -197,13 +192,14 @@ void main() {
     // Authored questions are longer than any fixture, carry `**bold**` and
     // `___` blanks, and vary in option length — which is where layout gives
     // way. Walking a whole paper renders every one of them.
-    for (final path in Directory('content')
-        .listSync(recursive: true)
-        .whereType<File>()
-        .where((f) => f.path.endsWith('.json'))
-        .map((f) => f.path)
-        .toList()
-      ..sort()) {
+    for (final path
+        in Directory('content')
+            .listSync(recursive: true)
+            .whereType<File>()
+            .where((f) => f.path.endsWith('.json'))
+            .map((f) => f.path)
+            .toList()
+          ..sort()) {
       final name = path.split('/').last.replaceAll('.json', '');
 
       testWidgets('$name renders every question and scores', (tester) async {
@@ -258,8 +254,9 @@ void main() {
       expect(find.text('FOCUS'), findsNothing);
     });
 
-    testWidgets('getting everything wrong recommends the whole path',
-        (tester) async {
+    testWidgets('getting everything wrong recommends the whole path', (
+      tester,
+    ) async {
       await pumpCheck(tester);
       await answerAll(tester, correct: false);
 
@@ -292,8 +289,9 @@ void main() {
       );
     });
 
-    testWidgets('going back to the topic leaves the check behind',
-        (tester) async {
+    testWidgets('going back to the topic leaves the check behind', (
+      tester,
+    ) async {
       await pumpCheck(tester);
       await answerAll(tester, correct: true);
 

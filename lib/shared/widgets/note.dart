@@ -25,25 +25,25 @@ class Note extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.lg - 2,
-          vertical: 13,
+    padding: const EdgeInsets.symmetric(
+      horizontal: AppSpacing.lg - 2,
+      vertical: 13,
+    ),
+    decoration: BoxDecoration(
+      color: background,
+      border: Border.all(color: border),
+      borderRadius: BorderRadius.circular(AppRadius.lg),
+    ),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 1),
+          child: Icon(icon, size: 17, color: tone),
         ),
-        decoration: BoxDecoration(
-          color: background,
-          border: Border.all(color: border),
-          borderRadius: BorderRadius.circular(AppRadius.lg),
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 1),
-              child: Icon(icon, size: 17, color: tone),
-            ),
-            const SizedBox(width: AppSpacing.sm + 1),
-            Expanded(child: child),
-          ],
-        ),
-      );
+        const SizedBox(width: AppSpacing.sm + 1),
+        Expanded(child: child),
+      ],
+    ),
+  );
 }

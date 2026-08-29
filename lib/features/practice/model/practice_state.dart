@@ -72,8 +72,7 @@ class PracticeState {
   /// separate "check" step to tap through.
   bool get revealed => chosenOptionId != null;
 
-  bool get isCorrect =>
-      revealed && chosenOptionId == current?.correctOptionId;
+  bool get isCorrect => revealed && chosenOptionId == current?.correctOptionId;
 
   QuestionOption? get chosenOption {
     final id = chosenOptionId;

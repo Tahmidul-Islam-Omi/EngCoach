@@ -31,26 +31,25 @@ enum _Failure {
   }
 
   String get title => switch (this) {
-        _Failure.connection => "You're offline.",
-        _Failure.content => "This content couldn't be opened.",
-        _Failure.unknown => 'Something went wrong.',
-      };
+    _Failure.connection => "You're offline.",
+    _Failure.content => "This content couldn't be opened.",
+    _Failure.unknown => 'Something went wrong.',
+  };
 
   String get detail => switch (this) {
-        _Failure.connection =>
-          'Check your connection and try again.',
-        // Said nothing about being reported: there is no error reporting,
-        // and "we've been told about it" leaves a learner waiting for a fix
-        // nobody knows is needed.
-        _Failure.content => 'Please try again.',
-        _Failure.unknown => 'Please try again.',
-      };
+    _Failure.connection => 'Check your connection and try again.',
+    // Said nothing about being reported: there is no error reporting,
+    // and "we've been told about it" leaves a learner waiting for a fix
+    // nobody knows is needed.
+    _Failure.content => 'Please try again.',
+    _Failure.unknown => 'Please try again.',
+  };
 
   IconData get icon => switch (this) {
-        _Failure.connection => Icons.wifi_off_rounded,
-        _Failure.content => Icons.report_gmailerrorred_rounded,
-        _Failure.unknown => Icons.error_outline_rounded,
-      };
+    _Failure.connection => Icons.wifi_off_rounded,
+    _Failure.content => Icons.report_gmailerrorred_rounded,
+    _Failure.unknown => Icons.error_outline_rounded,
+  };
 }
 
 /// Renders an [AsyncValue] with consistent loading and error states.

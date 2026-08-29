@@ -53,8 +53,9 @@ class AssessmentState {
 
   int get total => paper?.length ?? 0;
 
-  DrawnQuestion? get current =>
-      (paper == null || index < 0 || index >= total) ? null : paper!.questions[index];
+  DrawnQuestion? get current => (paper == null || index < 0 || index >= total)
+      ? null
+      : paper!.questions[index];
 
   /// One-based, for "Question 3 of 15". Zero when there is no paper, so it
   /// never reads as "Question 1" of nothing.
@@ -94,7 +95,9 @@ class AssessmentState {
       paper: paper ?? this.paper,
       index: index ?? this.index,
       answers: answers ?? this.answers,
-      result: identical(result, _keep) ? this.result : result as AssessmentResult?,
+      result: identical(result, _keep)
+          ? this.result
+          : result as AssessmentResult?,
       error: identical(error, _keep) ? this.error : error as String?,
     );
   }

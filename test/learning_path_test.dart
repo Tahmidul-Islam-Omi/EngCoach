@@ -13,19 +13,17 @@ import 'package:go_router/go_router.dart';
 import 'support/fakes.dart';
 import 'support/topic_fixture.dart';
 
-
 void main() {
   TopicProgress progressWith(
     List<String> weak, {
     List<String> done = const [],
     TopicStatus status = TopicStatus.tested,
-  }) =>
-      TopicProgress(
-        topicId: 'test_topic',
-        status: status,
-        weakSubSkills: weak,
-        completedSubSkills: done,
-      );
+  }) => TopicProgress(
+    topicId: 'test_topic',
+    status: status,
+    weakSubSkills: weak,
+    completedSubSkills: done,
+  );
 
   Future<void> pumpPath(
     WidgetTester tester, {
@@ -41,9 +39,8 @@ void main() {
       routes: [
         GoRoute(
           path: '/topic/:topicId/learn',
-          builder: (_, state) => LearningPathScreen(
-            topicId: state.pathParameters['topicId']!,
-          ),
+          builder: (_, state) =>
+              LearningPathScreen(topicId: state.pathParameters['topicId']!),
         ),
         GoRoute(
           path: '/topic/:topicId/lesson/:subSkillId',
@@ -58,8 +55,12 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          contentRepositoryProvider.overrideWithValue(FakeContentRepository(topic)),
-          progressRepositoryProvider.overrideWithValue(FakeProgressRepository(progress)),
+          contentRepositoryProvider.overrideWithValue(
+            FakeContentRepository(topic),
+          ),
+          progressRepositoryProvider.overrideWithValue(
+            FakeProgressRepository(progress),
+          ),
         ],
         child: MaterialApp.router(routerConfig: router, theme: AppTheme.light),
       ),
@@ -114,8 +115,7 @@ void main() {
       expect(find.textContaining('1 of these need work'), findsOneWidget);
     });
 
-    testWidgets('asks for the check when there is no progress',
-        (tester) async {
+    testWidgets('asks for the check when there is no progress', (tester) async {
       await pumpPath(tester, topic: buildTopic(), progress: null);
 
       expect(find.text('Take the check first.'), findsOneWidget);

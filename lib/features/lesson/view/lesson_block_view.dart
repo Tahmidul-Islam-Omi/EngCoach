@@ -18,17 +18,22 @@ class LessonBlockView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => switch (block) {
-        TextBlock(:final text) => _Paragraph(text),
-        PatternBlock(:final text, :final highlight) =>
-          _Pattern(text: text, highlight: highlight),
-        TableBlock(:final headers, :final rows) =>
-          _Comparison(headers: headers, rows: rows),
-        ExamplesBlock(:final items) => _Examples(items),
-        CalloutBlock(:final label, :final text) =>
-          _Callout(label: label, text: text),
-        BanglaBlock(:final label, :final text) =>
-          _Bangla(label: label, text: text),
-      };
+    TextBlock(:final text) => _Paragraph(text),
+    PatternBlock(:final text, :final highlight) => _Pattern(
+      text: text,
+      highlight: highlight,
+    ),
+    TableBlock(:final headers, :final rows) => _Comparison(
+      headers: headers,
+      rows: rows,
+    ),
+    ExamplesBlock(:final items) => _Examples(items),
+    CalloutBlock(:final label, :final text) => _Callout(
+      label: label,
+      text: text,
+    ),
+    BanglaBlock(:final label, :final text) => _Bangla(label: label, text: text),
+  };
 }
 
 // ------------------------------------------------------------------- text
@@ -39,10 +44,8 @@ class _Paragraph extends StatelessWidget {
   final String text;
 
   @override
-  Widget build(BuildContext context) => MarkupText(
-        text,
-        style: Theme.of(context).textTheme.bodyMedium,
-      );
+  Widget build(BuildContext context) =>
+      MarkupText(text, style: Theme.of(context).textTheme.bodyMedium);
 }
 
 // ---------------------------------------------------------------- pattern

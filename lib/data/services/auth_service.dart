@@ -96,7 +96,7 @@ abstract interface class AuthService {
 /// unzip one and read its strings.
 class BdappsAuthService implements AuthService {
   BdappsAuthService({http.Client? client, this.baseUrl = _defaultBaseUrl})
-      : _client = client ?? http.Client();
+    : _client = client ?? http.Client();
 
   static const _defaultBaseUrl = 'https://bdappsdigitalapps.com/engcoach';
 
@@ -112,7 +112,9 @@ class BdappsAuthService implements AuthService {
 
   @override
   Future<SignInStart> start(String phone) async {
-    final status = await _post('check_subscription.php', {'user_mobile': phone});
+    final status = await _post('check_subscription.php', {
+      'user_mobile': phone,
+    });
 
     if (status['isSubscribed'] == true) {
       return AlreadySignedIn(
@@ -154,7 +156,7 @@ class BdappsAuthService implements AuthService {
         statusCode == 'E1850'
             ? 'That code is not right. Check the digits and try again.'
             : (result['statusDetail'] as String?) ??
-                'That code could not be checked. Try again.',
+                  'That code could not be checked. Try again.',
       );
     }
 
@@ -167,7 +169,9 @@ class BdappsAuthService implements AuthService {
 
   @override
   Future<bool> isSubscribed(String phone) async {
-    final status = await _post('check_subscription.php', {'user_mobile': phone});
+    final status = await _post('check_subscription.php', {
+      'user_mobile': phone,
+    });
     return status['isSubscribed'] == true;
   }
 
@@ -177,7 +181,8 @@ class BdappsAuthService implements AuthService {
 
     // bdapps answers UNREGISTERED for a number that was already off, which
     // is the outcome asked for either way.
-    final done = result['success'] == true ||
+    final done =
+        result['success'] == true ||
         (result['subscriptionStatus'] as String?)?.toUpperCase() ==
             'UNREGISTERED';
 
@@ -231,9 +236,7 @@ class BdappsAuthService implements AuthService {
   }
 }
 
-final authServiceProvider = Provider<AuthService>(
-  (ref) => BdappsAuthService(),
-);
+final authServiceProvider = Provider<AuthService>((ref) => BdappsAuthService());
 
 /// Whether the signed-in learner is currently paying.
 ///

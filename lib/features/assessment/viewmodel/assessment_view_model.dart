@@ -42,9 +42,9 @@ class AssessmentViewModel extends Notifier<AssessmentState> {
     return switch (topic) {
       AsyncData(:final value) => _deal(value),
       AsyncError() => const AssessmentState(
-          status: AssessmentStatus.failed,
-          error: "This topic couldn't be loaded. Check your connection.",
-        ),
+        status: AssessmentStatus.failed,
+        error: "This topic couldn't be loaded. Check your connection.",
+      ),
       _ => const AssessmentState(),
     };
   }
@@ -63,10 +63,7 @@ class AssessmentViewModel extends Notifier<AssessmentState> {
       );
     }
 
-    return AssessmentState(
-      status: AssessmentStatus.inProgress,
-      paper: paper,
-    );
+    return AssessmentState(status: AssessmentStatus.inProgress, paper: paper);
   }
 
   /// Records an answer to the question on screen. Choosing again replaces
@@ -77,9 +74,7 @@ class AssessmentViewModel extends Notifier<AssessmentState> {
       return;
     }
 
-    state = state.copyWith(
-      answers: {...state.answers, question.id: optionId},
-    );
+    state = state.copyWith(answers: {...state.answers, question.id: optionId});
   }
 
   /// Moves on, or scores the paper if this was the last question.
@@ -124,10 +119,7 @@ class AssessmentViewModel extends Notifier<AssessmentState> {
 
     final result = AssessmentResult.score(paper, state.answers);
 
-    state = state.copyWith(
-      status: AssessmentStatus.finished,
-      result: result,
-    );
+    state = state.copyWith(status: AssessmentStatus.finished, result: result);
 
     // Deliberately not awaited: the learner sees their result immediately,
     // and a slow connection must not hold the screen. Firestore queues the
@@ -151,7 +143,9 @@ class AssessmentViewModel extends Notifier<AssessmentState> {
   }
 }
 
-final assessmentViewModelProvider = NotifierProvider.family<
-    AssessmentViewModel, AssessmentState, AssessmentKey>(
-  AssessmentViewModel.new,
-);
+final assessmentViewModelProvider =
+    NotifierProvider.family<
+      AssessmentViewModel,
+      AssessmentState,
+      AssessmentKey
+    >(AssessmentViewModel.new);

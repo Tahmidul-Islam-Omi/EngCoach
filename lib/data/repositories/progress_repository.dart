@@ -35,8 +35,7 @@ class TopicProgress {
   final ScoreSnapshot? postAssessment;
 
   /// How much of the plan is behind them.
-  int get doneCount =>
-      weakSubSkills.where(completedSubSkills.contains).length;
+  int get doneCount => weakSubSkills.where(completedSubSkills.contains).length;
 
   bool isDone(String subSkillId) => completedSubSkills.contains(subSkillId);
 }
@@ -170,34 +169,34 @@ class FirestoreProgressRepository implements ProgressRepository {
     );
 
     await doc.set(
-        {
-          'status': current.furthest(result.phase.reaches).name,
-          ...planUpdate(
-            result: result,
-            storedDone:
-                (data?['completedSubSkills'] as List?)?.cast<String>() ??
-                    const [],
-          ),
-          field: {
-            'correct': result.correct,
-            'total': result.total,
-            'percent': result.percent,
-            'takenAt': Timestamp.fromDate(now),
-            'subSkills': [
-              for (final s in result.subSkills)
-                {
-                  'id': s.subSkillId,
-                  'correct': s.correct,
-                  'total': s.total,
-                  'qualified': s.qualified,
-                },
-            ],
-          },
+      {
+        'status': current.furthest(result.phase.reaches).name,
+        ...planUpdate(
+          result: result,
+          storedDone:
+              (data?['completedSubSkills'] as List?)?.cast<String>() ??
+              const [],
+        ),
+        field: {
+          'correct': result.correct,
+          'total': result.total,
+          'percent': result.percent,
+          'takenAt': Timestamp.fromDate(now),
+          'subSkills': [
+            for (final s in result.subSkills)
+              {
+                'id': s.subSkillId,
+                'correct': s.correct,
+                'total': s.total,
+                'qualified': s.qualified,
+              },
+          ],
         },
-        // Merge, so a post-assessment never erases the pre-assessment it is
-        // being compared against.
-        SetOptions(merge: true),
-      );
+      },
+      // Merge, so a post-assessment never erases the pre-assessment it is
+      // being compared against.
+      SetOptions(merge: true),
+    );
   }
 
   /// Creates the parent document if it is missing, and stamps the visit.
@@ -209,15 +208,11 @@ class FirestoreProgressRepository implements ProgressRepository {
     return _firestore.runTransaction((tx) async {
       final snapshot = await tx.get(user);
 
-      tx.set(
-        user,
-        {
-          'phone': _session.currentPhone,
-          'lastSeenAt': FieldValue.serverTimestamp(),
-          if (!snapshot.exists) 'createdAt': FieldValue.serverTimestamp(),
-        },
-        SetOptions(merge: true),
-      );
+      tx.set(user, {
+        'phone': _session.currentPhone,
+        'lastSeenAt': FieldValue.serverTimestamp(),
+        if (!snapshot.exists) 'createdAt': FieldValue.serverTimestamp(),
+      }, SetOptions(merge: true));
     });
   }
 
@@ -245,15 +240,12 @@ class FirestoreProgressRepository implements ProgressRepository {
       orElse: () => TopicStatus.notStarted,
     );
 
-    await doc.set(
-      {
-        'status': current.furthest(TopicStatus.learning).name,
-        // arrayUnion rather than a rewritten list, so two devices finishing
-        // different lessons offline both survive the merge.
-        'completedSubSkills': FieldValue.arrayUnion([subSkillId]),
-      },
-      SetOptions(merge: true),
-    );
+    await doc.set({
+      'status': current.furthest(TopicStatus.learning).name,
+      // arrayUnion rather than a rewritten list, so two devices finishing
+      // different lessons offline both survive the merge.
+      'completedSubSkills': FieldValue.arrayUnion([subSkillId]),
+    }, SetOptions(merge: true));
   }
 
   @override
@@ -316,8 +308,10 @@ class FirestoreProgressRepository implements ProgressRepository {
 /// Read rather than watched: progress changes only when this app writes it,
 /// and a live listener would cost a Firestore connection per topic screen
 /// for no benefit. Invalidate after a write to refresh.
-final topicProgressProvider =
-    FutureProvider.family<TopicProgress?, String>((ref, topicId) {
+final topicProgressProvider = FutureProvider.family<TopicProgress?, String>((
+  ref,
+  topicId,
+) {
   return ref.watch(progressRepositoryProvider).topicProgress(topicId);
 });
 

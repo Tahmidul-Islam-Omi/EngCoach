@@ -26,18 +26,22 @@ void main() {
         random: Random(2),
       );
 
-      expect(
-        paper.questions.map((q) => q.subSkillId),
-        ['s1', 's1', 's1', 's2', 's2', 's2', 's3', 's3', 's3'],
-      );
+      expect(paper.questions.map((q) => q.subSkillId), [
+        's1',
+        's1',
+        's1',
+        's2',
+        's2',
+        's2',
+        's3',
+        's3',
+        's3',
+      ]);
     });
 
     test('never asks the same question twice, whatever the seed', () {
       for (var seed = 0; seed < 50; seed++) {
-        final paper = AssessmentPaper.draw(
-          buildTopic(),
-          random: Random(seed),
-        );
+        final paper = AssessmentPaper.draw(buildTopic(), random: Random(seed));
         final ids = paper.questions.map((q) => q.id).toList();
         expect(ids.toSet(), hasLength(ids.length), reason: 'seed $seed');
       }
@@ -63,10 +67,7 @@ void main() {
       final a = AssessmentPaper.draw(topic, random: Random(7));
       final b = AssessmentPaper.draw(topic, random: Random(7));
 
-      expect(
-        a.questions.map((q) => q.id),
-        b.questions.map((q) => q.id),
-      );
+      expect(a.questions.map((q) => q.id), b.questions.map((q) => q.id));
       expect(
         a.questions.first.options.map((o) => o.id),
         b.questions.first.options.map((o) => o.id),
@@ -77,10 +78,10 @@ void main() {
       final topic = buildTopic();
       final papers = [
         for (var seed = 0; seed < 20; seed++)
-          AssessmentPaper.draw(topic, random: Random(seed))
-              .questions
-              .map((q) => q.id)
-              .join(','),
+          AssessmentPaper.draw(
+            topic,
+            random: Random(seed),
+          ).questions.map((q) => q.id).join(','),
       ];
 
       // Two learners should rarely sit the same paper — 20 draws from a bank
@@ -126,7 +127,10 @@ void main() {
 
       for (final drawn in paper.questions) {
         expect(drawn.options.where((o) => o.correct), hasLength(1));
-        expect(drawn.correctOptionId, drawn.options.firstWhere((o) => o.correct).id);
+        expect(
+          drawn.correctOptionId,
+          drawn.options.firstWhere((o) => o.correct).id,
+        );
       }
     });
 
@@ -155,12 +159,10 @@ void main() {
       final topic = buildTopic(subSkills: 1, bankSize: 1);
       final orders = {
         for (var seed = 0; seed < 20; seed++)
-          AssessmentPaper.draw(topic, random: Random(seed))
-              .questions
-              .first
-              .options
-              .map((o) => o.id)
-              .join(),
+          AssessmentPaper.draw(
+            topic,
+            random: Random(seed),
+          ).questions.first.options.map((o) => o.id).join(),
       };
 
       expect(orders.length, greaterThan(1));

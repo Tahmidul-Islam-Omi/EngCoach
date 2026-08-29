@@ -150,9 +150,7 @@ class _Landing extends ConsumerWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                TextSpan(
-                  text: ' number — the subscription is charged to it.',
-                ),
+                TextSpan(text: ' number — the subscription is charged to it.'),
               ],
             ),
           ),
@@ -167,7 +165,6 @@ class _Landing extends ConsumerWidget {
       ],
     );
   }
-
 }
 
 /// The pitch, and the price.
@@ -563,10 +560,7 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
             child: Text(state.busy ? 'Trying…' : 'Try again'),
           ),
           const SizedBox(height: AppSpacing.sm),
-          TextButton(
-            onPressed: model.restart,
-            child: const Text('Start over'),
-          ),
+          TextButton(onPressed: model.restart, child: const Text('Start over')),
         ],
       ),
     );

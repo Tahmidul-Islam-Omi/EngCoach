@@ -13,7 +13,6 @@ import 'package:go_router/go_router.dart';
 import 'support/fakes.dart';
 import 'support/topic_fixture.dart';
 
-
 void main() {
   Future<GoRouter> pumpLesson(
     WidgetTester tester, {
@@ -45,7 +44,9 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          contentRepositoryProvider.overrideWithValue(FakeContentRepository(topic)),
+          contentRepositoryProvider.overrideWithValue(
+            FakeContentRepository(topic),
+          ),
         ],
         child: MaterialApp.router(routerConfig: router, theme: AppTheme.light),
       ),
@@ -58,8 +59,9 @@ void main() {
   }
 
   group('the lesson screen', () {
-    testWidgets('shows the lesson for the sub-skill it was asked for',
-        (tester) async {
+    testWidgets('shows the lesson for the sub-skill it was asked for', (
+      tester,
+    ) async {
       final topic = buildTopic(subSkills: 3);
       await pumpLesson(tester, topic: topic, subSkillId: 's2');
 
@@ -87,18 +89,20 @@ void main() {
   });
 
   group('real content', () {
-    final files = Directory('content')
-        .listSync(recursive: true)
-        .whereType<File>()
-        .where((f) => f.path.endsWith('.json'))
-        .toList()
-      ..sort((a, b) => a.path.compareTo(b.path));
+    final files =
+        Directory('content')
+            .listSync(recursive: true)
+            .whereType<File>()
+            .where((f) => f.path.endsWith('.json'))
+            .toList()
+          ..sort((a, b) => a.path.compareTo(b.path));
 
     for (final file in files) {
       final name = file.path.split('/').last.replaceAll('.json', '');
 
-      testWidgets('$name opens every lesson without overflowing',
-          (tester) async {
+      testWidgets('$name opens every lesson without overflowing', (
+        tester,
+      ) async {
         final topic = Topic.fromJson(
           jsonDecode(file.readAsStringSync()) as Map<String, dynamic>,
         );

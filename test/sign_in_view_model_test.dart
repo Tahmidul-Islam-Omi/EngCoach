@@ -72,7 +72,9 @@ class _StubSession implements SessionService {
   @override
   Future<void> signIn(Session session) async {
     if (failSignIn || session.firebaseToken == null) {
-      throw const AuthFailure("Signed in, but your progress can't be saved yet.");
+      throw const AuthFailure(
+        "Signed in, but your progress can't be saved yet.",
+      );
     }
     phone = session.phone;
   }
@@ -167,8 +169,7 @@ void main() {
       expect(state.busy, isFalse);
     });
 
-    test('the right code signs them in and opens a Firebase session',
-        () async {
+    test('the right code signs them in and opens a Firebase session', () async {
       final c = makeContainer();
       modelIn(c).phoneChanged(phone);
       await modelIn(c).sendCode();
@@ -198,8 +199,7 @@ void main() {
       expect(session.currentPhone, isNull);
     });
 
-    test('a failed handshake can be retried without redoing bdapps',
-        () async {
+    test('a failed handshake can be retried without redoing bdapps', () async {
       session.failSignIn = true;
       final c = makeContainer();
       modelIn(c).phoneChanged(phone);
@@ -217,22 +217,24 @@ void main() {
       expect(auth.verifies, 1, reason: 'bdapps is not asked twice');
     });
 
-    test('a wrong code keeps the reference, so no second SMS is needed',
-        () async {
-      final c = makeContainer();
-      modelIn(c).phoneChanged(phone);
-      await modelIn(c).sendCode();
-      modelIn(c).codeChanged('000000');
-      await modelIn(c).verify();
+    test(
+      'a wrong code keeps the reference, so no second SMS is needed',
+      () async {
+        final c = makeContainer();
+        modelIn(c).phoneChanged(phone);
+        await modelIn(c).sendCode();
+        modelIn(c).codeChanged('000000');
+        await modelIn(c).verify();
 
-      final state = stateIn(c);
-      expect(state.step, SignInStep.code);
-      expect(state.code, isEmpty, reason: 'boxes cleared to retype');
-      expect(state.phone, phone, reason: 'the number is kept');
-      expect(state.referenceNo, _StubAuth.reference);
-      expect(state.error, isNotNull);
-      expect(auth.starts, 1, reason: 'the retry costs no new code');
-    });
+        final state = stateIn(c);
+        expect(state.step, SignInStep.code);
+        expect(state.code, isEmpty, reason: 'boxes cleared to retype');
+        expect(state.phone, phone, reason: 'the number is kept');
+        expect(state.referenceNo, _StubAuth.reference);
+        expect(state.error, isNotNull);
+        expect(auth.starts, 1, reason: 'the retry costs no new code');
+      },
+    );
 
     test('verifying without a reference never reaches the network', () async {
       final c = makeContainer();
@@ -283,22 +285,24 @@ void main() {
       expect(auth.starts, 1, reason: 'blocked while the countdown runs');
     });
 
-    test('signs them in if they subscribed by SMS while the screen was open',
-        () async {
-      // No resend lock, so the second call is allowed straight away.
-      auth = _StubAuth(resendAfter: Duration.zero);
-      final c = makeContainer();
-      modelIn(c).phoneChanged(phone);
-      await modelIn(c).sendCode();
+    test(
+      'signs them in if they subscribed by SMS while the screen was open',
+      () async {
+        // No resend lock, so the second call is allowed straight away.
+        auth = _StubAuth(resendAfter: Duration.zero);
+        final c = makeContainer();
+        modelIn(c).phoneChanged(phone);
+        await modelIn(c).sendCode();
 
-      // Someone texting "engcoach" to 21213 mid-flow becomes REGISTERED, and
-      // bdapps would then refuse another code.
-      auth.subscribed = true;
-      await modelIn(c).resend();
+        // Someone texting "engcoach" to 21213 mid-flow becomes REGISTERED, and
+        // bdapps would then refuse another code.
+        auth.subscribed = true;
+        await modelIn(c).resend();
 
-      expect(stateIn(c).step, SignInStep.done);
-      expect(auth.starts, 2);
-    });
+        expect(stateIn(c).step, SignInStep.done);
+        expect(auth.starts, 2);
+      },
+    );
 
     test('a resend after the lock clears asks for a new code', () async {
       auth = _StubAuth(resendAfter: Duration.zero);

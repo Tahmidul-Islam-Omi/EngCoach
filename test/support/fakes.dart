@@ -60,8 +60,7 @@ class FakeProgressRepository implements ProgressRepository {
   Future<void> markSubSkillComplete({
     required String topicId,
     required String subSkillId,
-  }) async =>
-      completed.add(subSkillId);
+  }) async => completed.add(subSkillId);
 
   @override
   Future<void> touch() async => touches++;

@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => const PlaceholderScreen(
-        title: 'Home',
-        note: 'Today’s Review, Continue Learning and Weak Areas land here.',
-      );
+    title: 'Home',
+    note: 'Today’s Review, Continue Learning and Weak Areas land here.',
+  );
 }

@@ -43,12 +43,7 @@ List<InlineSpan> markupSpans(
 
 /// A [Text] that understands the authored `**bold**` markup.
 class MarkupText extends StatelessWidget {
-  const MarkupText(
-    this.text, {
-    this.style,
-    this.textAlign,
-    super.key,
-  });
+  const MarkupText(this.text, {this.style, this.textAlign, super.key});
 
   final String text;
   final TextStyle? style;

@@ -45,8 +45,12 @@ void main() {
 
   /// Answers each endpoint from [bodies], keyed by file name, and records
   /// what was asked for.
-  ({BdappsAuthService repo, List<String> calls, List<Map<String, String>> posts})
-      repoWith(Map<String, String> bodies) {
+  ({
+    BdappsAuthService repo,
+    List<String> calls,
+    List<Map<String, String>> posts,
+  })
+  repoWith(Map<String, String> bodies) {
     final calls = <String>[];
     final posts = <Map<String, String>>[];
 
@@ -95,11 +99,9 @@ void main() {
       expect(session.phone, phone);
       expect(session.isSubscribed, isTrue);
       expect(session.firebaseToken, startsWith('eyJ'));
-      expect(
-        h.calls,
-        ['check_subscription.php'],
-        reason: 'no OTP is sent — bdapps refuses one for a subscriber',
-      );
+      expect(h.calls, [
+        'check_subscription.php',
+      ], reason: 'no OTP is sent — bdapps refuses one for a subscriber');
     });
 
     test('the number is posted as bdapps expects it', () async {
@@ -235,10 +237,7 @@ void main() {
             '"subscriptionStatus":"REGISTERED"}',
       });
 
-      await expectLater(
-        h.repo.unsubscribe(phone),
-        throwsA(isA<AuthFailure>()),
-      );
+      await expectLater(h.repo.unsubscribe(phone), throwsA(isA<AuthFailure>()));
     });
   });
 
@@ -267,10 +266,7 @@ void main() {
         baseUrl: 'https://example.test',
       );
 
-      await expectLater(
-        repo.start(phone),
-        throwsA(isA<AuthFailure>()),
-      );
+      await expectLater(repo.start(phone), throwsA(isA<AuthFailure>()));
     });
 
     test('a non-JSON body does not crash the screen', () async {

@@ -11,31 +11,33 @@ sealed class LessonBlock {
     return switch (type) {
       'text' => TextBlock(text: json['text'] as String),
       'pattern' => PatternBlock(
-          text: json['text'] as String,
-          highlight: json['highlight'] as String,
-        ),
+        text: json['text'] as String,
+        highlight: json['highlight'] as String,
+      ),
       'table' => TableBlock(
-          headers: (json['headers'] as List).cast<String>(),
-          rows: (json['rows'] as List)
-              .map((r) => (r as List).cast<String>())
-              .toList(),
-        ),
+        headers: (json['headers'] as List).cast<String>(),
+        rows: (json['rows'] as List)
+            .map((r) => (r as List).cast<String>())
+            .toList(),
+      ),
       'examples' => ExamplesBlock(
-          items: (json['items'] as List)
-              .map((i) => ExampleItem(
-                    text: (i as Map<String, dynamic>)['text'] as String,
-                    highlight: i['highlight'] as String,
-                  ))
-              .toList(),
-        ),
+        items: (json['items'] as List)
+            .map(
+              (i) => ExampleItem(
+                text: (i as Map<String, dynamic>)['text'] as String,
+                highlight: i['highlight'] as String,
+              ),
+            )
+            .toList(),
+      ),
       'callout' => CalloutBlock(
-          label: json['label'] as String,
-          text: json['text'] as String,
-        ),
+        label: json['label'] as String,
+        text: json['text'] as String,
+      ),
       'bangla' => BanglaBlock(
-          label: json['label'] as String,
-          text: json['text'] as String,
-        ),
+        label: json['label'] as String,
+        text: json['text'] as String,
+      ),
       _ => throw FormatException('Unknown lesson block type: $type'),
     };
   }

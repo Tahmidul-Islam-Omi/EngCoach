@@ -15,15 +15,12 @@ import 'package:go_router/go_router.dart';
 
 import 'support/fakes.dart';
 
-
-
-
 /// A real authored topic — practice questions carry feedback in two
 /// languages, which no fixture would reproduce faithfully.
 Topic realTopic([String name = 'present_simple']) => Topic.fromJson(
-      jsonDecode(File('content/grammar/$name.json').readAsStringSync())
-          as Map<String, dynamic>,
-    );
+  jsonDecode(File('content/grammar/$name.json').readAsStringSync())
+      as Map<String, dynamic>,
+);
 
 void main() {
   group('the view model', () {
@@ -94,9 +91,11 @@ void main() {
       for (var i = 0; i < 3; i++) {
         final item = c.read(practiceViewModelProvider(key)).current!;
         // Right, wrong, right.
-        model.choose(i == 1
-            ? item.options.firstWhere((o) => !o.correct).id
-            : item.correctOptionId);
+        model.choose(
+          i == 1
+              ? item.options.firstWhere((o) => !o.correct).id
+              : item.correctOptionId,
+        );
         model.next();
       }
 
@@ -159,7 +158,9 @@ void main() {
       final key = keyFor(topic);
       final model = c.read(practiceViewModelProvider(key).notifier);
 
-      model.choose(c.read(practiceViewModelProvider(key)).current!.correctOptionId);
+      model.choose(
+        c.read(practiceViewModelProvider(key)).current!.correctOptionId,
+      );
       model.restart();
 
       final state = c.read(practiceViewModelProvider(key));
@@ -205,10 +206,14 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: [
-            contentRepositoryProvider.overrideWithValue(FakeContentRepository(topic)),
+            contentRepositoryProvider.overrideWithValue(
+              FakeContentRepository(topic),
+            ),
           ],
-          child:
-              MaterialApp.router(routerConfig: router, theme: AppTheme.light),
+          child: MaterialApp.router(
+            routerConfig: router,
+            theme: AppTheme.light,
+          ),
         ),
       );
       await tester.pumpAndSettle();
@@ -226,8 +231,9 @@ void main() {
       );
     });
 
-    testWidgets('a wrong answer explains itself in both languages',
-        (tester) async {
+    testWidgets('a wrong answer explains itself in both languages', (
+      tester,
+    ) async {
       final topic = realTopic();
       await pumpPractice(tester, topic);
 
@@ -239,14 +245,8 @@ void main() {
 
       expect(find.text('NOT QUITE'), findsOneWidget);
       // The authored English and Bangla, with markup resolved.
-      expect(
-        find.text(wrong.feedback!.en.replaceAll('*', '')),
-        findsOneWidget,
-      );
-      expect(
-        find.text(wrong.feedback!.bn.replaceAll('*', '')),
-        findsOneWidget,
-      );
+      expect(find.text(wrong.feedback!.en.replaceAll('*', '')), findsOneWidget);
+      expect(find.text(wrong.feedback!.bn.replaceAll('*', '')), findsOneWidget);
     });
 
     testWidgets('answering unlocks moving on', (tester) async {
@@ -266,12 +266,13 @@ void main() {
   });
 
   group('every authored practice set', () {
-    final files = Directory('content')
-        .listSync(recursive: true)
-        .whereType<File>()
-        .where((f) => f.path.endsWith('.json'))
-        .toList()
-      ..sort((a, b) => a.path.compareTo(b.path));
+    final files =
+        Directory('content')
+            .listSync(recursive: true)
+            .whereType<File>()
+            .where((f) => f.path.endsWith('.json'))
+            .toList()
+          ..sort((a, b) => a.path.compareTo(b.path));
 
     for (final file in files) {
       final name = file.path.split('/').last.replaceAll('.json', '');
@@ -284,8 +285,11 @@ void main() {
         for (final lesson in topic.lessons) {
           expect(lesson.practice, isNotEmpty, reason: lesson.id);
           for (final q in lesson.practice) {
-            expect(q.options.where((o) => o.correct), hasLength(1),
-                reason: q.id);
+            expect(
+              q.options.where((o) => o.correct),
+              hasLength(1),
+              reason: q.id,
+            );
             for (final o in q.options) {
               // The practice screen shows the chosen option's explanation —
               // an option without one would reveal an empty box.

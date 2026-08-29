@@ -157,7 +157,10 @@ void main() {
       }
 
       expect(
-        AssessmentResult.score(paper, chosen).weakSubSkills.map((s) => s.subSkillId),
+        AssessmentResult.score(
+          paper,
+          chosen,
+        ).weakSubSkills.map((s) => s.subSkillId),
         ['s1', 's3', 's4'],
       );
     });

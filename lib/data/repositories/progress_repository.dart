@@ -211,6 +211,17 @@ class FirestoreProgressRepository implements ProgressRepository {
   }
 }
 
+/// What the learner has done with one topic, or null if they have not
+/// started it.
+///
+/// Read rather than watched: progress changes only when this app writes it,
+/// and a live listener would cost a Firestore connection per topic screen
+/// for no benefit. Invalidate after a write to refresh.
+final topicProgressProvider =
+    FutureProvider.family<TopicProgress?, String>((ref, topicId) {
+  return ref.watch(progressRepositoryProvider).topicProgress(topicId);
+});
+
 final progressRepositoryProvider = Provider<ProgressRepository>(
   (ref) => FirestoreProgressRepository(
     FirebaseFirestore.instance,

@@ -73,8 +73,8 @@ void main() {
       final topic = buildTopic(subSkills: 3);
       await pumpLesson(tester, topic: topic, subSkillId: 's2');
 
-      expect(find.text('Sub-skill 2'), findsOneWidget);
-      expect(find.text('Sub-skill 1'), findsNothing);
+      expect(find.text('Lesson for Sub-skill 2'), findsOneWidget);
+      expect(find.text('Lesson for Sub-skill 1'), findsNothing);
     });
 
     testWidgets('says so when a sub-skill has no lesson', (tester) async {

@@ -51,7 +51,10 @@ Topic buildTopic({
         Lesson(
           id: '${s.id}-lesson',
           subSkillId: s.id,
-          title: s.title,
+          // Distinct from the sub-skill's own title, as real content is:
+          // "Base verb form" the sub-skill, "I, you, we, they — the base
+          // verb" the lesson.
+          title: 'Lesson for ${s.title}',
           blocks: const [TextBlock(text: 'Body.')],
           practice: const [],
         ),

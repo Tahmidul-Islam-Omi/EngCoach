@@ -223,14 +223,13 @@ class _Footer extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Straight into the first thing they got wrong. The full path
-            // through every weak sub-skill comes next; for now this is the
-            // one that matters most, and it is in authored teaching order.
+            // The plan rather than the first lesson: seeing "2 of 6 need
+            // work" is the payoff of having taken the check, and it is what
+            // makes the skipping believable.
             if (firstWeakSubSkill != null)
               FilledButton(
-                onPressed: () => context.push(
-                  Routes.lesson(topicId, firstWeakSubSkill!),
-                ),
+                onPressed: () =>
+                    context.push(Routes.learningPath(topicId)),
                 child: const Text('Start learning'),
               )
             else

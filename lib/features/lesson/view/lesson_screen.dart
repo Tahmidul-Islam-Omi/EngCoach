@@ -4,9 +4,12 @@ import 'package:go_router/go_router.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
+import '../../../app/router.dart';
 import '../../../data/models/lesson.dart';
 import '../../../data/repositories/content_repository.dart';
+import '../../../data/repositories/progress_repository.dart';
 import '../../../shared/widgets/async_view.dart';
+import 'learning_path_screen.dart';
 import 'lesson_block_view.dart';
 
 /// One sub-skill's lesson.
@@ -45,7 +48,25 @@ class LessonScreen extends ConsumerWidget {
             return const _Missing();
           }
 
-          return _Body(lesson: lesson);
+          // Where this lesson sits in the learner's plan, so the footer can
+          // offer the next one. Falls back to a plain exit if progress has
+          // not loaded — reading a lesson must never wait on Firestore.
+          final weak = ref.watch(topicProgressProvider(topicId)).value;
+          final path = weak == null
+              ? const <String>[]
+              : weakSubSkillsOf(t, weak.weakSubSkills)
+                  .map((s) => s.id)
+                  .toList();
+          final at = path.indexOf(subSkillId);
+
+          return _Body(
+            lesson: lesson,
+            position: at < 0 ? null : at + 1,
+            total: path.length,
+            nextSubSkillId:
+                at >= 0 && at + 1 < path.length ? path[at + 1] : null,
+            topicId: topicId,
+          );
         },
       ),
     );
@@ -53,9 +74,23 @@ class LessonScreen extends ConsumerWidget {
 }
 
 class _Body extends StatelessWidget {
-  const _Body({required this.lesson});
+  const _Body({
+    required this.lesson,
+    required this.position,
+    required this.total,
+    required this.nextSubSkillId,
+    required this.topicId,
+  });
 
   final Lesson lesson;
+
+  /// One-based place in the plan, or null when this lesson was opened
+  /// outside one.
+  final int? position;
+
+  final int total;
+  final String? nextSubSkillId;
+  final String topicId;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +107,10 @@ class _Body extends StatelessWidget {
               AppSpacing.xxxl,
             ),
             children: [
-              Text('LESSON', style: text.labelSmall),
+              Text(
+                position == null ? 'LESSON' : 'LESSON $position OF $total',
+                style: text.labelSmall,
+              ),
               const SizedBox(height: AppSpacing.sm),
               Text(lesson.title, style: text.headlineLarge),
               const SizedBox(height: AppSpacing.xl),
@@ -83,18 +121,31 @@ class _Body extends StatelessWidget {
             ],
           ),
         ),
-        _Footer(practiceCount: lesson.practice.length),
+        _Footer(
+          practiceCount: lesson.practice.length,
+          nextSubSkillId: nextSubSkillId,
+          topicId: topicId,
+        ),
       ],
     );
   }
 }
 
 class _Footer extends StatelessWidget {
-  const _Footer({required this.practiceCount});
+  const _Footer({
+    required this.practiceCount,
+    required this.nextSubSkillId,
+    required this.topicId,
+  });
 
   /// Shown so the learner knows reading is not the end of it. The practice
   /// itself is not built yet.
   final int practiceCount;
+
+  /// The next lesson in the plan, or null on the last one.
+  final String? nextSubSkillId;
+
+  final String topicId;
 
   @override
   Widget build(BuildContext context) {
@@ -113,10 +164,21 @@ class _Footer extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             // Becomes "Practice this" once the exercises exist. Until then
-            // it goes where it says it goes.
+            // it moves along the plan, or leaves if this was the last one.
             FilledButton(
-              onPressed: () => context.pop(),
-              child: const Text('Done for now'),
+              onPressed: () {
+                final next = nextSubSkillId;
+                if (next == null) {
+                  context.pop();
+                  return;
+                }
+                // Replace rather than push: going back should return to the
+                // plan, not walk every lesson already read.
+                context.pushReplacement(Routes.lesson(topicId, next));
+              },
+              child: Text(
+                nextSubSkillId == null ? 'Done for now' : 'Next lesson',
+              ),
             ),
             const SizedBox(height: AppSpacing.sm),
             Text(

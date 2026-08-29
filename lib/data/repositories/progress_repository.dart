@@ -150,8 +150,13 @@ class FirestoreProgressRepository implements ProgressRepository {
       AssessmentPhase.post => 'postAssessment',
     };
 
-    await _ensureUser(user);
-
+    // Deliberately no _ensureUser here. It runs a transaction, and Firestore
+    // transactions need the network — offline it throws, and the throw would
+    // land before the write below, losing the result instead of queueing it.
+    //
+    // The parent document is not required: Firestore stores a subcollection
+    // document whether or not its parent exists, and touch() creates the
+    // parent on the next launch that has signal.
     final doc = user.collection('topics').doc(result.topicId);
 
     // Read first so the status can only move forward. A plain get rather
@@ -226,27 +231,29 @@ class FirestoreProgressRepository implements ProgressRepository {
 
     final doc = user.collection('topics').doc(topicId);
 
-    // A transaction because the new status depends on the stored one, and
-    // TopicStatus.furthest must never walk a learner backwards — a second
-    // device finishing an older lesson cannot undo a completed topic.
-    await _firestore.runTransaction((tx) async {
-      final snapshot = await tx.get(doc);
-      final stored = snapshot.data()?['status'] as String?;
+    // Read then write, not a transaction — for the same reason
+    // saveAssessment does: a transaction needs the network, so finishing
+    // practice with no signal would throw the completion away instead of
+    // queueing it. get() falls back to the cache and set() queues.
+    //
+    // The cost is a race between two devices finishing lessons at the same
+    // moment. TopicStatus.furthest still stops the common case of an older
+    // device demoting a further-along topic.
+    final stored = (await doc.get()).data()?['status'] as String?;
+    final current = TopicStatus.values.firstWhere(
+      (s) => s.name == stored,
+      orElse: () => TopicStatus.notStarted,
+    );
 
-      final current = TopicStatus.values.firstWhere(
-        (s) => s.name == stored,
-        orElse: () => TopicStatus.notStarted,
-      );
-
-      tx.set(
-        doc,
-        {
-          'status': current.furthest(TopicStatus.learning).name,
-          'completedSubSkills': FieldValue.arrayUnion([subSkillId]),
-        },
-        SetOptions(merge: true),
-      );
-    });
+    await doc.set(
+      {
+        'status': current.furthest(TopicStatus.learning).name,
+        // arrayUnion rather than a rewritten list, so two devices finishing
+        // different lessons offline both survive the merge.
+        'completedSubSkills': FieldValue.arrayUnion([subSkillId]),
+      },
+      SetOptions(merge: true),
+    );
   }
 
   @override

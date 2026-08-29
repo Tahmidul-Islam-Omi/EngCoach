@@ -91,4 +91,19 @@ class Topic {
       lessons.firstWhere((l) => l.subSkillId == subSkillId);
 
   SubSkill subSkill(String id) => subSkills.firstWhere((s) => s.id == id);
+
+  /// The sub-skills named by [ids], in authored order — which is teaching
+  /// order.
+  ///
+  /// Driven by the topic rather than by the given list, so an id that has
+  /// since been renamed or removed from the content simply drops out instead
+  /// of pointing at a lesson that no longer exists. That matters because the
+  /// ids come from a learner's stored progress, which outlives content edits.
+  List<SubSkill> subSkillsNamed(Iterable<String> ids) {
+    final wanted = ids.toSet();
+    return [
+      for (final s in subSkills)
+        if (wanted.contains(s.id)) s,
+    ];
+  }
 }

@@ -9,7 +9,6 @@ import '../../../data/models/lesson.dart';
 import '../../../data/repositories/content_repository.dart';
 import '../../../data/repositories/progress_repository.dart';
 import '../../../shared/widgets/async_view.dart';
-import 'learning_path_screen.dart';
 import 'lesson_block_view.dart';
 
 /// One sub-skill's lesson.
@@ -54,9 +53,7 @@ class LessonScreen extends ConsumerWidget {
           final weak = ref.watch(topicProgressProvider(topicId)).value;
           final path = weak == null
               ? const <String>[]
-              : weakSubSkillsOf(t, weak.weakSubSkills)
-                  .map((s) => s.id)
-                  .toList();
+              : t.subSkillsNamed(weak.weakSubSkills).map((s) => s.id).toList();
           final at = path.indexOf(subSkillId);
 
           return _Body(

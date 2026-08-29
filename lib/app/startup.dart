@@ -21,6 +21,14 @@ final visitStampProvider = Provider<void>((ref) {
 
   final repository = ref.watch(progressRepositoryProvider);
   // Off the build turn, and never surfaced: a missed timestamp is not worth
-  // interrupting anyone for.
-  Future<void>.microtask(repository.touch);
+  // interrupting anyone for. Caught rather than left unawaited — touch()
+  // uses a transaction, which fails with no network, and an uncaught async
+  // error would surface as a red screen in debug for nothing.
+  Future<void>.microtask(() async {
+    try {
+      await repository.touch();
+    } catch (_) {
+      // Reported once Crashlytics is in.
+    }
+  });
 });

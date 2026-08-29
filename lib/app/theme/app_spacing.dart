@@ -38,6 +38,13 @@ abstract final class AppSizes {
   /// Height of primary buttons.
   static const buttonHeight = 52.0;
 
+  /// Minimum width for a secondary button sitting beside a primary one.
+  ///
+  /// Needed because the theme sizes buttons full-bleed with
+  /// `Size.fromHeight`, which is an infinite width inside a Row — the
+  /// assessment's Back button overflowed on exactly that.
+  static const secondaryButtonWidth = 96.0;
+
   /// Hairline borders.
   static const borderWidth = 1.0;
 

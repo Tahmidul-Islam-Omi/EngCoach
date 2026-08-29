@@ -244,7 +244,10 @@ class _Footer extends StatelessWidget {
                 // (`Size.fromHeight`), which is an infinite width inside a
                 // Row. Back sits beside Next, so it states its own width.
                 style: OutlinedButton.styleFrom(
-                  minimumSize: const Size(96, AppSizes.buttonHeight),
+                  minimumSize: const Size(
+                    AppSizes.secondaryButtonWidth,
+                    AppSizes.buttonHeight,
+                  ),
                 ),
                 onPressed: onPrevious,
                 child: const Text('Back'),

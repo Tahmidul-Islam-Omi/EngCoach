@@ -40,7 +40,7 @@ class LearningPathScreen extends ConsumerWidget {
               return _TakeTheCheckFirst(topicId: topicId);
             }
 
-            final weak = weakSubSkillsOf(t, p.weakSubSkills);
+            final weak = t.subSkillsNamed(p.weakSubSkills);
 
             if (weak.isEmpty) {
               return const _NothingToTeach();
@@ -52,20 +52,6 @@ class LearningPathScreen extends ConsumerWidget {
       ),
     );
   }
-}
-
-/// The topic's own sub-skills, filtered to the weak ones and kept in authored
-/// order — which is teaching order.
-///
-/// Driven by the topic rather than by the stored list, so a sub-skill that
-/// has since been renamed or removed from the content simply drops out
-/// instead of pointing at a lesson that no longer exists.
-List<SubSkill> weakSubSkillsOf(Topic topic, List<String> weakIds) {
-  final weak = weakIds.toSet();
-  return [
-    for (final s in topic.subSkills)
-      if (weak.contains(s.id)) s,
-  ];
 }
 
 class _Plan extends StatelessWidget {

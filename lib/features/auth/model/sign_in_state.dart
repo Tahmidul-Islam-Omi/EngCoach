@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 
+import '../../../core/extensions/phone_format.dart';
 import '../../../data/repositories/auth_repository.dart';
 
 /// Where the learner is in the sign-in flow.
@@ -78,10 +79,8 @@ class SignInState {
   bool get signedInWithoutCode =>
       step == SignInStep.done && referenceNo == null;
 
-  /// "+880 1712-345678" — how a Bangladeshi number is normally read back.
-  String get prettyPhone => phoneComplete
-      ? '+880 ${phone.substring(1, 5)}-${phone.substring(5)}'
-      : '+880 …';
+  /// How the number is read back, or a placeholder while it is incomplete.
+  String get prettyPhone => phoneComplete ? phone.asPrettyPhone : '+880 …';
 
   /// "0:45", for the resend countdown.
   String get clock {

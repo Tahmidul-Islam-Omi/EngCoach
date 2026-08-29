@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/router.dart';
+import '../../../core/extensions/phone_format.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../../../data/repositories/auth_repository.dart';
@@ -76,11 +77,6 @@ class _SignedIn extends ConsumerWidget {
   final String phone;
   final TextTheme text;
 
-  /// "+880 1895-613473" — how a Bangladeshi number is normally read back.
-  String get _pretty => phone.length == 11
-      ? '+880 ${phone.substring(1, 5)}-${phone.substring(5)}'
-      : phone;
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ListView(
@@ -93,7 +89,7 @@ class _SignedIn extends ConsumerWidget {
               children: [
                 Text('SIGNED IN AS', style: text.labelSmall),
                 const SizedBox(height: AppSpacing.xs),
-                Text(_pretty, style: text.headlineSmall),
+                Text(phone.asPrettyPhone, style: text.headlineSmall),
               ],
             ),
           ),

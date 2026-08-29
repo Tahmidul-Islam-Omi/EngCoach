@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
+import '../../../shared/widgets/app_card.dart';
 import '../model/assessment_result.dart';
 
 /// What a finished pre-assessment tells the learner.
@@ -147,13 +148,9 @@ class _SubSkillRow extends StatelessWidget {
         ? AppStatusColors.completed
         : AppStatusColors.learning;
 
-    return Container(
+    return AppCard(
       padding: const EdgeInsets.all(AppSpacing.lg),
-      decoration: BoxDecoration(
-        color: AppColors.surface,
-        borderRadius: BorderRadius.circular(AppRadius.lg),
-        border: Border.all(color: AppColors.border),
-      ),
+      radius: AppRadius.lg,
       child: Row(
         children: [
           Expanded(

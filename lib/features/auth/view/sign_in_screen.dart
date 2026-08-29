@@ -5,6 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../model/sign_in_state.dart';
+import '../../../shared/widgets/app_card.dart';
+import '../../../shared/widgets/error_line.dart';
+import '../../../shared/widgets/note.dart';
 import '../viewmodel/sign_in_view_model.dart';
 
 /// Phone-number sign-in.
@@ -125,7 +128,7 @@ class _Landing extends ConsumerWidget {
         const SizedBox(height: AppSpacing.xxl),
         const _AuthCard(),
         const SizedBox(height: AppSpacing.lg),
-        _Note(
+        Note(
           icon: Icons.smartphone_outlined,
           child: Text.rich(
             TextSpan(
@@ -276,13 +279,9 @@ class _Feature extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(bottom: last ? 0 : AppSpacing.md),
-      child: Container(
+      child: AppCard(
         padding: const EdgeInsets.all(AppSpacing.lg),
-        decoration: BoxDecoration(
-          color: AppColors.surface,
-          borderRadius: BorderRadius.circular(AppRadius.lg),
-          border: Border.all(color: AppColors.border),
-        ),
+        radius: AppRadius.lg,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -532,7 +531,7 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
     final model = ref.read(signInViewModelProvider.notifier);
 
     if (state.error == null) {
-      return _Card(
+      return AppCard(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -548,7 +547,7 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
       );
     }
 
-    return _Card(
+    return AppCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -577,7 +576,7 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
     final text = Theme.of(context).textTheme;
     final model = ref.read(signInViewModelProvider.notifier);
 
-    return _Card(
+    return AppCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -609,7 +608,7 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
           ),
           if (state.error != null) ...[
             const SizedBox(height: AppSpacing.sm + 2),
-            _ErrorLine(state.error!),
+            ErrorLine(state.error!),
           ],
           const SizedBox(height: AppSpacing.xl),
           FilledButton(
@@ -634,7 +633,7 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        _Card(
+        AppCard(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -678,7 +677,7 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
               ),
               if (state.error != null) ...[
                 const SizedBox(height: AppSpacing.md),
-                _ErrorLine(state.error!),
+                ErrorLine(state.error!),
               ],
               const SizedBox(height: AppSpacing.xl),
               FilledButton(
@@ -729,7 +728,7 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
         const SizedBox(height: AppSpacing.md),
         // Verifying is what subscribes the learner and starts the daily
         // charge, so the price sits where they commit to it.
-        _Note(
+        Note(
           icon: Icons.payments_outlined,
           tone: AppColors.warning,
           background: AppColors.warningSurface,
@@ -807,93 +806,4 @@ class _CodeBox extends StatelessWidget {
       ),
     );
   }
-}
-
-// -------------------------------------------------------------- shared bits
-
-class _Card extends StatelessWidget {
-  const _Card({required this.child});
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.all(AppSpacing.xl),
-    decoration: BoxDecoration(
-      color: AppColors.surface,
-      border: Border.all(color: AppColors.border),
-      borderRadius: BorderRadius.circular(AppRadius.xl),
-    ),
-    child: child,
-  );
-}
-
-class _ErrorLine extends StatelessWidget {
-  const _ErrorLine(this.message);
-
-  final String message;
-
-  @override
-  Widget build(BuildContext context) => Row(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      const Padding(
-        padding: EdgeInsets.only(top: 1),
-        child: Icon(
-          Icons.error_outline_rounded,
-          size: 15,
-          color: AppColors.danger,
-        ),
-      ),
-      const SizedBox(width: AppSpacing.xs + 2),
-      Expanded(
-        child: Text(
-          message,
-          style: Theme.of(
-            context,
-          ).textTheme.bodySmall?.copyWith(color: AppColors.danger),
-        ),
-      ),
-    ],
-  );
-}
-
-class _Note extends StatelessWidget {
-  const _Note({
-    required this.icon,
-    required this.child,
-    this.tone = AppColors.textSecondary,
-    this.background = AppColors.surface,
-    this.border = AppColors.border,
-  });
-
-  final IconData icon;
-  final Widget child;
-  final Color tone;
-  final Color background;
-  final Color border;
-
-  @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.symmetric(
-      horizontal: AppSpacing.lg - 2,
-      vertical: 13,
-    ),
-    decoration: BoxDecoration(
-      color: background,
-      border: Border.all(color: border),
-      borderRadius: BorderRadius.circular(AppRadius.lg),
-    ),
-    child: Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 1),
-          child: Icon(icon, size: 17, color: tone),
-        ),
-        const SizedBox(width: AppSpacing.sm + 1),
-        Expanded(child: child),
-      ],
-    ),
-  );
 }

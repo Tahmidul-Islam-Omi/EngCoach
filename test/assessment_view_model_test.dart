@@ -34,6 +34,7 @@ class _StubContent implements ContentRepository {
 class _StubProgress implements ProgressRepository {
   final saved = <AssessmentResult>[];
   bool fail = false;
+  int reads = 0;
 
   @override
   Future<void> saveAssessment(AssessmentResult result) async {
@@ -42,7 +43,10 @@ class _StubProgress implements ProgressRepository {
   }
 
   @override
-  Future<TopicProgress?> topicProgress(String topicId) async => null;
+  Future<TopicProgress?> topicProgress(String topicId) async {
+    reads++;
+    return null;
+  }
 
   @override
   Future<void> touch() async {}
@@ -309,6 +313,41 @@ void main() {
       expect(progress.saved, hasLength(1));
       expect(progress.saved.single.topicId, topicId);
       expect(progress.saved.single.percent, 100);
+    });
+
+    test('finishing refreshes what everything else reads', () async {
+      final c = await started();
+      // Something has already looked at progress — the topic overview, say.
+      await c.read(topicProgressProvider(topicId).future);
+      final before = progress.reads;
+
+      for (var i = 0; i < 9; i++) {
+        answerCorrectly(c);
+      }
+      await Future<void>.delayed(Duration.zero);
+      await c.read(topicProgressProvider(topicId).future);
+
+      expect(
+        progress.reads,
+        greaterThan(before),
+        reason: 'a stale plan would show until the app restarted',
+      );
+    });
+
+    test('a failed save still refreshes, because the cache moved on',
+        () async {
+      progress.fail = true;
+      final c = await started();
+      await c.read(topicProgressProvider(topicId).future);
+      final before = progress.reads;
+
+      for (var i = 0; i < 9; i++) {
+        answerCorrectly(c);
+      }
+      await Future<void>.delayed(Duration.zero);
+      await c.read(topicProgressProvider(topicId).future);
+
+      expect(progress.reads, greaterThan(before));
     });
 
     test('a failed save never disturbs the result on screen', () async {

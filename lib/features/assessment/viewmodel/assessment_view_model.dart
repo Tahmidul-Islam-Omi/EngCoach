@@ -141,6 +141,12 @@ class AssessmentViewModel extends Notifier<AssessmentState> {
     } catch (_) {
       // Nothing useful to tell the learner: the result is on screen, and
       // Firestore retries the write itself. Reported once Crashlytics is in.
+    } finally {
+      // Whatever reads progress next — the plan, the topic overview, the
+      // topic list — must see this result rather than the cached answer
+      // from before it. In a finally because a failed write still leaves
+      // Firestore's local cache updated.
+      ref.invalidate(topicProgressProvider(result.topicId));
     }
   }
 }

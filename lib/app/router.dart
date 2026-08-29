@@ -10,6 +10,7 @@ import '../features/auth/view/starting_screen.dart';
 import '../features/grammar/view/grammar_topics_screen.dart';
 import '../features/lesson/view/learning_path_screen.dart';
 import '../features/lesson/view/lesson_screen.dart';
+import '../features/lesson/view/practice_screen.dart';
 import '../features/grammar/view/topic_overview_screen.dart';
 import '../features/home/view/home_screen.dart';
 import '../features/learn/view/learn_screen.dart';
@@ -41,6 +42,10 @@ abstract final class Routes {
   /// One sub-skill's lesson, under its topic.
   static String lesson(String topicId, String subSkillId) =>
       '/topic/$topicId/lesson/$subSkillId';
+
+  /// That lesson's practice questions.
+  static String practice(String topicId, String subSkillId) =>
+      '/topic/$topicId/practice/$subSkillId';
 
   static const progress = '/progress';
   static const profile = '/profile';
@@ -193,6 +198,14 @@ final routerProvider = Provider<GoRouter>((ref) {
             path: 'lesson/:subSkillId',
             parentNavigatorKey: _rootKey,
             builder: (_, state) => LessonScreen(
+              topicId: state.pathParameters['topicId']!,
+              subSkillId: state.pathParameters['subSkillId']!,
+            ),
+          ),
+          GoRoute(
+            path: 'practice/:subSkillId',
+            parentNavigatorKey: _rootKey,
+            builder: (_, state) => PracticeScreen(
               topicId: state.pathParameters['topicId']!,
               subSkillId: state.pathParameters['subSkillId']!,
             ),

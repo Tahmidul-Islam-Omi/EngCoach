@@ -125,6 +125,7 @@ class _Body extends StatelessWidget {
           practiceCount: lesson.practice.length,
           nextSubSkillId: nextSubSkillId,
           topicId: topicId,
+          subSkillId: lesson.subSkillId,
         ),
       ],
     );
@@ -136,6 +137,7 @@ class _Footer extends StatelessWidget {
     required this.practiceCount,
     required this.nextSubSkillId,
     required this.topicId,
+    required this.subSkillId,
   });
 
   /// Shown so the learner knows reading is not the end of it. The practice
@@ -146,6 +148,7 @@ class _Footer extends StatelessWidget {
   final String? nextSubSkillId;
 
   final String topicId;
+  final String subSkillId;
 
   @override
   Widget build(BuildContext context) {
@@ -163,9 +166,16 @@ class _Footer extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Becomes "Practice this" once the exercises exist. Until then
-            // it moves along the plan, or leaves if this was the last one.
-            FilledButton(
+            // Reading then doing: the practice is where the rule actually
+            // gets tested, so it is the primary action.
+            if (practiceCount > 0)
+              FilledButton(
+                onPressed: () =>
+                    context.push(Routes.practice(topicId, subSkillId)),
+                child: Text('Practise this — $practiceCount questions'),
+              ),
+            if (practiceCount > 0) const SizedBox(height: AppSpacing.sm),
+            OutlinedButton(
               onPressed: () {
                 final next = nextSubSkillId;
                 if (next == null) {
@@ -179,12 +189,6 @@ class _Footer extends StatelessWidget {
               child: Text(
                 nextSubSkillId == null ? 'Done for now' : 'Next lesson',
               ),
-            ),
-            const SizedBox(height: AppSpacing.sm),
-            Text(
-              '$practiceCount practice questions are coming for this lesson',
-              style: Theme.of(context).textTheme.bodySmall,
-              textAlign: TextAlign.center,
             ),
           ],
         ),

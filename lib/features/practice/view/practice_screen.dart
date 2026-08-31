@@ -4,9 +4,12 @@ import 'package:flutter/material.dart' hide Feedback;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../../../data/models/question.dart';
+import '../../../data/repositories/content_repository.dart';
+import '../../../data/repositories/progress_repository.dart';
 import '../../../shared/widgets/answer_option.dart';
 import '../../../shared/widgets/bangla_text.dart';
 import '../../../shared/widgets/markup_text.dart';
@@ -50,6 +53,33 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
     ref.invalidate(practiceViewModelProvider(_key));
   }
 
+  /// The next thing in the plan, so the summary can offer it directly.
+  ///
+  /// Without this the only way on was "Back to the lesson", then "Done for
+  /// now", then scrolling the plan — three taps to reach the obvious step,
+  /// the first of them pointing backwards.
+  ///
+  /// Computed here rather than read from stored progress, because this
+  /// lesson's completion is still being written when the summary appears.
+  _Next _whatIsNext() {
+    final topic = ref.watch(topicProvider(widget.topicId)).value;
+    final progress = ref.watch(topicProgressProvider(widget.topicId)).value;
+    if (topic == null || progress == null) return const _Next.unknown();
+
+    final plan = topic
+        .subSkillsNamed(progress.weakSubSkills)
+        .map((s) => s.id)
+        .toList();
+
+    // Everything still outstanding, ignoring the one just finished.
+    final left = [
+      for (final id in plan)
+        if (id != widget.subSkillId && !progress.isDone(id)) id,
+    ];
+
+    return left.isEmpty ? const _Next.finalCheck() : _Next.lesson(left.first);
+  }
+
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(practiceViewModelProvider(_key));
@@ -74,6 +104,8 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
           correct: state.correctCount,
           total: state.total,
           onRetry: model.restart,
+          next: _whatIsNext(),
+          topicId: widget.topicId,
         ),
       },
     );
@@ -235,16 +267,32 @@ class _Footer extends StatelessWidget {
   }
 }
 
+/// What the plan says to do after this lesson.
+class _Next {
+  const _Next.lesson(this.subSkillId) : isFinalCheck = false;
+  const _Next.finalCheck() : subSkillId = null, isFinalCheck = true;
+
+  /// Progress has not loaded, so offer nothing but the way back.
+  const _Next.unknown() : subSkillId = null, isFinalCheck = false;
+
+  final String? subSkillId;
+  final bool isFinalCheck;
+}
+
 class _Summary extends StatelessWidget {
   const _Summary({
     required this.correct,
     required this.total,
     required this.onRetry,
+    required this.next,
+    required this.topicId,
   });
 
   final int correct;
   final int total;
   final VoidCallback onRetry;
+  final _Next next;
+  final String topicId;
 
   @override
   Widget build(BuildContext context) {
@@ -289,8 +337,27 @@ class _Summary extends StatelessWidget {
           SizedBox(
             width: 280,
             child: FilledButton(
-              onPressed: () => context.pop(),
-              child: const Text('Back to the lesson'),
+              onPressed: () {
+                final router = GoRouter.of(context);
+                // Leave the lesson behind as well, so going back from here
+                // lands on the plan rather than on what was just read.
+                router.pop();
+
+                if (next.isFinalCheck) {
+                  router.pushReplacement(Routes.postAssessment(topicId));
+                } else if (next.subSkillId != null) {
+                  router.pushReplacement(
+                    Routes.lesson(topicId, next.subSkillId!),
+                  );
+                }
+              },
+              child: Text(
+                next.isFinalCheck
+                    ? 'Take the final check'
+                    : next.subSkillId != null
+                    ? 'Next lesson'
+                    : 'Back to the lesson',
+              ),
             ),
           ),
           const SizedBox(height: AppSpacing.sm),

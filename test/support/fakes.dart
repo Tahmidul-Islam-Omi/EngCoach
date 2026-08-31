@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:engcoach/data/models/assessment_result.dart';
 import 'package:engcoach/data/models/topic.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
@@ -65,3 +68,10 @@ class FakeProgressRepository implements ProgressRepository {
   @override
   Future<void> touch() async => touches++;
 }
+
+/// A real authored topic, for tests that need questions with feedback in
+/// two languages — which no fixture would reproduce faithfully.
+Topic topicFromFile(String name) => Topic.fromJson(
+  jsonDecode(File('content/grammar/$name.json').readAsStringSync())
+      as Map<String, dynamic>,
+);

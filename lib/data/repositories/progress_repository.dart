@@ -73,33 +73,22 @@ class SubSkillSnapshot {
 
 /// What a saved result changes about the plan.
 ///
-/// Only the first check sets the plan. The final check measures whether the
-/// lessons worked — treating its result as a new plan silently invalidated
-/// the ticks beside the old one, and could re-offer the final check the
-/// instant it was finished.
+/// Every assessment rewrites it, first check or final: the plan is meant to
+/// say what this learner still needs, and one built from a measurement three
+/// lessons ago no longer does. A final check that still finds gaps therefore
+/// hands back a smaller, fresher plan rather than a dead end.
 ///
-/// When the plan *is* rewritten, completions are kept only for sub-skills
-/// still in it. Otherwise "3 of 2 done" is reachable, and work on a
-/// sub-skill the learner has since passed keeps counting.
+/// Completions clear with it. They were earned against the previous round,
+/// and a sub-skill that came back weak has to be done again — leaving its
+/// tick would mark the new plan finished before it was started, and would
+/// re-offer the final check the moment it ended.
 ///
 /// Pure and separate so it can be tested without Firestore.
 @visibleForTesting
-Map<String, Object?> planUpdate({
-  required AssessmentResult result,
-  required List<String> storedDone,
-}) {
-  if (result.phase != AssessmentPhase.pre) return const {};
-
-  final weak = [for (final s in result.weakSubSkills) s.subSkillId];
-
-  return {
-    'weakSubSkills': weak,
-    'completedSubSkills': [
-      for (final id in storedDone)
-        if (weak.contains(id)) id,
-    ],
-  };
-}
+Map<String, Object?> planUpdate(AssessmentResult result) => {
+  'weakSubSkills': [for (final s in result.weakSubSkills) s.subSkillId],
+  'completedSubSkills': <String>[],
+};
 
 /// Reads and writes a learner's progress.
 abstract interface class ProgressRepository {
@@ -170,13 +159,8 @@ class FirestoreProgressRepository implements ProgressRepository {
 
     await doc.set(
       {
-        'status': current.furthest(result.phase.reaches).name,
-        ...planUpdate(
-          result: result,
-          storedDone:
-              (data?['completedSubSkills'] as List?)?.cast<String>() ??
-              const [],
-        ),
+        'status': current.furthest(result.reaches).name,
+        ...planUpdate(result),
         field: {
           'correct': result.correct,
           'total': result.total,

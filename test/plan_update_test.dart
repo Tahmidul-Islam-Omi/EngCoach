@@ -1,5 +1,6 @@
 import 'package:engcoach/data/models/assessment_paper.dart';
 import 'package:engcoach/data/models/assessment_result.dart';
+import 'package:engcoach/data/models/topic_status.dart';
 import 'package:engcoach/data/repositories/progress_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -26,88 +27,96 @@ void main() {
     );
   }
 
-  group('the first check', () {
-    test('sets the plan to what it found weak', () {
+  group('the plan a result leaves behind', () {
+    test('the first check sets it to what came back weak', () {
       final update = planUpdate(
-        result: resultWith(
+        resultWith(
           phase: AssessmentPhase.pre,
           qualified: {'a': true, 'b': false, 'c': false},
         ),
-        storedDone: const [],
       );
 
       expect(update['weakSubSkills'], ['b', 'c']);
       expect(update['completedSubSkills'], isEmpty);
     });
 
-    test('keeps work on sub-skills still in the new plan', () {
+    test('the final check replaces it with what is still weak', () {
+      // The plan is meant to say what the learner still needs. One built
+      // from a measurement three lessons ago no longer does.
       final update = planUpdate(
-        result: resultWith(
-          phase: AssessmentPhase.pre,
-          qualified: {'a': false, 'b': false},
+        resultWith(
+          phase: AssessmentPhase.post,
+          qualified: {'a': true, 'b': false, 'c': true},
         ),
-        storedDone: const ['a'],
-      );
-
-      expect(update['weakSubSkills'], ['a', 'b']);
-      expect(update['completedSubSkills'], ['a']);
-    });
-
-    test('drops work on sub-skills the learner has since passed', () {
-      // Otherwise "2 of 1 done" is reachable, and the final check gets
-      // offered on a plan that was never finished.
-      final update = planUpdate(
-        result: resultWith(
-          phase: AssessmentPhase.pre,
-          qualified: {'a': true, 'b': false},
-        ),
-        storedDone: const ['a', 'b'],
       );
 
       expect(update['weakSubSkills'], ['b']);
-      expect(update['completedSubSkills'], ['b']);
+    });
+
+    test('a new plan always starts with nothing done', () {
+      // Leaving old ticks would mark the fresh round finished before it
+      // began, and re-offer the final check the moment it ended.
+      for (final phase in AssessmentPhase.values) {
+        final update = planUpdate(
+          resultWith(phase: phase, qualified: {'a': false, 'b': false}),
+        );
+
+        expect(update['completedSubSkills'], isEmpty, reason: phase.name);
+      }
     });
 
     test('a clean sheet leaves nothing to teach', () {
       final update = planUpdate(
-        result: resultWith(
-          phase: AssessmentPhase.pre,
+        resultWith(
+          phase: AssessmentPhase.post,
           qualified: {'a': true, 'b': true},
         ),
-        storedDone: const ['a'],
       );
 
       expect(update['weakSubSkills'], isEmpty);
-      expect(update['completedSubSkills'], isEmpty);
     });
   });
 
-  group('the final check', () {
-    test('does not touch the plan at all', () {
-      // It measures whether the lessons worked. Rewriting the plan from it
-      // wiped the ticks beside the lessons that had just been done.
-      final update = planUpdate(
-        result: resultWith(
-          phase: AssessmentPhase.post,
-          qualified: {'a': false, 'b': true},
-        ),
-        storedDone: const ['a', 'b'],
+  group('how far a result carries the topic', () {
+    test('the first check leaves them tested', () {
+      expect(
+        resultWith(phase: AssessmentPhase.pre, qualified: {'a': true}).reaches,
+        TopicStatus.tested,
       );
-
-      expect(update, isEmpty);
     });
 
-    test('leaves completions alone even when it goes badly', () {
-      final update = planUpdate(
-        result: resultWith(
+    test('a final check that still finds gaps leaves them learning', () {
+      // It has just handed them another round of lessons — calling that
+      // "completed" would contradict the plan on the very next screen.
+      expect(
+        resultWith(
           phase: AssessmentPhase.post,
-          qualified: {'a': false, 'b': false},
-        ),
-        storedDone: const ['a', 'b'],
+          qualified: {'a': true, 'b': false},
+        ).reaches,
+        TopicStatus.learning,
+      );
+    });
+
+    test('a clean final check completes the topic', () {
+      expect(
+        resultWith(
+          phase: AssessmentPhase.post,
+          qualified: {'a': true, 'b': true},
+        ).reaches,
+        TopicStatus.completed,
+      );
+    });
+
+    test('retaking the first check cannot undo a finished topic', () {
+      final retake = resultWith(
+        phase: AssessmentPhase.pre,
+        qualified: {'a': false},
       );
 
-      expect(update.containsKey('completedSubSkills'), isFalse);
-      expect(update.containsKey('weakSubSkills'), isFalse);
+      expect(
+        TopicStatus.completed.furthest(retake.reaches),
+        TopicStatus.completed,
+      );
     });
   });
 }

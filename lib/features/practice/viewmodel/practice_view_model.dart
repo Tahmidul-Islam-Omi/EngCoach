@@ -95,8 +95,11 @@ class PracticeViewModel extends Notifier<PracticeState> {
 
     if (state.isLast) {
       state = state.copyWith(status: PracticeStatus.finished);
-      // Finishing the practice is what marks the sub-skill done — reading
-      // the lesson alone is attendance, not evidence.
+      // Finishing the practice marks the sub-skill done, whatever the
+      // score. A wrong answer produces the authored explanation, which is
+      // itself a teaching moment — so getting it wrong is still doing the
+      // work. Whether any of it landed is the post-assessment's question,
+      // not this one's (SPEC §6).
       unawaited(_recordCompletion());
       return;
     }

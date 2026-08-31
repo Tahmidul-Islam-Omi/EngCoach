@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 
 import 'question.dart';
 import 'topic.dart';
-import 'topic_status.dart';
 
 /// Which of a sub-skill's two banks a paper is drawn from.
 ///
@@ -18,16 +17,6 @@ enum AssessmentPhase {
   List<Question> bankOf(SubSkill subSkill) => switch (this) {
     AssessmentPhase.pre => subSkill.preAssessmentBank,
     AssessmentPhase.post => subSkill.postAssessmentBank,
-  };
-
-  /// How far finishing this phase carries a topic (SPEC §7).
-  ///
-  /// "How far", not "to" — progress is one-way, so this is the floor a
-  /// result establishes, never a value to assign outright. Retaking the
-  /// first check on a finished topic must not undo it.
-  TopicStatus get reaches => switch (this) {
-    AssessmentPhase.pre => TopicStatus.tested,
-    AssessmentPhase.post => TopicStatus.completed,
   };
 }
 

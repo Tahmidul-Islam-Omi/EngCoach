@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 import 'assessment_paper.dart';
+import 'topic_status.dart';
 
 /// What the whole paper says about the learner, in SPEC §6 Phase 1 terms.
 ///
@@ -112,6 +113,20 @@ class AssessmentResult {
     for (final s in subSkills)
       if (s.qualified) s,
   ];
+
+  /// How far this result carries the topic (SPEC §7).
+  ///
+  /// "How far", not "to" — progress is one-way, so this is a floor for
+  /// [TopicStatus.furthest], never a value to assign outright.
+  ///
+  /// A final check only completes a topic if nothing came back weak. One
+  /// that still finds gaps leaves the learner learning, because it has just
+  /// handed them a new round of lessons to do.
+  TopicStatus get reaches => switch (phase) {
+    AssessmentPhase.pre => TopicStatus.tested,
+    AssessmentPhase.post =>
+      weakSubSkills.isEmpty ? TopicStatus.completed : TopicStatus.learning,
+  };
 
   AssessmentOutcome get outcome {
     // An empty paper proves nothing; it must not read as a pass.

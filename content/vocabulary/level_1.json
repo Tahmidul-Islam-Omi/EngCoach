@@ -12,10 +12,26 @@
           "instruction": "Choose the meaning",
           "prompt": "Can I **borrow** your pen?\n\nWhat does *borrow* mean here?",
           "options": [
-            { "id": "a", "text": "ধার নেওয়া", "correct": true },
-            { "id": "b", "text": "ধার দেওয়া", "correct": false },
-            { "id": "c", "text": "কিনে নেওয়া", "correct": false },
-            { "id": "d", "text": "ফেরত দেওয়া", "correct": false }
+            {
+              "id": "a",
+              "text": "ধার নেওয়া",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "ধার দেওয়া",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "কিনে নেওয়া",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "ফেরত দেওয়া",
+              "correct": false
+            }
           ]
         },
         {
@@ -24,10 +40,26 @@
           "instruction": "Choose the meaning",
           "prompt": "The bus **arrives** at nine o'clock.\n\nWhat does *arrives* mean here?",
           "options": [
-            { "id": "a", "text": "পৌঁছায়", "correct": true },
-            { "id": "b", "text": "ছেড়ে যায়", "correct": false },
-            { "id": "c", "text": "থামে", "correct": false },
-            { "id": "d", "text": "ঘুরে আসে", "correct": false }
+            {
+              "id": "a",
+              "text": "পৌঁছায়",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "ছেড়ে যায়",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "থামে",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "ঘুরে আসে",
+              "correct": false
+            }
           ]
         },
         {
@@ -36,10 +68,26 @@
           "instruction": "Choose the meaning",
           "prompt": "Be **careful** — the tea is hot.\n\nWhat does *careful* mean here?",
           "options": [
-            { "id": "a", "text": "সাবধান", "correct": true },
-            { "id": "b", "text": "দ্রুত", "correct": false },
-            { "id": "c", "text": "শান্ত", "correct": false },
-            { "id": "d", "text": "ক্লান্ত", "correct": false }
+            {
+              "id": "a",
+              "text": "সাবধান",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "দ্রুত",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "শান্ত",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "ক্লান্ত",
+              "correct": false
+            }
           ]
         }
       ],
@@ -177,6 +225,1121 @@
           ]
         }
       ]
+    },
+    {
+      "id": "word_usage",
+      "preAssessmentBank": [
+        {
+          "id": "l1_wu_pre_1",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "I listen the radio in the morning.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "I listen to the radio in the morning.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "I listen at the radio in the morning.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "I listen for the radio in the morning.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l1_wu_pre_2",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Please wait me at the gate.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "Please wait to me at the gate.",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Please wait for me at the gate.",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "Please wait on me at the gate.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l1_wu_pre_3",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He said me the whole story.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "He told me the whole story.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "He told to me the whole story.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "He said to me the whole story about it.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l1_wu_post_1",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Look at the board, please.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Look** takes **at** when you turn your eyes to something.",
+                "bn": "ঠিক আছে। কোনো কিছুর দিকে তাকানো বোঝাতে **look**-এর পরে **at** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Look the board, please.",
+              "correct": false,
+              "feedback": {
+                "en": "**Look** needs **at** before the thing you are looking at.",
+                "bn": "যেদিকে তাকাচ্ছেন তার আগে **look at** বসাতে হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Look to the board, please.",
+              "correct": false,
+              "feedback": {
+                "en": "**Look to** means to depend on someone, not to turn your eyes.",
+                "bn": "**look to** মানে কারো উপর নির্ভর করা, তাকানো নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Look on the board, please.",
+              "correct": false,
+              "feedback": {
+                "en": "**Look on** means to watch without joining in.",
+                "bn": "**look on** মানে অংশ না নিয়ে দেখতে থাকা।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wu_post_2",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She helped to me with the work.",
+              "correct": false,
+              "feedback": {
+                "en": "**Help** takes the person straight after it — no **to**.",
+                "bn": "**help**-এর ঠিক পরেই ব্যক্তি বসে, **to** লাগে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She helped me with the work.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Help someone with something.**",
+                "bn": "ঠিক আছে। গঠনটি **help someone with something**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She helped me the work.",
+              "correct": false,
+              "feedback": {
+                "en": "The task needs **with** before it.",
+                "bn": "কাজটির আগে **with** বসাতে হবে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She helped for me with the work.",
+              "correct": false,
+              "feedback": {
+                "en": "**Help** never takes **for** before the person.",
+                "bn": "ব্যক্তির আগে **help**-এর সাথে **for** বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wu_post_3",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He asked to me a question.",
+              "correct": false,
+              "feedback": {
+                "en": "**Ask** takes the person straight after it — no **to**.",
+                "bn": "**ask**-এর ঠিক পরেই ব্যক্তি বসে, **to** লাগে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He asked for me a question.",
+              "correct": false,
+              "feedback": {
+                "en": "**Ask for** means to request a thing, as in *ask for water*.",
+                "bn": "**ask for** মানে কিছু চাওয়া, যেমন *ask for water*।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He asked me a question.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Ask someone something.**",
+                "bn": "ঠিক আছে। গঠনটি **ask someone something**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He asked a question to me.",
+              "correct": false,
+              "feedback": {
+                "en": "Understandable, but the natural order is *ask me a question*.",
+                "bn": "বোঝা গেলেও স্বাভাবিক গঠন হলো *ask me a question*।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "synonyms_antonyms",
+      "preAssessmentBank": [
+        {
+          "id": "l1_sa_pre_1",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **begin**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "start",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "stop",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "finish",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "break",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l1_sa_pre_2",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **difficult**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "hard",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "easy",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "long",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "heavy",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l1_sa_pre_3",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **glad**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "happy",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "tired",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "sorry",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "afraid",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l1_sa_post_1",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **large**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "big",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Large** and **big** mean the same thing in most sentences.",
+                "bn": "ঠিক আছে। বেশিরভাগ বাক্যে **large** আর **big** একই অর্থে বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "small",
+              "correct": false,
+              "feedback": {
+                "en": "**Small** is the opposite of *large*.",
+                "bn": "**small** হলো *large*-এর উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "long",
+              "correct": false,
+              "feedback": {
+                "en": "**Long** is about length only; *large* is about overall size.",
+                "bn": "**long** শুধু লম্বা বোঝায়; *large* সামগ্রিক আকার বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "heavy",
+              "correct": false,
+              "feedback": {
+                "en": "**Heavy** is weight. A large box can be light.",
+                "bn": "**heavy** ওজন বোঝায়। বড় বাক্স হালকাও হতে পারে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_sa_post_2",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **always**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "often",
+              "correct": false,
+              "feedback": {
+                "en": "**Often** is less than always, but it is not the opposite.",
+                "bn": "**often** always-এর চেয়ে কম, তবে উল্টো নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "never",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Always** is every time; **never** is no time.",
+                "bn": "ঠিক আছে। **always** মানে সবসময়, **never** মানে কখনো নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "sometimes",
+              "correct": false,
+              "feedback": {
+                "en": "**Sometimes** sits in the middle, not at the far end.",
+                "bn": "**sometimes** মাঝামাঝি, একেবারে উল্টো প্রান্তে নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "usually",
+              "correct": false,
+              "feedback": {
+                "en": "**Usually** is close to always, not its opposite.",
+                "bn": "**usually** বরং always-এর কাছাকাছি।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_sa_post_3",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **reply**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "answer",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. To **reply** is to **answer**.",
+                "bn": "ঠিক আছে। **reply** মানে উত্তর দেওয়া, অর্থাৎ **answer**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "ask",
+              "correct": false,
+              "feedback": {
+                "en": "**Ask** comes first; the reply comes after.",
+                "bn": "**ask** আগে হয়; reply আসে তার পরে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "call",
+              "correct": false,
+              "feedback": {
+                "en": "**Call** is to phone or to name someone.",
+                "bn": "**call** মানে ফোন করা বা ডাকা।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "listen",
+              "correct": false,
+              "feedback": {
+                "en": "**Listen** is taking the words in, not sending them back.",
+                "bn": "**listen** মানে শোনা, উত্তর দেওয়া নয়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "collocations",
+      "preAssessmentBank": [
+        {
+          "id": "l1_col_pre_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "I ______ my homework every evening.",
+          "options": [
+            {
+              "id": "a",
+              "text": "do",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "make",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "take",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "give",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l1_col_pre_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "We ______ breakfast at seven o'clock.",
+          "options": [
+            {
+              "id": "a",
+              "text": "take",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "have",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "do",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "make",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l1_col_pre_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Can you ______ a photo of us?",
+          "options": [
+            {
+              "id": "a",
+              "text": "do",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "make",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "take",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "give",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l1_col_post_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "He ______ a mistake in the last question.",
+          "options": [
+            {
+              "id": "a",
+              "text": "made",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Mistakes are always **made**, never *done*.",
+                "bn": "ঠিক আছে। ভুলের সাথে সবসময় **make** বসে, *do* নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "did",
+              "correct": false,
+              "feedback": {
+                "en": "**Do** goes with work and homework, not with mistakes.",
+                "bn": "**do** কাজ ও homework-এর সাথে বসে, mistake-এর সাথে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "took",
+              "correct": false,
+              "feedback": {
+                "en": "**Take** goes with photos, seats and time.",
+                "bn": "**take** photo, seat, time-এর সাথে বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "gave",
+              "correct": false,
+              "feedback": {
+                "en": "**Give** needs someone to receive it.",
+                "bn": "**give**-এর জন্য গ্রহণ করার মতো কেউ লাগে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_col_post_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "There was ______ rain last night and the road went under water.",
+          "options": [
+            {
+              "id": "a",
+              "text": "heavy",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Rain is **heavy** in English, not *strong* or *big*.",
+                "bn": "ঠিক আছে। বৃষ্টির সাথে ইংরেজিতে **heavy** বসে, *strong* বা *big* নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "strong",
+              "correct": false,
+              "feedback": {
+                "en": "**Strong** goes with wind and tea, not with rain.",
+                "bn": "**strong** বাতাস ও চায়ের সাথে বসে, বৃষ্টির সাথে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "big",
+              "correct": false,
+              "feedback": {
+                "en": "**Big rain** is not said in English, even though it makes sense.",
+                "bn": "অর্থ বোঝা গেলেও ইংরেজিতে **big rain** বলা হয় না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "thick",
+              "correct": false,
+              "feedback": {
+                "en": "**Thick** goes with fog and smoke.",
+                "bn": "**thick** কুয়াশা ও ধোঁয়ার সাথে বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_col_post_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Please ______ a seat; the doctor will call you soon.",
+          "options": [
+            {
+              "id": "a",
+              "text": "take",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Take a seat** is how English invites someone to sit.",
+                "bn": "ঠিক আছে। বসতে বলার সময় **take a seat** বলা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "do",
+              "correct": false,
+              "feedback": {
+                "en": "**Do** does not go with *seat*.",
+                "bn": "*seat*-এর সাথে **do** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "make",
+              "correct": false,
+              "feedback": {
+                "en": "**Make a seat** would mean building one.",
+                "bn": "**make a seat** বললে চেয়ার বানানো বোঝাত।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "have",
+              "correct": false,
+              "feedback": {
+                "en": "**Have a seat** is also said — but *take a seat* is the usual invitation here.",
+                "bn": "**have a seat**-ও বলা হয়, তবে এখানে *take a seat* স্বাভাবিক।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phrasal_verbs",
+      "preAssessmentBank": [
+        {
+          "id": "l1_pv_pre_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "I ______ at six every morning.",
+          "options": [
+            {
+              "id": "a",
+              "text": "get up",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "get in",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "get on",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "get over",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l1_pv_pre_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "It is getting dark. Please ______ the light.",
+          "options": [
+            {
+              "id": "a",
+              "text": "turn off",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "turn on",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "turn up",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "turn over",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l1_pv_pre_3",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "She is **looking for** her keys.\n\nWhat does *looking for* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "খুঁজছে",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "দেখছে",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "যত্ন নিচ্ছে",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "অপেক্ষা করছে",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l1_pv_post_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Please ______ your shoes before you enter the room.",
+          "options": [
+            {
+              "id": "a",
+              "text": "take off",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Take off** is to remove clothes or shoes.",
+                "bn": "ঠিক আছে। **take off** মানে জামা বা জুতা খুলে ফেলা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "take up",
+              "correct": false,
+              "feedback": {
+                "en": "**Take up** is to start a new hobby or subject.",
+                "bn": "**take up** মানে নতুন কিছু শুরু করা।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "take out",
+              "correct": false,
+              "feedback": {
+                "en": "**Take out** is to remove something from inside a bag or box.",
+                "bn": "**take out** মানে ভেতর থেকে বের করা।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "take on",
+              "correct": false,
+              "feedback": {
+                "en": "**Take on** is to accept work or responsibility.",
+                "bn": "**take on** মানে কাজ বা দায়িত্ব নেওয়া।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_pv_post_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "It was cold, so he ______ his jacket.",
+          "options": [
+            {
+              "id": "a",
+              "text": "put off",
+              "correct": false,
+              "feedback": {
+                "en": "**Put off** is to move something to a later day.",
+                "bn": "**put off** মানে পরে করার জন্য পিছিয়ে দেওয়া।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "put on",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Put on** is the moment of dressing.",
+                "bn": "ঠিক আছে। **put on** মানে পরে নেওয়া।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "put out",
+              "correct": false,
+              "feedback": {
+                "en": "**Put out** is to stop a fire or a light.",
+                "bn": "**put out** মানে আগুন বা বাতি নেভানো।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "put away",
+              "correct": false,
+              "feedback": {
+                "en": "**Put away** is to return something to its place.",
+                "bn": "**put away** মানে জায়গামতো রেখে দেওয়া।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_pv_post_3",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "I will **come back** before dark.\n\nWhat does *come back* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ফিরে আসা",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Come back** is to return.",
+                "bn": "ঠিক আছে। **come back** মানে ফিরে আসা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "চলে যাওয়া",
+              "correct": false,
+              "feedback": {
+                "en": "That is **go away** — the other direction.",
+                "bn": "এটা **go away**-এর অর্থ — দিক উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "দেরি করা",
+              "correct": false,
+              "feedback": {
+                "en": "That is **be late**. *Come back* says nothing about time.",
+                "bn": "এটা **be late**-এর অর্থ। *come back* সময় নিয়ে কিছু বলে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "ভেতরে ঢোকা",
+              "correct": false,
+              "feedback": {
+                "en": "That is **come in**, which is about entering a room.",
+                "bn": "এটা **come in**-এর অর্থ, যা ঘরে ঢোকা বোঝায়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "word_formation",
+      "preAssessmentBank": [
+        {
+          "id": "l1_wf_pre_1",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "A person who teaches is a ______ .",
+          "options": [
+            {
+              "id": "a",
+              "text": "teacher",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "teaching",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "teachful",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "teachly",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l1_wf_pre_2",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **happy**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "inhappy",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "unhappy",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "dishappy",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "nonhappy",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l1_wf_pre_3",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "This dictionary is very ______ for students. (use)",
+          "options": [
+            {
+              "id": "a",
+              "text": "useful",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "useless",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "using",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "usely",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l1_wf_post_1",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "A person who sings is a ______ .",
+          "options": [
+            {
+              "id": "a",
+              "text": "singer",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **-er** on a verb makes the person who does it.",
+                "bn": "ঠিক আছে। verb-এর শেষে **-er** বসিয়ে কাজটি যে করে তাকে বোঝানো হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "singing",
+              "correct": false,
+              "feedback": {
+                "en": "**Singing** is the action, not the person.",
+                "bn": "**singing** কাজটা বোঝায়, ব্যক্তিকে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "songful",
+              "correct": false,
+              "feedback": {
+                "en": "**-ful** makes an adjective, and this is not a real word.",
+                "bn": "**-ful** দিয়ে adjective হয়, আর এটি প্রচলিত শব্দ নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "singist",
+              "correct": false,
+              "feedback": {
+                "en": "**-ist** does make people — *artist*, *dentist* — but not from *sing*.",
+                "bn": "**-ist** দিয়েও ব্যক্তি বোঝায় — *artist*, *dentist* — তবে *sing*-এর সাথে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wf_post_2",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **possible**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "unpossible",
+              "correct": false,
+              "feedback": {
+                "en": "**Un-** is common, but this word takes **im-**.",
+                "bn": "**un-** প্রচলিত হলেও এই শব্দে **im-** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "impossible",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Before **p**, the prefix becomes **im-**.",
+                "bn": "ঠিক আছে। **p**-এর আগে prefix **im-** হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "dispossible",
+              "correct": false,
+              "feedback": {
+                "en": "**Dis-** goes with words like *dishonest*, not this one.",
+                "bn": "**dis-** বসে *dishonest*-এর মতো শব্দে, এখানে নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "nonpossible",
+              "correct": false,
+              "feedback": {
+                "en": "**Non-** is used in formal words like *non-stop*, not here.",
+                "bn": "**non-** *non-stop*-এর মতো শব্দে বসে, এখানে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wf_post_3",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The film was very ______ , so nobody left early. (interest)",
+          "options": [
+            {
+              "id": "a",
+              "text": "interesting",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A thing is **interesting**; a person is **interested**.",
+                "bn": "ঠিক আছে। জিনিস **interesting** হয়, মানুষ **interested** হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "interested",
+              "correct": false,
+              "feedback": {
+                "en": "**Interested** describes the person watching, not the film.",
+                "bn": "**interested** দর্শককে বোঝায়, ছবিকে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "interest",
+              "correct": false,
+              "feedback": {
+                "en": "**Interest** is the noun; here an adjective is needed.",
+                "bn": "**interest** noun; এখানে adjective দরকার।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "interestful",
+              "correct": false,
+              "feedback": {
+                "en": "**-ful** does not attach to *interest*.",
+                "bn": "*interest*-এর সাথে **-ful** বসে না।"
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "chunks": [
@@ -194,8 +1357,12 @@
             "bn": "আম্মা রান্নাঘরে ব্যস্ত।"
           },
           "usage": "busy with something",
-          "antonyms": ["free"],
-          "collocations": ["busy with work"]
+          "antonyms": [
+            "free"
+          ],
+          "collocations": [
+            "busy with work"
+          ]
         },
         {
           "word": "cheap",
@@ -205,7 +1372,9 @@
             "en": "Vegetables are cheap in winter.",
             "bn": "শীতকালে সবজির দাম কম থাকে।"
           },
-          "antonyms": ["expensive"]
+          "antonyms": [
+            "expensive"
+          ]
         },
         {
           "word": "borrow",
@@ -216,8 +1385,13 @@
             "bn": "আমি কি তোমার কলমটা ধার নিতে পারি?"
           },
           "usage": "borrow something from someone",
-          "antonyms": ["lend"],
-          "collocations": ["borrow money", "borrow a book"]
+          "antonyms": [
+            "lend"
+          ],
+          "collocations": [
+            "borrow money",
+            "borrow a book"
+          ]
         },
         {
           "word": "arrive",
@@ -228,8 +1402,12 @@
             "bn": "বাসটি নয়টায় পৌঁছায়।"
           },
           "usage": "arrive at a place, arrive in a city",
-          "synonyms": ["reach"],
-          "antonyms": ["leave"]
+          "synonyms": [
+            "reach"
+          ],
+          "antonyms": [
+            "leave"
+          ]
         },
         {
           "word": "empty",
@@ -239,7 +1417,9 @@
             "en": "The bottle is empty.",
             "bn": "বোতলটা খালি।"
           },
-          "antonyms": ["full"]
+          "antonyms": [
+            "full"
+          ]
         },
         {
           "word": "careful",
@@ -250,7 +1430,9 @@
             "bn": "সাবধান — চা গরম।"
           },
           "usage": "be careful with something",
-          "antonyms": ["careless"]
+          "antonyms": [
+            "careless"
+          ]
         }
       ],
       "practice": [
@@ -470,6 +1652,1557 @@
               "feedback": {
                 "en": "**Empty** is খালি করা. That is not what a bus does at a time.",
                 "bn": "**empty** মানে খালি করা। নির্দিষ্ট সময়ে বাস সেটা করে না।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l1_word_usage_1",
+      "subSkillId": "word_usage",
+      "title": "Words that need the right little word after them",
+      "words": [
+        {
+          "word": "listen",
+          "bn": "শোনা",
+          "pos": "verb",
+          "example": {
+            "en": "I listen to the news every morning.",
+            "bn": "আমি প্রতিদিন সকালে খবর শুনি।"
+          },
+          "usage": "listen to something",
+          "collocations": [
+            "listen to music",
+            "listen to the teacher"
+          ]
+        },
+        {
+          "word": "wait",
+          "bn": "অপেক্ষা করা",
+          "pos": "verb",
+          "example": {
+            "en": "Please wait for me at the gate.",
+            "bn": "দয়া করে গেটের কাছে আমার জন্য অপেক্ষা করো।"
+          },
+          "usage": "wait for someone or something",
+          "collocations": [
+            "wait for the bus"
+          ]
+        },
+        {
+          "word": "tell",
+          "bn": "বলা (কাউকে)",
+          "pos": "verb",
+          "example": {
+            "en": "He told me the whole story.",
+            "bn": "সে আমাকে পুরো ঘটনাটা বলল।"
+          },
+          "usage": "tell someone something",
+          "synonyms": [
+            "say"
+          ],
+          "collocations": [
+            "tell the truth",
+            "tell a story"
+          ]
+        },
+        {
+          "word": "wear",
+          "bn": "পরা",
+          "pos": "verb",
+          "example": {
+            "en": "She wears a blue shirt on Sundays.",
+            "bn": "সে রোববারে নীল শার্ট পরে।"
+          },
+          "usage": "wear clothes, wear glasses",
+          "collocations": [
+            "wear a uniform"
+          ]
+        },
+        {
+          "word": "watch",
+          "bn": "দেখা (কিছুক্ষণ ধরে)",
+          "pos": "verb",
+          "example": {
+            "en": "We watch the news after dinner.",
+            "bn": "রাতের খাবারের পর আমরা খবর দেখি।"
+          },
+          "usage": "watch television, watch a match",
+          "collocations": [
+            "watch a film"
+          ]
+        },
+        {
+          "word": "learn",
+          "bn": "শেখা",
+          "pos": "verb",
+          "example": {
+            "en": "I am learning to drive.",
+            "bn": "আমি গাড়ি চালানো শিখছি।"
+          },
+          "usage": "learn to do something, learn from someone",
+          "collocations": [
+            "learn English",
+            "learn a lesson"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l1_wu_prac_1",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She is listening the song.",
+              "correct": false,
+              "feedback": {
+                "en": "**Listen** needs **to** before the thing you hear.",
+                "bn": "**listen**-এর পরে **to** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She is listening to the song.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Listen to something.**",
+                "bn": "ঠিক আছে। গঠনটি **listen to something**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She is listening at the song.",
+              "correct": false,
+              "feedback": {
+                "en": "**At** is not used with *listen*.",
+                "bn": "*listen*-এর সাথে **at** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She is hearing to the song.",
+              "correct": false,
+              "feedback": {
+                "en": "**Hear** takes no **to**, and here she is doing it on purpose — that is *listen*.",
+                "bn": "**hear**-এর পরে **to** বসে না, আর ইচ্ছে করে শোনা বোঝাতে *listen* হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wu_prac_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "We waited ______ the bus for twenty minutes.",
+          "options": [
+            {
+              "id": "a",
+              "text": "for",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Wait for** someone or something.",
+                "bn": "ঠিক আছে। গঠনটি **wait for**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "*Wait to* is followed by a verb: *wait to see*.",
+                "bn": "*wait to*-এর পরে verb বসে, যেমন *wait to see*।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**At** marks a place — *wait at the stop*, not *wait at the bus*.",
+                "bn": "**at** জায়গা বোঝায় — *wait at the stop*, বাসের ক্ষেত্রে নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "*Wait on* means to serve someone at a table.",
+                "bn": "*wait on* মানে টেবিলে খাবার পরিবেশন করা।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wu_prac_3",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "My mother said me to come home early.",
+              "correct": false,
+              "feedback": {
+                "en": "**Say** does not take a person straight after it. Use **told me**.",
+                "bn": "**say**-এর ঠিক পরে ব্যক্তি বসে না। **told me** হবে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "My mother told me to come home early.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Tell someone to do something.**",
+                "bn": "ঠিক আছে। গঠনটি **tell someone to do something**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "My mother told to me to come home early.",
+              "correct": false,
+              "feedback": {
+                "en": "**Tell** takes the person with no **to**.",
+                "bn": "**tell**-এর পরে ব্যক্তির আগে **to** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "My mother said to come home early to me.",
+              "correct": false,
+              "feedback": {
+                "en": "Understandable, but *told me to come home early* is how it is said.",
+                "bn": "বোঝা গেলেও স্বাভাবিক গঠন *told me to come home early*।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wu_prac_4",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He is watching his glasses today.",
+              "correct": false,
+              "feedback": {
+                "en": "Glasses are **worn**, not watched.",
+                "bn": "চশমা **wear** করা হয়, watch নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He is wearing his glasses today.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Clothes and glasses are **worn**.",
+                "bn": "ঠিক আছে। জামাকাপড় ও চশমার সাথে **wear** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He is putting his glasses today.",
+              "correct": false,
+              "feedback": {
+                "en": "**Put** needs **on** — and even then it means the moment of doing it.",
+                "bn": "**put**-এর সাথে **on** লাগে, আর সেটা পরার মুহূর্তটা বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He is dressing his glasses today.",
+              "correct": false,
+              "feedback": {
+                "en": "**Dress** is used for people, not for single things.",
+                "bn": "**dress** মানুষের ক্ষেত্রে বসে, আলাদা জিনিসের ক্ষেত্রে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wu_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "My sister is ______ to drive this year.",
+          "options": [
+            {
+              "id": "a",
+              "text": "learning",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Learn to do something.**",
+                "bn": "ঠিক আছে। গঠনটি **learn to do something**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "teaching",
+              "correct": false,
+              "feedback": {
+                "en": "**Teach** is what the other person does — শেখানো, not শেখা.",
+                "bn": "**teach** মানে শেখানো, শেখা নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "listening",
+              "correct": false,
+              "feedback": {
+                "en": "**Listen** is about sound, and it takes **to** plus a thing, not a verb.",
+                "bn": "**listen** শোনা বোঝায়, আর এর পরে verb বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "waiting",
+              "correct": false,
+              "feedback": {
+                "en": "**Wait to drive** would mean she is ready but has not started.",
+                "bn": "**wait to drive** বোঝাত সে প্রস্তুত কিন্তু শুরু করেনি।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l1_synonyms_antonyms_1",
+      "subSkillId": "synonyms_antonyms",
+      "title": "Same meaning, opposite meaning",
+      "words": [
+        {
+          "word": "begin",
+          "bn": "শুরু করা",
+          "pos": "verb",
+          "example": {
+            "en": "The class begins at eight.",
+            "bn": "ক্লাস আটটায় শুরু হয়।"
+          },
+          "synonyms": [
+            "start"
+          ],
+          "antonyms": [
+            "end",
+            "finish"
+          ]
+        },
+        {
+          "word": "glad",
+          "bn": "খুশি",
+          "pos": "adjective",
+          "example": {
+            "en": "I am glad you came.",
+            "bn": "তুমি এসেছ, আমি খুশি।"
+          },
+          "synonyms": [
+            "happy",
+            "pleased"
+          ],
+          "antonyms": [
+            "sad"
+          ]
+        },
+        {
+          "word": "quick",
+          "bn": "দ্রুত",
+          "pos": "adjective",
+          "example": {
+            "en": "He gave a quick answer.",
+            "bn": "সে দ্রুত উত্তর দিল।"
+          },
+          "synonyms": [
+            "fast"
+          ],
+          "antonyms": [
+            "slow"
+          ]
+        },
+        {
+          "word": "difficult",
+          "bn": "কঠিন",
+          "pos": "adjective",
+          "example": {
+            "en": "The last question was difficult.",
+            "bn": "শেষ প্রশ্নটা কঠিন ছিল।"
+          },
+          "synonyms": [
+            "hard"
+          ],
+          "antonyms": [
+            "easy",
+            "simple"
+          ]
+        },
+        {
+          "word": "close",
+          "bn": "বন্ধ করা",
+          "pos": "verb",
+          "example": {
+            "en": "Please close the door.",
+            "bn": "দয়া করে দরজাটা বন্ধ করো।"
+          },
+          "synonyms": [
+            "shut"
+          ],
+          "antonyms": [
+            "open"
+          ]
+        },
+        {
+          "word": "correct",
+          "bn": "সঠিক",
+          "pos": "adjective",
+          "example": {
+            "en": "Your answer is correct.",
+            "bn": "তোমার উত্তরটা সঠিক।"
+          },
+          "synonyms": [
+            "right"
+          ],
+          "antonyms": [
+            "wrong"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l1_sa_prac_1",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **quick**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "fast",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Quick** and **fast** both mean দ্রুত.",
+                "bn": "ঠিক আছে। **quick** ও **fast** দুটোই দ্রুত বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "slow",
+              "correct": false,
+              "feedback": {
+                "en": "**Slow** is the opposite of *quick*.",
+                "bn": "**slow** হলো *quick*-এর উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "late",
+              "correct": false,
+              "feedback": {
+                "en": "**Late** is about time, not speed. A quick worker can still be late.",
+                "bn": "**late** সময় বোঝায়, গতি নয়। দ্রুত কাজ করেও দেরি হতে পারে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "short",
+              "correct": false,
+              "feedback": {
+                "en": "**Short** is length or height.",
+                "bn": "**short** দৈর্ঘ্য বা উচ্চতা বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_sa_prac_2",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **correct**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "right",
+              "correct": false,
+              "feedback": {
+                "en": "**Right** means the same as *correct*, not the opposite.",
+                "bn": "**right** মানে *correct*-এর মতোই, উল্টো নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "wrong",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Correct** and **wrong** are opposites.",
+                "bn": "ঠিক আছে। **correct** ও **wrong** পরস্পর উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "difficult",
+              "correct": false,
+              "feedback": {
+                "en": "A question can be difficult and your answer still correct.",
+                "bn": "প্রশ্ন কঠিন হলেও উত্তর সঠিক হতে পারে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "late",
+              "correct": false,
+              "feedback": {
+                "en": "**Late** is about time, not about being right.",
+                "bn": "**late** সময় বোঝায়, সঠিক-ভুল নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_sa_prac_3",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **close**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "shut",
+              "correct": false,
+              "feedback": {
+                "en": "**Shut** means the same as *close*.",
+                "bn": "**shut** মানে *close*-এর মতোই।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "open",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. You **close** a door and you **open** it.",
+                "bn": "ঠিক আছে। দরজা **close** করা হয় আর **open** করা হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "break",
+              "correct": false,
+              "feedback": {
+                "en": "**Break** is ভাঙা — a different action altogether.",
+                "bn": "**break** মানে ভাঙা — সম্পূর্ণ আলাদা কাজ।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "lock",
+              "correct": false,
+              "feedback": {
+                "en": "**Lock** goes one step further than closing.",
+                "bn": "**lock** বন্ধ করার পরের ধাপ।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_sa_prac_4",
+          "type": "contextual",
+          "instruction": "Choose the better word",
+          "prompt": "The exam was ______, so many students could not finish.",
+          "options": [
+            {
+              "id": "a",
+              "text": "difficult",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Difficult** explains why they could not finish.",
+                "bn": "ঠিক আছে। **difficult** বলেই তারা শেষ করতে পারেনি।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "easy",
+              "correct": false,
+              "feedback": {
+                "en": "An **easy** exam would not stop them finishing.",
+                "bn": "**easy** হলে শেষ করতে সমস্যা হতো না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "glad",
+              "correct": false,
+              "feedback": {
+                "en": "**Glad** describes a person's feeling, not an exam.",
+                "bn": "**glad** মানুষের অনুভূতি বোঝায়, পরীক্ষার নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "correct",
+              "correct": false,
+              "feedback": {
+                "en": "An exam is not *correct* — an answer is.",
+                "bn": "পরীক্ষা *correct* হয় না, উত্তর হয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_sa_prac_5",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **begin**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "start",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Begin** and **start** are used the same way.",
+                "bn": "ঠিক আছে। **begin** ও **start** একইভাবে ব্যবহার হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "end",
+              "correct": false,
+              "feedback": {
+                "en": "**End** is where it stops, not where it opens.",
+                "bn": "**end** শেষ বোঝায়, শুরু নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "join",
+              "correct": false,
+              "feedback": {
+                "en": "**Join** is to become part of something already going on.",
+                "bn": "**join** মানে চলমান কিছুতে যোগ দেওয়া।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "close",
+              "correct": false,
+              "feedback": {
+                "en": "**Close** is to shut something.",
+                "bn": "**close** মানে বন্ধ করা।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l1_collocations_1",
+      "subSkillId": "collocations",
+      "title": "Words that go together",
+      "words": [
+        {
+          "word": "do",
+          "bn": "করা (কাজ, দায়িত্ব)",
+          "pos": "verb",
+          "example": {
+            "en": "I do my homework after dinner.",
+            "bn": "রাতের খাবারের পর আমি হোমওয়ার্ক করি।"
+          },
+          "usage": "do + work you are given",
+          "collocations": [
+            "do homework",
+            "do the shopping",
+            "do a job"
+          ]
+        },
+        {
+          "word": "make",
+          "bn": "তৈরি করা; ঘটানো",
+          "pos": "verb",
+          "example": {
+            "en": "She made tea for everyone.",
+            "bn": "সে সবার জন্য চা বানাল।"
+          },
+          "usage": "make + something you produce",
+          "collocations": [
+            "make tea",
+            "make a mistake",
+            "make a noise"
+          ]
+        },
+        {
+          "word": "take",
+          "bn": "নেওয়া",
+          "pos": "verb",
+          "example": {
+            "en": "Can you take a photo of us?",
+            "bn": "তুমি কি আমাদের একটা ছবি তুলতে পারবে?"
+          },
+          "collocations": [
+            "take a photo",
+            "take a seat",
+            "take a bath"
+          ]
+        },
+        {
+          "word": "have",
+          "bn": "খাওয়া; থাকা",
+          "pos": "verb",
+          "example": {
+            "en": "We have breakfast at seven.",
+            "bn": "আমরা সাতটায় নাশতা করি।"
+          },
+          "collocations": [
+            "have breakfast",
+            "have a rest",
+            "have a look"
+          ]
+        },
+        {
+          "word": "heavy",
+          "bn": "ভারী; প্রচুর",
+          "pos": "adjective",
+          "example": {
+            "en": "There was heavy rain all night.",
+            "bn": "সারা রাত প্রচুর বৃষ্টি হয়েছে।"
+          },
+          "collocations": [
+            "heavy rain",
+            "heavy traffic",
+            "a heavy bag"
+          ]
+        },
+        {
+          "word": "strong",
+          "bn": "শক্তিশালী; কড়া",
+          "pos": "adjective",
+          "example": {
+            "en": "He likes strong tea in the morning.",
+            "bn": "সকালে সে কড়া চা পছন্দ করে।"
+          },
+          "collocations": [
+            "strong tea",
+            "strong wind",
+            "a strong man"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l1_col_prac_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "My brother is going to ______ a cup of tea.",
+          "options": [
+            {
+              "id": "a",
+              "text": "make",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. You **make** tea, because you produce it.",
+                "bn": "ঠিক আছে। চা তৈরি করা হয় বলে **make** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "do",
+              "correct": false,
+              "feedback": {
+                "en": "**Do** is for work given to you, like homework.",
+                "bn": "**do** দেওয়া কাজের সাথে বসে, যেমন homework।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "take",
+              "correct": false,
+              "feedback": {
+                "en": "**Take tea** sounds old-fashioned; *have tea* or *make tea* is normal.",
+                "bn": "**take tea** পুরোনো ধাঁচের শোনায়; *have tea* বা *make tea* স্বাভাবিক।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "give",
+              "correct": false,
+              "feedback": {
+                "en": "**Give** needs a person to receive it.",
+                "bn": "**give**-এর জন্য গ্রহণ করার মতো কেউ লাগে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_col_prac_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "There is ______ traffic on the road before Eid.",
+          "options": [
+            {
+              "id": "a",
+              "text": "heavy",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Traffic is **heavy** when there is a lot of it.",
+                "bn": "ঠিক আছে। যানজট বেশি হলে **heavy traffic** বলা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "strong",
+              "correct": false,
+              "feedback": {
+                "en": "**Strong** goes with wind and tea, not traffic.",
+                "bn": "**strong** বাতাস ও চায়ের সাথে বসে, traffic-এর সাথে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "big",
+              "correct": false,
+              "feedback": {
+                "en": "**Big traffic** is not said, though the meaning is clear.",
+                "bn": "অর্থ বোঝা গেলেও **big traffic** বলা হয় না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "hard",
+              "correct": false,
+              "feedback": {
+                "en": "**Hard** describes difficulty, not amount.",
+                "bn": "**hard** কঠিন বোঝায়, পরিমাণ নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_col_prac_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Everyone ______ a mistake sometimes.",
+          "options": [
+            {
+              "id": "a",
+              "text": "makes",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A mistake is always **made**.",
+                "bn": "ঠিক আছে। ভুলের সাথে সবসময় **make** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "does",
+              "correct": false,
+              "feedback": {
+                "en": "This is the commonest slip. It is *make a mistake*, never *do a mistake*.",
+                "bn": "এটাই সবচেয়ে সাধারণ ভুল। সঠিক গঠন *make a mistake*।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "takes",
+              "correct": false,
+              "feedback": {
+                "en": "**Take** does not go with *mistake*.",
+                "bn": "*mistake*-এর সাথে **take** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "has",
+              "correct": false,
+              "feedback": {
+                "en": "**Have** goes with meals and rests, not mistakes.",
+                "bn": "**have** খাবার ও বিশ্রামের সাথে বসে, mistake-এর সাথে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_col_prac_4",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Let me ______ a look at your notebook.",
+          "options": [
+            {
+              "id": "a",
+              "text": "have",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Have a look** is the everyday way to say it.",
+                "bn": "ঠিক আছে। **have a look** দৈনন্দিন প্রচলিত গঠন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "do",
+              "correct": false,
+              "feedback": {
+                "en": "**Do a look** is not English.",
+                "bn": "**do a look** ইংরেজিতে বলা হয় না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "make",
+              "correct": false,
+              "feedback": {
+                "en": "**Make a look** would mean creating one.",
+                "bn": "**make a look** বললে বানানো বোঝাত।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "see",
+              "correct": false,
+              "feedback": {
+                "en": "**See** cannot take *a look* after it.",
+                "bn": "**see**-এর পরে *a look* বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_col_prac_5",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The children ______ the shopping with their mother on Fridays.",
+          "options": [
+            {
+              "id": "a",
+              "text": "do",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Do the shopping** — it is a job to be got through.",
+                "bn": "ঠিক আছে। **do the shopping** — এটি করণীয় কাজ বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "make",
+              "correct": false,
+              "feedback": {
+                "en": "**Make** is for what you produce, not for errands.",
+                "bn": "**make** তৈরি করার ক্ষেত্রে বসে, কাজ সারার ক্ষেত্রে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "take",
+              "correct": false,
+              "feedback": {
+                "en": "**Take the shopping** would mean carrying the bags.",
+                "bn": "**take the shopping** বললে ব্যাগ বয়ে নেওয়া বোঝাত।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "have",
+              "correct": false,
+              "feedback": {
+                "en": "**Have** does not go with *the shopping*.",
+                "bn": "*the shopping*-এর সাথে **have** বসে না।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l1_phrasal_verbs_1",
+      "subSkillId": "phrasal_verbs",
+      "title": "Two small words, one new meaning",
+      "words": [
+        {
+          "word": "get up",
+          "bn": "ঘুম থেকে ওঠা",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "I get up at six every morning.",
+            "bn": "আমি প্রতিদিন সকাল ছয়টায় ঘুম থেকে উঠি।"
+          },
+          "antonyms": [
+            "go to bed"
+          ]
+        },
+        {
+          "word": "sit down",
+          "bn": "বসা",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "Please sit down; the class is starting.",
+            "bn": "দয়া করে বসুন; ক্লাস শুরু হচ্ছে।"
+          },
+          "antonyms": [
+            "stand up"
+          ]
+        },
+        {
+          "word": "turn on",
+          "bn": "চালু করা",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "Please turn on the fan.",
+            "bn": "দয়া করে ফ্যানটা চালু করো।"
+          },
+          "usage": "turn on a light, a fan, a machine",
+          "antonyms": [
+            "turn off"
+          ]
+        },
+        {
+          "word": "turn off",
+          "bn": "বন্ধ করা",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "Turn off the light when you leave.",
+            "bn": "বের হওয়ার সময় বাতিটা বন্ধ করে যেও।"
+          },
+          "antonyms": [
+            "turn on"
+          ]
+        },
+        {
+          "word": "look for",
+          "bn": "খোঁজা",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "She is looking for her keys.",
+            "bn": "সে তার চাবি খুঁজছে।"
+          },
+          "usage": "look for something you have lost"
+        },
+        {
+          "word": "come in",
+          "bn": "ভেতরে আসা",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "Come in and close the door.",
+            "bn": "ভেতরে এসো আর দরজাটা বন্ধ করো।"
+          },
+          "antonyms": [
+            "go out"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l1_pv_prac_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Do not forget to ______ the fan when you leave the room.",
+          "options": [
+            {
+              "id": "a",
+              "text": "turn off",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Turn off** stops a machine.",
+                "bn": "ঠিক আছে। **turn off** মানে বন্ধ করা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "turn on",
+              "correct": false,
+              "feedback": {
+                "en": "**Turn on** starts it — the opposite of what is wanted here.",
+                "bn": "**turn on** মানে চালু করা — এখানে উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "turn up",
+              "correct": false,
+              "feedback": {
+                "en": "**Turn up** is to make a sound louder.",
+                "bn": "**turn up** মানে আওয়াজ বাড়ানো।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "look for",
+              "correct": false,
+              "feedback": {
+                "en": "**Look for** is to search for something.",
+                "bn": "**look for** মানে খোঁজা।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_pv_prac_2",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "He **got up** late and missed the first bus.\n\nWhat does *got up* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ঘুম থেকে উঠল",
+              "correct": true,
+              "feedback": {
+                "en": "Correct, and that is why he missed the bus.",
+                "bn": "ঠিক আছে, আর সেজন্যই সে বাস মিস করেছে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "দাঁড়িয়ে গেল",
+              "correct": false,
+              "feedback": {
+                "en": "That is **stood up**. *Get up* here is about leaving the bed.",
+                "bn": "এটা **stand up**-এর অর্থ। এখানে *get up* বিছানা ছাড়া বোঝাচ্ছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "বাসে উঠল",
+              "correct": false,
+              "feedback": {
+                "en": "That is **got on** the bus.",
+                "bn": "বাসে ওঠা বোঝাতে **get on** হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "তৈরি হলো",
+              "correct": false,
+              "feedback": {
+                "en": "That is **got ready**.",
+                "bn": "এটা **get ready**-এর অর্থ।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_pv_prac_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "I cannot find my glasses. I have been ______ them all morning.",
+          "options": [
+            {
+              "id": "a",
+              "text": "looking for",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Look for** is to search.",
+                "bn": "ঠিক আছে। **look for** মানে খোঁজা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "looking at",
+              "correct": false,
+              "feedback": {
+                "en": "**Look at** means your eyes are already on it.",
+                "bn": "**look at** মানে চোখ ইতিমধ্যেই সেদিকে আছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "looking after",
+              "correct": false,
+              "feedback": {
+                "en": "**Look after** is to take care of someone.",
+                "bn": "**look after** মানে যত্ন নেওয়া।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "looking up",
+              "correct": false,
+              "feedback": {
+                "en": "**Look up** is to find a word in a dictionary.",
+                "bn": "**look up** মানে অভিধানে শব্দ খুঁজে দেখা।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_pv_prac_4",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "______ , please. There is a chair beside the window.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sit down",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Sit down** is the natural invitation.",
+                "bn": "ঠিক আছে। বসতে বলার স্বাভাবিক গঠন **sit down**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "Stand up",
+              "correct": false,
+              "feedback": {
+                "en": "**Stand up** is the opposite.",
+                "bn": "**stand up** এর উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Get up",
+              "correct": false,
+              "feedback": {
+                "en": "**Get up** is about leaving a bed or rising.",
+                "bn": "**get up** ঘুম থেকে ওঠা বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "Come in",
+              "correct": false,
+              "feedback": {
+                "en": "**Come in** invites someone through a door, not to a chair.",
+                "bn": "**come in** ভেতরে আসতে বলে, চেয়ারে বসতে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_pv_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Someone is knocking. Tell him to ______ .",
+          "options": [
+            {
+              "id": "a",
+              "text": "come in",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Come in** is what you say at a door.",
+                "bn": "ঠিক আছে। দরজার সামনে **come in** বলা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "come back",
+              "correct": false,
+              "feedback": {
+                "en": "**Come back** would send him away and ask him to return later.",
+                "bn": "**come back** বললে পরে আসতে বলা হতো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "get up",
+              "correct": false,
+              "feedback": {
+                "en": "**Get up** has nothing to do with a door.",
+                "bn": "**get up**-এর সাথে দরজার সম্পর্ক নেই।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "turn on",
+              "correct": false,
+              "feedback": {
+                "en": "**Turn on** is for machines and lights.",
+                "bn": "**turn on** যন্ত্র বা বাতির জন্য।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l1_word_formation_1",
+      "subSkillId": "word_formation",
+      "title": "One word, many shapes",
+      "words": [
+        {
+          "word": "teacher",
+          "bn": "শিক্ষক",
+          "pos": "noun",
+          "example": {
+            "en": "My sister is a teacher at a primary school.",
+            "bn": "আমার বোন একটি প্রাথমিক বিদ্যালয়ের শিক্ষক।"
+          },
+          "usage": "teach + -er = the person who teaches"
+        },
+        {
+          "word": "useful",
+          "bn": "উপকারী",
+          "pos": "adjective",
+          "example": {
+            "en": "This dictionary is very useful.",
+            "bn": "এই অভিধানটি খুব উপকারী।"
+          },
+          "usage": "use + -ful = full of use",
+          "antonyms": [
+            "useless"
+          ]
+        },
+        {
+          "word": "careless",
+          "bn": "অসতর্ক",
+          "pos": "adjective",
+          "example": {
+            "en": "One careless mistake cost him the match.",
+            "bn": "একটি অসতর্ক ভুলেই সে ম্যাচটা হারল।"
+          },
+          "usage": "care + -less = without care",
+          "antonyms": [
+            "careful"
+          ]
+        },
+        {
+          "word": "unhappy",
+          "bn": "অখুশি",
+          "pos": "adjective",
+          "example": {
+            "en": "He was unhappy with the result.",
+            "bn": "ফলাফলে সে খুশি ছিল না।"
+          },
+          "usage": "un- + happy = not happy",
+          "antonyms": [
+            "happy"
+          ]
+        },
+        {
+          "word": "friendly",
+          "bn": "বন্ধুত্বপূর্ণ",
+          "pos": "adjective",
+          "example": {
+            "en": "Our new neighbours are very friendly.",
+            "bn": "আমাদের নতুন প্রতিবেশীরা খুব বন্ধুত্বপূর্ণ।"
+          },
+          "usage": "friend + -ly = behaving like a friend"
+        },
+        {
+          "word": "painful",
+          "bn": "যন্ত্রণাদায়ক",
+          "pos": "adjective",
+          "example": {
+            "en": "The injection was painful but short.",
+            "bn": "ইনজেকশনটা যন্ত্রণাদায়ক ছিল, তবে অল্প সময়ের।"
+          },
+          "usage": "pain + -ful = full of pain",
+          "antonyms": [
+            "painless"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l1_wf_prac_1",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Do not be ______ with the glass. (care)",
+          "options": [
+            {
+              "id": "a",
+              "text": "careless",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **-less** means *without*, so careless is without care.",
+                "bn": "ঠিক আছে। **-less** মানে ছাড়া, তাই careless মানে যত্ন ছাড়া।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "careful",
+              "correct": false,
+              "feedback": {
+                "en": "*Do not be careful* would tell them the opposite of what is meant.",
+                "bn": "*do not be careful* বললে উল্টো কথা বলা হতো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "caring",
+              "correct": false,
+              "feedback": {
+                "en": "**Caring** describes a kind person, not attention to a task.",
+                "bn": "**caring** দয়ালু মানুষ বোঝায়, কাজে মনোযোগ নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "careness",
+              "correct": false,
+              "feedback": {
+                "en": "That is not a word. The noun is simply **care**.",
+                "bn": "এটি কোনো শব্দ নয়। noun হলো **care**।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wf_prac_2",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "A person who drives is a ______ .",
+          "options": [
+            {
+              "id": "a",
+              "text": "driver",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **drive + -er** gives the person.",
+                "bn": "ঠিক আছে। **drive + -er** দিয়ে ব্যক্তি বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "driving",
+              "correct": false,
+              "feedback": {
+                "en": "**Driving** is the action.",
+                "bn": "**driving** কাজটা বোঝায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "driveful",
+              "correct": false,
+              "feedback": {
+                "en": "**-ful** makes adjectives, and this is not a word.",
+                "bn": "**-ful** দিয়ে adjective হয়, আর এটি শব্দ নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "drively",
+              "correct": false,
+              "feedback": {
+                "en": "**-ly** usually makes adverbs, not people.",
+                "bn": "**-ly** সাধারণত adverb বানায়, ব্যক্তি নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wf_prac_3",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **useful**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "useless",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **-ful** is full of it; **-less** is without it.",
+                "bn": "ঠিক আছে। **-ful** মানে পূর্ণ, **-less** মানে ছাড়া।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "unuseful",
+              "correct": false,
+              "feedback": {
+                "en": "English uses **useless** here, not *un-*.",
+                "bn": "এখানে ইংরেজিতে **useless** বসে, *un-* নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "using",
+              "correct": false,
+              "feedback": {
+                "en": "**Using** is the action of the verb.",
+                "bn": "**using** verb-এর কাজ বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "user",
+              "correct": false,
+              "feedback": {
+                "en": "**User** is the person who uses something.",
+                "bn": "**user** মানে যিনি ব্যবহার করেন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wf_prac_4",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Our new neighbours are very ______ . (friend)",
+          "options": [
+            {
+              "id": "a",
+              "text": "friendly",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **friend + -ly** describes how someone behaves.",
+                "bn": "ঠিক আছে। **friend + -ly** আচরণ বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "friendful",
+              "correct": false,
+              "feedback": {
+                "en": "**-ful** does not attach to *friend*.",
+                "bn": "*friend*-এর সাথে **-ful** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "friendship",
+              "correct": false,
+              "feedback": {
+                "en": "**Friendship** is the noun — the relationship itself.",
+                "bn": "**friendship** noun — সম্পর্কটাকে বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "friends",
+              "correct": false,
+              "feedback": {
+                "en": "*Are very friends* is not English; an adjective is needed.",
+                "bn": "*are very friends* ইংরেজিতে হয় না; এখানে adjective দরকার।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wf_prac_5",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **happy**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "unhappy",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **un-** in front of a word turns it into *not*.",
+                "bn": "ঠিক আছে। শব্দের আগে **un-** বসিয়ে অর্থ উল্টে দেওয়া হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "happily",
+              "correct": false,
+              "feedback": {
+                "en": "**Happily** is the adverb — it tells how something is done.",
+                "bn": "**happily** adverb — কাজটা কীভাবে হলো তা বোঝায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "happiness",
+              "correct": false,
+              "feedback": {
+                "en": "**Happiness** is the noun — the feeling itself.",
+                "bn": "**happiness** noun — অনুভূতিটাকে বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "dishappy",
+              "correct": false,
+              "feedback": {
+                "en": "**dis-** is not used with *happy*.",
+                "bn": "*happy*-এর সাথে **dis-** বসে না।"
               }
             }
           ]

@@ -220,6 +220,28 @@ void main() {
           }
         }
 
+        // Ids address stored answers and drive the probe's exclude set, so a
+        // duplicate would quietly score one question with another's answer.
+        final ids = [
+          for (final s in level.subSkills) ...[
+            for (final q in s.preAssessmentBank) q.id,
+            for (final q in s.postAssessmentBank) q.id,
+          ],
+          for (final c in level.chunks)
+            for (final q in c.practice) q.id,
+        ];
+        expect(ids.toSet(), hasLength(ids.length), reason: 'duplicate id');
+
+        for (final s in level.subSkills) {
+          for (final q in [...s.preAssessmentBank, ...s.postAssessmentBank]) {
+            expect(
+              q.options.where((o) => o.correct),
+              hasLength(1),
+              reason: '${q.id} must have exactly one right answer',
+            );
+          }
+        }
+
         // A weak subskill with nothing to teach is a dead end in the plan.
         final taught = level.chunks.map((c) => c.subSkillId).toSet();
         for (final s in level.subSkills) {

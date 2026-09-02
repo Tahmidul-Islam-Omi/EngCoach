@@ -1,0 +1,18 @@
+{
+  "subSkills": [
+    { "id": "word_meaning", "title": "Word meaning" },
+    { "id": "word_usage", "title": "Word usage" },
+    { "id": "synonyms_antonyms", "title": "Synonyms and antonyms" },
+    { "id": "collocations", "title": "Words that go together" },
+    { "id": "phrasal_verbs", "title": "Phrasal verbs" },
+    { "id": "word_formation", "title": "Word formation" }
+  ],
+  "ladder": {
+    "questionsPerSubSkill": 1,
+    "advanceAt": 5,
+    "probeAt": 4,
+    "probeSize": 2,
+    "probeAdvanceAt": 2,
+    "topLevel": 4
+  }
+}

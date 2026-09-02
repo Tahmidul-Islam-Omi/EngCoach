@@ -69,6 +69,7 @@ flutter:
 
   assets:
     - content/grammar/
+    - content/vocabulary/
     - assets/brand/
 
   fonts:

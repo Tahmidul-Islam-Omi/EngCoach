@@ -27,7 +27,9 @@ class AssetContentRepository implements ContentRepository {
   final AssetBundle _bundle;
   Future<List<Topic>>? _cache;
 
-  static const _prefix = 'content/';
+  // Scoped to the grammar folder: `content/` also holds the vocabulary
+  // curriculum, which is not a Topic and must not be parsed as one.
+  static const _prefix = 'content/grammar/';
 
   Future<List<Topic>> _load() async {
     final manifest = await AssetManifest.loadFromAssetBundle(_bundle);

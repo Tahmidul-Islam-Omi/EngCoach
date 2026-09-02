@@ -136,8 +136,8 @@ void main() {
 
   group('every authored block', () {
     final files =
-        Directory('content')
-            .listSync(recursive: true)
+        Directory('content/grammar')
+            .listSync()
             .whereType<File>()
             .where((f) => f.path.endsWith('.json'))
             .toList()

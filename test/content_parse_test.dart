@@ -6,10 +6,9 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('every authored topic parses into the model', () {
-    final files = Directory('content')
-        .listSync(recursive: true)
-        .whereType<File>()
-        .where((f) => f.path.endsWith('.json'));
+    final files = Directory(
+      'content/grammar',
+    ).listSync().whereType<File>().where((f) => f.path.endsWith('.json'));
 
     expect(files, isNotEmpty, reason: 'no topic JSON found');
 

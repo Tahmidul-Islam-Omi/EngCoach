@@ -193,8 +193,8 @@ void main() {
     // `___` blanks, and vary in option length — which is where layout gives
     // way. Walking a whole paper renders every one of them.
     for (final path
-        in Directory('content')
-            .listSync(recursive: true)
+        in Directory('content/grammar')
+            .listSync()
             .whereType<File>()
             .where((f) => f.path.endsWith('.json'))
             .map((f) => f.path)

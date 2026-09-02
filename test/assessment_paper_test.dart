@@ -171,10 +171,9 @@ void main() {
 
   group('authored content', () {
     test('every topic deals a full paper of distinct questions', () {
-      final files = Directory('content')
-          .listSync(recursive: true)
-          .whereType<File>()
-          .where((f) => f.path.endsWith('.json'));
+      final files = Directory(
+        'content/grammar',
+      ).listSync().whereType<File>().where((f) => f.path.endsWith('.json'));
 
       expect(files, isNotEmpty, reason: 'no topic JSON found');
 

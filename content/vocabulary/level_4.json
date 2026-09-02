@@ -1,0 +1,3146 @@
+{
+  "level": 4,
+  "title": "Advanced",
+  "summary": "The vocabulary of editorials, contracts and official notices.",
+  "subSkills": [
+    {
+      "id": "word_meaning",
+      "preAssessmentBank": [
+        {
+          "id": "l4_wm_pre_1",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Widespread corruption has an **adverse** effect on the economy.\n\nWhat does *adverse* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "প্রতিকূল, নেতিবাচক",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "সরাসরি",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "সাময়িক",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "অনিশ্চিত",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l4_wm_pre_2",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "The delay was **deliberate**; they wanted the file to reach after the deadline.\n\nWhat does *deliberate* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ইচ্ছাকৃত",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "দুর্ভাগ্যজনক",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "দীর্ঘ",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "অপ্রত্যাশিত",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l4_wm_pre_3",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Clean drinking water became **scarce** within a week of the flood.\n\nWhat does *scarce* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "খুব কম পাওয়া যাচ্ছিল",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "দূষিত হয়ে গিয়েছিল",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "দামি হয়ে গিয়েছিল",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "নিষিদ্ধ হয়েছিল",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l4_wm_post_1",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "The engineers said a second bridge was **feasible** but would take four years.\n\nWhat does *feasible* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "করা সম্ভব",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Feasible** means it can actually be done.",
+                "bn": "ঠিক আছে। **feasible** মানে বাস্তবে করা সম্ভব।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "প্রয়োজনীয়",
+              "correct": false,
+              "feedback": {
+                "en": "That is **necessary**. Feasible says it *can* be done, not that it *must* be.",
+                "bn": "এটা **necessary**-এর অর্থ। feasible বলে করা *যাবে*, করতেই *হবে* নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "ব্যয়বহুল",
+              "correct": false,
+              "feedback": {
+                "en": "That is **expensive** — a separate question from whether it is possible.",
+                "bn": "এটা **expensive**-এর অর্থ — সম্ভব কি না, তার সাথে আলাদা প্রশ্ন।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "অনুমোদিত",
+              "correct": false,
+              "feedback": {
+                "en": "That is **approved**. Engineers judge what is possible, not what is permitted.",
+                "bn": "এটা **approved**-এর অর্থ। প্রকৌশলীরা সম্ভাব্যতা বিচার করেন, অনুমোদন নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wm_post_2",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "The wording of the contract was **ambiguous**, and both sides read it their own way.\n\nWhat does *ambiguous* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "একাধিক অর্থ করা যায় এমন",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Ambiguous** means open to more than one reading.",
+                "bn": "ঠিক আছে। **ambiguous** মানে একাধিক অর্থে বোঝা যায় এমন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "ভুল",
+              "correct": false,
+              "feedback": {
+                "en": "That is **wrong**. An ambiguous clause may be perfectly correct — just unclear.",
+                "bn": "এটা **wrong**-এর অর্থ। ambiguous ধারা ঠিকই থাকতে পারে, শুধু অস্পষ্ট।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "দীর্ঘ",
+              "correct": false,
+              "feedback": {
+                "en": "That is **long**.",
+                "bn": "এটা **long**-এর অর্থ।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "অবৈধ",
+              "correct": false,
+              "feedback": {
+                "en": "That is **illegal**.",
+                "bn": "এটা **illegal**-এর অর্থ।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wm_post_3",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "There has been a **substantial** rise in the number of students since 2020.\n\nWhat does *substantial* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "উল্লেখযোগ্য পরিমাণে",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Substantial** means large enough to matter.",
+                "bn": "ঠিক আছে। **substantial** মানে গুরুত্ব দেওয়ার মতো বড়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "সামান্য",
+              "correct": false,
+              "feedback": {
+                "en": "That is **slight** — the opposite.",
+                "bn": "এটা **slight**-এর অর্থ — ঠিক উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "হঠাৎ",
+              "correct": false,
+              "feedback": {
+                "en": "That is **sudden**, which is about speed, not size.",
+                "bn": "এটা **sudden**-এর অর্থ, যা গতি বোঝায়, আকার নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "স্থায়ী",
+              "correct": false,
+              "feedback": {
+                "en": "That is **permanent**.",
+                "bn": "এটা **permanent**-এর অর্থ।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "word_usage",
+      "preAssessmentBank": [
+        {
+          "id": "l4_wu_pre_1",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The board comprises of nine members.",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "The board comprises nine members.",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "The board is comprised with nine members.",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "The board comprises from nine members.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l4_wu_pre_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Passengers are requested to refrain ______ smoking on the platform.",
+          "options": [
+            {
+              "id": "a",
+              "text": "from",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "to",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "of",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "against",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l4_wu_pre_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The war deprived thousands of families ______ their land.",
+          "options": [
+            {
+              "id": "a",
+              "text": "from",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "of",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "with",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "off",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l4_wu_post_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Every citizen is entitled ______ a fair hearing.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Entitled to** something you have a right to.",
+                "bn": "ঠিক আছে। অধিকার বোঝাতে **entitled to** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "for",
+              "correct": false,
+              "feedback": {
+                "en": "**For** is not used after *entitled*.",
+                "bn": "*entitled*-এর পরে **for** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "**Of** goes with *deprive* and *capable*.",
+                "bn": "**of** বসে *deprive* ও *capable*-এর সাথে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "with",
+              "correct": false,
+              "feedback": {
+                "en": "**With** is not used after *entitled*.",
+                "bn": "*entitled*-এর পরে **with** বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wu_post_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The company is liable ______ any damage caused during delivery.",
+          "options": [
+            {
+              "id": "a",
+              "text": "for",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Liable for** damage or costs.",
+                "bn": "ঠিক আছে। ক্ষতি বা খরচের ক্ষেত্রে **liable for** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "**Of** is not used with *liable*.",
+                "bn": "*liable*-এর সাথে **of** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**On** is not used with *liable*.",
+                "bn": "*liable*-এর সাথে **on** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "about",
+              "correct": false,
+              "feedback": {
+                "en": "**Liable to** exists — *liable to break* — but the cost takes **for**.",
+                "bn": "**liable to** আছে — *liable to break* — তবে খরচের ক্ষেত্রে **for** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wu_post_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "All members must adhere ______ the rules of the association.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Adhere to** a rule or a plan.",
+                "bn": "ঠিক আছে। নিয়ম বা পরিকল্পনার ক্ষেত্রে **adhere to** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "with",
+              "correct": false,
+              "feedback": {
+                "en": "**Comply with** takes *with*; **adhere** takes *to*.",
+                "bn": "**comply with**-এ *with* বসে; **adhere**-এ *to*।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**On** is not used after *adhere*.",
+                "bn": "*adhere*-এর পরে **on** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**In** is not used after *adhere*.",
+                "bn": "*adhere*-এর পরে **in** বসে না।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "synonyms_antonyms",
+      "preAssessmentBank": [
+        {
+          "id": "l4_sa_pre_1",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **detrimental**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "harmful",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "essential",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "temporary",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "expensive",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l4_sa_pre_2",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **abundant**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "plentiful",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "scarce",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "cheap",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "useless",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l4_sa_pre_3",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **tedious**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "boring",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "difficult",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "urgent",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "careless",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l4_sa_post_1",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **diminish**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "decrease",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. To **diminish** is to become or make smaller.",
+                "bn": "ঠিক আছে। **diminish** মানে কমে যাওয়া বা কমানো।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "destroy",
+              "correct": false,
+              "feedback": {
+                "en": "**Destroy** ends it completely; *diminish* only reduces it.",
+                "bn": "**destroy** পুরোপুরি শেষ করে; *diminish* কেবল কমায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "delay",
+              "correct": false,
+              "feedback": {
+                "en": "**Delay** is about time.",
+                "bn": "**delay** সময় বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "divide",
+              "correct": false,
+              "feedback": {
+                "en": "**Divide** is to separate into parts.",
+                "bn": "**divide** মানে ভাগ করা।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_sa_post_2",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **praise**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "criticise",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Praise** says it is good; **criticise** says it is not.",
+                "bn": "ঠিক আছে। **praise** ভালো বলে; **criticise** দোষ ধরে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "admire",
+              "correct": false,
+              "feedback": {
+                "en": "**Admire** is close to praising, not its opposite.",
+                "bn": "**admire** প্রশংসার কাছাকাছি, উল্টো নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "ignore",
+              "correct": false,
+              "feedback": {
+                "en": "**Ignore** is saying nothing at all.",
+                "bn": "**ignore** মানে কিছুই না বলা।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "reward",
+              "correct": false,
+              "feedback": {
+                "en": "**Reward** goes with praise rather than against it.",
+                "bn": "**reward** প্রশংসার সাথেই যায়, বিপরীতে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_sa_post_3",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **obstinate**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "stubborn",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Both describe someone who will not change their mind.",
+                "bn": "ঠিক আছে। দুটোই এমন কাউকে বোঝায় যে মত বদলায় না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "patient",
+              "correct": false,
+              "feedback": {
+                "en": "**Patient** is willing to wait — a different quality.",
+                "bn": "**patient** মানে ধৈর্যশীল — আলাদা গুণ।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "obedient",
+              "correct": false,
+              "feedback": {
+                "en": "**Obedient** does what it is told — nearly the opposite.",
+                "bn": "**obedient** মানে বাধ্য — প্রায় উল্টো।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "honest",
+              "correct": false,
+              "feedback": {
+                "en": "**Honest** is about truthfulness.",
+                "bn": "**honest** সততা বোঝায়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "collocations",
+      "preAssessmentBank": [
+        {
+          "id": "l4_col_pre_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Unplanned building on the hillside ______ a serious threat to the whole area.",
+          "options": [
+            {
+              "id": "a",
+              "text": "poses",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "makes",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "gives",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "holds",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l4_col_pre_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The court ______ a ban on plastic bags in the city.",
+          "options": [
+            {
+              "id": "a",
+              "text": "put",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "imposed",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "made",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "gave",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l4_col_pre_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Please ______ in mind that the office closes at four.",
+          "options": [
+            {
+              "id": "a",
+              "text": "bear",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "take",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "hold",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "carry",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l4_col_post_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The audit ______ doubt on the figures in the annual report.",
+          "options": [
+            {
+              "id": "a",
+              "text": "cast",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Cast doubt on** something is the fixed phrase.",
+                "bn": "ঠিক আছে। **cast doubt on** একটি নির্দিষ্ট বাগধারা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "threw",
+              "correct": false,
+              "feedback": {
+                "en": "**Throw** is the everyday word, but English says *cast doubt*.",
+                "bn": "**throw** সাধারণ শব্দ, তবে ইংরেজিতে *cast doubt* বলা হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "made",
+              "correct": false,
+              "feedback": {
+                "en": "**Make doubt** is not said.",
+                "bn": "**make doubt** বলা হয় না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "gave",
+              "correct": false,
+              "feedback": {
+                "en": "**Give doubt** is not said either.",
+                "bn": "**give doubt**-ও বলা হয় না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_col_post_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The ministry has ______ an investigation into the fire.",
+          "options": [
+            {
+              "id": "a",
+              "text": "launched",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Investigations and campaigns are **launched**.",
+                "bn": "ঠিক আছে। তদন্ত ও প্রচারাভিযান **launch** করা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "opened",
+              "correct": false,
+              "feedback": {
+                "en": "*Open an inquiry* is possible, but **launch** is the usual word here.",
+                "bn": "*open an inquiry* চলে, তবে এখানে **launch**-ই স্বাভাবিক।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "made",
+              "correct": false,
+              "feedback": {
+                "en": "**Make an investigation** is not idiomatic.",
+                "bn": "**make an investigation** স্বাভাবিক ইংরেজি নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "held",
+              "correct": false,
+              "feedback": {
+                "en": "**Hold** goes with meetings, not investigations.",
+                "bn": "**hold** সভার সাথে বসে, তদন্তের সাথে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_col_post_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The new regulation will ______ into force from the first of July.",
+          "options": [
+            {
+              "id": "a",
+              "text": "come",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A law **comes into force** on the day it starts to apply.",
+                "bn": "ঠিক আছে। আইন যেদিন থেকে কার্যকর হয়, সেদিন তা **come into force** করে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "go",
+              "correct": false,
+              "feedback": {
+                "en": "**Go into force** is not said.",
+                "bn": "**go into force** বলা হয় না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "take",
+              "correct": false,
+              "feedback": {
+                "en": "**Take effect** is right, but with *force* the verb is **come**.",
+                "bn": "**take effect** ঠিক, তবে *force*-এর সাথে **come** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "put",
+              "correct": false,
+              "feedback": {
+                "en": "**Put into force** needs someone doing it: *the law was put into force*.",
+                "bn": "**put into force**-এর জন্য কর্তা লাগে: *the law was put into force*।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phrasal_verbs",
+      "preAssessmentBank": [
+        {
+          "id": "l4_pv_pre_1",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Rising fuel prices **account for** most of the increase in fares.\n\nWhat does *account for* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "কারণ হিসেবে ব্যাখ্যা করে",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "হিসাব রাখে",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "দায়ী করে",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "পরিশোধ করে",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l4_pv_pre_2",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "The police have not **ruled out** an electrical fault.\n\nWhat does *ruled out* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "সম্ভাবনা বাতিল করা",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "নিয়ম তৈরি করা",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "নিশ্চিত করা",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "তদন্ত করা",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l4_pv_pre_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The chairman agreed to ______ after twelve years in the post.",
+          "options": [
+            {
+              "id": "a",
+              "text": "step down",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "step in",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "step up",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "step aside from",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l4_pv_post_1",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "The board voted to **do away with** the entrance test altogether.\n\nWhat does *do away with* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "বাতিল করা",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Do away with** is to abolish something.",
+                "bn": "ঠিক আছে। **do away with** মানে কোনো কিছু তুলে দেওয়া।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "সহজ করা",
+              "correct": false,
+              "feedback": {
+                "en": "That is **simplify** — the test would still exist.",
+                "bn": "এটা **simplify**-এর অর্থ — তাহলে পরীক্ষাটা থেকেই যেত।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "স্থগিত করা",
+              "correct": false,
+              "feedback": {
+                "en": "That is **postpone**. *Altogether* shows it is gone for good.",
+                "bn": "এটা **postpone**-এর অর্থ। *altogether* বোঝাচ্ছে একেবারেই তুলে দেওয়া হয়েছে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "কঠিন করা",
+              "correct": false,
+              "feedback": {
+                "en": "That is **make it harder**.",
+                "bn": "এটা **make it harder**-এর অর্থ।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_pv_post_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The office has had to ______ on overtime to save money.",
+          "options": [
+            {
+              "id": "a",
+              "text": "cut back",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Cut back on** is to reduce spending or use.",
+                "bn": "ঠিক আছে। **cut back on** মানে খরচ বা ব্যবহার কমানো।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "cut off",
+              "correct": false,
+              "feedback": {
+                "en": "**Cut off** is to stop something completely or disconnect it.",
+                "bn": "**cut off** মানে পুরোপুরি বন্ধ বা বিচ্ছিন্ন করা।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "cut up",
+              "correct": false,
+              "feedback": {
+                "en": "**Cut up** is to divide something into pieces.",
+                "bn": "**cut up** মানে টুকরো টুকরো করা।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "cut in",
+              "correct": false,
+              "feedback": {
+                "en": "**Cut in** is to interrupt.",
+                "bn": "**cut in** মানে কথার মাঝে বাধা দেওয়া।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_pv_post_3",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Nobody could remember what the letters on the old signboard **stood for**.\n\nWhat does *stood for* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "কিসের সংক্ষিপ্ত রূপ ছিল",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Stand for** is what an abbreviation represents.",
+                "bn": "ঠিক আছে। **stand for** মানে সংক্ষিপ্ত রূপটি কী বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "দাঁড়িয়ে ছিল",
+              "correct": false,
+              "feedback": {
+                "en": "That is the literal *stood*, not the phrasal verb.",
+                "bn": "এটা আক্ষরিক *stood*, phrasal verb নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "সমর্থন করত",
+              "correct": false,
+              "feedback": {
+                "en": "**Stand for** does mean *support* — *she stands for justice* — but not for letters on a board.",
+                "bn": "**stand for** সমর্থন বোঝাতে পারে — *she stands for justice* — তবে সাইনবোর্ডের অক্ষরের ক্ষেত্রে নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "প্রতিস্থাপন করত",
+              "correct": false,
+              "feedback": {
+                "en": "That is **stood in for**, which means taking someone's place.",
+                "bn": "এটা **stand in for**-এর অর্থ, মানে কারো জায়গায় কাজ করা।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "word_formation",
+      "preAssessmentBank": [
+        {
+          "id": "l4_wf_pre_1",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The ______ of the new rule has been delayed twice. (implement)",
+          "options": [
+            {
+              "id": "a",
+              "text": "implementation",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "implementing",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "implementment",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "implementance",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l4_wf_pre_2",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "With the road in that state, an accident was ______ . (avoid)",
+          "options": [
+            {
+              "id": "a",
+              "text": "unavoidable",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "inavoidable",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "disavoidable",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "avoidless",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l4_wf_pre_3",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Do not ______ me: I never said the plan was finished. (understand)",
+          "options": [
+            {
+              "id": "a",
+              "text": "disunderstand",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "misunderstand",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "ununderstand",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "underunderstand",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l4_wf_post_1",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Do not ______ how long the repair will take. (estimate)",
+          "options": [
+            {
+              "id": "a",
+              "text": "underestimate",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Under-** means judging it to be less than it is.",
+                "bn": "ঠিক আছে। **under-** মানে যতটা, তার চেয়ে কম মনে করা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "misestimate",
+              "correct": false,
+              "feedback": {
+                "en": "**Mis-** is a real prefix, but this word is not used.",
+                "bn": "**mis-** সত্যিকারের prefix, তবে এই শব্দটি প্রচলিত নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "disestimate",
+              "correct": false,
+              "feedback": {
+                "en": "**Dis-** does not attach to *estimate*.",
+                "bn": "*estimate*-এর সাথে **dis-** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "unestimate",
+              "correct": false,
+              "feedback": {
+                "en": "That is not a word.",
+                "bn": "এটি কোনো শব্দ নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wf_post_2",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The committee asked for a written ______ of the delay. (justify)",
+          "options": [
+            {
+              "id": "a",
+              "text": "justification",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Verbs in **-ify** take **-ification**.",
+                "bn": "ঠিক আছে। **-ify** verb-এর noun হয় **-ification**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "justifyment",
+              "correct": false,
+              "feedback": {
+                "en": "**-ment** does not attach to verbs in *-ify*.",
+                "bn": "*-ify* verb-এর সাথে **-ment** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "justness",
+              "correct": false,
+              "feedback": {
+                "en": "That would come from *just*, a different word.",
+                "bn": "এটি *just* থেকে আসত — আলাদা শব্দ।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "justifying",
+              "correct": false,
+              "feedback": {
+                "en": "**Justifying** is the action; after *a written* a noun is needed.",
+                "bn": "**justifying** কাজটা বোঝায়; *a written*-এর পরে noun দরকার।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wf_post_3",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The report blamed the loss on ______ in the supply chain. (efficient)",
+          "options": [
+            {
+              "id": "a",
+              "text": "inefficiency",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **In-** for the opposite, **-ency** for the noun.",
+                "bn": "ঠিক আছে। উল্টো অর্থে **in-**, আর noun-এ **-ency**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "unefficiency",
+              "correct": false,
+              "feedback": {
+                "en": "This word takes **in-**, not *un-*.",
+                "bn": "এই শব্দে **in-** বসে, *un-* নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "inefficient",
+              "correct": false,
+              "feedback": {
+                "en": "**Inefficient** is the adjective; after *on* a noun is needed.",
+                "bn": "**inefficient** adjective; *on*-এর পরে noun দরকার।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "inefficientness",
+              "correct": false,
+              "feedback": {
+                "en": "**-ness** is not used with this word.",
+                "bn": "এই শব্দে **-ness** বসে না।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": "l4_word_meaning_1",
+      "subSkillId": "word_meaning",
+      "title": "Words for arguments and editorials",
+      "words": [
+        {
+          "word": "adverse",
+          "bn": "প্রতিকূল, নেতিবাচক",
+          "pos": "adjective",
+          "example": {
+            "en": "Widespread corruption has an adverse effect on the economy.",
+            "bn": "ব্যাপক দুর্নীতির নেতিবাচক প্রভাব অর্থনীতির উপর পড়ে।"
+          },
+          "usage": "adverse effect, adverse weather, adverse conditions",
+          "antonyms": [
+            "favourable"
+          ],
+          "collocations": [
+            "adverse effect",
+            "adverse weather"
+          ]
+        },
+        {
+          "word": "inevitable",
+          "bn": "অনিবার্য",
+          "pos": "adjective",
+          "example": {
+            "en": "With no repairs for ten years, the collapse was inevitable.",
+            "bn": "দশ বছর কোনো মেরামত না হওয়ায় ধসে পড়াটা অনিবার্য ছিল।"
+          },
+          "synonyms": [
+            "unavoidable"
+          ]
+        },
+        {
+          "word": "deliberate",
+          "bn": "ইচ্ছাকৃত",
+          "pos": "adjective",
+          "example": {
+            "en": "The delay was deliberate, not an accident.",
+            "bn": "দেরিটা ইচ্ছাকৃত ছিল, দুর্ঘটনা নয়।"
+          },
+          "antonyms": [
+            "accidental"
+          ]
+        },
+        {
+          "word": "scarce",
+          "bn": "দুষ্প্রাপ্য",
+          "pos": "adjective",
+          "example": {
+            "en": "Clean drinking water became scarce within a week of the flood.",
+            "bn": "বন্যার এক সপ্তাহের মধ্যেই বিশুদ্ধ খাবার পানি দুষ্প্রাপ্য হয়ে উঠল।"
+          },
+          "antonyms": [
+            "abundant",
+            "plentiful"
+          ]
+        },
+        {
+          "word": "prevalent",
+          "bn": "ব্যাপকভাবে বিদ্যমান",
+          "pos": "adjective",
+          "example": {
+            "en": "Early marriage is still prevalent in some districts.",
+            "bn": "কিছু জেলায় বাল্যবিবাহ এখনো ব্যাপকভাবে রয়ে গেছে।"
+          },
+          "synonyms": [
+            "widespread"
+          ]
+        },
+        {
+          "word": "controversial",
+          "bn": "বিতর্কিত",
+          "pos": "adjective",
+          "example": {
+            "en": "The decision to fill the canal was controversial from the start.",
+            "bn": "খাল ভরাটের সিদ্ধান্তটি শুরু থেকেই বিতর্কিত ছিল।"
+          }
+        }
+      ],
+      "practice": [
+        {
+          "id": "l4_wm_prac_1",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Early marriage is still **prevalent** in some districts.\n\nWhat does *prevalent* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ব্যাপকভাবে চালু আছে",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Prevalent** means common over a wide area.",
+                "bn": "ঠিক আছে। **prevalent** মানে বড় পরিসরে ব্যাপকভাবে বিদ্যমান।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "নিষিদ্ধ",
+              "correct": false,
+              "feedback": {
+                "en": "That is **banned**. It may be banned and prevalent at the same time.",
+                "bn": "এটা **banned**-এর অর্থ। নিষিদ্ধ হয়েও ব্যাপকভাবে চলতে পারে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "কমে যাচ্ছে",
+              "correct": false,
+              "feedback": {
+                "en": "That is **declining** — the word *still* points the other way.",
+                "bn": "এটা **declining**-এর অর্থ — *still* শব্দটি উল্টো ইঙ্গিত দিচ্ছে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "গোপন",
+              "correct": false,
+              "feedback": {
+                "en": "That is **secret**.",
+                "bn": "এটা **secret**-এর অর্থ।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wm_prac_2",
+          "type": "contextual",
+          "instruction": "Choose the better word",
+          "prompt": "With no repairs for ten years, the collapse of the bridge was ______ .",
+          "options": [
+            {
+              "id": "a",
+              "text": "inevitable",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Nothing could have stopped it by then.",
+                "bn": "ঠিক আছে। তত দিনে আর ঠেকানোর উপায় ছিল না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "deliberate",
+              "correct": false,
+              "feedback": {
+                "en": "**Deliberate** would mean somebody wanted it to fall.",
+                "bn": "**deliberate** বললে কেউ ইচ্ছে করে ফেলতে চেয়েছিল বোঝাত।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "controversial",
+              "correct": false,
+              "feedback": {
+                "en": "**Controversial** means people argue about it.",
+                "bn": "**controversial** মানে এ নিয়ে বিতর্ক আছে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "scarce",
+              "correct": false,
+              "feedback": {
+                "en": "**Scarce** is about supply, not about events.",
+                "bn": "**scarce** সরবরাহ বোঝায়, ঘটনা নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wm_prac_3",
+          "type": "meaning",
+          "instruction": "Choose the word",
+          "prompt": "The book warns that **adverse** and *averse* are not the same. Which sentence uses **adverse** correctly?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The medicine had an adverse effect on his liver.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Adverse** describes conditions and effects that work against you.",
+                "bn": "ঠিক আছে। **adverse** প্রতিকূল অবস্থা বা প্রভাব বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He is adverse to taking any medicine.",
+              "correct": false,
+              "feedback": {
+                "en": "That needs **averse** — unwilling. A person is *averse to*; a condition is *adverse*.",
+                "bn": "এখানে **averse** হবে — অনিচ্ছুক। মানুষ *averse to* হয়; পরিস্থিতি *adverse* হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She felt adverse after the long journey.",
+              "correct": false,
+              "feedback": {
+                "en": "**Adverse** does not describe how a person feels.",
+                "bn": "**adverse** দিয়ে কারো অনুভূতি বোঝানো হয় না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The team played adverse the champions.",
+              "correct": false,
+              "feedback": {
+                "en": "That would be **against**. *Adverse* is not a preposition.",
+                "bn": "এখানে **against** হবে। *adverse* preposition নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wm_prac_4",
+          "type": "contextual",
+          "instruction": "Choose the better word",
+          "prompt": "Sand became ______ after the government stopped extraction from the river.",
+          "options": [
+            {
+              "id": "a",
+              "text": "scarce",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Scarce** means hard to obtain because there is little of it.",
+                "bn": "ঠিক আছে। **scarce** মানে কম থাকায় সহজে পাওয়া যায় না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "prevalent",
+              "correct": false,
+              "feedback": {
+                "en": "**Prevalent** means widely found — the opposite here.",
+                "bn": "**prevalent** মানে ব্যাপকভাবে পাওয়া যায় — এখানে উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "adverse",
+              "correct": false,
+              "feedback": {
+                "en": "**Adverse** describes conditions working against you, not short supply.",
+                "bn": "**adverse** প্রতিকূল অবস্থা বোঝায়, ঘাটতি নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "inevitable",
+              "correct": false,
+              "feedback": {
+                "en": "**Inevitable** means it cannot be avoided.",
+                "bn": "**inevitable** মানে এড়ানো যায় না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wm_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The plan was ______ from the start: half the residents supported it and half opposed it.",
+          "options": [
+            {
+              "id": "a",
+              "text": "controversial",
+              "correct": true,
+              "feedback": {
+                "en": "Correct — a split like that is exactly what makes something controversial.",
+                "bn": "ঠিক আছে — এমন বিভক্তিই কোনো কিছুকে বিতর্কিত করে তোলে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "inevitable",
+              "correct": false,
+              "feedback": {
+                "en": "**Inevitable** says it must happen, not that people argue.",
+                "bn": "**inevitable** বলে ঘটবেই, বিতর্ক আছে বলে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "deliberate",
+              "correct": false,
+              "feedback": {
+                "en": "**Deliberate** is about intention.",
+                "bn": "**deliberate** উদ্দেশ্য বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "prevalent",
+              "correct": false,
+              "feedback": {
+                "en": "**Prevalent** is about how widely something is found.",
+                "bn": "**prevalent** কতটা ব্যাপকভাবে আছে তা বোঝায়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4_word_usage_1",
+      "subSkillId": "word_usage",
+      "title": "Formal verbs and the words they demand",
+      "words": [
+        {
+          "word": "comprise",
+          "bn": "নিয়ে গঠিত হওয়া",
+          "pos": "verb",
+          "example": {
+            "en": "The board comprises nine members.",
+            "bn": "পরিষদটি নয়জন সদস্য নিয়ে গঠিত।"
+          },
+          "usage": "the whole comprises the parts — never *comprises of*"
+        },
+        {
+          "word": "refrain",
+          "bn": "বিরত থাকা",
+          "pos": "verb",
+          "example": {
+            "en": "Please refrain from smoking on the platform.",
+            "bn": "প্ল্যাটফর্মে ধূমপান থেকে বিরত থাকুন।"
+          },
+          "usage": "refrain from doing something"
+        },
+        {
+          "word": "deprive",
+          "bn": "বঞ্চিত করা",
+          "pos": "verb",
+          "example": {
+            "en": "The war deprived thousands of families of their land.",
+            "bn": "যুদ্ধ হাজারো পরিবারকে তাদের জমি থেকে বঞ্চিত করেছিল।"
+          },
+          "usage": "deprive someone of something"
+        },
+        {
+          "word": "conform",
+          "bn": "মেনে চলা",
+          "pos": "verb",
+          "example": {
+            "en": "The new building does not conform to the safety code.",
+            "bn": "নতুন ভবনটি নিরাপত্তা বিধি মেনে চলে না।"
+          },
+          "usage": "conform to a rule or a standard"
+        },
+        {
+          "word": "resort",
+          "bn": "শরণাপন্ন হওয়া",
+          "pos": "verb",
+          "example": {
+            "en": "When talks failed they resorted to a strike.",
+            "bn": "আলোচনা ব্যর্থ হলে তারা ধর্মঘটের পথ বেছে নেয়।"
+          },
+          "usage": "resort to something, usually as a last choice"
+        },
+        {
+          "word": "subject",
+          "bn": "অধীন, সাপেক্ষে",
+          "pos": "adjective",
+          "example": {
+            "en": "The offer is subject to approval by the head office.",
+            "bn": "প্রস্তাবটি প্রধান কার্যালয়ের অনুমোদন সাপেক্ষে।"
+          },
+          "usage": "subject to approval, subject to change"
+        }
+      ],
+      "practice": [
+        {
+          "id": "l4_wu_prac_1",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The course comprises of six modules.",
+              "correct": false,
+              "feedback": {
+                "en": "**Comprise** takes no *of*. Careful writers treat *comprises of* as an error.",
+                "bn": "**comprise**-এর পরে *of* বসে না। ভালো লেখায় *comprises of* ভুল ধরা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The course comprises six modules.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. The whole **comprises** its parts.",
+                "bn": "ঠিক আছে। সম্পূর্ণটি তার অংশগুলোকে **comprise** করে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "Six modules comprise into the course.",
+              "correct": false,
+              "feedback": {
+                "en": "**Into** is not used, and the direction is reversed.",
+                "bn": "**into** বসে না, আর দিকটাও উল্টো।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The course is comprised with six modules.",
+              "correct": false,
+              "feedback": {
+                "en": "If you want the passive, it is *composed of* — not *comprised with*.",
+                "bn": "passive চাইলে *composed of* হবে — *comprised with* নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wu_prac_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The new building does not conform ______ the safety code.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Conform to** a rule or standard.",
+                "bn": "ঠিক আছে। নিয়ম বা মানের ক্ষেত্রে **conform to** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "with",
+              "correct": false,
+              "feedback": {
+                "en": "**Comply with** takes *with*; *conform* prefers **to**.",
+                "bn": "**comply with**-এ *with* বসে; *conform*-এ **to** বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**In** is not used after *conform*.",
+                "bn": "*conform*-এর পরে **in** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": false,
+              "feedback": {
+                "en": "**For** is not used after *conform*.",
+                "bn": "*conform*-এর পরে **for** বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wu_prac_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "When talks failed, the workers resorted ______ a strike.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Resort to** something, usually as a last option.",
+                "bn": "ঠিক আছে। শেষ উপায় হিসেবে **resort to** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "**On** is not used after *resort*.",
+                "bn": "*resort*-এর পরে **on** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "into",
+              "correct": false,
+              "feedback": {
+                "en": "**Into** is not used after *resort*.",
+                "bn": "*resort*-এর পরে **into** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "with",
+              "correct": false,
+              "feedback": {
+                "en": "**With** is not used after *resort*.",
+                "bn": "*resort*-এর পরে **with** বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wu_prac_4",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The flood deprived them from their homes.",
+              "correct": false,
+              "feedback": {
+                "en": "**Deprive** takes **of**, not *from*.",
+                "bn": "**deprive**-এর সাথে **of** বসে, *from* নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The flood deprived them of their homes.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Deprive someone of something.**",
+                "bn": "ঠিক আছে। গঠনটি **deprive someone of something**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The flood deprived their homes from them.",
+              "correct": false,
+              "feedback": {
+                "en": "The person comes first, then **of** and the thing lost.",
+                "bn": "আগে ব্যক্তি, তারপর **of** এবং যা হারাল।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The flood deprived them off their homes.",
+              "correct": false,
+              "feedback": {
+                "en": "**Off** is a different word from **of**.",
+                "bn": "**off** আর **of** আলাদা শব্দ।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wu_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The offer is ______ to approval by the head office.",
+          "options": [
+            {
+              "id": "a",
+              "text": "subject",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Subject to** means it depends on that approval.",
+                "bn": "ঠিক আছে। **subject to** মানে ওই অনুমোদনের উপর নির্ভরশীল।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "liable",
+              "correct": false,
+              "feedback": {
+                "en": "**Liable** is about responsibility for loss or damage.",
+                "bn": "**liable** ক্ষতির দায় বোঝায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "entitled",
+              "correct": false,
+              "feedback": {
+                "en": "**Entitled** is about having a right to something.",
+                "bn": "**entitled** অধিকার থাকা বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "capable",
+              "correct": false,
+              "feedback": {
+                "en": "**Capable** takes *of* and describes ability.",
+                "bn": "**capable**-এর সাথে *of* বসে, আর এটি সামর্থ্য বোঝায়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4_synonyms_antonyms_1",
+      "subSkillId": "synonyms_antonyms",
+      "title": "Formal words for familiar ideas",
+      "words": [
+        {
+          "word": "detrimental",
+          "bn": "ক্ষতিকর",
+          "pos": "adjective",
+          "example": {
+            "en": "Skipping breakfast is detrimental to a child's learning.",
+            "bn": "নাশতা না করা শিশুর শেখার জন্য ক্ষতিকর।"
+          },
+          "usage": "detrimental to something",
+          "synonyms": [
+            "harmful"
+          ],
+          "antonyms": [
+            "beneficial"
+          ]
+        },
+        {
+          "word": "abundant",
+          "bn": "প্রচুর",
+          "pos": "adjective",
+          "example": {
+            "en": "Fish is abundant in the haor during the monsoon.",
+            "bn": "বর্ষাকালে হাওরে মাছ প্রচুর থাকে।"
+          },
+          "synonyms": [
+            "plentiful"
+          ],
+          "antonyms": [
+            "scarce"
+          ]
+        },
+        {
+          "word": "obsolete",
+          "bn": "অপ্রচলিত, সেকেলে",
+          "pos": "adjective",
+          "example": {
+            "en": "The old ledger system became obsolete after the software arrived.",
+            "bn": "সফটওয়্যার আসার পর পুরোনো খাতার পদ্ধতি অপ্রচলিত হয়ে গেল।"
+          },
+          "antonyms": [
+            "current"
+          ]
+        },
+        {
+          "word": "tedious",
+          "bn": "ক্লান্তিকর, একঘেয়ে",
+          "pos": "adjective",
+          "example": {
+            "en": "Copying the register by hand was tedious work.",
+            "bn": "হাতে রেজিস্টার নকল করাটা ছিল একঘেয়ে কাজ।"
+          },
+          "synonyms": [
+            "boring"
+          ]
+        },
+        {
+          "word": "candid",
+          "bn": "খোলামেলা, স্পষ্টভাষী",
+          "pos": "adjective",
+          "example": {
+            "en": "She gave a candid account of what went wrong.",
+            "bn": "কী ভুল হয়েছিল, সে খোলাখুলিভাবেই বলল।"
+          },
+          "synonyms": [
+            "frank"
+          ]
+        },
+        {
+          "word": "futile",
+          "bn": "নিষ্ফল",
+          "pos": "adjective",
+          "example": {
+            "en": "Arguing with the clerk proved futile.",
+            "bn": "কেরানির সাথে তর্ক করে কোনো লাভ হলো না।"
+          },
+          "antonyms": [
+            "fruitful"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l4_sa_prac_1",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **detrimental**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "beneficial",
+              "correct": true,
+              "feedback": {
+                "en": "Correct — the formal pair behind *harmful* and *helpful*.",
+                "bn": "ঠিক আছে — *harmful* ও *helpful*-এর আনুষ্ঠানিক জোড়া।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "harmful",
+              "correct": false,
+              "feedback": {
+                "en": "**Harmful** means the same as *detrimental*.",
+                "bn": "**harmful** মানে *detrimental*-এর মতোই।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "essential",
+              "correct": false,
+              "feedback": {
+                "en": "**Essential** means necessary, which is a different idea.",
+                "bn": "**essential** মানে অপরিহার্য — আলাদা ভাবনা।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "abundant",
+              "correct": false,
+              "feedback": {
+                "en": "**Abundant** is about quantity.",
+                "bn": "**abundant** পরিমাণ বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_sa_prac_2",
+          "type": "contextual",
+          "instruction": "Choose the better word",
+          "prompt": "After the software arrived, the old ledger system became ______ .",
+          "options": [
+            {
+              "id": "a",
+              "text": "obsolete",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Obsolete** means no longer used because something newer replaced it.",
+                "bn": "ঠিক আছে। **obsolete** মানে নতুন কিছু আসায় আর ব্যবহৃত হয় না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "tedious",
+              "correct": false,
+              "feedback": {
+                "en": "**Tedious** means boring — it was that even before the software.",
+                "bn": "**tedious** মানে একঘেয়ে — সফটওয়্যার আসার আগেও তা ছিল।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "futile",
+              "correct": false,
+              "feedback": {
+                "en": "**Futile** means it achieves nothing; the old system did work.",
+                "bn": "**futile** মানে কোনো ফল হয় না; পুরোনো পদ্ধতি তো কাজ করত।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "candid",
+              "correct": false,
+              "feedback": {
+                "en": "**Candid** describes people who speak openly.",
+                "bn": "**candid** খোলাখুলি কথা বলা মানুষকে বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_sa_prac_3",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **candid**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "frank",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Both mean saying the truth plainly, even when it is awkward.",
+                "bn": "ঠিক আছে। দুটোই অস্বস্তিকর হলেও সরাসরি সত্য বলা বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "polite",
+              "correct": false,
+              "feedback": {
+                "en": "A candid answer is sometimes not polite at all.",
+                "bn": "খোলাখুলি উত্তর সবসময় ভদ্র নাও হতে পারে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "quiet",
+              "correct": false,
+              "feedback": {
+                "en": "**Quiet** is about saying little.",
+                "bn": "**quiet** মানে কম কথা বলা।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "clever",
+              "correct": false,
+              "feedback": {
+                "en": "**Clever** is about intelligence.",
+                "bn": "**clever** বুদ্ধিমত্তা বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_sa_prac_4",
+          "type": "contextual",
+          "instruction": "Choose the better word",
+          "prompt": "Fish is ______ in the haor during the monsoon, and prices fall.",
+          "options": [
+            {
+              "id": "a",
+              "text": "abundant",
+              "correct": true,
+              "feedback": {
+                "en": "Correct — plenty of it, which is why prices fall.",
+                "bn": "ঠিক আছে — প্রচুর থাকে বলেই দাম পড়ে যায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "scarce",
+              "correct": false,
+              "feedback": {
+                "en": "**Scarce** would push prices up, not down.",
+                "bn": "**scarce** হলে দাম বাড়ত, কমত না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "obsolete",
+              "correct": false,
+              "feedback": {
+                "en": "**Obsolete** is for methods and machines, not fish.",
+                "bn": "**obsolete** পদ্ধতি বা যন্ত্রের ক্ষেত্রে বসে, মাছের নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "detrimental",
+              "correct": false,
+              "feedback": {
+                "en": "**Detrimental** means harmful.",
+                "bn": "**detrimental** মানে ক্ষতিকর।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_sa_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Arguing with the clerk proved ______ ; the rule could not be changed.",
+          "options": [
+            {
+              "id": "a",
+              "text": "futile",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Futile** means the effort achieved nothing.",
+                "bn": "ঠিক আছে। **futile** মানে চেষ্টা করে কোনো ফল হয়নি।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "tedious",
+              "correct": false,
+              "feedback": {
+                "en": "**Tedious** would say it was dull, not that it failed.",
+                "bn": "**tedious** বললে বিরক্তিকর বোঝাত, ব্যর্থ নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "candid",
+              "correct": false,
+              "feedback": {
+                "en": "**Candid** describes how openly someone speaks.",
+                "bn": "**candid** কতটা খোলাখুলি বলা হলো তা বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "abundant",
+              "correct": false,
+              "feedback": {
+                "en": "**Abundant** is about quantity.",
+                "bn": "**abundant** পরিমাণ বোঝায়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4_collocations_1",
+      "subSkillId": "collocations",
+      "title": "The collocations of official language",
+      "words": [
+        {
+          "word": "pose",
+          "bn": "সৃষ্টি করা (হুমকি, প্রশ্ন)",
+          "pos": "verb",
+          "example": {
+            "en": "Unplanned building poses a serious threat to the hillside.",
+            "bn": "অপরিকল্পিত নির্মাণ পাহাড়ের জন্য গুরুতর হুমকি সৃষ্টি করে।"
+          },
+          "collocations": [
+            "pose a threat",
+            "pose a question",
+            "pose a risk"
+          ]
+        },
+        {
+          "word": "impose",
+          "bn": "আরোপ করা",
+          "pos": "verb",
+          "example": {
+            "en": "The court imposed a ban on plastic bags.",
+            "bn": "আদালত প্লাস্টিক ব্যাগের উপর নিষেধাজ্ঞা আরোপ করল।"
+          },
+          "usage": "impose something on someone",
+          "collocations": [
+            "impose a ban",
+            "impose a tax",
+            "impose a fine"
+          ]
+        },
+        {
+          "word": "bear",
+          "bn": "বহন করা; মনে রাখা",
+          "pos": "verb",
+          "example": {
+            "en": "Please bear in mind that the office closes at four.",
+            "bn": "মনে রাখবেন, অফিস চারটায় বন্ধ হয়।"
+          },
+          "collocations": [
+            "bear in mind",
+            "bear the cost",
+            "bear responsibility"
+          ]
+        },
+        {
+          "word": "exert",
+          "bn": "প্রয়োগ করা",
+          "pos": "verb",
+          "example": {
+            "en": "The union exerted pressure on the management.",
+            "bn": "শ্রমিক সংগঠন কর্তৃপক্ষের উপর চাপ প্রয়োগ করল।"
+          },
+          "collocations": [
+            "exert pressure",
+            "exert influence"
+          ]
+        },
+        {
+          "word": "fulfil",
+          "bn": "পূরণ করা",
+          "pos": "verb",
+          "example": {
+            "en": "The applicant did not fulfil one condition.",
+            "bn": "আবেদনকারী একটি শর্ত পূরণ করতে পারেননি।"
+          },
+          "collocations": [
+            "fulfil a condition",
+            "fulfil a promise",
+            "fulfil a duty"
+          ]
+        },
+        {
+          "word": "undergo",
+          "bn": "সহ্য করা, অতিক্রম করা",
+          "pos": "verb",
+          "example": {
+            "en": "The building will undergo repairs during the holidays.",
+            "bn": "ছুটির সময় ভবনটির মেরামত করা হবে।"
+          },
+          "collocations": [
+            "undergo treatment",
+            "undergo a change",
+            "undergo repairs"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l4_col_prac_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The workers ______ pressure on the management to reopen the mill.",
+          "options": [
+            {
+              "id": "a",
+              "text": "exerted",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Pressure and influence are **exerted**.",
+                "bn": "ঠিক আছে। চাপ ও প্রভাব **exert** করা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "gave",
+              "correct": false,
+              "feedback": {
+                "en": "**Give pressure** is not English.",
+                "bn": "**give pressure** ইংরেজিতে বলা হয় না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "made",
+              "correct": false,
+              "feedback": {
+                "en": "**Make pressure** is not said either.",
+                "bn": "**make pressure**-ও বলা হয় না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "posed",
+              "correct": false,
+              "feedback": {
+                "en": "**Pose** goes with threats and questions.",
+                "bn": "**pose** বসে হুমকি ও প্রশ্নের সাথে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_col_prac_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The applicant did not ______ one of the conditions.",
+          "options": [
+            {
+              "id": "a",
+              "text": "fulfil",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Conditions, promises and duties are **fulfilled**.",
+                "bn": "ঠিক আছে। শর্ত, প্রতিশ্রুতি ও দায়িত্ব **fulfil** করা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "complete",
+              "correct": false,
+              "feedback": {
+                "en": "**Complete** goes with a form or a task, not a condition.",
+                "bn": "**complete** ফরম বা কাজের সাথে বসে, শর্তের সাথে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "keep",
+              "correct": false,
+              "feedback": {
+                "en": "**Keep a promise** works — but a condition is *fulfilled* or *met*.",
+                "bn": "**keep a promise** চলে — তবে শর্ত *fulfil* বা *meet* করা হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "impose",
+              "correct": false,
+              "feedback": {
+                "en": "**Impose** is what the authority does, not the applicant.",
+                "bn": "**impose** কর্তৃপক্ষ করে, আবেদনকারী নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_col_prac_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The government ______ a heavy tax on imported cars.",
+          "options": [
+            {
+              "id": "a",
+              "text": "imposed",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Taxes, bans and fines are **imposed**.",
+                "bn": "ঠিক আছে। কর, নিষেধাজ্ঞা ও জরিমানা **impose** করা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "put",
+              "correct": false,
+              "feedback": {
+                "en": "*Put a tax on* is heard in speech, but **impose** is the standard word.",
+                "bn": "কথ্য ভাষায় *put a tax on* শোনা যায়, তবে আদর্শ শব্দ **impose**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "gave",
+              "correct": false,
+              "feedback": {
+                "en": "**Give a tax** is not said.",
+                "bn": "**give a tax** বলা হয় না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "bore",
+              "correct": false,
+              "feedback": {
+                "en": "**Bear a tax** would mean paying it, not setting it.",
+                "bn": "**bear a tax** বললে কর দেওয়া বোঝাত, আরোপ করা নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_col_prac_4",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The old library will ______ major repairs next year.",
+          "options": [
+            {
+              "id": "a",
+              "text": "undergo",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Buildings and patients **undergo** work done to them.",
+                "bn": "ঠিক আছে। ভবন বা রোগীর উপর যা করা হয়, তা **undergo** করে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "take",
+              "correct": false,
+              "feedback": {
+                "en": "**Take repairs** is not English.",
+                "bn": "**take repairs** ইংরেজিতে বলা হয় না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "bear",
+              "correct": false,
+              "feedback": {
+                "en": "**Bear** would suit the cost, not the repairs.",
+                "bn": "**bear** খরচের সাথে যায়, মেরামতের সাথে নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "make",
+              "correct": false,
+              "feedback": {
+                "en": "The workers make the repairs; the library undergoes them.",
+                "bn": "শ্রমিকেরা মেরামত করে; লাইব্রেরি সেটা undergo করে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_col_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Please ______ in mind that late applications will not be accepted.",
+          "options": [
+            {
+              "id": "a",
+              "text": "bear",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Bear in mind** is the fixed phrase for *remember*.",
+                "bn": "ঠিক আছে। মনে রাখা বোঝাতে **bear in mind** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "carry",
+              "correct": false,
+              "feedback": {
+                "en": "**Carry in mind** is not English; you *carry* a bag, not a thought.",
+                "bn": "**carry in mind** ইংরেজিতে বলা হয় না; ব্যাগ carry করা যায়, ভাবনা নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "hold",
+              "correct": false,
+              "feedback": {
+                "en": "**Hold in mind** is not said.",
+                "bn": "**hold in mind** বলা হয় না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "take",
+              "correct": false,
+              "feedback": {
+                "en": "**Take into account** exists, but not *take in mind*.",
+                "bn": "**take into account** আছে, তবে *take in mind* নেই।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4_phrasal_verbs_1",
+      "subSkillId": "phrasal_verbs",
+      "title": "Phrasal verbs of policy and reporting",
+      "words": [
+        {
+          "word": "account for",
+          "bn": "কারণ ব্যাখ্যা করা; হিসেব দেওয়া",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "Rising fuel prices account for most of the increase in fares.",
+            "bn": "ভাড়া বৃদ্ধির বড় অংশের কারণ জ্বালানির দাম বেড়ে যাওয়া।"
+          }
+        },
+        {
+          "word": "rule out",
+          "bn": "সম্ভাবনা বাতিল করা",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "The police have not ruled out an electrical fault.",
+            "bn": "পুলিশ বৈদ্যুতিক ত্রুটির সম্ভাবনা বাতিল করেনি।"
+          },
+          "antonyms": [
+            "consider"
+          ]
+        },
+        {
+          "word": "phase out",
+          "bn": "ধাপে ধাপে তুলে দেওয়া",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "Two-stroke engines were phased out over three years.",
+            "bn": "তিন বছরে ধাপে ধাপে টু-স্ট্রোক ইঞ্জিন তুলে দেওয়া হয়।"
+          }
+        },
+        {
+          "word": "step down",
+          "bn": "পদত্যাগ করা",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "The chairman stepped down after twelve years.",
+            "bn": "বারো বছর পর সভাপতি পদ ছেড়ে দিলেন।"
+          },
+          "synonyms": [
+            "resign"
+          ]
+        },
+        {
+          "word": "back up",
+          "bn": "সমর্থন করা; প্রমাণ দেওয়া",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "He could not back up his claim with any document.",
+            "bn": "সে তার দাবির সপক্ষে কোনো কাগজ দেখাতে পারেনি।"
+          }
+        },
+        {
+          "word": "single out",
+          "bn": "আলাদা করে বেছে নেওয়া",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "The report singled out one district for praise.",
+            "bn": "প্রতিবেদনে একটি জেলাকে আলাদা করে প্রশংসা করা হয়েছে।"
+          }
+        }
+      ],
+      "practice": [
+        {
+          "id": "l4_pv_prac_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "He could not ______ his claim with any document.",
+          "options": [
+            {
+              "id": "a",
+              "text": "back up",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Back up** a claim is to support it with evidence.",
+                "bn": "ঠিক আছে। **back up** মানে প্রমাণ দিয়ে দাবিকে সমর্থন করা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "back off",
+              "correct": false,
+              "feedback": {
+                "en": "**Back off** is to withdraw or stop pressing.",
+                "bn": "**back off** মানে পিছিয়ে আসা।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "rule out",
+              "correct": false,
+              "feedback": {
+                "en": "**Rule out** is to reject a possibility.",
+                "bn": "**rule out** মানে সম্ভাবনা বাতিল করা।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "account for",
+              "correct": false,
+              "feedback": {
+                "en": "**Account for** explains a cause, not a claim.",
+                "bn": "**account for** কারণ ব্যাখ্যা করে, দাবিকে সমর্থন নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_pv_prac_2",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Two-stroke engines were **phased out** over three years.\n\nWhat does *phased out* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ধাপে ধাপে তুলে দেওয়া হয়েছিল",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Phase out** removes something gradually, not at once.",
+                "bn": "ঠিক আছে। **phase out** মানে একবারে নয়, ধাপে ধাপে সরিয়ে দেওয়া।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "হঠাৎ নিষিদ্ধ করা হয়েছিল",
+              "correct": false,
+              "feedback": {
+                "en": "That would be **banned outright**; *over three years* says otherwise.",
+                "bn": "সেটা হতো **banned outright**; *over three years* উল্টো কথা বলছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "উন্নত করা হয়েছিল",
+              "correct": false,
+              "feedback": {
+                "en": "That is **upgraded**.",
+                "bn": "এটা **upgrade**-এর অর্থ।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "পরীক্ষা করা হয়েছিল",
+              "correct": false,
+              "feedback": {
+                "en": "That is **tested**.",
+                "bn": "এটা **test**-এর অর্থ।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_pv_prac_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The report ______ one district for praise while criticising the rest.",
+          "options": [
+            {
+              "id": "a",
+              "text": "singled out",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Single out** is to pick one from a group for special attention.",
+                "bn": "ঠিক আছে। **single out** মানে দল থেকে একজনকে আলাদা করে বেছে নেওয়া।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "pointed out",
+              "correct": false,
+              "feedback": {
+                "en": "**Point out** draws attention to a fact, not to one member of a group.",
+                "bn": "**point out** কোনো তথ্যের দিকে নজর টানে, দলের একজনকে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "ruled out",
+              "correct": false,
+              "feedback": {
+                "en": "**Rule out** would exclude the district, not praise it.",
+                "bn": "**rule out** বললে জেলাটি বাদ পড়ত, প্রশংসা পেত না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "phased out",
+              "correct": false,
+              "feedback": {
+                "en": "**Phase out** is for practices and products.",
+                "bn": "**phase out** নিয়ম বা পণ্যের ক্ষেত্রে বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_pv_prac_4",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "The chairman **stepped down** after twelve years in the post.\n\nWhat does *stepped down* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "পদ ছেড়ে দিলেন",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Step down** is to leave a position of authority.",
+                "bn": "ঠিক আছে। **step down** মানে দায়িত্বপূর্ণ পদ ছেড়ে দেওয়া।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "নিচে নামলেন",
+              "correct": false,
+              "feedback": {
+                "en": "That is the literal reading; here it is the phrasal verb.",
+                "bn": "এটা আক্ষরিক অর্থ; এখানে phrasal verb বসেছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "পদোন্নতি পেলেন",
+              "correct": false,
+              "feedback": {
+                "en": "That is **promoted** — the opposite direction.",
+                "bn": "এটা **promote**-এর অর্থ — দিক উল্টো।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "বরখাস্ত হলেন",
+              "correct": false,
+              "feedback": {
+                "en": "That is **dismissed**. *Step down* suggests he chose to go.",
+                "bn": "এটা **dismiss**-এর অর্থ। *step down* বোঝায় নিজেই সরে গেছেন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_pv_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Investigators have not ______ the possibility of a gas leak.",
+          "options": [
+            {
+              "id": "a",
+              "text": "ruled out",
+              "correct": true,
+              "feedback": {
+                "en": "Correct — the possibility is still open.",
+                "bn": "ঠিক আছে — সম্ভাবনাটি এখনো খোলা আছে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "accounted for",
+              "correct": false,
+              "feedback": {
+                "en": "**Account for** would mean the leak explains what happened.",
+                "bn": "**account for** বললে ফুটোই ঘটনার কারণ বোঝাত।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "backed up",
+              "correct": false,
+              "feedback": {
+                "en": "**Back up** is to support with evidence.",
+                "bn": "**back up** মানে প্রমাণ দিয়ে সমর্থন করা।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "stepped down",
+              "correct": false,
+              "feedback": {
+                "en": "**Step down** is about leaving a post.",
+                "bn": "**step down** পদ ছাড়া বোঝায়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l4_word_formation_1",
+      "subSkillId": "word_formation",
+      "title": "Prefixes that change the meaning entirely",
+      "words": [
+        {
+          "word": "implementation",
+          "bn": "বাস্তবায়ন",
+          "pos": "noun",
+          "example": {
+            "en": "The implementation of the new rule has been delayed twice.",
+            "bn": "নতুন নিয়মটির বাস্তবায়ন দুবার পিছিয়েছে।"
+          },
+          "usage": "implement + -ation = the noun of the verb"
+        },
+        {
+          "word": "unavoidable",
+          "bn": "অনিবার্য",
+          "pos": "adjective",
+          "example": {
+            "en": "With the road in that state, an accident was unavoidable.",
+            "bn": "রাস্তার ওই অবস্থায় দুর্ঘটনা অনিবার্য ছিল।"
+          },
+          "usage": "un- + avoid + -able = cannot be avoided",
+          "synonyms": [
+            "inevitable"
+          ]
+        },
+        {
+          "word": "misunderstand",
+          "bn": "ভুল বোঝা",
+          "pos": "verb",
+          "example": {
+            "en": "Do not misunderstand me: I never said the plan was finished.",
+            "bn": "আমাকে ভুল বুঝো না: আমি বলিনি পরিকল্পনাটা শেষ।"
+          },
+          "usage": "mis- = wrongly, as in *misread*, *misuse*"
+        },
+        {
+          "word": "sustainability",
+          "bn": "টেকসইতা",
+          "pos": "noun",
+          "example": {
+            "en": "The project was praised for its sustainability.",
+            "bn": "প্রকল্পটি টেকসই হওয়ায় প্রশংসিত হয়েছিল।"
+          },
+          "usage": "sustain + -able + -ity — three pieces, one word"
+        },
+        {
+          "word": "negligence",
+          "bn": "অবহেলা",
+          "pos": "noun",
+          "example": {
+            "en": "The court found the contractor guilty of negligence.",
+            "bn": "আদালত ঠিকাদারকে অবহেলার দায়ে দোষী সাব্যস্ত করে।"
+          },
+          "usage": "negligent + -ence = the noun of the adjective"
+        },
+        {
+          "word": "criticism",
+          "bn": "সমালোচনা",
+          "pos": "noun",
+          "example": {
+            "en": "The plan drew criticism from local traders.",
+            "bn": "পরিকল্পনাটি স্থানীয় ব্যবসায়ীদের সমালোচনার মুখে পড়ে।"
+          },
+          "usage": "criticise + -ism = the noun",
+          "collocations": [
+            "draw criticism",
+            "face criticism"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l4_wf_prac_1",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The court found the contractor guilty of ______ . (negligent)",
+          "options": [
+            {
+              "id": "a",
+              "text": "negligence",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **-ence** makes the noun from the adjective.",
+                "bn": "ঠিক আছে। adjective থেকে noun বানাতে **-ence** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "negligentness",
+              "correct": false,
+              "feedback": {
+                "en": "**-ness** is not used with this word.",
+                "bn": "এই শব্দে **-ness** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "negligible",
+              "correct": false,
+              "feedback": {
+                "en": "**Negligible** means so small it can be ignored — a different word.",
+                "bn": "**negligible** মানে এত সামান্য যে ধরার দরকার নেই — আলাদা শব্দ।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "neglecting",
+              "correct": false,
+              "feedback": {
+                "en": "**Neglecting** is the action of the verb *neglect*.",
+                "bn": "**neglecting** হলো *neglect* verb-এর কাজ।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wf_prac_2",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The plan drew ______ from local traders. (criticise)",
+          "options": [
+            {
+              "id": "a",
+              "text": "criticism",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **-ism** gives the noun.",
+                "bn": "ঠিক আছে। **-ism** noun বানায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "critic",
+              "correct": false,
+              "feedback": {
+                "en": "A **critic** is the person who criticises.",
+                "bn": "**critic** মানে যিনি সমালোচনা করেন।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "critical",
+              "correct": false,
+              "feedback": {
+                "en": "**Critical** is the adjective.",
+                "bn": "**critical** adjective।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "criticisation",
+              "correct": false,
+              "feedback": {
+                "en": "That is not a word.",
+                "bn": "এটি কোনো শব্দ নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wf_prac_3",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He misread the notice and came on the wrong day.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Mis-** means *wrongly*: misread, misuse, misunderstand.",
+                "bn": "ঠিক আছে। **mis-** মানে ভুলভাবে: misread, misuse, misunderstand।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He unread the notice and came on the wrong day.",
+              "correct": false,
+              "feedback": {
+                "en": "**Un-** would mean undoing the reading, which is impossible.",
+                "bn": "**un-** বললে পড়াটা ফিরিয়ে নেওয়া বোঝাত, যা সম্ভব নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He disread the notice and came on the wrong day.",
+              "correct": false,
+              "feedback": {
+                "en": "**Dis-** does not attach to *read*.",
+                "bn": "*read*-এর সাথে **dis-** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He overread the notice and came on the wrong day.",
+              "correct": false,
+              "feedback": {
+                "en": "**Over-** means too much, which is not the mistake described.",
+                "bn": "**over-** মানে বেশি — এখানে সেই ভুল বোঝানো হয়নি।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wf_prac_4",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The project was praised for its ______ . (sustain)",
+          "options": [
+            {
+              "id": "a",
+              "text": "sustainability",
+              "correct": true,
+              "feedback": {
+                "en": "Correct — *sustain* to *sustainable* to **sustainability**.",
+                "bn": "ঠিক আছে — *sustain* থেকে *sustainable*, তারপর **sustainability**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "sustainment",
+              "correct": false,
+              "feedback": {
+                "en": "**-ment** is not used with this word.",
+                "bn": "এই শব্দে **-ment** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "sustaining",
+              "correct": false,
+              "feedback": {
+                "en": "**Sustaining** is the action; here a noun of quality is needed.",
+                "bn": "**sustaining** কাজটা বোঝায়; এখানে গুণবাচক noun দরকার।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "sustainableness",
+              "correct": false,
+              "feedback": {
+                "en": "**-ness** is possible on many adjectives, but **-ity** is the word here.",
+                "bn": "অনেক adjective-এ **-ness** চলে, তবে এখানে **-ity** বসে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l4_wf_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The ______ of the policy will begin after the budget. (implement)",
+          "options": [
+            {
+              "id": "a",
+              "text": "implementation",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **-ation** makes the noun.",
+                "bn": "ঠিক আছে। **-ation** noun বানায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "implement",
+              "correct": false,
+              "feedback": {
+                "en": "**Implement** is the verb; after *the* a noun is needed.",
+                "bn": "**implement** verb; *the*-এর পরে noun দরকার।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "implementing",
+              "correct": false,
+              "feedback": {
+                "en": "*The implementing of* is possible but clumsy; the noun is **implementation**.",
+                "bn": "*the implementing of* বলা গেলেও আড়ষ্ট; সঠিক noun **implementation**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "implementary",
+              "correct": false,
+              "feedback": {
+                "en": "That is not a word.",
+                "bn": "এটি কোনো শব্দ নয়।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

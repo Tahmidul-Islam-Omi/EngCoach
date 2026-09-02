@@ -14,5 +14,9 @@
     "probeSize": 2,
     "probeAdvanceAt": 2,
     "topLevel": 4
+  },
+  "finalCheck": {
+    "basePerSubSkill": 1,
+    "extraPerFocus": 2
   }
 }

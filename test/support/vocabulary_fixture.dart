@@ -1,3 +1,37 @@
+/// The six subskills, in the order `course.json` authors them.
+const vocabSubSkillIds = [
+  'word_meaning',
+  'word_usage',
+  'synonyms_antonyms',
+  'collocations',
+  'phrasal_verbs',
+  'word_formation',
+];
+
+/// The course as it would be authored. Mirrors `content/vocabulary/course.json`
+/// but stays under the test's control, so tuning a shipped threshold cannot
+/// quietly rewrite what these tests claim to prove.
+Map<String, dynamic> courseJson({
+  int advanceAt = 5,
+  int probeAt = 4,
+  int probeSize = 2,
+  int probeAdvanceAt = 2,
+  int topLevel = 4,
+}) => {
+  'subSkills': [
+    for (final id in vocabSubSkillIds) {'id': id, 'title': id},
+  ],
+  'ladder': {
+    'questionsPerSubSkill': 1,
+    'advanceAt': advanceAt,
+    'probeAt': probeAt,
+    'probeSize': probeSize,
+    'probeAdvanceAt': probeAdvanceAt,
+    'topLevel': topLevel,
+  },
+  'finalCheck': {'basePerSubSkill': 1, 'extraPerFocus': 2},
+};
+
 /// A level as it would be authored, built as JSON rather than as objects.
 ///
 /// The point of these tests is the schema — that what a writer types parses
@@ -5,7 +39,7 @@
 /// Constructing the classes directly would test nothing but the constructors.
 Map<String, dynamic> levelJson({
   int level = 2,
-  List<String> subSkills = const ['word_meaning', 'collocations'],
+  List<String> subSkills = vocabSubSkillIds,
   int bankSize = 3,
 }) => {
   'level': level,

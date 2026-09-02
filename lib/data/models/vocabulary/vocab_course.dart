@@ -60,17 +60,42 @@ class LadderConfig {
   final int topLevel;
 }
 
+/// How the final check is assembled (SPEC §15, §16).
+@JsonSerializable(createToJson: false)
+class FinalCheckConfig {
+  const FinalCheckConfig({
+    required this.basePerSubSkill,
+    required this.extraPerFocus,
+  });
+
+  factory FinalCheckConfig.fromJson(Map<String, dynamic> json) =>
+      _$FinalCheckConfigFromJson(json);
+
+  /// Asked about every subskill, taught or not — evidence that nothing was
+  /// lost while the learner was working elsewhere.
+  final int basePerSubSkill;
+
+  /// Added for each subskill the plan actually taught. The improvement claim
+  /// rests on these, and one question could not carry it (SPEC §5).
+  final int extraPerFocus;
+}
+
 /// The vocabulary module's shape: what is measured, and how the check
 /// decides. Levels are authored as separate files and read on demand.
 @JsonSerializable(createToJson: false)
 class VocabCourse {
-  const VocabCourse({required this.subSkills, required this.ladder});
+  const VocabCourse({
+    required this.subSkills,
+    required this.ladder,
+    required this.finalCheck,
+  });
 
   factory VocabCourse.fromJson(Map<String, dynamic> json) =>
       _$VocabCourseFromJson(json);
 
   final List<VocabSubSkill> subSkills;
   final LadderConfig ladder;
+  final FinalCheckConfig finalCheck;
 
   /// Questions in one full level check, before any probe.
   int get checkLength => subSkills.length * ladder.questionsPerSubSkill;

@@ -50,6 +50,21 @@ void main() {
       );
       expect(ladder.topLevel, greaterThan(0));
     });
+
+    test('the final check asks more about what was taught', () {
+      final config = readCourse().finalCheck;
+
+      expect(
+        config.basePerSubSkill,
+        greaterThan(0),
+        reason: 'a subskill left out entirely could have been lost unnoticed',
+      );
+      expect(
+        config.extraPerFocus,
+        greaterThan(0),
+        reason: 'the improvement claim rests on the taught subskills',
+      );
+    });
   });
 
   group('the level schema', () {
@@ -58,7 +73,7 @@ void main() {
 
       expect(level.level, 2);
       expect(level.title, 'Developing');
-      expect(level.subSkills, hasLength(2));
+      expect(level.subSkills, hasLength(6));
       expect(level.subSkill('collocations').preAssessmentBank, hasLength(3));
       expect(
         level.chunks.first.practice.first.type,
@@ -167,7 +182,14 @@ void main() {
             ),
             reason: 'the probe draws its extra questions from this bank',
           );
-          expect(s.postAssessmentBank, isNotEmpty);
+          expect(
+            s.postAssessmentBank.length,
+            greaterThanOrEqualTo(
+              course.finalCheck.basePerSubSkill +
+                  course.finalCheck.extraPerFocus,
+            ),
+            reason: 'a focus subskill is asked about more on the final check',
+          );
         }
 
         for (final c in level.chunks) {

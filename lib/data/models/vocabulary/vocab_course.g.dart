@@ -18,9 +18,18 @@ LadderConfig _$LadderConfigFromJson(Map<String, dynamic> json) => LadderConfig(
   topLevel: (json['topLevel'] as num).toInt(),
 );
 
+FinalCheckConfig _$FinalCheckConfigFromJson(Map<String, dynamic> json) =>
+    FinalCheckConfig(
+      basePerSubSkill: (json['basePerSubSkill'] as num).toInt(),
+      extraPerFocus: (json['extraPerFocus'] as num).toInt(),
+    );
+
 VocabCourse _$VocabCourseFromJson(Map<String, dynamic> json) => VocabCourse(
   subSkills: (json['subSkills'] as List<dynamic>)
       .map((e) => VocabSubSkill.fromJson(e as Map<String, dynamic>))
       .toList(),
   ladder: LadderConfig.fromJson(json['ladder'] as Map<String, dynamic>),
+  finalCheck: FinalCheckConfig.fromJson(
+    json['finalCheck'] as Map<String, dynamic>,
+  ),
 );

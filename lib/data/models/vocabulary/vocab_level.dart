@@ -59,6 +59,15 @@ class VocabLevel {
 
   LevelSubSkill subSkill(String id) => subSkills.firstWhere((s) => s.id == id);
 
+  /// Null when this level authors nothing for [id] — which is allowed:
+  /// SPEC §2 says a subskill need not carry equal weight at every level.
+  LevelSubSkill? subSkillOrNull(String id) {
+    for (final s in subSkills) {
+      if (s.id == id) return s;
+    }
+    return null;
+  }
+
   /// The chunks teaching [subSkillIds], in authored order.
   ///
   /// Driven by the level rather than by the given list, so an id left over in

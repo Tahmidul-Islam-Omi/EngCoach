@@ -521,7 +521,7 @@
             },
             {
               "id": "b",
-              "text": "afraid",
+              "text": "cowardly",
               "correct": true
             },
             {
@@ -721,7 +721,7 @@
             },
             {
               "id": "c",
-              "text": "got up",
+              "text": "had",
               "correct": false
             },
             {
@@ -1991,7 +1991,7 @@
             "bold"
           ],
           "antonyms": [
-            "afraid"
+            "cowardly"
           ]
         },
         {
@@ -2214,44 +2214,44 @@
         },
         {
           "id": "l2_sa_prac_5",
-          "type": "synonym_antonym",
-          "instruction": "Choose the closest meaning",
-          "prompt": "Which word is closest in meaning to **brave**?",
+          "type": "contextual",
+          "instruction": "Choose the better word",
+          "prompt": "He felt afraid, but he went in anyway.\n\nWhich word describes him?",
           "options": [
             {
               "id": "a",
-              "text": "bold",
+              "text": "brave",
               "correct": true,
               "feedback": {
-                "en": "Correct. Both mean ready to face danger.",
-                "bn": "ঠিক আছে। দুটোই বিপদের মুখোমুখি হওয়ার সাহস বোঝায়।"
+                "en": "Correct. Feeling afraid and acting anyway is exactly what **brave** means.",
+                "bn": "ঠিক আছে। ভয় পেয়েও এগিয়ে যাওয়াকেই **brave** বলে।"
               }
             },
             {
               "id": "b",
-              "text": "strong",
+              "text": "cowardly",
               "correct": false,
               "feedback": {
-                "en": "**Strong** is about the body; **brave** is about the mind.",
-                "bn": "**strong** শরীরের, **brave** মনের ব্যাপার।"
+                "en": "**Cowardly** is the true opposite of *brave* — and he did not turn back.",
+                "bn": "**cowardly** হলো *brave*-এর আসল উল্টো — আর সে তো ফিরে যায়নি।"
               }
             },
             {
               "id": "c",
-              "text": "angry",
+              "text": "calm",
               "correct": false,
               "feedback": {
-                "en": "**Angry** is a feeling, not courage.",
-                "bn": "**angry** একটি অনুভূতি, সাহস নয়।"
+                "en": "**Calm** is a steady temper. He was frightened, not calm — and still went in.",
+                "bn": "**calm** মানে স্থির মেজাজ। সে ভয় পেয়েছিল, শান্ত ছিল না — তবু ঢুকেছে।"
               }
             },
             {
               "id": "d",
-              "text": "famous",
+              "text": "rude",
               "correct": false,
               "feedback": {
-                "en": "**Famous** means many people know you.",
-                "bn": "**famous** মানে অনেকে চেনে।"
+                "en": "**Rude** is about manners.",
+                "bn": "**rude** আচরণ বোঝায়।"
               }
             }
           ]
@@ -2418,11 +2418,11 @@
             },
             {
               "id": "c",
-              "text": "get up",
+              "text": "have",
               "correct": false,
               "feedback": {
-                "en": "**Get up** is to rise from bed.",
-                "bn": "**get up** মানে ঘুম থেকে ওঠা।"
+                "en": "**Have a cold** is what you say once you already have it; **catch** is how you get it.",
+                "bn": "**have a cold** বলা হয় সর্দি হয়ে যাওয়ার পর; কীভাবে হলো তা বোঝাতে **catch** বসে।"
               }
             },
             {

@@ -441,8 +441,8 @@
               "text": "He asked a question to me.",
               "correct": false,
               "feedback": {
-                "en": "Understandable, but the natural order is *ask me a question*.",
-                "bn": "বোঝা গেলেও স্বাভাবিক গঠন হলো *ask me a question*।"
+                "en": "**Ask** takes the person directly. *Ask a question to someone* is a common slip — English says *ask me a question*, or formally *put a question to me*.",
+                "bn": "**ask**-এর পরে ব্যক্তি সরাসরি বসে। *ask a question to someone* একটি প্রচলিত ভুল — সঠিক গঠন *ask me a question*।"
               }
             }
           ]

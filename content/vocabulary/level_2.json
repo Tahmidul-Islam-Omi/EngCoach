@@ -298,7 +298,7 @@
             },
             {
               "id": "b",
-              "text": "Please explain to me the rule once more.",
+              "text": "Please explain about the rule once more.",
               "correct": false
             },
             {
@@ -2826,7 +2826,7 @@
           "id": "l2_pv_prac_5",
           "type": "recall",
           "instruction": "Complete the sentence",
-          "prompt": "He failed twice, but he refused to ______ .",
+          "prompt": "After forty years he decided to ______ teaching and open a shop.",
           "options": [
             {
               "id": "a",
@@ -2842,8 +2842,8 @@
               "text": "give in",
               "correct": false,
               "feedback": {
-                "en": "**Give in** is close — but it means yielding to pressure from someone.",
-                "bn": "**give in** কাছাকাছি — তবে এর মানে কারো চাপের কাছে নতি স্বীকার করা।"
+                "en": "**Give in** takes no object — you cannot *give in teaching*.",
+                "bn": "**give in**-এর পরে object বসে না — *give in teaching* বলা যায় না।"
               }
             },
             {

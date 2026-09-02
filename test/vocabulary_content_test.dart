@@ -242,6 +242,26 @@ void main() {
           }
         }
 
+        // The same question asked twice inside one level — once in the check
+        // and again in practice — teaches nothing the second time, and makes
+        // the check look like a preview of the answers.
+        final asked = <String, String>{};
+        for (final q in [
+          for (final s in level.subSkills) ...[
+            ...s.preAssessmentBank,
+            ...s.postAssessmentBank,
+          ],
+          for (final c in level.chunks) ...c.practice,
+        ]) {
+          final key = '${q.prompt}\u0000${q.correctOption.text}';
+          expect(
+            asked,
+            isNot(contains(key)),
+            reason: '${q.id} repeats ${asked[key]}',
+          );
+          asked[key] = q.id;
+        }
+
         // A weak subskill with nothing to teach is a dead end in the plan.
         final taught = level.chunks.map((c) => c.subSkillId).toSet();
         for (final s in level.subSkills) {

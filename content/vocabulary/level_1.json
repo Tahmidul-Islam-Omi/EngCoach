@@ -350,11 +350,11 @@
             },
             {
               "id": "d",
-              "text": "Look on the board, please.",
+              "text": "Look for the board, please.",
               "correct": false,
               "feedback": {
-                "en": "**Look on** means to watch without joining in.",
-                "bn": "**look on** মানে অংশ না নিয়ে দেখতে থাকা।"
+                "en": "**Look for** means to search for something you cannot find.",
+                "bn": "**look for** মানে খুঁজে না পাওয়া কিছু খোঁজা।"
               }
             }
           ]
@@ -853,42 +853,42 @@
           "id": "l1_col_post_3",
           "type": "collocation",
           "instruction": "Complete the sentence",
-          "prompt": "Please ______ a seat; the doctor will call you soon.",
+          "prompt": "He likes ______ tea, with very little water in it.",
           "options": [
             {
               "id": "a",
-              "text": "take",
+              "text": "strong",
               "correct": true,
               "feedback": {
-                "en": "Correct. **Take a seat** is how English invites someone to sit.",
-                "bn": "ঠিক আছে। বসতে বলার সময় **take a seat** বলা হয়।"
+                "en": "Correct. Tea is **strong** or weak, never *heavy*.",
+                "bn": "ঠিক আছে। চা **strong** বা weak হয়, *heavy* নয়।"
               }
             },
             {
               "id": "b",
-              "text": "do",
+              "text": "heavy",
               "correct": false,
               "feedback": {
-                "en": "**Do** does not go with *seat*.",
-                "bn": "*seat*-এর সাথে **do** বসে না।"
+                "en": "**Heavy** goes with rain and traffic.",
+                "bn": "**heavy** বসে বৃষ্টি ও যানজটের সাথে।"
               }
             },
             {
               "id": "c",
-              "text": "make",
+              "text": "hard",
               "correct": false,
               "feedback": {
-                "en": "**Make a seat** would mean building one.",
-                "bn": "**make a seat** বললে চেয়ার বানানো বোঝাত।"
+                "en": "**Hard** is about difficulty, not taste.",
+                "bn": "**hard** কঠিনতা বোঝায়, স্বাদ নয়।"
               }
             },
             {
               "id": "d",
-              "text": "have",
+              "text": "big",
               "correct": false,
               "feedback": {
-                "en": "**Have a seat** is also said — but *take a seat* is the usual invitation here.",
-                "bn": "**have a seat**-ও বলা হয়, তবে এখানে *take a seat* স্বাভাবিক।"
+                "en": "**Big** describes size — a big cup, not big tea.",
+                "bn": "**big** আকার বোঝায় — big cup চলে, big tea নয়।"
               }
             }
           ]
@@ -2250,43 +2250,43 @@
         {
           "id": "l1_sa_prac_5",
           "type": "synonym_antonym",
-          "instruction": "Choose the closest meaning",
-          "prompt": "Which word is closest in meaning to **begin**?",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **begin**?",
           "options": [
             {
               "id": "a",
-              "text": "start",
+              "text": "end",
               "correct": true,
               "feedback": {
-                "en": "Correct. **Begin** and **start** are used the same way.",
-                "bn": "ঠিক আছে। **begin** ও **start** একইভাবে ব্যবহার হয়।"
+                "en": "Correct. A class **begins** at eight and **ends** at two.",
+                "bn": "ঠিক আছে। ক্লাস আটটায় **begin** হয় আর দুইটায় **end** হয়।"
               }
             },
             {
               "id": "b",
-              "text": "end",
+              "text": "start",
               "correct": false,
               "feedback": {
-                "en": "**End** is where it stops, not where it opens.",
-                "bn": "**end** শেষ বোঝায়, শুরু নয়।"
+                "en": "**Start** means the same as *begin*, not the opposite.",
+                "bn": "**start** মানে *begin*-এর মতোই, উল্টো নয়।"
               }
             },
             {
               "id": "c",
+              "text": "open",
+              "correct": false,
+              "feedback": {
+                "en": "**Open** is the opposite of *close*, not of *begin*.",
+                "bn": "**open** হলো *close*-এর উল্টো, *begin*-এর নয়।"
+              }
+            },
+            {
+              "id": "d",
               "text": "join",
               "correct": false,
               "feedback": {
                 "en": "**Join** is to become part of something already going on.",
                 "bn": "**join** মানে চলমান কিছুতে যোগ দেওয়া।"
-              }
-            },
-            {
-              "id": "d",
-              "text": "close",
-              "correct": false,
-              "feedback": {
-                "en": "**Close** is to shut something.",
-                "bn": "**close** মানে বন্ধ করা।"
               }
             }
           ]
@@ -2822,7 +2822,7 @@
           "id": "l1_pv_prac_4",
           "type": "collocation",
           "instruction": "Complete the sentence",
-          "prompt": "______ , please. There is a chair beside the window.",
+          "prompt": "You have been standing since morning. ______ , please — there is a chair beside the window.",
           "options": [
             {
               "id": "a",
@@ -3167,42 +3167,42 @@
           "id": "l1_wf_prac_5",
           "type": "synonym_antonym",
           "instruction": "Choose the opposite",
-          "prompt": "Which word is the opposite of **happy**?",
+          "prompt": "Which word is the opposite of **painful**?",
           "options": [
             {
               "id": "a",
-              "text": "unhappy",
+              "text": "painless",
               "correct": true,
               "feedback": {
-                "en": "Correct. **un-** in front of a word turns it into *not*.",
-                "bn": "ঠিক আছে। শব্দের আগে **un-** বসিয়ে অর্থ উল্টে দেওয়া হয়।"
+                "en": "Correct. **-ful** is full of it; **-less** is without it.",
+                "bn": "ঠিক আছে। **-ful** মানে পূর্ণ, **-less** মানে ছাড়া।"
               }
             },
             {
               "id": "b",
-              "text": "happily",
+              "text": "unpainful",
               "correct": false,
               "feedback": {
-                "en": "**Happily** is the adverb — it tells how something is done.",
-                "bn": "**happily** adverb — কাজটা কীভাবে হলো তা বোঝায়।"
+                "en": "English builds this one with **-less**, not *un-*.",
+                "bn": "এই শব্দে ইংরেজিতে **-less** বসে, *un-* নয়।"
               }
             },
             {
               "id": "c",
-              "text": "happiness",
+              "text": "careless",
               "correct": false,
               "feedback": {
-                "en": "**Happiness** is the noun — the feeling itself.",
-                "bn": "**happiness** noun — অনুভূতিটাকে বোঝায়।"
+                "en": "The ending is right, but the stem is *care*, not *pain*.",
+                "bn": "শেষাংশ ঠিক, তবে মূল শব্দটি *care*, *pain* নয়।"
               }
             },
             {
               "id": "d",
-              "text": "dishappy",
+              "text": "painting",
               "correct": false,
               "feedback": {
-                "en": "**dis-** is not used with *happy*.",
-                "bn": "*happy*-এর সাথে **dis-** বসে না।"
+                "en": "**Painting** is a picture — it only looks similar.",
+                "bn": "**painting** মানে ছবি — শুধু দেখতে কাছাকাছি।"
               }
             }
           ]

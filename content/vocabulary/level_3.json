@@ -298,7 +298,7 @@
             },
             {
               "id": "b",
-              "text": "at",
+              "text": "on",
               "correct": false
             },
             {
@@ -423,8 +423,8 @@
               "text": "He apologised for me the delay.",
               "correct": false,
               "feedback": {
-                "en": "**For** marks the reason, not the person.",
-                "bn": "**for** কারণ বোঝায়, ব্যক্তিকে নয়।"
+                "en": "**For** marks the reason, not the person. The person needs **to**: *He apologised **to** me for the delay*.",
+                "bn": "**for** কারণ বোঝায়, ব্যক্তিকে নয়। ব্যক্তির আগে **to** বসে: *He apologised **to** me for the delay*।"
               }
             },
             {
@@ -1262,8 +1262,8 @@
               "text": "comfortable",
               "correct": true,
               "feedback": {
-                "en": "Correct. **-able** turns the noun into an adjective.",
-                "bn": "ঠিক আছে। **-able** noun-কে adjective বানায়।"
+                "en": "Correct. **-able** turns a verb — and sometimes a noun — into an adjective: *rely → reliable*, *comfort → comfortable*.",
+                "bn": "ঠিক আছে। **-able** verb থেকে, কখনো noun থেকে, adjective বানায়: *rely → reliable*, *comfort → comfortable*।"
               }
             },
             {
@@ -1898,11 +1898,11 @@
             },
             {
               "id": "d",
-              "text": "upon to",
+              "text": "with",
               "correct": false,
               "feedback": {
-                "en": "*Rely upon* is fine on its own, but never with *to* after it.",
-                "bn": "*rely upon* একা চলে, তবে এর পরে *to* বসে না।"
+                "en": "**With** is not used after *rely*; *rely upon* is the only variant.",
+                "bn": "*rely*-এর পরে **with** বসে না; কেবল *rely upon* রূপটি আছে।"
               }
             }
           ]
@@ -2847,8 +2847,8 @@
               "text": "turned up",
               "correct": false,
               "feedback": {
-                "en": "**Turn up** means to arrive, often unexpectedly.",
-                "bn": "**turn up** মানে হঠাৎ এসে হাজির হওয়া।"
+                "en": "**Turn up** means to arrive — it needs a person or a thing as its subject, so *it turned up that…* does not work.",
+                "bn": "**turn up** মানে এসে হাজির হওয়া — এর subject হয় ব্যক্তি বা জিনিস, তাই *it turned up that…* চলে না।"
               }
             },
             {
@@ -3126,42 +3126,42 @@
           "id": "l3_wf_prac_5",
           "type": "recall",
           "instruction": "Complete the sentence",
-          "prompt": "The government wants to ______ the rules for small traders. (simple)",
+          "prompt": "Jute ______ has increased for the third year running. (produce)",
           "options": [
             {
               "id": "a",
-              "text": "simplify",
+              "text": "production",
               "correct": true,
               "feedback": {
-                "en": "Correct. **-ify** makes the verb.",
-                "bn": "ঠিক আছে। **-ify** verb বানায়।"
+                "en": "Correct. **-tion** gives the noun of the verb.",
+                "bn": "ঠিক আছে। **-tion** verb-এর noun রূপ দেয়।"
               }
             },
             {
               "id": "b",
-              "text": "simplicity",
+              "text": "product",
               "correct": false,
               "feedback": {
-                "en": "**Simplicity** is the noun.",
-                "bn": "**simplicity** noun।"
+                "en": "**Product** is the thing made; **production** is the making of it.",
+                "bn": "**product** মানে উৎপন্ন জিনিস; **production** মানে উৎপাদন প্রক্রিয়া।"
               }
             },
             {
               "id": "c",
-              "text": "simplest",
+              "text": "productive",
               "correct": false,
               "feedback": {
-                "en": "**Simplest** compares things; a verb is needed here.",
-                "bn": "**simplest** তুলনা বোঝায়; এখানে verb দরকার।"
+                "en": "**Productive** is the adjective.",
+                "bn": "**productive** adjective।"
               }
             },
             {
               "id": "d",
-              "text": "simpling",
+              "text": "producing",
               "correct": false,
               "feedback": {
-                "en": "That is not a word.",
-                "bn": "এটি কোনো শব্দ নয়।"
+                "en": "**Producing** is the action; here a noun is needed.",
+                "bn": "**producing** কাজটা বোঝায়; এখানে noun দরকার।"
               }
             }
           ]

@@ -15,6 +15,7 @@ VocabQuestion _$VocabQuestionFromJson(Map<String, dynamic> json) =>
       options: (json['options'] as List<dynamic>)
           .map((e) => QuestionOption.fromJson(e as Map<String, dynamic>))
           .toList(),
+      tests: json['tests'] as String?,
     );
 
 const _$VocabQuestionTypeEnumMap = {

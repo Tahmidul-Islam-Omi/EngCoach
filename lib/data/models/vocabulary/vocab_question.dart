@@ -55,12 +55,22 @@ class VocabQuestion {
     required this.instruction,
     required this.prompt,
     required this.options,
+    this.tests,
   });
 
   factory VocabQuestion.fromJson(Map<String, dynamic> json) =>
       _$VocabQuestionFromJson(json);
 
   final String id;
+
+  /// The chunk word this question measures, for final-check questions.
+  ///
+  /// Named rather than inferred: the answer is often an inflection or a
+  /// sibling of the taught word — *wore* for *wear*, *unfriendly* for
+  /// *friendly* — and no amount of stem matching links those reliably. The
+  /// validator uses it to prove the final check tests what the lesson taught.
+  final String? tests;
+
   final VocabQuestionType type;
   final String instruction;
   final String prompt;

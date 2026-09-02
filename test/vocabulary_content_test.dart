@@ -192,10 +192,32 @@ void main() {
           );
         }
 
+        // The first check deliberately explains nothing; the final check and
+        // practice explain every option, including the right one, so a lucky
+        // guess still teaches something.
+        for (final s in level.subSkills) {
+          for (final q in s.preAssessmentBank) {
+            for (final o in q.options) {
+              expect(o.feedback, isNull, reason: '${q.id} explains too early');
+            }
+          }
+          for (final q in s.postAssessmentBank) {
+            for (final o in q.options) {
+              expect(o.feedback, isNotNull, reason: '${q.id} option ${o.id}');
+            }
+          }
+        }
+
         for (final c in level.chunks) {
           expect(known, contains(c.subSkillId));
           expect(c.words, isNotEmpty);
           expect(c.practice, isNotEmpty);
+          for (final q in c.practice) {
+            for (final o in q.options) {
+              expect(o.feedback, isNotNull, reason: '${q.id} option ${o.id}');
+            }
+            expect(q.options.where((o) => o.correct), hasLength(1));
+          }
         }
 
         // A weak subskill with nothing to teach is a dead end in the plan.

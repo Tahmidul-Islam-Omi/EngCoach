@@ -1,0 +1,480 @@
+{
+  "level": 1,
+  "title": "Foundation",
+  "summary": "The words that come up every day — at home, at the market, at work.",
+  "subSkills": [
+    {
+      "id": "word_meaning",
+      "preAssessmentBank": [
+        {
+          "id": "l1_wm_pre_1",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Can I **borrow** your pen?\n\nWhat does *borrow* mean here?",
+          "options": [
+            { "id": "a", "text": "ধার নেওয়া", "correct": true },
+            { "id": "b", "text": "ধার দেওয়া", "correct": false },
+            { "id": "c", "text": "কিনে নেওয়া", "correct": false },
+            { "id": "d", "text": "ফেরত দেওয়া", "correct": false }
+          ]
+        },
+        {
+          "id": "l1_wm_pre_2",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "The bus **arrives** at nine o'clock.\n\nWhat does *arrives* mean here?",
+          "options": [
+            { "id": "a", "text": "পৌঁছায়", "correct": true },
+            { "id": "b", "text": "ছেড়ে যায়", "correct": false },
+            { "id": "c", "text": "থামে", "correct": false },
+            { "id": "d", "text": "ঘুরে আসে", "correct": false }
+          ]
+        },
+        {
+          "id": "l1_wm_pre_3",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Be **careful** — the tea is hot.\n\nWhat does *careful* mean here?",
+          "options": [
+            { "id": "a", "text": "সাবধান", "correct": true },
+            { "id": "b", "text": "দ্রুত", "correct": false },
+            { "id": "c", "text": "শান্ত", "correct": false },
+            { "id": "d", "text": "ক্লান্ত", "correct": false }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l1_wm_post_1",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "The library is **quiet** in the afternoon.\n\nWhat does *quiet* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "শান্ত, কোনো শব্দ নেই",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Quiet** means there is little or no noise.",
+                "bn": "ঠিক আছে। **quiet** মানে শব্দ নেই বা খুব কম।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "ব্যস্ত",
+              "correct": false,
+              "feedback": {
+                "en": "That is **busy** — the opposite of what the sentence says.",
+                "bn": "এটা **busy**-এর অর্থ। বাক্যটি ঠিক উল্টো কথা বলছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "অন্ধকার",
+              "correct": false,
+              "feedback": {
+                "en": "That is **dark**. *Quiet* is about sound, not light.",
+                "bn": "এটা **dark**-এর অর্থ। *quiet* শব্দ নিয়ে, আলো নিয়ে নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "বন্ধ",
+              "correct": false,
+              "feedback": {
+                "en": "That is **closed**. A library can be open and still be quiet.",
+                "bn": "এটা **closed**-এর অর্থ। লাইব্রেরি খোলা থেকেও quiet হতে পারে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wm_post_2",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "This bag is too **heavy** for me.\n\nWhat does *heavy* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ওজন বেশি",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Heavy** means it weighs a lot.",
+                "bn": "ঠিক আছে। **heavy** মানে ওজন বেশি।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "হালকা",
+              "correct": false,
+              "feedback": {
+                "en": "That is **light**, the opposite of *heavy*.",
+                "bn": "এটা **light**-এর অর্থ, যা *heavy*-এর উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "বড়",
+              "correct": false,
+              "feedback": {
+                "en": "That is **big**. A big bag can still be light.",
+                "bn": "এটা **big**-এর অর্থ। বড় ব্যাগও হালকা হতে পারে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "দামি",
+              "correct": false,
+              "feedback": {
+                "en": "That is **expensive**. Price is not weight.",
+                "bn": "এটা **expensive**-এর অর্থ। দাম আর ওজন এক নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wm_post_3",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "She is always **polite** to her neighbours.\n\nWhat does *polite* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ভদ্র",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A **polite** person speaks and behaves respectfully.",
+                "bn": "ঠিক আছে। **polite** মানে ভদ্র ব্যবহার করে এমন।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "চুপচাপ",
+              "correct": false,
+              "feedback": {
+                "en": "That is **quiet**. Someone can talk a lot and still be polite.",
+                "bn": "এটা **quiet**-এর অর্থ। বেশি কথা বলেও কেউ polite হতে পারে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "রাগী",
+              "correct": false,
+              "feedback": {
+                "en": "That is **angry** — the opposite of *polite*.",
+                "bn": "এটা **angry**-এর অর্থ, যা *polite*-এর উল্টো।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "ব্যস্ত",
+              "correct": false,
+              "feedback": {
+                "en": "That is **busy**. It says nothing about how she behaves.",
+                "bn": "এটা **busy**-এর অর্থ। ব্যবহার নিয়ে কিছু বলছে না।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": "l1_word_meaning_1",
+      "subSkillId": "word_meaning",
+      "title": "Six words you will use today",
+      "words": [
+        {
+          "word": "busy",
+          "bn": "ব্যস্ত",
+          "pos": "adjective",
+          "example": {
+            "en": "Amma is busy in the kitchen.",
+            "bn": "আম্মা রান্নাঘরে ব্যস্ত।"
+          },
+          "usage": "busy with something",
+          "antonyms": ["free"],
+          "collocations": ["busy with work"]
+        },
+        {
+          "word": "cheap",
+          "bn": "সস্তা, দাম কম",
+          "pos": "adjective",
+          "example": {
+            "en": "Vegetables are cheap in winter.",
+            "bn": "শীতকালে সবজির দাম কম থাকে।"
+          },
+          "antonyms": ["expensive"]
+        },
+        {
+          "word": "borrow",
+          "bn": "ধার নেওয়া",
+          "pos": "verb",
+          "example": {
+            "en": "Can I borrow your pen?",
+            "bn": "আমি কি তোমার কলমটা ধার নিতে পারি?"
+          },
+          "usage": "borrow something from someone",
+          "antonyms": ["lend"],
+          "collocations": ["borrow money", "borrow a book"]
+        },
+        {
+          "word": "arrive",
+          "bn": "পৌঁছানো",
+          "pos": "verb",
+          "example": {
+            "en": "The bus arrives at nine o'clock.",
+            "bn": "বাসটি নয়টায় পৌঁছায়।"
+          },
+          "usage": "arrive at a place, arrive in a city",
+          "synonyms": ["reach"],
+          "antonyms": ["leave"]
+        },
+        {
+          "word": "empty",
+          "bn": "খালি",
+          "pos": "adjective",
+          "example": {
+            "en": "The bottle is empty.",
+            "bn": "বোতলটা খালি।"
+          },
+          "antonyms": ["full"]
+        },
+        {
+          "word": "careful",
+          "bn": "সতর্ক, সাবধান",
+          "pos": "adjective",
+          "example": {
+            "en": "Be careful — the tea is hot.",
+            "bn": "সাবধান — চা গরম।"
+          },
+          "usage": "be careful with something",
+          "antonyms": ["careless"]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l1_wm_prac_1",
+          "type": "meaning",
+          "instruction": "Choose the meaning",
+          "prompt": "What does **empty** mean?",
+          "options": [
+            {
+              "id": "a",
+              "text": "খালি",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Empty** means nothing is inside.",
+                "bn": "ঠিক আছে। **empty** মানে ভেতরে কিছু নেই।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "ভরা",
+              "correct": false,
+              "feedback": {
+                "en": "That is **full**, the opposite of *empty*.",
+                "bn": "এটা **full**-এর অর্থ, যা *empty*-এর উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "ভাঙা",
+              "correct": false,
+              "feedback": {
+                "en": "That is **broken**. An empty bottle is not a broken one.",
+                "bn": "এটা **broken**-এর অর্থ। খালি বোতল আর ভাঙা বোতল এক নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "নতুন",
+              "correct": false,
+              "feedback": {
+                "en": "That is **new**. *Empty* is about what is inside, not age.",
+                "bn": "এটা **new**-এর অর্থ। *empty* ভেতরে কী আছে তা বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wm_prac_2",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Amma is **busy** in the kitchen.\n\nWhat does *busy* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "অনেক কাজ করছেন",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A **busy** person has a lot to do.",
+                "bn": "ঠিক আছে। **busy** মানে হাতে অনেক কাজ আছে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "বিশ্রাম নিচ্ছেন",
+              "correct": false,
+              "feedback": {
+                "en": "Resting is being **free**, not busy.",
+                "bn": "বিশ্রাম নেওয়া মানে **free** থাকা, busy নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "রান্না শেষ করেছেন",
+              "correct": false,
+              "feedback": {
+                "en": "*Busy* says she is working now — not that she has finished.",
+                "bn": "*busy* বোঝায় এখন কাজ করছেন, শেষ করেছেন এমন নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "বাইরে গেছেন",
+              "correct": false,
+              "feedback": {
+                "en": "The sentence puts her *in* the kitchen.",
+                "bn": "বাক্যে বলা হয়েছে তিনি রান্নাঘরেই আছেন।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wm_prac_3",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Vegetables are **cheap** in winter.\n\nWhat does *cheap* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "দাম কম",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Cheap** means it costs little.",
+                "bn": "ঠিক আছে। **cheap** মানে দাম কম।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "খারাপ মানের",
+              "correct": false,
+              "feedback": {
+                "en": "*Cheap* can mean poor quality about a thing, but with prices it means low cost.",
+                "bn": "জিনিসের ক্ষেত্রে *cheap* খারাপ মানও বোঝাতে পারে, তবে দামের কথা বললে এর অর্থ দাম কম।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "টাটকা",
+              "correct": false,
+              "feedback": {
+                "en": "That is **fresh**. Fresh and cheap are not the same thing.",
+                "bn": "এটা **fresh**-এর অর্থ। টাটকা আর সস্তা এক নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "অনেক পাওয়া যায়",
+              "correct": false,
+              "feedback": {
+                "en": "That is why they are cheap, but *cheap* itself means low in price.",
+                "bn": "এই কারণেই দাম কম হয়, তবে *cheap* শব্দের অর্থ দাম কম।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wm_prac_4",
+          "type": "meaning",
+          "instruction": "Choose the word",
+          "prompt": "Which word means **ধার নেওয়া**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "borrow",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. You **borrow** from someone else.",
+                "bn": "ঠিক আছে। অন্যের কাছ থেকে **borrow** করা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "lend",
+              "correct": false,
+              "feedback": {
+                "en": "**Lend** is ধার দেওয়া — it goes the other way.",
+                "bn": "**lend** মানে ধার দেওয়া — দিক ঠিক উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "buy",
+              "correct": false,
+              "feedback": {
+                "en": "**Buy** is কেনা. What you borrow, you give back.",
+                "bn": "**buy** মানে কেনা। ধার নেওয়া জিনিস ফেরত দিতে হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "keep",
+              "correct": false,
+              "feedback": {
+                "en": "**Keep** is রেখে দেওয়া — the opposite of giving it back.",
+                "bn": "**keep** মানে রেখে দেওয়া — ফেরত দেওয়ার উল্টো।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l1_wm_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The bus ______ at nine o'clock, so we should leave home at half past eight.",
+          "options": [
+            {
+              "id": "a",
+              "text": "arrives",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Arrive** is to reach a place.",
+                "bn": "ঠিক আছে। **arrive** মানে কোথাও পৌঁছানো।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "leaves",
+              "correct": false,
+              "feedback": {
+                "en": "**Leave** is ছেড়ে যাওয়া. Then leaving home later would make no sense.",
+                "bn": "**leave** মানে ছেড়ে যাওয়া। তাহলে পরে বাসা থেকে বের হওয়ার কথা আসত না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "borrows",
+              "correct": false,
+              "feedback": {
+                "en": "**Borrow** is ধার নেওয়া — a bus cannot borrow at nine.",
+                "bn": "**borrow** মানে ধার নেওয়া — বাস ধার নিতে পারে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "empties",
+              "correct": false,
+              "feedback": {
+                "en": "**Empty** is খালি করা. That is not what a bus does at a time.",
+                "bn": "**empty** মানে খালি করা। নির্দিষ্ট সময়ে বাস সেটা করে না।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

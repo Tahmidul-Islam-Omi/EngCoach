@@ -1,0 +1,3172 @@
+{
+  "level": 3,
+  "title": "Intermediate",
+  "summary": "The words a newspaper, a form and a meeting all assume you already know.",
+  "subSkills": [
+    {
+      "id": "word_meaning",
+      "preAssessmentBank": [
+        {
+          "id": "l3_wm_pre_1",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "His answer was **vague**, so nobody knew what he had decided.\n\nWhat does *vague* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "অস্পষ্ট",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "মিথ্যা",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "সংক্ষিপ্ত",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "কঠিন",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l3_wm_pre_2",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Money was the only **obstacle** to her studying abroad.\n\nWhat does *obstacle* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "বাধা",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "কারণ",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "উদ্দেশ্য",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "সুযোগ",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l3_wm_pre_3",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "He seemed **indifferent** to the result, though he had worked for months.\n\nWhat does *indifferent* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "উদাসীন",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "ভিন্ন",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "রাগান্বিত",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "অসন্তুষ্ট",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l3_wm_post_1",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "From the empty shelves it was **evident** that the shop had closed months ago.\n\nWhat does *evident* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "স্পষ্ট বোঝা যাচ্ছিল",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Something **evident** can be seen without being told.",
+                "bn": "ঠিক আছে। **evident** মানে না বললেও যা স্পষ্ট বোঝা যায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "সম্ভব ছিল",
+              "correct": false,
+              "feedback": {
+                "en": "That is **possible**. *Evident* is stronger — the shelves prove it.",
+                "bn": "এটা **possible**-এর অর্থ। *evident* আরও জোরালো — তাক দেখেই প্রমাণ মিলছে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "দুঃখজনক",
+              "correct": false,
+              "feedback": {
+                "en": "That is **sad**, a feeling rather than a fact.",
+                "bn": "এটা **sad**-এর অর্থ — অনুভূতি, তথ্য নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "গোপন",
+              "correct": false,
+              "feedback": {
+                "en": "That is **hidden** — the opposite of evident.",
+                "bn": "এটা **hidden**-এর অর্থ — evident-এর উল্টো।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wm_post_2",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "The bridge is a **temporary** one; a concrete bridge will be built next year.\n\nWhat does *temporary* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "সাময়িক",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Temporary** means it is meant to last only a while.",
+                "bn": "ঠিক আছে। **temporary** মানে অল্প সময়ের জন্য।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "দুর্বল",
+              "correct": false,
+              "feedback": {
+                "en": "That is **weak**. A temporary bridge could still be strong.",
+                "bn": "এটা **weak**-এর অর্থ। সাময়িক সেতুও মজবুত হতে পারে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "সরু",
+              "correct": false,
+              "feedback": {
+                "en": "That is **narrow** — about width, not time.",
+                "bn": "এটা **narrow**-এর অর্থ — প্রস্থ নিয়ে, সময় নিয়ে নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "স্থায়ী",
+              "correct": false,
+              "feedback": {
+                "en": "That is **permanent**, the opposite.",
+                "bn": "এটা **permanent**-এর অর্থ, ঠিক উল্টো।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wm_post_3",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Two days will not be **sufficient** to finish the whole syllabus.\n\nWhat does *sufficient* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "যথেষ্ট",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Sufficient** means enough for the purpose.",
+                "bn": "ঠিক আছে। **sufficient** মানে কাজের জন্য যথেষ্ট।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "সহজ",
+              "correct": false,
+              "feedback": {
+                "en": "That is **easy**. The sentence is about amount of time, not difficulty.",
+                "bn": "এটা **easy**-এর অর্থ। বাক্যটি সময়ের পরিমাণ নিয়ে, কঠিনতা নিয়ে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "প্রয়োজনীয়",
+              "correct": false,
+              "feedback": {
+                "en": "That is **necessary** — needed, which is not the same as enough.",
+                "bn": "এটা **necessary**-এর অর্থ — দরকারি, কিন্তু যথেষ্ট নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "নিশ্চিত",
+              "correct": false,
+              "feedback": {
+                "en": "That is **certain**.",
+                "bn": "এটা **certain**-এর অর্থ।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "word_usage",
+      "preAssessmentBank": [
+        {
+          "id": "l3_wu_pre_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Whether we go tomorrow depends ______ the weather.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "of",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "to",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "with",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l3_wu_pre_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The committee consists ______ seven members.",
+          "options": [
+            {
+              "id": "a",
+              "text": "in",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "of",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "from",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "with",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l3_wu_pre_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "After two failures she finally succeeded ______ getting the licence.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "at",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "for",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l3_wu_post_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "She is quite capable ______ running the office alone.",
+          "options": [
+            {
+              "id": "a",
+              "text": "of",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Capable of doing** something.",
+                "bn": "ঠিক আছে। গঠনটি **capable of doing something**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "**Able to** takes *to*; **capable** takes *of*. The two are easily mixed.",
+                "bn": "**able to**-তে *to* বসে; **capable**-এ *of*। দুটি সহজেই গুলিয়ে যায়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "for",
+              "correct": false,
+              "feedback": {
+                "en": "**For** is not used after *capable*.",
+                "bn": "*capable*-এর পরে **for** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**In** goes with *succeed*, not *capable*.",
+                "bn": "**in** বসে *succeed*-এর সাথে, *capable*-এর সাথে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wu_post_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The high wall prevents children ______ falling into the pond.",
+          "options": [
+            {
+              "id": "a",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "**Prevent** never takes *to*.",
+                "bn": "**prevent**-এর সাথে *to* বসে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "from",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Prevent someone from doing** something.",
+                "bn": "ঠিক আছে। গঠনটি **prevent someone from doing something**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "**Of** goes with *capable* and *consist*.",
+                "bn": "**of** বসে *capable* ও *consist*-এর সাথে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "against",
+              "correct": false,
+              "feedback": {
+                "en": "**Against** goes with *protect*, not *prevent*.",
+                "bn": "**against** বসে *protect*-এর সাথে, *prevent*-এর সাথে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wu_post_3",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "He apologised me for the delay.",
+              "correct": false,
+              "feedback": {
+                "en": "**Apologise** needs **to** before the person.",
+                "bn": "**apologise**-এর পরে ব্যক্তির আগে **to** বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "He apologised for me the delay.",
+              "correct": false,
+              "feedback": {
+                "en": "**For** marks the reason, not the person.",
+                "bn": "**for** কারণ বোঝায়, ব্যক্তিকে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "He apologised to me for the delay.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Apologise to someone for something.**",
+                "bn": "ঠিক আছে। গঠনটি **apologise to someone for something**।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "He apologised to me of the delay.",
+              "correct": false,
+              "feedback": {
+                "en": "The reason takes **for**, not *of*.",
+                "bn": "কারণের আগে **for** বসে, *of* নয়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "synonyms_antonyms",
+      "preAssessmentBank": [
+        {
+          "id": "l3_sa_pre_1",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **harmful**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "damaging",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "helpful",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "careful",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "powerful",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l3_sa_pre_2",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **ordinary**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "normal",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "unusual",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "simple",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "common",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l3_sa_pre_3",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **faulty**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "defective",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "perfect",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "expensive",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "unfinished",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l3_sa_post_1",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **anxious**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "worried",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Anxious** is worry about something that may happen.",
+                "bn": "ঠিক আছে। **anxious** মানে যা ঘটতে পারে তা নিয়ে দুশ্চিন্তা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "angry",
+              "correct": false,
+              "feedback": {
+                "en": "**Angry** is a different feeling altogether.",
+                "bn": "**angry** সম্পূর্ণ আলাদা অনুভূতি।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "eager",
+              "correct": false,
+              "feedback": {
+                "en": "*Anxious to go* can mean eager — but the plain word means worried.",
+                "bn": "*anxious to go* বললে আগ্রহ বোঝাতে পারে — তবে একা শব্দটির অর্থ দুশ্চিন্তাগ্রস্ত।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "tired",
+              "correct": false,
+              "feedback": {
+                "en": "**Tired** is about the body, not the mind.",
+                "bn": "**tired** শরীরের ব্যাপার, মনের নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_sa_post_2",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **guilty**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "innocent",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. In court a person is **guilty** or **innocent**.",
+                "bn": "ঠিক আছে। আদালতে একজন **guilty** বা **innocent** হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "honest",
+              "correct": false,
+              "feedback": {
+                "en": "**Honest** is about telling the truth, not about having done the act.",
+                "bn": "**honest** সত্য বলা বোঝায়, কাজটি করা বা না করা নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "free",
+              "correct": false,
+              "feedback": {
+                "en": "A guilty person can be set **free** and still be guilty.",
+                "bn": "দোষী ব্যক্তি **free** হয়ে গেলেও দোষী থেকে যায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "brave",
+              "correct": false,
+              "feedback": {
+                "en": "**Brave** is about courage.",
+                "bn": "**brave** সাহস বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_sa_post_3",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **observe**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "notice",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. To **observe** is to watch closely and notice.",
+                "bn": "ঠিক আছে। **observe** মানে মনোযোগ দিয়ে দেখা ও লক্ষ করা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "ignore",
+              "correct": false,
+              "feedback": {
+                "en": "**Ignore** is to take no notice — the opposite.",
+                "bn": "**ignore** মানে খেয়াল না করা — ঠিক উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "explain",
+              "correct": false,
+              "feedback": {
+                "en": "**Explain** comes after; first you observe.",
+                "bn": "**explain** আসে পরে; আগে observe করতে হয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "prevent",
+              "correct": false,
+              "feedback": {
+                "en": "**Prevent** is to stop something happening.",
+                "bn": "**prevent** মানে ঘটতে না দেওয়া।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "collocations",
+      "preAssessmentBank": [
+        {
+          "id": "l3_col_pre_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "From two examples alone you cannot ______ a conclusion.",
+          "options": [
+            {
+              "id": "a",
+              "text": "draw",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "make",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "take",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "give",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l3_col_pre_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "If we work tonight we can still ______ the deadline.",
+          "options": [
+            {
+              "id": "a",
+              "text": "reach",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "meet",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "catch",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "keep",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l3_col_pre_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The students ______ money to repair the school gate.",
+          "options": [
+            {
+              "id": "a",
+              "text": "lifted",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "grew",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "raised",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "rose",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l3_col_post_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The committee will ______ a meeting on Thursday morning.",
+          "options": [
+            {
+              "id": "a",
+              "text": "hold",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Meetings, elections and talks are all **held**.",
+                "bn": "ঠিক আছে। সভা, নির্বাচন ও আলোচনা — সবই **hold** করা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "make",
+              "correct": false,
+              "feedback": {
+                "en": "**Make a meeting** is not said.",
+                "bn": "**make a meeting** বলা হয় না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "do",
+              "correct": false,
+              "feedback": {
+                "en": "**Do** does not go with *meeting*.",
+                "bn": "*meeting*-এর সাথে **do** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "keep",
+              "correct": false,
+              "feedback": {
+                "en": "**Keep** goes with promises and appointments, not meetings.",
+                "bn": "**keep** বসে promise ও appointment-এর সাথে, meeting-এর সাথে নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_col_post_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "His father ______ a small business near the station.",
+          "options": [
+            {
+              "id": "a",
+              "text": "runs",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. You **run** a business, a shop or a school.",
+                "bn": "ঠিক আছে। ব্যবসা, দোকান বা স্কুল **run** করা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "does",
+              "correct": false,
+              "feedback": {
+                "en": "**Do business** exists, but *do a business* does not.",
+                "bn": "**do business** চলে, তবে *do a business* নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "makes",
+              "correct": false,
+              "feedback": {
+                "en": "**Make** would mean starting one, not operating it daily.",
+                "bn": "**make** বললে শুরু করা বোঝাত, প্রতিদিন চালানো নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "holds",
+              "correct": false,
+              "feedback": {
+                "en": "**Hold** goes with meetings and events.",
+                "bn": "**hold** বসে সভা ও অনুষ্ঠানের সাথে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_col_post_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Cutting the trees ______ to the flooding last year.",
+          "options": [
+            {
+              "id": "a",
+              "text": "led",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Lead to** something is to cause it.",
+                "bn": "ঠিক আছে। **lead to** মানে কোনো কিছুর কারণ হওয়া।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "took",
+              "correct": false,
+              "feedback": {
+                "en": "**Take to** means to begin a habit.",
+                "bn": "**take to** মানে কোনো অভ্যাস শুরু করা।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "brought",
+              "correct": false,
+              "feedback": {
+                "en": "**Bring about** works, but not *bring to* in this sense.",
+                "bn": "**bring about** চলে, তবে এই অর্থে *bring to* নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "made",
+              "correct": false,
+              "feedback": {
+                "en": "**Make to** is not English.",
+                "bn": "**make to** ইংরেজিতে বলা হয় না।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phrasal_verbs",
+      "preAssessmentBank": [
+        {
+          "id": "l3_pv_pre_1",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "The survey was **carried out** in three districts.\n\nWhat does *carried out* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "সম্পন্ন করা হয়েছিল",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "বহন করা হয়েছিল",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "বাতিল করা হয়েছিল",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "প্রকাশ করা হয়েছিল",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l3_pv_pre_2",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "She **pointed out** that the date on the form was wrong.\n\nWhat does *pointed out* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "মনোযোগ আকর্ষণ করে জানাল",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "অভিযোগ করল",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "আঙুল তুলল",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "সংশোধন করল",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l3_pv_pre_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "We were worried all week, but everything ______ well in the end.",
+          "options": [
+            {
+              "id": "a",
+              "text": "turned out",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "turned up",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "turned down",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "turned over",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l3_pv_post_1",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "The new law **brought about** a big change in the market.\n\nWhat does *brought about* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ঘটাল",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Bring about** is to cause something to happen.",
+                "bn": "ঠিক আছে। **bring about** মানে কিছু ঘটানো।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "বাতিল করল",
+              "correct": false,
+              "feedback": {
+                "en": "That is **cancelled**.",
+                "bn": "এটা **cancel**-এর অর্থ।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "নিয়ে এল",
+              "correct": false,
+              "feedback": {
+                "en": "**Bring** alone carries something; *bring about* causes it.",
+                "bn": "একা **bring** মানে বয়ে আনা; *bring about* মানে ঘটানো।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "ব্যাখ্যা করল",
+              "correct": false,
+              "feedback": {
+                "en": "That is **explained**.",
+                "bn": "এটা **explain**-এর অর্থ।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_pv_post_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The police will ______ the complaint next week.",
+          "options": [
+            {
+              "id": "a",
+              "text": "look into",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Look into** is to investigate.",
+                "bn": "ঠিক আছে। **look into** মানে তদন্ত করা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "look after",
+              "correct": false,
+              "feedback": {
+                "en": "**Look after** is to take care of someone.",
+                "bn": "**look after** মানে দেখাশোনা করা।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "look for",
+              "correct": false,
+              "feedback": {
+                "en": "**Look for** is to search for something lost.",
+                "bn": "**look for** মানে হারানো কিছু খোঁজা।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "look up",
+              "correct": false,
+              "feedback": {
+                "en": "**Look up** is to find a word in a book.",
+                "bn": "**look up** মানে বইয়ে শব্দ খুঁজে দেখা।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_pv_post_3",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "He had to **put up with** the noise until the work finished.\n\nWhat does *put up with* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "সহ্য করা",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Put up with** is to bear something unpleasant.",
+                "bn": "ঠিক আছে। **put up with** মানে অপ্রীতিকর কিছু সহ্য করা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "বন্ধ করা",
+              "correct": false,
+              "feedback": {
+                "en": "That is **stop** — but he could not stop it.",
+                "bn": "এটা **stop**-এর অর্থ — কিন্তু সে থামাতে পারেনি।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "অভিযোগ করা",
+              "correct": false,
+              "feedback": {
+                "en": "That is **complain**, which is the opposite of bearing it quietly.",
+                "bn": "এটা **complain**-এর অর্থ, যা চুপচাপ সহ্য করার উল্টো।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "পিছিয়ে দেওয়া",
+              "correct": false,
+              "feedback": {
+                "en": "That is **put off** — a different phrasal verb.",
+                "bn": "এটা **put off**-এর অর্থ — ভিন্ন phrasal verb।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "word_formation",
+      "preAssessmentBank": [
+        {
+          "id": "l3_wf_pre_1",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Swimming in that canal is ______ after the rains. (danger)",
+          "options": [
+            {
+              "id": "a",
+              "text": "dangerous",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "dangerful",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "endangered",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "dangerly",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l3_wf_pre_2",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Rice ______ fell sharply after the flood. (produce)",
+          "options": [
+            {
+              "id": "a",
+              "text": "producement",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "production",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "text": "producing",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "productive",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "l3_wf_pre_3",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Regular exercise will ______ your legs. (strength)",
+          "options": [
+            {
+              "id": "a",
+              "text": "strengthful",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "text": "strongen",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "strengthen",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "text": "strengthly",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "postAssessmentBank": [
+        {
+          "id": "l3_wf_post_1",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "His ______ satisfied nobody on the committee. (explain)",
+          "options": [
+            {
+              "id": "a",
+              "text": "explanation",
+              "correct": true,
+              "feedback": {
+                "en": "Correct — and note the spelling: *explain* loses its **i**.",
+                "bn": "ঠিক আছে — বানানটি খেয়াল করুন: *explain*-এর **i** থাকে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "explaination",
+              "correct": false,
+              "feedback": {
+                "en": "A very common misspelling. The noun is **explanation**.",
+                "bn": "খুব প্রচলিত বানান ভুল। সঠিক noun **explanation**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "explainment",
+              "correct": false,
+              "feedback": {
+                "en": "**-ment** does not attach to *explain*.",
+                "bn": "*explain*-এর সাথে **-ment** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "explaining",
+              "correct": false,
+              "feedback": {
+                "en": "**Explaining** is the action; here a noun is needed.",
+                "bn": "**explaining** কাজটা বোঝায়; এখানে noun দরকার।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wf_post_2",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The new chairs made the waiting room much more ______ . (comfort)",
+          "options": [
+            {
+              "id": "a",
+              "text": "comfortable",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **-able** turns the noun into an adjective.",
+                "bn": "ঠিক আছে। **-able** noun-কে adjective বানায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "comfortful",
+              "correct": false,
+              "feedback": {
+                "en": "**-ful** does not attach to *comfort*.",
+                "bn": "*comfort*-এর সাথে **-ful** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "comforting",
+              "correct": false,
+              "feedback": {
+                "en": "**Comforting** is what soothes a sad person, not what a chair is.",
+                "bn": "**comforting** মন ভালো করা বোঝায়, চেয়ারের আরাম নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "comfortably",
+              "correct": false,
+              "feedback": {
+                "en": "**Comfortably** is the adverb.",
+                "bn": "**comfortably** adverb।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wf_post_3",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The office is trying to ______ the whole application process. (simple)",
+          "options": [
+            {
+              "id": "a",
+              "text": "simplify",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **-ify** makes a verb: *simple → simplify*.",
+                "bn": "ঠিক আছে। **-ify** verb বানায়: *simple → simplify*।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "simplen",
+              "correct": false,
+              "feedback": {
+                "en": "**-en** works on some adjectives — *strengthen* — but not here.",
+                "bn": "**-en** কিছু adjective-এ চলে — *strengthen* — এখানে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "simplicity",
+              "correct": false,
+              "feedback": {
+                "en": "**Simplicity** is the noun; a verb is needed after *to*.",
+                "bn": "**simplicity** noun; *to*-এর পরে verb দরকার।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "simply",
+              "correct": false,
+              "feedback": {
+                "en": "**Simply** is the adverb.",
+                "bn": "**simply** adverb।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": "l3_word_meaning_1",
+      "subSkillId": "word_meaning",
+      "title": "Words the newspaper uses",
+      "words": [
+        {
+          "word": "consequence",
+          "bn": "পরিণতি, ফল",
+          "pos": "noun",
+          "example": {
+            "en": "Cutting the hills has one clear consequence: landslides.",
+            "bn": "পাহাড় কাটার একটি স্পষ্ট পরিণতি আছে — ভূমিধস।"
+          },
+          "usage": "the consequence of something",
+          "synonyms": [
+            "result",
+            "effect"
+          ]
+        },
+        {
+          "word": "relevant",
+          "bn": "প্রাসঙ্গিক",
+          "pos": "adjective",
+          "example": {
+            "en": "Please keep your question relevant to the topic.",
+            "bn": "দয়া করে আপনার প্রশ্নটি বিষয়ের সাথে প্রাসঙ্গিক রাখুন।"
+          },
+          "usage": "relevant to something",
+          "antonyms": [
+            "irrelevant"
+          ]
+        },
+        {
+          "word": "vague",
+          "bn": "অস্পষ্ট",
+          "pos": "adjective",
+          "example": {
+            "en": "His answer was vague, so nobody knew what he had decided.",
+            "bn": "তার উত্তরটা অস্পষ্ট ছিল, তাই সে কী ঠিক করেছে কেউ বুঝল না।"
+          },
+          "antonyms": [
+            "clear"
+          ]
+        },
+        {
+          "word": "reluctant",
+          "bn": "অনিচ্ছুক",
+          "pos": "adjective",
+          "example": {
+            "en": "She was reluctant to accept the offer.",
+            "bn": "সে প্রস্তাবটি নিতে অনিচ্ছুক ছিল।"
+          },
+          "usage": "reluctant to do something",
+          "synonyms": [
+            "unwilling"
+          ],
+          "antonyms": [
+            "eager"
+          ],
+          "collocations": [
+            "reluctant to agree"
+          ]
+        },
+        {
+          "word": "obstacle",
+          "bn": "বাধা",
+          "pos": "noun",
+          "example": {
+            "en": "Money was the only obstacle to her studying abroad.",
+            "bn": "বিদেশে পড়তে যাওয়ার একমাত্র বাধা ছিল টাকা।"
+          },
+          "synonyms": [
+            "barrier"
+          ]
+        },
+        {
+          "word": "indifferent",
+          "bn": "উদাসীন",
+          "pos": "adjective",
+          "example": {
+            "en": "He seemed indifferent to the result.",
+            "bn": "ফলাফলের ব্যাপারে সে উদাসীন বলে মনে হচ্ছিল।"
+          },
+          "usage": "indifferent to something",
+          "antonyms": [
+            "interested"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l3_wm_prac_1",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "Cutting the hills has one clear **consequence**: landslides.\n\nWhat does *consequence* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "যা ঘটে এর ফলে",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A **consequence** is what follows from an action.",
+                "bn": "ঠিক আছে। **consequence** মানে কোনো কাজের ফলে যা ঘটে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "কারণ",
+              "correct": false,
+              "feedback": {
+                "en": "That is the **cause**, which comes first. The consequence comes after.",
+                "bn": "এটা **cause**-এর অর্থ, যা আগে ঘটে। consequence আসে পরে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "সমাধান",
+              "correct": false,
+              "feedback": {
+                "en": "That is a **solution** — landslides are hardly that.",
+                "bn": "এটা **solution**-এর অর্থ — ভূমিধস তো সমাধান নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "সম্ভাবনা",
+              "correct": false,
+              "feedback": {
+                "en": "That is a **possibility**; the sentence says it is clear, not possible.",
+                "bn": "এটা **possibility**-এর অর্থ; বাক্যে বলা হয়েছে এটি স্পষ্ট, সম্ভাব্য নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wm_prac_2",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "She was reluctant accepting the offer.",
+              "correct": false,
+              "feedback": {
+                "en": "**Reluctant** is followed by **to** and then the verb.",
+                "bn": "**reluctant**-এর পরে **to** এবং তারপর verb বসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "She was reluctant to accept the offer.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Reluctant to do something.**",
+                "bn": "ঠিক আছে। গঠনটি **reluctant to do something**।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "She was reluctant for accept the offer.",
+              "correct": false,
+              "feedback": {
+                "en": "**For** cannot be followed by a base verb here.",
+                "bn": "এখানে **for**-এর পরে base verb বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "She was reluctant of accepting the offer.",
+              "correct": false,
+              "feedback": {
+                "en": "**Of** is not used with *reluctant*.",
+                "bn": "*reluctant*-এর সাথে **of** বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wm_prac_3",
+          "type": "contextual",
+          "instruction": "Choose the better word",
+          "prompt": "The lawyer said the question was not ______ to the case and should be withdrawn.",
+          "options": [
+            {
+              "id": "a",
+              "text": "relevant",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Relevant to** means connected with the matter.",
+                "bn": "ঠিক আছে। **relevant to** মানে বিষয়ের সাথে সম্পর্কযুক্ত।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "reluctant",
+              "correct": false,
+              "feedback": {
+                "en": "**Reluctant** means unwilling — it describes people, not questions.",
+                "bn": "**reluctant** মানে অনিচ্ছুক — এটি মানুষকে বোঝায়, প্রশ্নকে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "vague",
+              "correct": false,
+              "feedback": {
+                "en": "A **vague** question is unclear; this one is off the point.",
+                "bn": "**vague** প্রশ্ন অস্পষ্ট; এখানে প্রশ্নটি বিষয়বহির্ভূত।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "indifferent",
+              "correct": false,
+              "feedback": {
+                "en": "**Indifferent** describes someone who does not care.",
+                "bn": "**indifferent** এমন কাউকে বোঝায় যার কিছু যায় আসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wm_prac_4",
+          "type": "meaning",
+          "instruction": "Choose the word",
+          "prompt": "Which word means **বাধা**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "obstacle",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. An **obstacle** stands in the way.",
+                "bn": "ঠিক আছে। **obstacle** মানে পথে দাঁড়ানো বাধা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "objective",
+              "correct": false,
+              "feedback": {
+                "en": "**Objective** is the aim you are heading for.",
+                "bn": "**objective** মানে লক্ষ্য।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "outcome",
+              "correct": false,
+              "feedback": {
+                "en": "**Outcome** is the result at the end.",
+                "bn": "**outcome** মানে শেষ ফলাফল।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "occasion",
+              "correct": false,
+              "feedback": {
+                "en": "**Occasion** is a particular time or event.",
+                "bn": "**occasion** মানে নির্দিষ্ট উপলক্ষ বা সময়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wm_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "He gave a ______ reply and left before anyone could ask again.",
+          "options": [
+            {
+              "id": "a",
+              "text": "vague",
+              "correct": true,
+              "feedback": {
+                "en": "Correct — unclear on purpose, which is why he left quickly.",
+                "bn": "ঠিক আছে — ইচ্ছে করেই অস্পষ্ট, তাই দ্রুত সরে গেল।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "relevant",
+              "correct": false,
+              "feedback": {
+                "en": "A **relevant** reply would have answered the question.",
+                "bn": "**relevant** উত্তর হলে প্রশ্নের জবাব মিলত।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "sufficient",
+              "correct": false,
+              "feedback": {
+                "en": "**Sufficient** means enough — then no one would need to ask again.",
+                "bn": "**sufficient** মানে যথেষ্ট — তাহলে আবার জিজ্ঞেস করার দরকার হতো না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "temporary",
+              "correct": false,
+              "feedback": {
+                "en": "**Temporary** is about time, not about clarity.",
+                "bn": "**temporary** সময় বোঝায়, স্পষ্টতা নয়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3_word_usage_1",
+      "subSkillId": "word_usage",
+      "title": "Words that keep the same preposition every time",
+      "words": [
+        {
+          "word": "depend",
+          "bn": "নির্ভর করা",
+          "pos": "verb",
+          "example": {
+            "en": "Whether we go tomorrow depends on the weather.",
+            "bn": "আগামীকাল যাওয়া হবে কি না, তা আবহাওয়ার উপর নির্ভর করছে।"
+          },
+          "usage": "depend on something or someone",
+          "collocations": [
+            "it depends on you"
+          ]
+        },
+        {
+          "word": "consist",
+          "bn": "গঠিত হওয়া",
+          "pos": "verb",
+          "example": {
+            "en": "The committee consists of seven members.",
+            "bn": "কমিটিটি সাতজন সদস্য নিয়ে গঠিত।"
+          },
+          "usage": "consist of parts — never in the passive"
+        },
+        {
+          "word": "succeed",
+          "bn": "সফল হওয়া",
+          "pos": "verb",
+          "example": {
+            "en": "She finally succeeded in getting the licence.",
+            "bn": "শেষ পর্যন্ত সে লাইসেন্সটি পেতে সফল হলো।"
+          },
+          "usage": "succeed in doing something",
+          "antonyms": [
+            "fail"
+          ]
+        },
+        {
+          "word": "insist",
+          "bn": "জোর দেওয়া",
+          "pos": "verb",
+          "example": {
+            "en": "He insisted on paying for the tea.",
+            "bn": "চায়ের দামটা সে-ই দেবে বলে জোর করল।"
+          },
+          "usage": "insist on something"
+        },
+        {
+          "word": "blame",
+          "bn": "দোষ দেওয়া",
+          "pos": "verb",
+          "example": {
+            "en": "Do not blame the driver for the traffic.",
+            "bn": "যানজটের জন্য চালককে দোষ দিয়ো না।"
+          },
+          "usage": "blame someone for something"
+        },
+        {
+          "word": "rely",
+          "bn": "ভরসা করা",
+          "pos": "verb",
+          "example": {
+            "en": "The whole village relies on one tube well.",
+            "bn": "পুরো গ্রামটি একটিমাত্র নলকূপের উপর ভরসা করে।"
+          },
+          "usage": "rely on someone",
+          "synonyms": [
+            "depend on"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l3_wu_prac_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "He insisted ______ paying for the tea.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Insist on** something.",
+                "bn": "ঠিক আছে। গঠনটি **insist on something**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "**Insist** never takes *to* before a verb.",
+                "bn": "**insist**-এর পরে verb-এর আগে *to* বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "for",
+              "correct": false,
+              "feedback": {
+                "en": "**For** is not used after *insist*.",
+                "bn": "*insist*-এর পরে **for** বসে না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "at",
+              "correct": false,
+              "feedback": {
+                "en": "**At** is not used after *insist*.",
+                "bn": "*insist*-এর পরে **at** বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wu_prac_2",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "Which sentence is correct?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The book is consisted of ten chapters.",
+              "correct": false,
+              "feedback": {
+                "en": "**Consist** is never passive. *The book consists of ten chapters.*",
+                "bn": "**consist** কখনো passive হয় না। সঠিক: *The book consists of ten chapters*।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "The book consists of ten chapters.",
+              "correct": true,
+              "feedback": {
+                "en": "Correct, and active — that is the only form *consist* takes.",
+                "bn": "ঠিক আছে, active রূপেই — *consist* কেবল এভাবেই বসে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "The book consists in ten chapters.",
+              "correct": false,
+              "feedback": {
+                "en": "**Consist in** means *lies in*, as in *happiness consists in contentment*.",
+                "bn": "**consist in** মানে নিহিত থাকা, যেমন *happiness consists in contentment*।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "The book consists with ten chapters.",
+              "correct": false,
+              "feedback": {
+                "en": "**With** is not used after *consist*.",
+                "bn": "*consist*-এর পরে **with** বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wu_prac_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "You cannot blame the driver ______ the traffic jam.",
+          "options": [
+            {
+              "id": "a",
+              "text": "for",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Blame someone for something.**",
+                "bn": "ঠিক আছে। গঠনটি **blame someone for something**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "**Of** is not used with *blame*.",
+                "bn": "*blame*-এর সাথে **of** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "to",
+              "correct": false,
+              "feedback": {
+                "en": "**To** does not mark the reason.",
+                "bn": "**to** কারণ বোঝায় না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "on",
+              "correct": false,
+              "feedback": {
+                "en": "You can *put the blame on* someone — but *blame* itself takes **for**.",
+                "bn": "*put the blame on* বলা যায় — তবে *blame* নিজে **for** নেয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wu_prac_4",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The whole village relies ______ one tube well for drinking water.",
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Rely on**, exactly like *depend on*.",
+                "bn": "ঠিক আছে। **rely on**, ঠিক *depend on*-এর মতো।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "of",
+              "correct": false,
+              "feedback": {
+                "en": "**Of** goes with *consist* and *capable*.",
+                "bn": "**of** বসে *consist* ও *capable*-এর সাথে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "in",
+              "correct": false,
+              "feedback": {
+                "en": "**In** goes with *succeed*.",
+                "bn": "**in** বসে *succeed*-এর সাথে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "upon to",
+              "correct": false,
+              "feedback": {
+                "en": "*Rely upon* is fine on its own, but never with *to* after it.",
+                "bn": "*rely upon* একা চলে, তবে এর পরে *to* বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wu_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "After two failed attempts he ______ in opening the lock.",
+          "options": [
+            {
+              "id": "a",
+              "text": "succeeded",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Succeed in doing** something.",
+                "bn": "ঠিক আছে। গঠনটি **succeed in doing something**।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "managed",
+              "correct": false,
+              "feedback": {
+                "en": "**Manage** takes *to*: *managed to open*.",
+                "bn": "**manage**-এর সাথে *to* বসে: *managed to open*।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "insisted",
+              "correct": false,
+              "feedback": {
+                "en": "**Insist** takes *on*, and means pressing your point.",
+                "bn": "**insist**-এর সাথে *on* বসে, আর এর মানে জোর দেওয়া।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "depended",
+              "correct": false,
+              "feedback": {
+                "en": "**Depend** takes *on* and means relying.",
+                "bn": "**depend**-এর সাথে *on* বসে, মানে নির্ভর করা।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3_synonyms_antonyms_1",
+      "subSkillId": "synonyms_antonyms",
+      "title": "Pairs that turn up in every exam",
+      "words": [
+        {
+          "word": "harmful",
+          "bn": "ক্ষতিকর",
+          "pos": "adjective",
+          "example": {
+            "en": "Burning plastic is harmful to everyone nearby.",
+            "bn": "প্লাস্টিক পোড়ানো আশেপাশের সবার জন্য ক্ষতিকর।"
+          },
+          "synonyms": [
+            "damaging"
+          ],
+          "antonyms": [
+            "beneficial"
+          ]
+        },
+        {
+          "word": "ordinary",
+          "bn": "সাধারণ",
+          "pos": "adjective",
+          "example": {
+            "en": "It was an ordinary day until the storm came.",
+            "bn": "ঝড় আসার আগ পর্যন্ত দিনটা সাধারণই ছিল।"
+          },
+          "synonyms": [
+            "normal"
+          ],
+          "antonyms": [
+            "unusual",
+            "extraordinary"
+          ]
+        },
+        {
+          "word": "faulty",
+          "bn": "ত্রুটিপূর্ণ",
+          "pos": "adjective",
+          "example": {
+            "en": "The fan stopped because of a faulty switch.",
+            "bn": "ত্রুটিপূর্ণ সুইচের কারণে ফ্যানটা বন্ধ হয়ে গেল।"
+          },
+          "synonyms": [
+            "defective"
+          ],
+          "antonyms": [
+            "perfect"
+          ]
+        },
+        {
+          "word": "generous",
+          "bn": "উদার",
+          "pos": "adjective",
+          "example": {
+            "en": "Our landlord was generous about the late rent.",
+            "bn": "ভাড়া দিতে দেরি হওয়ায় আমাদের বাড়িওয়ালা উদারতা দেখালেন।"
+          },
+          "antonyms": [
+            "selfish"
+          ]
+        },
+        {
+          "word": "sudden",
+          "bn": "আকস্মিক",
+          "pos": "adjective",
+          "example": {
+            "en": "A sudden shower sent everyone under the shed.",
+            "bn": "আকস্মিক বৃষ্টিতে সবাই ছাউনির নিচে গিয়ে দাঁড়াল।"
+          },
+          "synonyms": [
+            "unexpected"
+          ],
+          "antonyms": [
+            "gradual"
+          ]
+        },
+        {
+          "word": "beneficial",
+          "bn": "উপকারী",
+          "pos": "adjective",
+          "example": {
+            "en": "Walking every morning is beneficial for the heart.",
+            "bn": "প্রতিদিন সকালে হাঁটা হৃৎপিণ্ডের জন্য উপকারী।"
+          },
+          "synonyms": [
+            "helpful"
+          ],
+          "antonyms": [
+            "harmful"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l3_sa_prac_1",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **beneficial**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "harmful",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. This pair appears in exam papers year after year.",
+                "bn": "ঠিক আছে। এই জোড়াটি বছরের পর বছর পরীক্ষায় আসে।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "helpful",
+              "correct": false,
+              "feedback": {
+                "en": "**Helpful** means much the same as *beneficial*.",
+                "bn": "**helpful** মানে *beneficial*-এর কাছাকাছি।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "useless",
+              "correct": false,
+              "feedback": {
+                "en": "**Useless** means it does nothing; *harmful* means it does damage.",
+                "bn": "**useless** মানে কাজে আসে না; *harmful* মানে ক্ষতি করে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "expensive",
+              "correct": false,
+              "feedback": {
+                "en": "**Expensive** is about price.",
+                "bn": "**expensive** দাম বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_sa_prac_2",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **sudden**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "unexpected",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Both mean it came without warning.",
+                "bn": "ঠিক আছে। দুটোই বোঝায় আগে থেকে বোঝা যায়নি।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "gradual",
+              "correct": false,
+              "feedback": {
+                "en": "**Gradual** is slow and step by step — the opposite.",
+                "bn": "**gradual** মানে ধীরে ধীরে — ঠিক উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "frequent",
+              "correct": false,
+              "feedback": {
+                "en": "**Frequent** is about how often, not how quickly.",
+                "bn": "**frequent** কত ঘন ঘন তা বোঝায়, কত দ্রুত নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "heavy",
+              "correct": false,
+              "feedback": {
+                "en": "**Heavy** describes the amount of rain, not its timing.",
+                "bn": "**heavy** বৃষ্টির পরিমাণ বোঝায়, সময় নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_sa_prac_3",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **generous**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "selfish",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A **generous** person gives; a **selfish** one does not.",
+                "bn": "ঠিক আছে। **generous** মানুষ দেয়; **selfish** মানুষ দেয় না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "poor",
+              "correct": false,
+              "feedback": {
+                "en": "**Poor** is about money. A poor person can be very generous.",
+                "bn": "**poor** টাকার প্রসঙ্গ। গরিব মানুষও খুব উদার হতে পারে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "rude",
+              "correct": false,
+              "feedback": {
+                "en": "**Rude** is about manners.",
+                "bn": "**rude** আচরণ বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "careful",
+              "correct": false,
+              "feedback": {
+                "en": "**Careful** is about attention.",
+                "bn": "**careful** মনোযোগ বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_sa_prac_4",
+          "type": "contextual",
+          "instruction": "Choose the better word",
+          "prompt": "The shop replaced the phone because the battery was ______ .",
+          "options": [
+            {
+              "id": "a",
+              "text": "faulty",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. A **faulty** part does not work as it should.",
+                "bn": "ঠিক আছে। **faulty** অংশ ঠিকমতো কাজ করে না।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "ordinary",
+              "correct": false,
+              "feedback": {
+                "en": "An **ordinary** battery is a normal one — no reason to replace it.",
+                "bn": "**ordinary** ব্যাটারি মানে সাধারণ — বদলানোর কারণ নেই।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "sudden",
+              "correct": false,
+              "feedback": {
+                "en": "**Sudden** describes events, not objects.",
+                "bn": "**sudden** ঘটনাকে বোঝায়, জিনিসকে নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "generous",
+              "correct": false,
+              "feedback": {
+                "en": "**Generous** describes people.",
+                "bn": "**generous** মানুষকে বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_sa_prac_5",
+          "type": "synonym_antonym",
+          "instruction": "Choose the closest meaning",
+          "prompt": "Which word is closest in meaning to **ordinary**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "normal",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Both mean nothing special is going on.",
+                "bn": "ঠিক আছে। দুটোই বোঝায় বিশেষ কিছু নয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "unusual",
+              "correct": false,
+              "feedback": {
+                "en": "**Unusual** is the opposite.",
+                "bn": "**unusual** ঠিক উল্টো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "boring",
+              "correct": false,
+              "feedback": {
+                "en": "**Boring** is a judgement; *ordinary* is not.",
+                "bn": "**boring** একটি বিচার; *ordinary* তা নয়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "cheap",
+              "correct": false,
+              "feedback": {
+                "en": "**Cheap** is about price.",
+                "bn": "**cheap** দাম বোঝায়।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3_collocations_1",
+      "subSkillId": "collocations",
+      "title": "The verbs of reports and meetings",
+      "words": [
+        {
+          "word": "draw",
+          "bn": "টানা; বের করা",
+          "pos": "verb",
+          "example": {
+            "en": "From two examples alone you cannot draw a conclusion.",
+            "bn": "মাত্র দুটি উদাহরণ থেকে সিদ্ধান্তে আসা যায় না।"
+          },
+          "collocations": [
+            "draw a conclusion",
+            "draw attention",
+            "draw a line"
+          ]
+        },
+        {
+          "word": "meet",
+          "bn": "পূরণ করা; দেখা করা",
+          "pos": "verb",
+          "example": {
+            "en": "If we work tonight we can still meet the deadline.",
+            "bn": "আজ রাতে কাজ করলে আমরা এখনো সময়সীমার মধ্যে শেষ করতে পারব।"
+          },
+          "collocations": [
+            "meet a deadline",
+            "meet the cost",
+            "meet demand"
+          ]
+        },
+        {
+          "word": "raise",
+          "bn": "তোলা; সংগ্রহ করা",
+          "pos": "verb",
+          "example": {
+            "en": "The students raised money to repair the school gate.",
+            "bn": "শিক্ষার্থীরা স্কুলের গেট মেরামতের জন্য টাকা তুলল।"
+          },
+          "usage": "raise something — always takes an object",
+          "collocations": [
+            "raise money",
+            "raise a question",
+            "raise awareness"
+          ]
+        },
+        {
+          "word": "hold",
+          "bn": "অনুষ্ঠিত করা; ধরা",
+          "pos": "verb",
+          "example": {
+            "en": "The committee will hold a meeting on Thursday.",
+            "bn": "কমিটি বৃহস্পতিবার একটি সভা করবে।"
+          },
+          "collocations": [
+            "hold a meeting",
+            "hold an election",
+            "hold a view"
+          ]
+        },
+        {
+          "word": "run",
+          "bn": "চালানো",
+          "pos": "verb",
+          "example": {
+            "en": "His father runs a small business near the station.",
+            "bn": "তার বাবা স্টেশনের কাছে ছোট একটি ব্যবসা চালান।"
+          },
+          "collocations": [
+            "run a business",
+            "run a risk",
+            "run a school"
+          ]
+        },
+        {
+          "word": "lead",
+          "bn": "নিয়ে যাওয়া; কারণ হওয়া",
+          "pos": "verb",
+          "example": {
+            "en": "Cutting the trees led to the flooding last year.",
+            "bn": "গাছ কাটার ফলেই গত বছর বন্যা হয়েছিল।"
+          },
+          "usage": "lead to a result",
+          "collocations": [
+            "lead to trouble",
+            "lead a team"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l3_col_prac_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "May I ______ a question about the second paragraph?",
+          "options": [
+            {
+              "id": "a",
+              "text": "raise",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Questions and objections are **raised**.",
+                "bn": "ঠিক আছে। প্রশ্ন ও আপত্তি **raise** করা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "rise",
+              "correct": false,
+              "feedback": {
+                "en": "**Rise** takes no object — the sun rises, but you raise a question.",
+                "bn": "**rise**-এর পরে object বসে না — সূর্য rises, কিন্তু প্রশ্ন raise করা হয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "give",
+              "correct": false,
+              "feedback": {
+                "en": "**Give a question** is not said; *ask a question* would be.",
+                "bn": "**give a question** বলা হয় না; *ask a question* চলত।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "make",
+              "correct": false,
+              "feedback": {
+                "en": "**Make a point** is fine, but not *make a question*.",
+                "bn": "**make a point** চলে, তবে *make a question* নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_col_prac_2",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The report ______ attention to the poor condition of the road.",
+          "options": [
+            {
+              "id": "a",
+              "text": "draws",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Draw attention to** something is to point it out.",
+                "bn": "ঠিক আছে। **draw attention to** মানে কোনো কিছুর প্রতি নজর টানা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "pays",
+              "correct": false,
+              "feedback": {
+                "en": "**Pay attention** is what the reader does, not the report.",
+                "bn": "**pay attention** পাঠক করে, প্রতিবেদন নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "takes",
+              "correct": false,
+              "feedback": {
+                "en": "**Take attention** is not English.",
+                "bn": "**take attention** ইংরেজিতে বলা হয় না।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "makes",
+              "correct": false,
+              "feedback": {
+                "en": "**Make attention** is not said either.",
+                "bn": "**make attention**-ও বলা হয় না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_col_prac_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Riding without a helmet means you ______ a serious risk.",
+          "options": [
+            {
+              "id": "a",
+              "text": "run",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Run a risk** is the fixed phrase.",
+                "bn": "ঠিক আছে। **run a risk** একটি নির্দিষ্ট বাগধারা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "do",
+              "correct": false,
+              "feedback": {
+                "en": "**Do a risk** is not English.",
+                "bn": "**do a risk** ইংরেজিতে বলা হয় না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "hold",
+              "correct": false,
+              "feedback": {
+                "en": "**Hold** goes with meetings and opinions.",
+                "bn": "**hold** বসে সভা ও মতামতের সাথে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "keep",
+              "correct": false,
+              "feedback": {
+                "en": "**Keep** goes with promises and secrets.",
+                "bn": "**keep** বসে promise ও secret-এর সাথে।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_col_prac_4",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The factory could not ______ the demand during Eid.",
+          "options": [
+            {
+              "id": "a",
+              "text": "meet",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Meet demand** means supplying as much as is wanted.",
+                "bn": "ঠিক আছে। **meet demand** মানে চাহিদা অনুযায়ী সরবরাহ করা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "reach",
+              "correct": false,
+              "feedback": {
+                "en": "**Reach** is for places and levels, not demand.",
+                "bn": "**reach** জায়গা ও মাত্রার ক্ষেত্রে বসে, demand-এর ক্ষেত্রে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "catch",
+              "correct": false,
+              "feedback": {
+                "en": "**Catch** goes with buses and colds.",
+                "bn": "**catch** বসে বাস ও সর্দির সাথে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "hold",
+              "correct": false,
+              "feedback": {
+                "en": "**Hold** does not go with *demand*.",
+                "bn": "*demand*-এর সাথে **hold** বসে না।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_col_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Careless driving often ______ to accidents on this road.",
+          "options": [
+            {
+              "id": "a",
+              "text": "leads",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Lead to** names the result.",
+                "bn": "ঠিক আছে। **lead to** ফলাফল বোঝায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "draws",
+              "correct": false,
+              "feedback": {
+                "en": "**Draw** goes with conclusions and attention.",
+                "bn": "**draw** বসে conclusion ও attention-এর সাথে।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "raises",
+              "correct": false,
+              "feedback": {
+                "en": "**Raise** goes with money and questions.",
+                "bn": "**raise** বসে টাকা ও প্রশ্নের সাথে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "meets",
+              "correct": false,
+              "feedback": {
+                "en": "**Meet** goes with deadlines and demand.",
+                "bn": "**meet** বসে deadline ও demand-এর সাথে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3_phrasal_verbs_1",
+      "subSkillId": "phrasal_verbs",
+      "title": "Phrasal verbs in reports and news",
+      "words": [
+        {
+          "word": "carry out",
+          "bn": "সম্পন্ন করা",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "The survey was carried out in three districts.",
+            "bn": "জরিপটি তিনটি জেলায় পরিচালিত হয়েছিল।"
+          },
+          "usage": "carry out a plan, a survey, an order",
+          "synonyms": [
+            "perform"
+          ]
+        },
+        {
+          "word": "point out",
+          "bn": "উল্লেখ করা, দেখিয়ে দেওয়া",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "She pointed out that the date on the form was wrong.",
+            "bn": "সে দেখিয়ে দিল যে ফরমের তারিখটা ভুল।"
+          }
+        },
+        {
+          "word": "turn out",
+          "bn": "শেষ পর্যন্ত হওয়া",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "Everything turned out well in the end.",
+            "bn": "শেষ পর্যন্ত সবকিছু ভালোভাবেই হলো।"
+          },
+          "usage": "it turned out that ..."
+        },
+        {
+          "word": "bring up",
+          "bn": "উত্থাপন করা; লালনপালন করা",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "Do not bring up that subject at dinner.",
+            "bn": "রাতের খাবারের সময় ওই প্রসঙ্গটা তুলো না।"
+          },
+          "usage": "bring up a subject; also: bring up a child"
+        },
+        {
+          "word": "come up with",
+          "bn": "ভেবে বের করা",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "He came up with a cheaper plan in ten minutes.",
+            "bn": "দশ মিনিটেই সে সস্তা একটা পরিকল্পনা বের করে ফেলল।"
+          }
+        },
+        {
+          "word": "get along with",
+          "bn": "মিলেমিশে চলা",
+          "pos": "phrasal verb",
+          "example": {
+            "en": "She gets along with everyone in the office.",
+            "bn": "অফিসের সবার সাথেই সে মিলেমিশে চলে।"
+          }
+        }
+      ],
+      "practice": [
+        {
+          "id": "l3_pv_prac_1",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "The order was given in the morning and ______ the same day.",
+          "options": [
+            {
+              "id": "a",
+              "text": "carried out",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. Orders and plans are **carried out**.",
+                "bn": "ঠিক আছে। আদেশ ও পরিকল্পনা **carry out** করা হয়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "carried on",
+              "correct": false,
+              "feedback": {
+                "en": "**Carry on** is to continue doing something.",
+                "bn": "**carry on** মানে চালিয়ে যাওয়া।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "brought up",
+              "correct": false,
+              "feedback": {
+                "en": "**Bring up** is to raise a subject.",
+                "bn": "**bring up** মানে প্রসঙ্গ তোলা।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "turned out",
+              "correct": false,
+              "feedback": {
+                "en": "**Turn out** is how something ends, not how it is done.",
+                "bn": "**turn out** শেষে কী দাঁড়াল তা বোঝায়, কীভাবে করা হলো তা নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_pv_prac_2",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "He **came up with** a cheaper plan in ten minutes.\n\nWhat does *came up with* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ভেবে বের করল",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Come up with** is to think of an idea.",
+                "bn": "ঠিক আছে। **come up with** মানে কোনো ভাবনা বের করা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "সাথে এল",
+              "correct": false,
+              "feedback": {
+                "en": "That is **came with**, which is a different thing.",
+                "bn": "এটা **came with**-এর অর্থ, যা আলাদা।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "মেনে নিল",
+              "correct": false,
+              "feedback": {
+                "en": "That is **accepted**.",
+                "bn": "এটা **accept**-এর অর্থ।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "উপরে উঠল",
+              "correct": false,
+              "feedback": {
+                "en": "That is the literal *come up*, not the phrasal verb.",
+                "bn": "এটা আক্ষরিক *come up*, phrasal verb নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_pv_prac_3",
+          "type": "collocation",
+          "instruction": "Complete the sentence",
+          "prompt": "Please do not ______ that subject while the guests are here.",
+          "options": [
+            {
+              "id": "a",
+              "text": "bring up",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Bring up** a subject is to start talking about it.",
+                "bn": "ঠিক আছে। **bring up** মানে কোনো প্রসঙ্গ তোলা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "bring about",
+              "correct": false,
+              "feedback": {
+                "en": "**Bring about** is to cause something to happen.",
+                "bn": "**bring about** মানে কিছু ঘটানো।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "point out",
+              "correct": false,
+              "feedback": {
+                "en": "**Point out** is to draw attention to a fact.",
+                "bn": "**point out** মানে কোনো তথ্যের প্রতি নজর টানা।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "carry out",
+              "correct": false,
+              "feedback": {
+                "en": "**Carry out** is to do a task.",
+                "bn": "**carry out** মানে কাজ সম্পন্ন করা।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_pv_prac_4",
+          "type": "contextual",
+          "instruction": "Choose the meaning",
+          "prompt": "She **gets along with** everyone in the office.\n\nWhat does *gets along with* mean here?",
+          "options": [
+            {
+              "id": "a",
+              "text": "মিলেমিশে চলে",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Get along with** is to have a friendly relationship.",
+                "bn": "ঠিক আছে। **get along with** মানে সবার সাথে সদ্ভাব রাখা।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "সাথে যায়",
+              "correct": false,
+              "feedback": {
+                "en": "That is **goes with** — a literal reading.",
+                "bn": "এটা **goes with**-এর আক্ষরিক অর্থ।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "একমত হয়",
+              "correct": false,
+              "feedback": {
+                "en": "That is **agrees with**. You can get along without agreeing.",
+                "bn": "এটা **agree with**-এর অর্থ। একমত না হয়েও মিলেমিশে চলা যায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "কাজ করে",
+              "correct": false,
+              "feedback": {
+                "en": "That is **works with**.",
+                "bn": "এটা **works with**-এর অর্থ।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_pv_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "We feared the worst, but it ______ that nobody was hurt.",
+          "options": [
+            {
+              "id": "a",
+              "text": "turned out",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Turn out** introduces how something finally was.",
+                "bn": "ঠিক আছে। **turn out** শেষ পর্যন্ত কী দাঁড়াল তা জানায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "turned up",
+              "correct": false,
+              "feedback": {
+                "en": "**Turn up** means to arrive, often unexpectedly.",
+                "bn": "**turn up** মানে হঠাৎ এসে হাজির হওয়া।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "came up with",
+              "correct": false,
+              "feedback": {
+                "en": "**Come up with** needs a person who thought of something.",
+                "bn": "**come up with**-এর জন্য ভাবনা বের করার মতো একজন লাগে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "pointed out",
+              "correct": false,
+              "feedback": {
+                "en": "**Point out** needs someone to say it.",
+                "bn": "**point out**-এর জন্য বলার মতো কেউ লাগে।"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l3_word_formation_1",
+      "subSkillId": "word_formation",
+      "title": "Endings that change the job of a word",
+      "words": [
+        {
+          "word": "dangerous",
+          "bn": "বিপজ্জনক",
+          "pos": "adjective",
+          "example": {
+            "en": "Swimming in that canal is dangerous after the rains.",
+            "bn": "বর্ষার পরে ওই খালে সাঁতার কাটা বিপজ্জনক।"
+          },
+          "usage": "danger + -ous = full of danger",
+          "antonyms": [
+            "safe"
+          ]
+        },
+        {
+          "word": "production",
+          "bn": "উৎপাদন",
+          "pos": "noun",
+          "example": {
+            "en": "Rice production fell sharply after the flood.",
+            "bn": "বন্যার পরে চালের উৎপাদন অনেক কমে গেল।"
+          },
+          "usage": "produce + -tion = the noun of the verb"
+        },
+        {
+          "word": "strengthen",
+          "bn": "শক্তিশালী করা",
+          "pos": "verb",
+          "example": {
+            "en": "Regular exercise will strengthen your legs.",
+            "bn": "নিয়মিত ব্যায়াম তোমার পায়ের শক্তি বাড়াবে।"
+          },
+          "usage": "strength + -en = to make strong"
+        },
+        {
+          "word": "national",
+          "bn": "জাতীয়",
+          "pos": "adjective",
+          "example": {
+            "en": "The national election was held in January.",
+            "bn": "জাতীয় নির্বাচন জানুয়ারিতে অনুষ্ঠিত হয়েছিল।"
+          },
+          "usage": "nation + -al = belonging to the nation"
+        },
+        {
+          "word": "attractive",
+          "bn": "আকর্ষণীয়",
+          "pos": "adjective",
+          "example": {
+            "en": "The bank offered an attractive rate of interest.",
+            "bn": "ব্যাংকটি আকর্ষণীয় সুদের হার দিয়েছিল।"
+          },
+          "usage": "attract + -ive = able to attract"
+        },
+        {
+          "word": "responsibility",
+          "bn": "দায়িত্ব",
+          "pos": "noun",
+          "example": {
+            "en": "Feeding the cows is his responsibility.",
+            "bn": "গরুগুলোকে খাওয়ানোর দায়িত্ব তার।"
+          },
+          "usage": "responsible + -ity = the noun of the adjective",
+          "collocations": [
+            "take responsibility"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "id": "l3_wf_prac_1",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "Feeding the cows is his ______ . (responsible)",
+          "options": [
+            {
+              "id": "a",
+              "text": "responsibility",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **-ity** makes the noun.",
+                "bn": "ঠিক আছে। **-ity** noun বানায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "responsibleness",
+              "correct": false,
+              "feedback": {
+                "en": "**-ness** is not used with this word.",
+                "bn": "এই শব্দে **-ness** বসে না।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "responsible",
+              "correct": false,
+              "feedback": {
+                "en": "**Responsible** is the adjective; after *his* a noun is needed.",
+                "bn": "**responsible** adjective; *his*-এর পরে noun দরকার।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "response",
+              "correct": false,
+              "feedback": {
+                "en": "**Response** means a reply — a different word altogether.",
+                "bn": "**response** মানে জবাব — সম্পূর্ণ আলাদা শব্দ।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wf_prac_2",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The bank offered an ______ rate of interest. (attract)",
+          "options": [
+            {
+              "id": "a",
+              "text": "attractive",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **-ive** makes the adjective.",
+                "bn": "ঠিক আছে। **-ive** adjective বানায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "attraction",
+              "correct": false,
+              "feedback": {
+                "en": "**Attraction** is the noun.",
+                "bn": "**attraction** noun।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "attracted",
+              "correct": false,
+              "feedback": {
+                "en": "**Attracted** describes a person who feels the pull.",
+                "bn": "**attracted** যিনি আকৃষ্ট হন তাকে বোঝায়।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "attractful",
+              "correct": false,
+              "feedback": {
+                "en": "That is not a word.",
+                "bn": "এটি কোনো শব্দ নয়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wf_prac_3",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The ______ anthem is played before the match. (nation)",
+          "options": [
+            {
+              "id": "a",
+              "text": "national",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **-al** turns the noun into an adjective.",
+                "bn": "ঠিক আছে। **-al** noun-কে adjective বানায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "nationly",
+              "correct": false,
+              "feedback": {
+                "en": "That is not a word.",
+                "bn": "এটি কোনো শব্দ নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "nationality",
+              "correct": false,
+              "feedback": {
+                "en": "**Nationality** is which country you belong to.",
+                "bn": "**nationality** মানে কোন দেশের নাগরিক।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "nations",
+              "correct": false,
+              "feedback": {
+                "en": "**Nations** is just the plural noun.",
+                "bn": "**nations** কেবল বহুবচন noun।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wf_prac_4",
+          "type": "synonym_antonym",
+          "instruction": "Choose the opposite",
+          "prompt": "Which word is the opposite of **dangerous**?",
+          "options": [
+            {
+              "id": "a",
+              "text": "safe",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **Dangerous** and **safe** are the everyday pair.",
+                "bn": "ঠিক আছে। **dangerous** ও **safe** প্রচলিত বিপরীত জোড়া।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "careful",
+              "correct": false,
+              "feedback": {
+                "en": "**Careful** describes the person, not the place.",
+                "bn": "**careful** ব্যক্তিকে বোঝায়, জায়গাকে নয়।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "dangerless",
+              "correct": false,
+              "feedback": {
+                "en": "That is not a word; English uses **safe**.",
+                "bn": "এটি কোনো শব্দ নয়; ইংরেজিতে **safe** বসে।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "quiet",
+              "correct": false,
+              "feedback": {
+                "en": "**Quiet** is about noise.",
+                "bn": "**quiet** শব্দ বোঝায়।"
+              }
+            }
+          ]
+        },
+        {
+          "id": "l3_wf_prac_5",
+          "type": "recall",
+          "instruction": "Complete the sentence",
+          "prompt": "The government wants to ______ the rules for small traders. (simple)",
+          "options": [
+            {
+              "id": "a",
+              "text": "simplify",
+              "correct": true,
+              "feedback": {
+                "en": "Correct. **-ify** makes the verb.",
+                "bn": "ঠিক আছে। **-ify** verb বানায়।"
+              }
+            },
+            {
+              "id": "b",
+              "text": "simplicity",
+              "correct": false,
+              "feedback": {
+                "en": "**Simplicity** is the noun.",
+                "bn": "**simplicity** noun।"
+              }
+            },
+            {
+              "id": "c",
+              "text": "simplest",
+              "correct": false,
+              "feedback": {
+                "en": "**Simplest** compares things; a verb is needed here.",
+                "bn": "**simplest** তুলনা বোঝায়; এখানে verb দরকার।"
+              }
+            },
+            {
+              "id": "d",
+              "text": "simpling",
+              "correct": false,
+              "feedback": {
+                "en": "That is not a word.",
+                "bn": "এটি কোনো শব্দ নয়।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

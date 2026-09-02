@@ -88,3 +88,9 @@ CLAUDE.md
 .cursor/
 .windsurfrules
 .github/copilot-instructions.md
+
+# Source photos of textbook pages, kept for authoring vocabulary content.
+# Reference only: they calibrate level and register, are never copied into
+# the app, and are far too large to belong in git history.
+docs/vocabulary_source/
+Vocabulary-Images/

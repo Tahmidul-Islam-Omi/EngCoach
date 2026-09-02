@@ -397,8 +397,8 @@
               "text": "about",
               "correct": false,
               "feedback": {
-                "en": "**Liable to** exists — *liable to break* — but the cost takes **for**.",
-                "bn": "**liable to** আছে — *liable to break* — তবে খরচের ক্ষেত্রে **for** বসে।"
+                "en": "**About** is not used with *liable*. There is *liable to break*, but damage and costs take **for**.",
+                "bn": "*liable*-এর সাথে **about** বসে না। *liable to break* আছে, তবে ক্ষতি ও খরচের ক্ষেত্রে **for** বসে।"
               }
             }
           ]
@@ -711,7 +711,7 @@
           "options": [
             {
               "id": "a",
-              "text": "put",
+              "text": "took",
               "correct": false
             },
             {
@@ -822,11 +822,11 @@
             },
             {
               "id": "b",
-              "text": "opened",
+              "text": "taken",
               "correct": false,
               "feedback": {
-                "en": "*Open an inquiry* is possible, but **launch** is the usual word here.",
-                "bn": "*open an inquiry* চলে, তবে এখানে **launch**-ই স্বাভাবিক।"
+                "en": "**Take an investigation** is not English; you *take* a decision or a step.",
+                "bn": "**take an investigation** ইংরেজিতে বলা হয় না; decision বা step **take** করা হয়।"
               }
             },
             {
@@ -977,7 +977,7 @@
             },
             {
               "id": "d",
-              "text": "step aside from",
+              "text": "step out",
               "correct": false
             }
           ]
@@ -1211,7 +1211,7 @@
           "id": "l4_wf_post_1",
           "type": "recall",
           "instruction": "Complete the sentence",
-          "prompt": "Do not ______ how long the repair will take. (estimate)",
+          "prompt": "Do not ______ how long the repair will take — it could run into next month. (estimate)",
           "options": [
             {
               "id": "a",
@@ -1515,9 +1515,9 @@
         },
         {
           "id": "l4_wm_prac_3",
-          "type": "meaning",
-          "instruction": "Choose the word",
-          "prompt": "The book warns that **adverse** and *averse* are not the same. Which sentence uses **adverse** correctly?",
+          "type": "usage",
+          "instruction": "Choose the correct sentence",
+          "prompt": "**Adverse** and *averse* look alike and are often confused.\n\nWhich sentence uses **adverse** correctly?",
           "options": [
             {
               "id": "a",

@@ -69,7 +69,10 @@ class AssessmentResultView extends ConsumerWidget {
                 // the learner's attention between two of the same number.
                 _Headline(result: result, showScore: before == null),
                 const SizedBox(height: AppSpacing.xl),
-                Text('SUB-SKILL BY SUB-SKILL', style: text.labelSmall),
+                // "Part", not "sub-skill": the rest of the app already
+                // says parts to the learner, and sub-skill is our word for
+                // the thing, not theirs.
+                Text('PART BY PART', style: text.labelSmall),
                 const SizedBox(height: AppSpacing.md),
                 for (final score in result.subSkills) ...[
                   _SubSkillRow(score: score),

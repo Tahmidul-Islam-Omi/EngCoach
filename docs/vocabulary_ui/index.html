@@ -1,0 +1,651 @@
+<title>Vocabulary Flow Walkthrough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap">
+<style>
+/* Palette is EngCoach's own (lib/app/theme/app_colors.dart) — this prototype
+   has to be judged as the app, not as a mockup in someone else's colours. */
+:root{
+  --navy:#16243A; --paper:#EEF1F8; --surface:#FFFFFF;
+  --line:#D8DFEA; --divider:#E2E8F0;
+  --ink:#16243A; --ink-2:#55657F; --ink-3:#47566B;
+  --outline:#7D8BA3;
+  --ok:#166534; --ok-bg:#DCFCE7;
+  --warn:#92400E; --warn-bg:#FEF3C7;
+  --info:#1D4ED8; --info-bg:#DBEAFE;
+  --bad:#B42318; --bad-bg:#FEE4E2;
+  --on-navy:#FFFFFF; --on-navy-2:#C7D2E4; --on-navy-3:#93A4C0;
+
+  /* Workbench chrome, one step darker than the app's own navy so the phone
+     reads as a device sitting on a surface. */
+  --board:#0C1522; --board-2:#152232; --board-line:#22344B;
+  --board-ink:#DCE5F2; --board-ink-2:#8DA0BC;
+
+  --sans:"Noto Sans Bengali",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,"Cascadia Mono",monospace;
+}
+:root:not([data-theme="light"]){
+  @media (prefers-color-scheme: dark){
+    --board:#070C14; --board-2:#0F1A28; --board-line:#1D2C40;
+  }
+}
+:root[data-theme="dark"]{ --board:#070C14; --board-2:#0F1A28; --board-line:#1D2C40; }
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--board); color:var(--board-ink);
+  font-family:var(--sans); font-size:15px; line-height:1.55;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--info); outline-offset:2px; border-radius:6px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ------------------------------------------------------------- workbench */
+.shell{display:grid; grid-template-columns:1fr; min-height:100vh}
+@media (min-width:1080px){ .shell{grid-template-columns:300px 1fr} }
+
+.rail{
+  background:var(--board-2); border-right:1px solid var(--board-line);
+  padding:26px 20px 40px; display:flex; flex-direction:column; gap:22px;
+}
+.brand{display:flex; align-items:center; gap:10px}
+.brand .mark{
+  width:34px;height:34px;border-radius:9px;background:var(--navy);
+  border:1px solid var(--board-line); display:grid; place-items:center;
+  color:#fff; font-weight:700; font-size:15px;
+}
+.brand h1{margin:0; font-size:15px; font-weight:700; letter-spacing:-.01em}
+.brand p{margin:1px 0 0; font-size:12px; color:var(--board-ink-2)}
+
+.stage{display:flex; flex-direction:column; gap:6px}
+.stage h2{
+  margin:0 0 2px; font-family:var(--mono); font-size:10.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--board-ink-2); font-weight:500;
+}
+.step{
+  appearance:none; border:0; text-align:left; cursor:pointer; width:100%;
+  display:flex; align-items:baseline; gap:9px; padding:7px 9px; border-radius:8px;
+  background:transparent; color:var(--board-ink); font:inherit; font-size:13.5px;
+  transition:background .12s ease;
+}
+.step:hover{background:rgba(255,255,255,.05)}
+.step[aria-current="true"]{background:var(--navy); color:#fff}
+.step .n{
+  font-family:var(--mono); font-size:11px; color:var(--board-ink-2);
+  font-variant-numeric:tabular-nums; min-width:16px;
+}
+.step[aria-current="true"] .n{color:var(--on-navy-3)}
+.step .branch{
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--warn); background:var(--warn-bg); padding:1px 5px; border-radius:999px;
+  align-self:center; margin-left:auto;
+}
+
+/* ----------------------------------------------------------------- stage */
+.floor{padding:30px 24px 50px; display:flex; flex-direction:column; align-items:center; gap:18px}
+/* Wide screens set the rule beside the device, so the screen and the rule it
+   encodes are both visible without scrolling. */
+.bench{display:flex; flex-direction:column; align-items:center; gap:18px}
+@media (min-width:1180px){
+  .bench{flex-direction:row; align-items:flex-start; gap:28px}
+  .bench .rule{width:300px; position:sticky; top:30px}
+}
+.walk{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center}
+.walk button{
+  appearance:none; cursor:pointer; font:inherit; font-size:13.5px; font-weight:500;
+  padding:9px 16px; border-radius:999px; border:1px solid var(--board-line);
+  background:var(--board-2); color:var(--board-ink);
+}
+.walk button:hover{border-color:var(--outline)}
+.walk button[disabled]{opacity:.35; cursor:default}
+.walk .where{
+  font-family:var(--mono); font-size:12px; color:var(--board-ink-2);
+  font-variant-numeric:tabular-nums;
+}
+
+/* The device. 360×760 is the screen the app was already tested against. */
+.phone{
+  width:392px; max-width:100%; background:#0a121d; border-radius:34px; padding:10px;
+  border:1px solid var(--board-line); box-shadow:0 24px 60px rgba(0,0,0,.45);
+}
+.screen{
+  width:100%; height:760px; overflow:hidden; border-radius:26px;
+  background:var(--paper); color:var(--ink); display:flex; flex-direction:column;
+  font-size:14px;
+}
+.scroll{overflow-y:auto; flex:1; -webkit-overflow-scrolling:touch}
+.bar{
+  display:flex; align-items:center; gap:12px; padding:14px 18px 10px;
+  font-weight:700; font-size:17px; flex:none;
+}
+.bar .back{color:var(--ink-2); font-weight:400; font-size:19px; line-height:1}
+.pad{padding:0 18px 26px; display:flex; flex-direction:column; gap:14px}
+.foot{
+  flex:none; background:var(--surface); padding:14px 18px 18px;
+  display:flex; flex-direction:column; gap:9px; border-top:1px solid var(--divider);
+}
+
+/* -------------------------------------------------------- app components */
+.eyebrow{
+  font-size:11px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink-2); font-weight:500;
+}
+h3.big{margin:0; font-size:24px; line-height:1.22; letter-spacing:-.02em; text-wrap:balance}
+h4.mid{margin:0; font-size:17px; line-height:1.3; letter-spacing:-.01em}
+p{margin:0}
+.muted{color:var(--ink-2); font-size:12.5px}
+
+.card{
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:16px; display:flex; flex-direction:column; gap:8px;
+}
+.card.tall{border-radius:16px; padding:20px}
+.navycard{
+  background:var(--navy); color:var(--on-navy); border-radius:16px; padding:20px;
+  display:flex; flex-direction:column; gap:10px;
+}
+.navycard .eyebrow{color:var(--on-navy-3)}
+.navycard p{color:var(--on-navy-2); font-size:13px}
+
+.btn{
+  display:block; width:100%; text-align:center; border:0; cursor:pointer; font:inherit;
+  background:var(--navy); color:#fff; font-weight:700; font-size:15px;
+  padding:15px; border-radius:999px;
+}
+.btn.ghost{background:transparent; color:var(--ink-3); border:1px solid var(--line)}
+.btn.light{background:#fff; color:var(--navy)}
+.btn[disabled]{background:var(--divider); color:var(--ink-2); cursor:default}
+.btnlink{
+  background:none;border:0;cursor:pointer;font:inherit;font-size:14px;
+  color:var(--ink-2); padding:6px; text-align:center;
+}
+
+.pill{
+  display:inline-flex; align-items:center; gap:5px; padding:4px 11px; border-radius:999px;
+  font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+}
+.pill.ok{background:var(--ok-bg); color:var(--ok)}
+.pill.warn{background:var(--warn-bg); color:var(--warn)}
+.pill.info{background:var(--info-bg); color:var(--info)}
+.pill.flat{background:var(--divider); color:var(--ink-3)}
+
+.rowitem{
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:14px 16px; display:flex; align-items:center; gap:12px;
+}
+.rowitem .grow{flex:1; min-width:0}
+.rowitem strong{display:block; font-size:15px; letter-spacing:-.01em}
+.num{
+  width:29px;height:29px;border-radius:50%;background:var(--navy);color:#fff;
+  display:grid;place-items:center;font-size:13px;font-weight:700;flex:none;
+}
+.num.done{background:var(--ok)}
+
+.meter{height:5px;border-radius:999px;background:var(--divider);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--navy)}
+.meter.ok i{background:var(--ok)}
+
+.opt{
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:14px 16px; display:flex; gap:12px; align-items:flex-start;
+}
+.opt .k{
+  width:25px;height:25px;border-radius:50%;border:1px solid var(--outline);
+  display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--ink-2);flex:none;
+}
+.opt.right{background:var(--ok-bg); border-color:var(--ok); border-width:2px}
+.opt.right .k{background:var(--ok); border-color:var(--ok); color:#fff}
+.opt.wrong{background:var(--bad-bg); border-color:var(--bad); border-width:2px}
+.opt.wrong .k{background:var(--bad); border-color:var(--bad); color:#fff}
+.opt.dim{opacity:.55}
+.opt.picked{background:var(--info-bg); border-color:var(--info); border-width:2px}
+.opt.picked .k{background:var(--info); border-color:var(--info); color:#fff}
+
+.note{border-radius:14px; padding:14px 16px; display:flex; flex-direction:column; gap:7px; font-size:13.5px}
+.note.ok{background:var(--ok-bg); border:1px solid var(--ok); color:var(--ok)}
+.note.warn{background:var(--warn-bg); border:1px solid var(--warn); color:var(--warn)}
+.note.info{background:var(--info-bg); color:var(--info)}
+.note .eyebrow{font-size:10.5px}
+.note.ok .eyebrow{color:var(--ok)} .note.warn .eyebrow{color:var(--warn)}
+.note.info .eyebrow{color:var(--info)}
+.bn{line-height:1.75}
+
+.profile{display:flex; flex-direction:column}
+.prow{display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid var(--divider)}
+.prow:last-child{border-bottom:0}
+.prow .nm{flex:1; font-size:14px}
+.prow .pc{font-variant-numeric:tabular-nums; font-weight:700; font-size:14px}
+.prow .st{font-size:11.5px; min-width:104px; text-align:right}
+.st.ok{color:var(--ok)} .st.dev{color:var(--warn)} .st.np{color:var(--bad)}
+.st.none{color:var(--ink-2)}
+
+.levels{display:flex; gap:7px}
+.lv{
+  flex:1; border:1px solid var(--line); background:var(--surface); border-radius:11px;
+  padding:9px 6px; text-align:center; font-size:11px; color:var(--ink-2);
+}
+.lv b{display:block; font-size:14px; color:var(--ink)}
+.lv.on{background:var(--navy); border-color:var(--navy); color:var(--on-navy-3)}
+.lv.on b{color:#fff}
+
+.wordcard{background:var(--surface); border:1px solid var(--line); border-radius:16px; overflow:hidden}
+.wordcard .top{padding:18px; border-bottom:1px solid var(--divider)}
+.wordcard .w{font-size:27px; font-weight:700; letter-spacing:-.02em; line-height:1.1}
+.wordcard .pos{font-size:12px; color:var(--ink-2); font-style:italic}
+.wordcard dl{margin:0; padding:16px 18px; display:flex; flex-direction:column; gap:13px}
+.wordcard dt{
+  font-size:10.5px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink-2); margin-bottom:3px; font-weight:500;
+}
+.wordcard dd{margin:0; font-size:14px}
+.tags{display:flex; flex-wrap:wrap; gap:6px}
+.tag{background:var(--divider); color:var(--ink-3); border-radius:999px; padding:3px 10px; font-size:12px}
+.tag.anti{background:var(--bad-bg); color:var(--bad)}
+
+/* ------------------------------------------------------------ rule panel */
+.rule{
+  width:392px; max-width:100%; background:var(--board-2); border:1px solid var(--board-line);
+  border-radius:14px; padding:15px 17px; display:flex; flex-direction:column; gap:7px;
+}
+.rule h5{
+  margin:0; font-family:var(--mono); font-size:10.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--board-ink-2); font-weight:500;
+}
+.rule p{font-size:13px; color:var(--board-ink)}
+.rule code{
+  font-family:var(--mono); font-size:12px; background:rgba(255,255,255,.07);
+  padding:1px 5px; border-radius:4px; color:#fff;
+}
+</style>
+
+<div class="shell">
+  <nav class="rail" aria-label="Flow">
+    <div class="brand">
+      <div class="mark">E</div>
+      <div>
+        <h1>Vocabulary</h1>
+        <p>Flow walkthrough · v1</p>
+      </div>
+    </div>
+    <div id="rail"></div>
+  </nav>
+
+  <main class="floor">
+    <div class="walk">
+      <button id="prev" type="button">← Back</button>
+      <span class="where" id="where"></span>
+      <button id="next" type="button">Next →</button>
+    </div>
+    <div class="bench">
+      <div class="phone"><div class="screen" id="screen"></div></div>
+      <div class="rule">
+        <h5 id="ruleTitle"></h5>
+        <p id="ruleBody"></p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const bar = (t, back = true) =>
+  `<div class="bar">${back ? '<span class="back">←</span>' : ''}<span>${t}</span></div>`;
+
+const S = [
+{g:'Diagnose', t:'Vocabulary home', branch:'',
+ rule:['Entry', 'Levels are a curriculum container, not something the learner picks. The check decides where they belong, so the four levels are shown as context and nothing here is tappable except <code>Start</code>.'],
+ h:bar('Vocabulary', false)+`<div class="scroll"><div class="pad">
+  <div class="navycard">
+    <span class="eyebrow">Words in context</span>
+    <h3 class="big" style="color:#fff">Learn the words you actually get wrong.</h3>
+    <p>A short check finds your level and which vocabulary skills need work. Then you only study those.</p>
+  </div>
+  <span class="eyebrow">Four levels</span>
+  <div class="levels">
+    <div class="lv"><b>1</b>Foundation</div><div class="lv"><b>2</b>Developing</div>
+    <div class="lv"><b>3</b>Intermediate</div><div class="lv"><b>4</b>Advanced</div>
+  </div>
+  <p class="muted">The check places you automatically — you don't choose a level.</p>
+  <span class="eyebrow" style="margin-top:4px">Six skills it measures</span>
+  <div class="card"><div class="tags">
+    <span class="tag">Word Meaning</span><span class="tag">Word Usage</span>
+    <span class="tag">Synonyms &amp; Antonyms</span><span class="tag">Collocations</span>
+    <span class="tag">Phrasal Verbs</span><span class="tag">Word Formation</span>
+  </div></div>
+ </div></div>
+ <div class="foot"><button class="btn">Start the check</button>
+ <p class="muted" style="text-align:center">About 6 minutes · not graded</p></div>`},
+
+{g:'Diagnose', t:'Check — question', branch:'',
+ rule:['Pre-assessment · 6 per level','One question per subskill per level — but the subskill is never named on screen. Telling someone a question measures Collocations steers the answer and measures the wrong thing. No total either, since the length is adaptive.'],
+ h:bar('Quick check')+`<div class="scroll"><div class="pad">
+  <span class="eyebrow">Level 2 · question 4</span>
+  <div class="meter"><i style="width:58%"></i></div>
+  <h4 class="mid" style="margin-top:6px">She was reluctant ___ accept the offer.</h4>
+  <div class="opt"><span class="k">A</span><span>for</span></div>
+  <div class="opt"><span class="k">B</span><span>to</span></div>
+  <div class="opt"><span class="k">C</span><span>in</span></div>
+  <div class="opt"><span class="k">D</span><span>at</span></div>
+ </div></div>
+ <div class="foot"><button class="btn" disabled>Next</button></div>`},
+
+{g:'Diagnose', t:'Borderline top-up', branch:'4/6',
+ rule:['Borderline · 4 of 6','Only a 4/6 triggers extra questions, and only for the subskills that were wrong — which the learner is not told, for the same reason. 5/8 or better moves up, 4/8 stops. A 0–3/6 gets no extension at all.'],
+ h:bar('Quick check')+`<div class="scroll"><div class="pad">
+  <div class="navycard">
+    <span class="eyebrow">Level 2 · 4 of 6</span>
+    <h4 class="mid" style="color:#fff">Two more, to be sure.</h4>
+    <p>You were close. A couple more questions will settle whether Level 3 is the right place to start.</p>
+  </div>
+  <p class="muted">They pick up where you were least certain. It won't take long.</p>
+ </div></div>
+ <div class="foot"><button class="btn">Continue</button></div>`},
+
+{g:'Diagnose', t:'Result — full profile', branch:'',
+ rule:['Profile · ≥3 attempts','A percentage only appears once a subskill has 3 or more scored first attempts. Retries never count. Focus is Needs Practice first, then the lowest Developing, capped at three.'],
+ h:bar('Your result', false)+`<div class="scroll"><div class="pad">
+  <div class="navycard">
+    <span class="eyebrow">Your level</span>
+    <h3 class="big" style="color:#fff">Level 3 · Intermediate</h3>
+    <p>You handled Level 1 and 2 comfortably and most of Level 3.</p>
+  </div>
+  <span class="eyebrow">Your vocabulary profile</span>
+  <div class="card"><div class="profile">
+    <div class="prow"><span class="nm">Word Meaning</span><span class="pc">82%</span><span class="st ok">Comfortable</span></div>
+    <div class="prow"><span class="nm">Word Usage</span><span class="pc">76%</span><span class="st dev">Developing</span></div>
+    <div class="prow"><span class="nm">Word Formation</span><span class="pc">71%</span><span class="st dev">Developing</span></div>
+    <div class="prow"><span class="nm">Synonyms &amp; Antonyms</span><span class="pc">65%</span><span class="st dev">Developing</span></div>
+    <div class="prow"><span class="nm">Collocations</span><span class="pc">43%</span><span class="st np">Needs Practice</span></div>
+    <div class="prow"><span class="nm">Phrasal Verbs</span><span class="pc">38%</span><span class="st np">Needs Practice</span></div>
+  </div></div>
+  <p class="muted">Your plan covers the three weakest. Word Usage and Word Formation are close enough to leave for now.</p>
+ </div></div>
+ <div class="foot"><button class="btn">See your plan</button></div>`},
+
+{g:'Diagnose', t:'Result — beginner', branch:'0–3/6',
+ rule:['Beginner · insufficient evidence','A learner who stops at Level 1 has one attempt per subskill — below the minimum of three, so no percentage may be shown. Focus areas are still chosen, by level priority. The other three are not labelled at all.'],
+ h:bar('Your result', false)+`<div class="scroll"><div class="pad">
+  <div class="navycard">
+    <span class="eyebrow">Your level</span>
+    <h3 class="big" style="color:#fff">Level 1 · Foundation</h3>
+    <p>We have enough to start you off. The rest we'll learn as you go.</p>
+  </div>
+  <span class="eyebrow">What we'll start with</span>
+  <div class="rowitem"><span class="num">1</span><span class="grow"><strong>Word Meaning</strong><span class="muted">Knowing what a word means on its own</span></span></div>
+  <div class="rowitem"><span class="num">2</span><span class="grow"><strong>Word Usage</strong><span class="muted">Putting it in a sentence correctly</span></span></div>
+  <div class="rowitem"><span class="num">3</span><span class="grow"><strong>Collocations</strong><span class="muted">Which words go together</span></span></div>
+  <div class="card">
+    <span class="eyebrow">Not measured yet</span>
+    <div class="profile">
+      <div class="prow"><span class="nm">Synonyms &amp; Antonyms</span><span class="st none">Not enough evidence</span></div>
+      <div class="prow"><span class="nm">Phrasal Verbs</span><span class="st none">Not enough evidence</span></div>
+      <div class="prow"><span class="nm">Word Formation</span><span class="st none">Not enough evidence</span></div>
+    </div>
+    <p class="muted">One question isn't enough to judge these. We'll find out as you learn.</p>
+  </div>
+ </div></div>
+ <div class="foot"><button class="btn">See your plan</button></div>`},
+
+{g:'Learn', t:'Your plan', branch:'',
+ rule:['Path · finite','3–5 chunks, roughly 20–30 words drawn from the level\'s 40-word pool. Finite by construction — the gate is finishing the chunks, never "every subskill becomes Comfortable".'],
+ h:bar('Your plan')+`<div class="scroll"><div class="pad">
+  <h3 class="big">Level 3 · Intermediate</h3>
+  <p class="muted">Based on your check, these are the skills to work on. 24 words, in four short sets.</p>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px">
+    <span class="eyebrow">Your focus</span><span class="eyebrow">0 of 4 sets done</span>
+  </div>
+  <div class="meter ok"><i style="width:0%"></i></div>
+  <div class="card">
+    <div class="tags">
+      <span class="tag" style="background:var(--bad-bg);color:var(--bad)">Collocations</span>
+      <span class="tag" style="background:var(--bad-bg);color:var(--bad)">Phrasal Verbs</span>
+      <span class="tag" style="background:var(--warn-bg);color:var(--warn)">Synonyms &amp; Antonyms</span>
+    </div>
+  </div>
+  <div class="rowitem"><span class="num">1</span><span class="grow"><strong>Set 1 · 7 words</strong><span class="muted">reluctant, deliberate, hesitant…</span></span><span style="color:var(--outline)">›</span></div>
+  <div class="rowitem"><span class="num">2</span><span class="grow"><strong>Set 2 · 6 words</strong><span class="muted">Collocations and phrasal verbs</span></span><span style="color:var(--outline)">›</span></div>
+  <div class="rowitem"><span class="num">3</span><span class="grow"><strong>Set 3 · 6 words</strong><span class="muted">Opposites and near-synonyms</span></span><span style="color:var(--outline)">›</span></div>
+  <div class="rowitem"><span class="num">4</span><span class="grow"><strong>Set 4 · 5 words</strong><span class="muted">Mixed review of all three</span></span><span style="color:var(--outline)">›</span></div>
+ </div></div>`},
+
+{g:'Learn', t:'Word card', branch:'',
+ rule:['Learning · the card','Word, Bangla meaning, example with translation, then usage / synonyms / antonyms / collocations only when the word warrants them. Not every card carries every field. The subskill that selected this word stays under the hood.'],
+ h:bar('Set 1')+`<div class="scroll"><div class="pad">
+  <span class="eyebrow">Word 3 of 7</span>
+  <div class="meter"><i style="width:43%"></i></div>
+  <div class="wordcard" style="margin-top:4px">
+    <div class="top">
+      <div class="w">reluctant</div>
+      <div class="pos">adjective</div>
+    </div>
+    <dl>
+      <div><dt>Bangla</dt><dd class="bn" style="font-size:17px">অনিচ্ছুক</dd></div>
+      <div><dt>Example</dt>
+        <dd>He was <b>reluctant</b> to accept the offer.</dd>
+        <dd class="bn muted" style="margin-top:4px">সে প্রস্তাবটি গ্রহণ করতে অনিচ্ছুক ছিল।</dd></div>
+      <div><dt>How it behaves</dt><dd><code style="font-family:var(--mono);font-size:13px">reluctant + to + verb</code></dd></div>
+      <div><dt>Synonyms</dt><dd class="tags"><span class="tag">unwilling</span><span class="tag">hesitant</span></dd></div>
+      <div><dt>Antonyms</dt><dd class="tags"><span class="tag anti">willing</span><span class="tag anti">eager</span></dd></div>
+      <div><dt>Goes with</dt><dd class="tags"><span class="tag">reluctant to agree</span></dd></div>
+    </dl>
+  </div>
+ </div></div>
+ <div class="foot"><button class="btn">Next word</button>
+ <button class="btnlink">Back to the previous word</button></div>`},
+
+{g:'Learn', t:'Practice — wrong', branch:'',
+ rule:['Practice · first attempt scores','Feedback is immediate, in both languages, and the answer is locked once chosen. Only this first attempt counts toward the profile.'],
+ h:bar('Practice')+`<div class="scroll"><div class="pad">
+  <span class="eyebrow">Set 1 · question 2 of 5</span>
+  <div class="meter"><i style="width:40%"></i></div>
+  <h4 class="mid" style="margin-top:6px">She was reluctant ___ accept the offer.</h4>
+  <div class="opt wrong"><span class="k">✕</span><span>accept</span></div>
+  <div class="opt right"><span class="k">✓</span><span>to accept</span></div>
+  <div class="opt dim"><span class="k">C</span><span>accepting</span></div>
+  <div class="opt dim"><span class="k">D</span><span>for accept</span></div>
+  <div class="note warn">
+    <span class="eyebrow">Not quite</span>
+    <p><b>reluctant</b> is always followed by <b>to</b> and then the plain verb.</p>
+    <p class="bn">reluctant-এর পরে সবসময় <b>to</b> এবং তারপর verb-এর base form বসে।</p>
+  </div>
+ </div></div>
+ <div class="foot"><button class="btn">Try another one</button></div>`},
+
+{g:'Learn', t:'Practice — parallel retry', branch:'retry',
+ rule:['Retry · one only','A wrong answer earns one parallel question — a different sentence testing the same pattern, not the same question again. If that one is wrong too, the loop stops. The retry is a learning signal and is never scored.'],
+ h:bar('Practice')+`<div class="scroll"><div class="pad">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span class="eyebrow">Set 1 · question 2</span><span class="pill info">Same pattern</span>
+  </div>
+  <div class="meter"><i style="width:40%"></i></div>
+  <h4 class="mid" style="margin-top:6px">He was reluctant ___ his opinion.</h4>
+  <div class="opt picked"><span class="k">A</span><span>to express</span></div>
+  <div class="opt"><span class="k">B</span><span>expressing</span></div>
+  <div class="opt"><span class="k">C</span><span>for express</span></div>
+  <div class="opt"><span class="k">D</span><span>express</span></div>
+  <p class="muted">This one doesn't count towards your score — it's here to check the pattern landed.</p>
+ </div></div>
+ <div class="foot"><button class="btn">Check</button></div>`},
+
+{g:'Learn', t:'Set complete', branch:'',
+ rule:['Chunk boundary','Learn 5–10 words, practise them, then straight into the next set. The learner is never handed 30 cards in a row.'],
+ h:bar('Practice', false)+`<div class="scroll"><div class="pad" style="justify-content:center;height:100%">
+  <div style="text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center">
+    <div style="width:62px;height:62px;border-radius:50%;background:var(--ok-bg);display:grid;place-items:center;color:var(--ok);font-size:27px">✓</div>
+    <h3 class="big">4 of 5 right</h3>
+    <p class="muted" style="max-width:30ch">Seven words learned. Set 2 picks up with phrasal verbs — the skill you were weakest on.</p>
+  </div>
+ </div></div>
+ <div class="foot"><button class="btn">Start set 2</button>
+ <button class="btnlink">Go over set 1 again</button></div>`},
+
+{g:'Learn', t:'Review before the check', branch:'',
+ rule:['Review · in-session only','A short recall pass over the words just learned, at the end of the path. Full spaced repetition across days is deliberately out of v1.'],
+ h:bar('Review')+`<div class="scroll"><div class="pad">
+  <div class="navycard">
+    <span class="eyebrow">All four sets done</span>
+    <h4 class="mid" style="color:#fff">Quick recall before the final check.</h4>
+    <p>Twelve of the 24 words, picked from the ones you hesitated on.</p>
+  </div>
+  <span class="eyebrow">Recall 3 of 12</span>
+  <div class="meter"><i style="width:25%"></i></div>
+  <h4 class="mid" style="margin-top:6px">Which word means <b>unwilling</b>?</h4>
+  <div class="opt"><span class="k">A</span><span>eager</span></div>
+  <div class="opt"><span class="k">B</span><span>reluctant</span></div>
+  <div class="opt"><span class="k">C</span><span>deliberate</span></div>
+  <div class="opt"><span class="k">D</span><span>fluent</span></div>
+ </div></div>
+ <div class="foot"><button class="btn" disabled>Next</button></div>`},
+
+{g:'Prove', t:'Final check', branch:'',
+ rule:['Post-assessment · 6 + 2×3','Six base questions measure the level; two per focus subskill measure what was taught. The learner sees one continuous check of 12 — the split is internal.'],
+ h:bar('Final check')+`<div class="scroll"><div class="pad">
+  <span class="eyebrow">Question 8 of 12</span>
+  <div class="meter"><i style="width:67%"></i></div>
+  <h4 class="mid" style="margin-top:6px">The meeting was ___ until Thursday.</h4>
+  <div class="opt"><span class="k">A</span><span>put off</span></div>
+  <div class="opt"><span class="k">B</span><span>put down</span></div>
+  <div class="opt"><span class="k">C</span><span>put up</span></div>
+  <div class="opt"><span class="k">D</span><span>put through</span></div>
+ </div></div>
+ <div class="foot"><button class="btn" disabled>Next</button></div>`},
+
+{g:'Prove', t:'Level 4 probe', branch:'if strong',
+ rule:['Probe · 3 questions','Fired only when the six base questions were strong. These three never enter the competency profile — they answer readiness for the next level and nothing else.'],
+ h:bar('Final check')+`<div class="scroll"><div class="pad">
+  <div class="navycard">
+    <span class="eyebrow">Level 3 · done</span>
+    <h4 class="mid" style="color:#fff">Three harder ones, just to see.</h4>
+    <p>These don't affect your Level 3 result. They only tell us whether Level 4 is within reach.</p>
+  </div>
+  <span class="eyebrow">Level 4 · question 1 of 3</span>
+  <h4 class="mid">The committee was <b>ambivalent</b> about the proposal.</h4>
+  <p class="muted">What does <b>ambivalent</b> mean here?</p>
+  <div class="opt"><span class="k">A</span><span>strongly opposed</span></div>
+  <div class="opt"><span class="k">B</span><span>having mixed feelings</span></div>
+  <div class="opt"><span class="k">C</span><span>completely unaware</span></div>
+  <div class="opt"><span class="k">D</span><span>fully convinced</span></div>
+ </div></div>
+ <div class="foot"><button class="btn" disabled>Next</button></div>`},
+
+{g:'Outcome', t:'Ready for Level 4', branch:'',
+ rule:['Outcome · advance','Before/after uses current-level evidence only. The probe result sits apart, labelled as readiness. No second pre-assessment — the probe already answered it.'],
+ h:bar('Your result', false)+`<div class="scroll"><div class="pad">
+  <div class="navycard">
+    <span class="eyebrow">Level 3 · strong progress</span>
+    <h3 class="big" style="color:#fff">You strengthened what needed it.</h3>
+  </div>
+  <span class="eyebrow">Before → after</span>
+  <div class="card"><div class="profile">
+    <div class="prow"><span class="nm">Collocations</span><span class="pc" style="color:var(--ink-2)">43%</span><span class="pc">→ 78%</span></div>
+    <div class="prow"><span class="nm">Phrasal Verbs</span><span class="pc" style="color:var(--ink-2)">38%</span><span class="pc">→ 72%</span></div>
+    <div class="prow"><span class="nm">Synonyms &amp; Antonyms</span><span class="pc" style="color:var(--ink-2)">65%</span><span class="pc">→ 81%</span></div>
+  </div></div>
+  <div class="note ok">
+    <span class="eyebrow">Readiness check</span>
+    <p>You answered all three Level 4 questions correctly. Level 4 is within reach.</p>
+  </div>
+ </div></div>
+ <div class="foot"><button class="btn">Start Level 4</button>
+ <button class="btnlink">Stay on Level 3 for now</button></div>`},
+
+{g:'Outcome', t:'Continue Level 3', branch:'not ready',
+ rule:['Outcome · continue','Improvement is shown honestly even when it falls short. A new path is generated from the updated profile using words not yet learned — never the same words again.'],
+ h:bar('Your result', false)+`<div class="scroll"><div class="pad">
+  <div class="navycard">
+    <span class="eyebrow">Level 3 · progress</span>
+    <h3 class="big" style="color:#fff">Better, and worth one more round.</h3>
+  </div>
+  <span class="eyebrow">Before → after</span>
+  <div class="card"><div class="profile">
+    <div class="prow"><span class="nm">Collocations</span><span class="pc" style="color:var(--ink-2)">43%</span><span class="pc">→ 72%</span></div>
+    <div class="prow"><span class="nm">Phrasal Verbs</span><span class="pc" style="color:var(--ink-2)">38%</span><span class="pc">→ 68%</span></div>
+    <div class="prow"><span class="nm">Synonyms &amp; Antonyms</span><span class="pc" style="color:var(--ink-2)">65%</span><span class="pc">→ 70%</span></div>
+  </div></div>
+  <p class="muted">Phrasal verbs are still the weakest. Your next set uses 18 Level 3 words you haven't seen yet.</p>
+ </div></div>
+ <div class="foot"><button class="btn">Build my next plan</button></div>`},
+
+{g:'Outcome', t:'Top of the ladder', branch:'level 4',
+ rule:['Ceiling','There is no Level 5 in v1, so no probe fires and nothing offers to advance. The screen has to be worth reaching rather than a dead end.'],
+ h:bar('Your result', false)+`<div class="scroll"><div class="pad" style="justify-content:center;height:100%">
+  <div style="display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center">
+    <div style="width:64px;height:64px;border-radius:50%;background:var(--ok-bg);display:grid;place-items:center;color:var(--ok);font-size:28px">★</div>
+    <h3 class="big">Level 4 · Advanced</h3>
+    <p class="muted" style="max-width:32ch">You've reached the highest level available. Your vocabulary is strong across all six skills.</p>
+    <div class="card" style="width:100%;text-align:left">
+      <div class="profile">
+        <div class="prow"><span class="nm">Collocations</span><span class="pc">84%</span><span class="st ok">Comfortable</span></div>
+        <div class="prow"><span class="nm">Phrasal Verbs</span><span class="pc">80%</span><span class="st ok">Comfortable</span></div>
+      </div>
+    </div>
+  </div>
+ </div></div>
+ <div class="foot"><button class="btn">Review what I've learned</button>
+ <button class="btnlink">Practise again</button></div>`},
+
+{g:'Outcome', t:'Nothing to remediate', branch:'all clear',
+ rule:['No path','Comfortable across all six means no focus areas, so no path is generated at all. The learner goes straight to a readiness check rather than being given busywork.'],
+ h:bar('Your result', false)+`<div class="scroll"><div class="pad">
+  <div class="navycard">
+    <span class="eyebrow">Level 2 · all clear</span>
+    <h3 class="big" style="color:#fff">Nothing here needs practice.</h3>
+    <p>You're comfortable across every vocabulary skill at this level.</p>
+  </div>
+  <div class="card"><div class="profile">
+    <div class="prow"><span class="nm">Word Meaning</span><span class="pc">88%</span><span class="st ok">Comfortable</span></div>
+    <div class="prow"><span class="nm">Word Usage</span><span class="pc">84%</span><span class="st ok">Comfortable</span></div>
+    <div class="prow"><span class="nm">Synonyms &amp; Antonyms</span><span class="pc">83%</span><span class="st ok">Comfortable</span></div>
+    <div class="prow"><span class="nm">Collocations</span><span class="pc">81%</span><span class="st ok">Comfortable</span></div>
+    <div class="prow"><span class="nm">Phrasal Verbs</span><span class="pc">80%</span><span class="st ok">Comfortable</span></div>
+    <div class="prow"><span class="nm">Word Formation</span><span class="pc">86%</span><span class="st ok">Comfortable</span></div>
+  </div></div>
+  <p class="muted">There's no point teaching what you already know. Let's see whether Level 3 fits.</p>
+ </div></div>
+ <div class="foot"><button class="btn">Check Level 3</button></div>`},
+];
+
+let at = 0;
+const rail = document.getElementById('rail');
+const groups = [...new Set(S.map(s => s.g))];
+
+groups.forEach(g => {
+  const box = document.createElement('div');
+  box.className = 'stage';
+  box.innerHTML = `<h2>${g}</h2>`;
+  S.forEach((s, i) => {
+    if (s.g !== g) return;
+    const b = document.createElement('button');
+    b.className = 'step';
+    b.type = 'button';
+    b.dataset.i = i;
+    b.innerHTML = `<span class="n">${String(i + 1).padStart(2, '0')}</span>`
+      + `<span>${s.t}</span>`
+      + (s.branch ? `<span class="branch">${s.branch}</span>` : '');
+    b.onclick = () => go(i);
+    box.appendChild(b);
+  });
+  rail.appendChild(box);
+});
+
+function go(i) {
+  at = Math.max(0, Math.min(S.length - 1, i));
+  const s = S[at];
+  document.getElementById('screen').innerHTML = s.h;
+  document.getElementById('ruleTitle').textContent = s.rule[0];
+  document.getElementById('ruleBody').innerHTML = s.rule[1];
+  document.getElementById('where').textContent =
+    `${String(at + 1).padStart(2, '0')} / ${S.length}  ·  ${s.t}`;
+  document.getElementById('prev').disabled = at === 0;
+  document.getElementById('next').disabled = at === S.length - 1;
+  document.querySelectorAll('.step').forEach(b =>
+    b.setAttribute('aria-current', String(+b.dataset.i === at)));
+}
+
+document.getElementById('prev').onclick = () => go(at - 1);
+document.getElementById('next').onclick = () => go(at + 1);
+addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') go(at + 1);
+  if (e.key === 'ArrowLeft') go(at - 1);
+});
+go(0);
+</script>

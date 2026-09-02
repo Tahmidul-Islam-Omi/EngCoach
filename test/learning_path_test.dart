@@ -80,8 +80,10 @@ void main() {
       expect(find.text('Sub-skill 4'), findsOneWidget);
       expect(find.text('Sub-skill 1'), findsNothing);
       expect(find.text('Sub-skill 3'), findsNothing);
-      expect(find.textContaining('2 of these need work'), findsOneWidget);
-      expect(find.textContaining('other 2 you can skip'), findsOneWidget);
+      // The plan names what to work on; how many were skipped is internal
+      // accounting the learner has no use for.
+      expect(find.textContaining('parts to work on'), findsOneWidget);
+      expect(find.textContaining('you can skip'), findsNothing);
     });
 
     testWidgets('keeps authored order, not the stored order', (tester) async {
@@ -112,7 +114,6 @@ void main() {
       );
 
       expect(find.text('Sub-skill 1'), findsOneWidget);
-      expect(find.textContaining('1 of these need work'), findsOneWidget);
     });
 
     testWidgets('asks for the check when there is no progress', (tester) async {

@@ -68,7 +68,6 @@ class _Plan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final text = Theme.of(context).textTheme;
-    final skipped = topic.subSkills.length - weak.length;
     final done = progress.doneCount;
 
     return ListView(
@@ -82,10 +81,8 @@ class _Plan extends StatelessWidget {
         Text(topic.title, style: text.headlineLarge),
         const SizedBox(height: AppSpacing.sm),
         Text(
-          skipped > 0
-              ? 'Your check said ${weak.length} of these need work. '
-                    "The other $skipped you can skip."
-              : 'Your check said all ${weak.length} need work.',
+          'Based on your check, these are the parts to work on. '
+          'Start at the top.',
           style: text.bodyMedium,
         ),
         const SizedBox(height: AppSpacing.xl),

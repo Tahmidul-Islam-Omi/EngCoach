@@ -74,10 +74,7 @@ class AssessmentResultView extends ConsumerWidget {
                   weak.isEmpty
                       ? 'Nothing here needs teaching. Take the check again '
                             'any time to confirm it.'
-                      : 'Your lessons will cover the '
-                            '${weak.length == 1 ? 'one' : weak.length} '
-                            '${weak.length == 1 ? 'sub-skill' : 'sub-skills'} '
-                            'marked Focus. The rest you can skip.',
+                      : 'Your lessons will cover everything marked Focus.',
                   style: text.bodySmall,
                 ),
               ],

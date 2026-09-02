@@ -177,4 +177,82 @@ void main() {
       expect(find.text('Question 1 of 9'), findsOneWidget);
     });
   });
+
+  group('the result', () {
+    const right = 'Option a';
+    const wrong = 'Option b';
+
+    Future<void> pumpFinalCheck(
+      WidgetTester tester, {
+      required bool correct,
+    }) async {
+      tester.view.physicalSize = const Size(360, 900);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.reset);
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            contentRepositoryProvider.overrideWithValue(
+              FakeContentRepository(buildTopic(subSkills: 3)),
+            ),
+            progressRepositoryProvider.overrideWithValue(
+              FakeProgressRepository(
+                progressWith(weak: ['s1'], done: ['s1'], prePercent: 60),
+              ),
+            ),
+          ],
+          child: MaterialApp(
+            theme: AppTheme.light,
+            home: const AssessmentScreen(
+              topicId: 'test_topic',
+              phase: AssessmentPhase.post,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      for (var i = 0; i < 9; i++) {
+        await tester.tap(find.text(correct ? right : wrong));
+        await tester.pump();
+        await tester.tap(find.byType(FilledButton));
+        await tester.pumpAndSettle();
+      }
+    }
+
+    testWidgets('speaks about lessons already taken, not a plan to come', (
+      tester,
+    ) async {
+      await pumpFinalCheck(tester, correct: true);
+
+      expect(find.text('YOU IMPROVED'), findsOneWidget);
+      expect(find.text('It all held up.'), findsOneWidget);
+      expect(
+        find.text("Here's what to work on."),
+        findsNothing,
+        reason: 'the pre-assessment wording describes a plan being made',
+      );
+      expect(
+        find.text('9/9'),
+        findsNothing,
+        reason: 'the before/after card has already given the score',
+      );
+      expect(find.text('Back to topic'), findsOneWidget);
+    });
+
+    testWidgets('sends a learner who slipped back to the lessons', (
+      tester,
+    ) async {
+      await pumpFinalCheck(tester, correct: false);
+
+      expect(find.text('This one needs another pass.'), findsOneWidget);
+      expect(find.text('Back to the lessons'), findsOneWidget);
+      expect(
+        find.text('Start learning'),
+        findsNothing,
+        reason: 'they have already started; this is a second pass',
+      );
+    });
+  });
 }

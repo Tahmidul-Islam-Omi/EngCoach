@@ -10,13 +10,16 @@ import '../../../data/models/assessment_result.dart';
 import '../../../data/repositories/progress_repository.dart';
 import '../../../shared/widgets/app_card.dart';
 
-/// What a finished pre-assessment tells the learner.
+/// What a finished check tells the learner, in either phase.
 ///
 /// The headline is the sub-skill breakdown, not the percentage: SPEC §6
 /// Phase 1 exists to decide what to teach, and "you got 67%" answers a
 /// question nobody asked. The score is shown, but smaller.
 ///
-/// Nothing here is persisted yet — that arrives with `ProgressRepository`.
+/// The two phases share the layout and almost nothing else in the wording.
+/// A pre-assessment is a plan being made; a post-assessment is a plan being
+/// judged, and telling someone the lessons "will skip that" after they have
+/// already sat through them reads as if the app was not paying attention.
 class AssessmentResultView extends ConsumerWidget {
   const AssessmentResultView({
     required this.topicId,
@@ -61,7 +64,10 @@ class AssessmentResultView extends ConsumerWidget {
                   _Improvement(before: before.percent, after: result.percent),
                   const SizedBox(height: AppSpacing.lg),
                 ],
-                _Headline(result: result),
+                // The improvement card is the score story when it is
+                // there; repeating the raw count underneath just splits
+                // the learner's attention between two of the same number.
+                _Headline(result: result, showScore: before == null),
                 const SizedBox(height: AppSpacing.xl),
                 Text('SUB-SKILL BY SUB-SKILL', style: text.labelSmall),
                 const SizedBox(height: AppSpacing.md),
@@ -70,18 +76,25 @@ class AssessmentResultView extends ConsumerWidget {
                   const SizedBox(height: AppSpacing.sm),
                 ],
                 const SizedBox(height: AppSpacing.md),
-                Text(
-                  weak.isEmpty
-                      ? 'Nothing here needs teaching. Take the check again '
-                            'any time to confirm it.'
-                      : 'Your lessons will cover everything marked Focus.',
-                  style: text.bodySmall,
-                ),
+                Text(switch ((result.phase, weak.isEmpty)) {
+                  (AssessmentPhase.pre, true) =>
+                    'Nothing here needs teaching. Take the check again '
+                        'any time to confirm it.',
+                  (AssessmentPhase.pre, false) =>
+                    'Your lessons will cover everything marked Focus.',
+                  (AssessmentPhase.post, true) =>
+                    'Nothing is marked Focus any more. This topic is '
+                        'complete.',
+                  (AssessmentPhase.post, false) =>
+                    'Your plan is rebuilt around what is still marked '
+                        'Focus.',
+                }, style: text.bodySmall),
               ],
             ),
           ),
           _Footer(
             topicId: topicId,
+            phase: result.phase,
             firstWeakSubSkill: weak.firstOrNull?.subSkillId,
             onRetake: onRetake,
           ),
@@ -186,26 +199,47 @@ class _Score extends StatelessWidget {
 }
 
 class _Headline extends StatelessWidget {
-  const _Headline({required this.result});
+  const _Headline({required this.result, required this.showScore});
 
   final AssessmentResult result;
 
+  /// False once the before/after card has already given the number.
+  final bool showScore;
+
   /// Addressed to the learner, and specific about what happens next — the
   /// outcome names a decision, so the wording should too.
-  (String, String) get _wording => switch (result.outcome) {
-    AssessmentOutcome.fullPass => (
+  ///
+  /// The post-assessment wording talks about lessons already taken. Its
+  /// job is to say whether the work held, not to introduce a plan.
+  (String, String) get _wording => switch ((result.phase, result.outcome)) {
+    (AssessmentPhase.pre, AssessmentOutcome.fullPass) => (
       'You already know this.',
       'Every sub-skill came back clear, so the lessons are optional.',
     ),
-    AssessmentOutcome.partial => (
+    (AssessmentPhase.pre, AssessmentOutcome.partial) => (
       "Here's what to work on.",
       'Some of this is already solid. The lessons will skip that and '
           'go straight to the gaps.',
     ),
-    AssessmentOutcome.insufficient => (
+    (AssessmentPhase.pre, AssessmentOutcome.insufficient) => (
       "We'll start from the beginning.",
       'Nothing came back solid enough to skip yet — which is exactly '
           'what the lessons are for.',
+    ),
+    (AssessmentPhase.post, AssessmentOutcome.fullPass) => (
+      'It all held up.',
+      'Every sub-skill came back clear on new questions. Nothing here '
+          'is left to work on.',
+    ),
+    (AssessmentPhase.post, AssessmentOutcome.partial) => (
+      'Most of it held up.',
+      'What is still marked Focus did not come back clear on the new '
+          'questions — that is what to go over again.',
+    ),
+    (AssessmentPhase.post, AssessmentOutcome.insufficient) => (
+      'This one needs another pass.',
+      'The rules did not come back clear on new questions. Going back '
+          'through the lessons is the fastest way to fix that.',
     ),
   };
 
@@ -224,14 +258,16 @@ class _Headline extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(child: Text(title, style: text.headlineSmall)),
-                const SizedBox(width: AppSpacing.md),
-                // Present, but not the point.
-                Text(
-                  '${result.correct}/${result.total}',
-                  style: text.headlineSmall?.copyWith(
-                    color: AppColors.textSecondary,
+                if (showScore) ...[
+                  const SizedBox(width: AppSpacing.md),
+                  // Present, but not the point.
+                  Text(
+                    '${result.correct}/${result.total}',
+                    style: text.headlineSmall?.copyWith(
+                      color: AppColors.textSecondary,
+                    ),
                   ),
-                ),
+                ],
               ],
             ),
             const SizedBox(height: AppSpacing.sm),
@@ -300,11 +336,13 @@ class _SubSkillRow extends StatelessWidget {
 class _Footer extends StatelessWidget {
   const _Footer({
     required this.topicId,
+    required this.phase,
     required this.firstWeakSubSkill,
     required this.onRetake,
   });
 
   final String topicId;
+  final AssessmentPhase phase;
 
   /// Null when every sub-skill qualified — there is nothing to teach.
   final String? firstWeakSubSkill;
@@ -332,7 +370,10 @@ class _Footer extends StatelessWidget {
             if (firstWeakSubSkill != null)
               FilledButton(
                 onPressed: () => context.push(Routes.learningPath(topicId)),
-                child: const Text('Start learning'),
+                child: Text(switch (phase) {
+                  AssessmentPhase.pre => 'Start learning',
+                  AssessmentPhase.post => 'Back to the lessons',
+                }),
               )
             else
               FilledButton(

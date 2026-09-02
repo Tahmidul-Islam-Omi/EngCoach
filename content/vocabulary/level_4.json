@@ -2321,7 +2321,7 @@
         },
         {
           "word": "undergo",
-          "bn": "সহ্য করা, অতিক্রম করা",
+          "bn": "কোনো প্রক্রিয়ার মধ্য দিয়ে যাওয়া",
           "pos": "verb",
           "example": {
             "en": "The building will undergo repairs during the holidays.",
@@ -2653,8 +2653,8 @@
               "text": "rule out",
               "correct": false,
               "feedback": {
-                "en": "**Rule out** is to reject a possibility.",
-                "bn": "**rule out** মানে সম্ভাবনা বাতিল করা।"
+                "en": "**Rule out** removes a possibility from consideration — you would not rule out your own claim, you would support it.",
+                "bn": "**rule out** মানে কোনো সম্ভাবনা বিবেচনা থেকে বাদ দেওয়া — নিজের দাবিকে কেউ rule out করে না, সমর্থন করে।"
               }
             },
             {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../../../shared/widgets/answer_option.dart';
@@ -65,7 +66,9 @@ class _VocabCheckScreenState extends ConsumerState<VocabCheckScreen> {
         course: state.course!,
         profile: state.profile!,
         levelTitle: state.levelTitle,
-        onStart: () => context.pop(),
+        onStart: () => state.profile!.allClear
+            ? context.pop()
+            : context.push(Routes.vocabularyPath),
         onRetake: model.restart,
       ),
     };

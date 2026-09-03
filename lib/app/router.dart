@@ -14,6 +14,8 @@ import '../features/lesson/view/lesson_screen.dart';
 import '../features/practice/view/practice_screen.dart';
 import '../features/grammar/view/topic_overview_screen.dart';
 import '../features/vocabulary/view/vocab_check_screen.dart';
+import '../features/vocabulary/view/vocab_path_screen.dart';
+import '../features/vocabulary/view/vocab_words_screen.dart';
 import '../features/vocabulary/view/vocabulary_overview_screen.dart';
 import '../features/home/view/home_screen.dart';
 import '../features/learn/view/learn_screen.dart';
@@ -34,6 +36,12 @@ abstract final class Routes {
   /// The adaptive vocabulary check. Outside the shell for the same reason the
   /// topic flow is: a bottom nav bar invites wandering out of a check.
   static const vocabularyCheck = '/vocabulary/check';
+
+  /// The learner's vocabulary plan — the areas their check flagged.
+  static const vocabularyPath = '/vocabulary/learn';
+
+  /// One chunk's word cards, under the plan.
+  static String vocabularyChunk(String chunkId) => '/vocabulary/learn/$chunkId';
 
   /// The focused topic flow — assessment, lessons, practice, results.
   ///
@@ -197,6 +205,20 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: Routes.vocabularyCheck,
         parentNavigatorKey: _rootKey,
         builder: (_, _) => const VocabCheckScreen(),
+      ),
+
+      GoRoute(
+        path: Routes.vocabularyPath,
+        parentNavigatorKey: _rootKey,
+        builder: (_, _) => const VocabPathScreen(),
+        routes: [
+          GoRoute(
+            path: ':chunkId',
+            parentNavigatorKey: _rootKey,
+            builder: (_, state) =>
+                VocabWordsScreen(chunkId: state.pathParameters['chunkId']!),
+          ),
+        ],
       ),
 
       // Sits alongside the shell rather than inside it — no tab bar.

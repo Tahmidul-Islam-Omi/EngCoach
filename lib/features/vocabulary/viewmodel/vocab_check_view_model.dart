@@ -8,6 +8,7 @@ import '../../../data/models/vocabulary/vocab_paper.dart';
 import '../../../data/models/vocabulary/vocab_result.dart';
 import '../../../data/repositories/vocabulary_repository.dart';
 import '../model/vocab_check_state.dart';
+import 'vocab_plan_view_model.dart';
 
 /// Walks a learner up the vocabulary ladder.
 ///
@@ -198,16 +199,22 @@ class VocabCheckViewModel extends Notifier<VocabCheckState> {
     final course = state.course;
     if (course == null) return;
 
+    final profile = VocabProfile.of(
+      course: course,
+      results: state.history,
+      level: level,
+    );
+
     state = state.copyWith(
       status: VocabCheckStatus.finished,
       level: level,
       paper: null,
-      profile: VocabProfile.of(
-        course: course,
-        results: state.history,
-        level: level,
-      ),
+      profile: profile,
     );
+
+    // The plan outlives this flow, so it is handed over rather than read back
+    // out of a view model the next screen has no business knowing about.
+    ref.read(vocabPlanProvider.notifier).adopt(profile);
   }
 
   void _fail(String message) {

@@ -3,8 +3,13 @@ import 'dart:io';
 
 import 'package:engcoach/data/models/assessment_result.dart';
 import 'package:engcoach/data/models/topic.dart';
+import 'package:engcoach/data/models/vocabulary/vocab_course.dart';
+import 'package:engcoach/data/models/vocabulary/vocab_level.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
+import 'package:engcoach/data/repositories/vocabulary_repository.dart';
 import 'package:engcoach/data/repositories/progress_repository.dart';
+
+import 'vocabulary_fixture.dart';
 
 /// Hands back one topic, and counts how often it was asked.
 ///
@@ -75,3 +80,32 @@ Topic topicFromFile(String name) => Topic.fromJson(
   jsonDecode(File('content/grammar/$name.json').readAsStringSync())
       as Map<String, dynamic>,
 );
+
+/// Serves the vocabulary fixture without touching the asset bundle.
+///
+/// Levels are built on demand from [levelJson], so a test can ask for any rung
+/// the ladder climbs to without authoring four files.
+class FakeVocabularyRepository implements VocabularyRepository {
+  FakeVocabularyRepository({this.course_, this.failLevel, this.bankSize = 3});
+
+  final Map<String, dynamic>? course_;
+
+  /// Makes [level] throw for this rung, for the "content could not be read"
+  /// case.
+  final int? failLevel;
+
+  final int bankSize;
+
+  int levelReads = 0;
+
+  @override
+  Future<VocabCourse> course() async =>
+      VocabCourse.fromJson(course_ ?? courseJson());
+
+  @override
+  Future<VocabLevel> level(int level) async {
+    levelReads++;
+    if (level == failLevel) throw StateError('offline');
+    return VocabLevel.fromJson(levelJson(level: level, bankSize: bankSize));
+  }
+}

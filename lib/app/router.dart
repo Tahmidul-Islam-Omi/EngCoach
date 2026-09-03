@@ -13,6 +13,8 @@ import '../features/lesson/view/learning_path_screen.dart';
 import '../features/lesson/view/lesson_screen.dart';
 import '../features/practice/view/practice_screen.dart';
 import '../features/grammar/view/topic_overview_screen.dart';
+import '../features/vocabulary/view/vocab_check_screen.dart';
+import '../features/vocabulary/view/vocabulary_overview_screen.dart';
 import '../features/home/view/home_screen.dart';
 import '../features/learn/view/learn_screen.dart';
 import '../features/profile/view/profile_screen.dart';
@@ -25,6 +27,13 @@ abstract final class Routes {
   static const home = '/';
   static const learn = '/learn';
   static const grammar = '/learn/grammar';
+
+  /// The vocabulary module's front door, inside the tab shell.
+  static const vocabulary = '/learn/vocabulary';
+
+  /// The adaptive vocabulary check. Outside the shell for the same reason the
+  /// topic flow is: a bottom nav bar invites wandering out of a check.
+  static const vocabularyCheck = '/vocabulary/check';
 
   /// The focused topic flow — assessment, lessons, practice, results.
   ///
@@ -151,6 +160,10 @@ final routerProvider = Provider<GoRouter>((ref) {
                     path: 'grammar',
                     builder: (_, _) => const GrammarTopicsScreen(),
                   ),
+                  GoRoute(
+                    path: 'vocabulary',
+                    builder: (_, _) => const VocabularyOverviewScreen(),
+                  ),
                 ],
               ),
             ],
@@ -178,6 +191,12 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: Routes.signIn,
         parentNavigatorKey: _rootKey,
         builder: (_, _) => const SignInScreen(),
+      ),
+
+      GoRoute(
+        path: Routes.vocabularyCheck,
+        parentNavigatorKey: _rootKey,
+        builder: (_, _) => const VocabCheckScreen(),
       ),
 
       // Sits alongside the shell rather than inside it — no tab bar.

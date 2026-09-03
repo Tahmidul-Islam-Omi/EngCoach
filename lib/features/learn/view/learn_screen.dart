@@ -36,10 +36,12 @@ class LearnScreen extends StatelessWidget {
             onTap: () => context.go(Routes.grammar),
           ),
           const SizedBox(height: AppSpacing.md),
-          const _SectionCard(
+          _SectionCard(
             title: 'Vocabulary',
             subtitle: 'Learn and retain new words',
             icon: Icons.style_outlined,
+            badge: 'NEW',
+            onTap: () => context.go(Routes.vocabulary),
           ),
           const SizedBox(height: AppSpacing.md),
           const _SectionCard(

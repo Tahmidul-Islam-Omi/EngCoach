@@ -19,7 +19,8 @@ Map<String, dynamic> courseJson({
   int topLevel = 4,
 }) => {
   'subSkills': [
-    for (final id in vocabSubSkillIds) {'id': id, 'title': id},
+    for (final (i, id) in vocabSubSkillIds.indexed)
+      {'id': id, 'title': 'Area ${i + 1}'},
   ],
   'ladder': {
     'questionsPerSubSkill': 1,

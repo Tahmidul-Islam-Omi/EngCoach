@@ -15,6 +15,7 @@ import '../features/practice/view/practice_screen.dart';
 import '../features/grammar/view/topic_overview_screen.dart';
 import '../features/vocabulary/view/vocab_check_screen.dart';
 import '../features/vocabulary/view/vocab_path_screen.dart';
+import '../features/vocabulary/view/vocab_practice_screen.dart';
 import '../features/vocabulary/view/vocab_words_screen.dart';
 import '../features/vocabulary/view/vocabulary_overview_screen.dart';
 import '../features/home/view/home_screen.dart';
@@ -42,6 +43,10 @@ abstract final class Routes {
 
   /// One chunk's word cards, under the plan.
   static String vocabularyChunk(String chunkId) => '/vocabulary/learn/$chunkId';
+
+  /// That set's practice questions.
+  static String vocabularyPractice(String chunkId) =>
+      '/vocabulary/learn/$chunkId/practice';
 
   /// The focused topic flow — assessment, lessons, practice, results.
   ///
@@ -217,6 +222,15 @@ final routerProvider = Provider<GoRouter>((ref) {
             parentNavigatorKey: _rootKey,
             builder: (_, state) =>
                 VocabWordsScreen(chunkId: state.pathParameters['chunkId']!),
+            routes: [
+              GoRoute(
+                path: 'practice',
+                parentNavigatorKey: _rootKey,
+                builder: (_, state) => VocabPracticeScreen(
+                  chunkId: state.pathParameters['chunkId']!,
+                ),
+              ),
+            ],
           ),
         ],
       ),

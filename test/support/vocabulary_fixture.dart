@@ -54,7 +54,8 @@ Map<String, dynamic> levelJson({
           for (var q = 1; q <= bankSize; q++) _question('l$level-$id-pre-$q'),
         ],
         'postAssessmentBank': [
-          for (var q = 1; q <= bankSize; q++) _question('l$level-$id-post-$q'),
+          for (var q = 1; q <= bankSize; q++)
+            _question('l$level-$id-post-$q', feedback: true),
         ],
       },
   ],
@@ -65,7 +66,7 @@ Map<String, dynamic> levelJson({
         'subSkillId': id,
         'title': 'Chunk for $id',
         'words': [_fullCard, _bareCard],
-        'practice': [_question('l$level-$id-practice-1')],
+        'practice': [_question('l$level-$id-practice-1', feedback: true)],
       },
   ],
 };
@@ -93,7 +94,10 @@ const _bareCard = {
   'example': {'en': 'The road was busy.', 'bn': 'রাস্তাটি ব্যস্ত ছিল।'},
 };
 
-Map<String, dynamic> _question(String id) => {
+/// [feedback] mirrors the rule the validator enforces on real content: the
+/// first check explains nothing, while practice and the final check explain
+/// every option, including the right one.
+Map<String, dynamic> _question(String id, {bool feedback = false}) => {
   'id': id,
   'type': 'collocation',
   'instruction': 'Choose one.',
@@ -104,6 +108,11 @@ Map<String, dynamic> _question(String id) => {
         'id': '$id-${String.fromCharCode(97 + i)}',
         'text': 'Option ${String.fromCharCode(97 + i)}',
         'correct': i == 0,
+        if (feedback)
+          'feedback': {
+            'en': 'English feedback for option ${String.fromCharCode(97 + i)}.',
+            'bn': 'বাংলা ব্যাখ্যা ${String.fromCharCode(97 + i)}।',
+          },
       },
   ],
 };

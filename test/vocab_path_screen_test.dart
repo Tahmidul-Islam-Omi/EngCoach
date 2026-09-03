@@ -157,20 +157,27 @@ void main() {
       expect(find.text('GOES WITH'), findsNothing);
     });
 
-    testWidgets('finishing the set marks it done on the plan', (tester) async {
+    testWidgets('the last card offers the practice, not a finish', (
+      tester,
+    ) async {
       final container = await pumpPath(tester, missing: const ['collocations']);
       await tester.tap(find.text('Area 4'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Next word'));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Done'));
+
+      expect(find.text('Practise these — 1 question'), findsOneWidget);
+      expect(find.text('Done for now'), findsOneWidget);
+
+      await tester.tap(find.text('Done for now'));
       await tester.pumpAndSettle();
 
       expect(
         container.read(vocabPlanProvider)!.completedChunkIds,
-        hasLength(1),
+        isEmpty,
+        reason: 'reading six cards is not evidence that anything stuck',
       );
-      expect(find.text('1 of 1 done'), findsOneWidget);
+      expect(find.text('0 of 1 done'), findsOneWidget);
     });
   });
 }

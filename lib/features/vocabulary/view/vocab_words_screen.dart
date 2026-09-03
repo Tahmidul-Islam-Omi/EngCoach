@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../../../data/models/vocabulary/vocab_chunk.dart';
@@ -59,13 +60,11 @@ class _VocabWordsScreenState extends ConsumerState<VocabWordsScreen> {
             index: index,
             onBack: () => setState(() => _index = index - 1),
             onNext: () => setState(() => _index = index + 1),
-            onFinish: () {
-              // Step 5 puts practice between the last word and this: reading
-              // six cards is not evidence of anything, and the chunk should
-              // not be marked done on it alone.
-              ref.read(vocabPlanProvider.notifier).markChunkComplete(chunk.id);
-              context.pop();
-            },
+            // Reading six cards is not evidence of anything, so the set is
+            // not marked done here — the practice does that.
+            practiceCount: chunk.practice.length,
+            onPractise: () => context.push(Routes.vocabularyPractice(chunk.id)),
+            onLeave: () => context.pop(),
           );
         },
       ),
@@ -79,14 +78,21 @@ class _Body extends StatelessWidget {
     required this.index,
     required this.onBack,
     required this.onNext,
-    required this.onFinish,
+    required this.practiceCount,
+    required this.onPractise,
+    required this.onLeave,
   });
 
   final VocabChunk chunk;
   final int index;
   final VoidCallback onBack;
   final VoidCallback onNext;
-  final VoidCallback onFinish;
+
+  /// Shown so the learner knows reading is not the end of it.
+  final int practiceCount;
+
+  final VoidCallback onPractise;
+  final VoidCallback onLeave;
 
   @override
   Widget build(BuildContext context) {
@@ -140,29 +146,53 @@ class _Body extends StatelessWidget {
           // Outside the tab shell nothing else supplies the bottom inset.
           child: SafeArea(
             top: false,
-            child: Row(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                if (index > 0) ...[
-                  OutlinedButton(
-                    // The theme sizes outlined buttons full-bleed, which is an
-                    // infinite width inside a Row.
-                    style: OutlinedButton.styleFrom(
-                      minimumSize: const Size(
-                        AppSizes.secondaryButtonWidth,
-                        AppSizes.buttonHeight,
+                Row(
+                  children: [
+                    if (index > 0) ...[
+                      OutlinedButton(
+                        // The theme sizes outlined buttons full-bleed, which
+                        // is an infinite width inside a Row.
+                        style: OutlinedButton.styleFrom(
+                          minimumSize: const Size(
+                            AppSizes.secondaryButtonWidth,
+                            AppSizes.buttonHeight,
+                          ),
+                        ),
+                        onPressed: onBack,
+                        child: const Text('Back'),
+                      ),
+                      const SizedBox(width: AppSpacing.md),
+                    ],
+                    Expanded(
+                      child: FilledButton(
+                        // Reading then doing: the practice is where the words
+                        // actually get tested, so it is the primary action on
+                        // the last card.
+                        onPressed: isLast && practiceCount > 0
+                            ? onPractise
+                            : isLast
+                            ? onLeave
+                            : onNext,
+                        child: Text(
+                          !isLast
+                              ? 'Next word'
+                              : practiceCount > 0
+                              ? 'Practise these — $practiceCount '
+                                    '${practiceCount == 1 ? 'question' : 'questions'}'
+                              : 'Done',
+                        ),
                       ),
                     ),
-                    onPressed: onBack,
-                    child: const Text('Back'),
-                  ),
-                  const SizedBox(width: AppSpacing.md),
-                ],
-                Expanded(
-                  child: FilledButton(
-                    onPressed: isLast ? onFinish : onNext,
-                    child: Text(isLast ? 'Done' : 'Next word'),
-                  ),
+                  ],
                 ),
+                if (isLast && practiceCount > 0)
+                  TextButton(
+                    onPressed: onLeave,
+                    child: const Text('Done for now'),
+                  ),
               ],
             ),
           ),

@@ -8,6 +8,15 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'support/vocabulary_fixture.dart';
 
+/// A prompt or example reduced to its words, so two sentences that differ
+/// only in markup, punctuation or case still compare equal.
+String _sentence(String text) => text
+    .toLowerCase()
+    .replaceAll('*', '')
+    .replaceAll(RegExp('[^a-z ]'), ' ')
+    .replaceAll(RegExp(r'\s+'), ' ')
+    .trim();
+
 void main() {
   VocabCourse readCourse() => VocabCourse.fromJson(
     jsonDecode(File('content/vocabulary/course.json').readAsStringSync())
@@ -260,6 +269,46 @@ void main() {
             reason: '${q.id} repeats ${asked[key]}',
           );
           asked[key] = q.id;
+        }
+
+        // The final check measures what the lesson taught, in sentences the
+        // learner has not met. A learner who never saw the word cannot answer
+        // for it; a learner who saw this exact sentence on the card is
+        // answering from memory. Both halves are checkable.
+        final taughtWords = {
+          for (final c in level.chunks)
+            c.subSkillId: {for (final w in c.words) w.word},
+        };
+        final seenBefore = [
+          for (final c in level.chunks) ...[
+            for (final w in c.words) _sentence(w.example.en),
+            for (final q in c.practice) _sentence(q.prompt),
+          ],
+        ].where((t) => t.split(' ').length >= 4).toList();
+
+        for (final s in level.subSkills) {
+          for (final q in s.postAssessmentBank) {
+            expect(
+              q.tests,
+              isNotNull,
+              reason: '${q.id} does not say which taught word it measures',
+            );
+            expect(
+              taughtWords[s.id],
+              contains(q.tests),
+              reason:
+                  '${q.id} measures "${q.tests}", which the chunk never '
+                  'teaches',
+            );
+            final prompt = _sentence(q.prompt);
+            for (final earlier in seenBefore) {
+              expect(
+                prompt.contains(earlier) || earlier.contains(prompt),
+                isFalse,
+                reason: '${q.id} reuses a sentence from the lesson: "$earlier"',
+              );
+            }
+          }
         }
 
         // A weak subskill with nothing to teach is a dead end in the plan.

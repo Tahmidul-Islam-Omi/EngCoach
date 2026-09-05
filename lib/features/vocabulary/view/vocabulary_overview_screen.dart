@@ -93,25 +93,37 @@ class VocabularyOverviewScreen extends ConsumerWidget {
             ),
             child: SafeArea(
               top: false,
-              child: plan == null
-                  ? FilledButton(
-                      onPressed: () => context.push(Routes.vocabularyCheck),
-                      child: const Text('Start the check'),
-                    )
-                  : Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        FilledButton(
-                          onPressed: () => context.push(Routes.vocabularyPath),
-                          child: const Text('Continue your plan'),
-                        ),
-                        const SizedBox(height: AppSpacing.xs),
-                        TextButton(
-                          onPressed: () => _confirmRetake(context),
-                          child: const Text('Take the check again'),
-                        ),
-                      ],
+              // Three states, not two. "Has a plan" and "has work left" are
+              // different things: a learner who cleared the level had a plan,
+              // an empty one, and offering to continue it walked them into a
+              // screen with nothing on it and no way forward.
+              child: switch (plan) {
+                null => FilledButton(
+                  onPressed: () => context.push(Routes.vocabularyCheck),
+                  child: const Text('Start the check'),
+                ),
+                // Cleared. The only thing left to do is find out whether the
+                // next level fits — and there is no plan to lose, so no
+                // warning.
+                final p when p.isEmpty => FilledButton(
+                  onPressed: () => context.push(Routes.vocabularyCheck),
+                  child: const Text('Check your level again'),
+                ),
+                _ => Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    FilledButton(
+                      onPressed: () => context.push(Routes.vocabularyPath),
+                      child: const Text('Continue your plan'),
                     ),
+                    const SizedBox(height: AppSpacing.xs),
+                    TextButton(
+                      onPressed: () => _confirmRetake(context),
+                      child: const Text('Take the check again'),
+                    ),
+                  ],
+                ),
+              },
             ),
           ),
         ],
@@ -183,7 +195,8 @@ class _InProgress extends ConsumerWidget {
           const SizedBox(height: AppSpacing.xs),
           Text(
             plan.isEmpty
-                ? 'Level ${plan.level} — nothing left to work on.'
+                ? 'Level ${plan.level} — cleared. The check can place you '
+                      'higher now.'
                 : sets == null
                 // The level has not loaded. Say where they are without
                 // inventing a total.

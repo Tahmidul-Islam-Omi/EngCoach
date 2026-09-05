@@ -343,6 +343,13 @@ class _NothingToTeach extends StatelessWidget {
               style: text.bodyMedium,
               textAlign: TextAlign.center,
             ),
+            const SizedBox(height: AppSpacing.xl),
+            // Without this the screen is a dead end: nothing to study, and no
+            // way on to the level that would have something.
+            FilledButton(
+              onPressed: () => context.push(Routes.vocabularyCheck),
+              child: const Text('Check your level again'),
+            ),
           ],
         ),
       ),

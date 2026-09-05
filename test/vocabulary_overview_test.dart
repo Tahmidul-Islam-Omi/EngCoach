@@ -110,6 +110,31 @@ void main() {
     expect(find.text('the plan'), findsOneWidget);
   });
 
+  testWidgets('a cleared level is offered the next one, not an empty plan', (
+    tester,
+  ) async {
+    // Clearing every area leaves a plan with nothing on it. Treating that the
+    // same as "has a plan" offered "continue your plan" and walked the
+    // learner into a screen with nothing on it and no way forward.
+    await pumpOverview(tester, missing: const []);
+
+    expect(find.text('Check your level again'), findsOneWidget);
+    expect(find.text('Continue your plan'), findsNothing);
+    expect(
+      find.text('Level 2 — cleared. The check can place you higher now.'),
+      findsOneWidget,
+    );
+
+    await tester.tap(find.text('Check your level again'));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text('the check'),
+      findsOneWidget,
+      reason: 'nothing to lose, so no confirmation to sit through',
+    );
+  });
+
   testWidgets('retaking the check asks before it throws the plan away', (
     tester,
   ) async {

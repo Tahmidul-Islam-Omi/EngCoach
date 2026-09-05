@@ -119,10 +119,17 @@ void main() {
       expect(find.textContaining('2 words'), findsOneWidget);
     });
 
-    testWidgets('a clear check has nothing to teach', (tester) async {
+    testWidgets('a clear check has nothing to teach, and says what next', (
+      tester,
+    ) async {
       await pumpPath(tester, missing: const []);
 
       expect(find.text('Nothing to study here.'), findsOneWidget);
+      expect(
+        find.text('Check your level again'),
+        findsOneWidget,
+        reason: 'otherwise the screen is a dead end',
+      );
     });
   });
 

@@ -1,33 +1,13 @@
 import 'package:flutter/foundation.dart';
 
-import '../../../app/router.dart';
 import '../../../data/models/topic.dart';
 import '../../../data/models/topic_status.dart';
 import '../../../data/models/vocabulary/vocab_chunk.dart';
 import '../../../data/models/vocabulary/vocab_course.dart';
 import '../../../data/models/vocabulary/vocab_plan.dart';
+import '../../../data/models/weak_area.dart';
 import '../../../data/repositories/progress_repository.dart';
 import 'next_step.dart';
-
-/// One area the learner's own checks flagged and they have not practised yet.
-@immutable
-class WeakArea {
-  const WeakArea({
-    required this.title,
-    required this.context,
-    required this.route,
-  });
-
-  /// The authored sub-skill title, never an id.
-  final String title;
-
-  /// Where it came from — a topic name, or the vocabulary level.
-  final String context;
-
-  /// The lesson that teaches it. Home never shows a weakness it cannot
-  /// send the learner straight at.
-  final String route;
-}
 
 /// The three figures under "So far".
 @immutable
@@ -188,6 +168,11 @@ NextStep? _alsoInProgress(
   return other.isWorkInProgress ? other : null;
 }
 
+/// Home's three, mixed across sections.
+///
+/// Interleaved rather than concatenated, so a learner working in both
+/// sections sees both. Starting with whichever they touched last keeps the
+/// top of the list where their attention already is.
 List<WeakArea> _weakAreas({
   required List<Topic> topics,
   required List<TopicProgress> progress,
@@ -196,49 +181,13 @@ List<WeakArea> _weakAreas({
   required List<VocabChunk> planChunks,
   required bool vocabularyFirst,
 }) {
-  final byId = {for (final p in progress) p.topicId: p};
+  final grammar = grammarWeakAreas(topics, progress);
+  final vocabulary = vocabularyWeakAreas(
+    course: course,
+    plan: plan,
+    planChunks: planChunks,
+  );
 
-  final grammar = <WeakArea>[
-    for (final topic in topics)
-      if (byId[topic.id] case final p?)
-        for (final id in p.weakSubSkills)
-          if (!p.isDone(id))
-            WeakArea(
-              title:
-                  topic.subSkills
-                      .where((s) => s.id == id)
-                      .map((s) => s.title)
-                      .firstOrNull ??
-                  id,
-              context: topic.title,
-              route: Routes.lesson(topic.id, id),
-            ),
-  ];
-
-  final vocabulary = <WeakArea>[
-    if (plan != null)
-      for (final id in plan.focusSubSkillIds)
-        // The set that teaches this area, if it is still outstanding. An
-        // area with no set left is not a weakness the learner can act on.
-        if (planChunks
-                .where((c) => c.subSkillId == id && !plan.isDone(c.id))
-                .firstOrNull
-            case final chunk?)
-          WeakArea(
-            title:
-                course.subSkills
-                    .where((s) => s.id == id)
-                    .map((s) => s.title)
-                    .firstOrNull ??
-                id,
-            context: 'Vocabulary Level ${plan.level}',
-            route: Routes.vocabularyChunk(chunk.id),
-          ),
-  ];
-
-  // Interleaved rather than concatenated, so a learner working in both
-  // sections sees both. Starting with whichever they touched last keeps the
-  // top of the list where their attention already is.
   final first = vocabularyFirst ? vocabulary : grammar;
   final second = vocabularyFirst ? grammar : vocabulary;
 

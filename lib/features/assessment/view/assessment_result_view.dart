@@ -9,6 +9,7 @@ import '../../../data/models/assessment_paper.dart';
 import '../../../data/models/assessment_result.dart';
 import '../../../data/repositories/progress_repository.dart';
 import '../../../shared/widgets/app_card.dart';
+import '../../../shared/widgets/improvement_card.dart';
 
 /// What a finished check tells the learner, in either phase.
 ///
@@ -61,7 +62,10 @@ class AssessmentResultView extends ConsumerWidget {
               ),
               children: [
                 if (before != null) ...[
-                  _Improvement(before: before.percent, after: result.percent),
+                  ImprovementCard(
+                    before: before.percent,
+                    after: result.percent,
+                  ),
                   const SizedBox(height: AppSpacing.lg),
                 ],
                 // The improvement card is the score story when it is
@@ -103,100 +107,6 @@ class AssessmentResultView extends ConsumerWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-/// Pre against post, which is the product's actual claim (SPEC §6).
-///
-/// Shown above everything else on a post-assessment: the sub-skill
-/// breakdown matters for deciding what to do next, but this is what the
-/// learner came back to see.
-class _Improvement extends StatelessWidget {
-  const _Improvement({required this.before, required this.after});
-
-  final int before;
-  final int after;
-
-  @override
-  Widget build(BuildContext context) {
-    final text = Theme.of(context).textTheme;
-    final gain = after - before;
-    final better = gain > 0;
-
-    return Container(
-      padding: const EdgeInsets.all(AppSpacing.xl),
-      decoration: BoxDecoration(
-        color: AppColors.primary,
-        borderRadius: BorderRadius.circular(AppRadius.xl),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            better ? 'YOU IMPROVED' : 'BEFORE AND AFTER',
-            style: text.labelSmall?.copyWith(color: AppColors.onPrimaryMuted),
-          ),
-          const SizedBox(height: AppSpacing.md),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              _Score(label: 'Before', percent: before, muted: true),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg),
-                child: Icon(
-                  Icons.arrow_forward_rounded,
-                  color: AppColors.onPrimaryMuted,
-                ),
-              ),
-              _Score(label: 'After', percent: after, muted: false),
-            ],
-          ),
-          const SizedBox(height: AppSpacing.md),
-          Text(switch (gain) {
-            > 0 => 'Up $gain points on the same rules, asked differently.',
-            0 =>
-              'The same score on different questions covering the same '
-                  'rules.',
-            _ =>
-              'Down ${-gain} points. Worth going back over the lessons '
-                  'before moving on.',
-          }, style: text.bodySmall?.copyWith(color: AppColors.onPrimaryBody)),
-        ],
-      ),
-    );
-  }
-}
-
-class _Score extends StatelessWidget {
-  const _Score({
-    required this.label,
-    required this.percent,
-    required this.muted,
-  });
-
-  final String label;
-  final int percent;
-  final bool muted;
-
-  @override
-  Widget build(BuildContext context) {
-    final text = Theme.of(context).textTheme;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: text.bodySmall?.copyWith(color: AppColors.onPrimaryMuted),
-        ),
-        Text(
-          '$percent%',
-          style: text.headlineLarge?.copyWith(
-            color: muted ? AppColors.onPrimaryMuted : AppColors.onPrimary,
-          ),
-        ),
-      ],
     );
   }
 }

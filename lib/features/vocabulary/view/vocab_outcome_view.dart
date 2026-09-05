@@ -83,7 +83,8 @@ class VocabOutcomeView extends StatelessWidget {
                 const SizedBox(height: AppSpacing.md),
                 Text(
                   cleared
-                      ? 'Every area came back clear on new words.'
+                      ? 'Every area came back clear in sentences you had '
+                            'not seen.'
                       : 'What is still marked Focus is what your plan now '
                             'covers.',
                   style: text.bodySmall,
@@ -128,14 +129,14 @@ class _Headline extends StatelessWidget {
       (true, _) => (
         'LEVEL ${title == null ? level : '$level — $title'}',
         'You have cleared this level.',
-        'Every area came back clear on words you had not seen in the '
-            'lesson. The check can place you higher now.',
+        'Every area came back clear — the words your lessons taught, in '
+            'sentences you had not seen. The check can place you higher now.',
       ),
       (false, 0) => (
         'LEVEL ${title == null ? level : '$level — $title'}',
         'Nothing moved yet.',
-        'The same areas came back weak on new words. Going back over them '
-            'is the fastest way to shift it.',
+        'The same areas came back weak on the words your lessons taught. '
+            'Going back over them is the fastest way to shift it.',
       ),
       _ => (
         'LEVEL ${title == null ? level : '$level — $title'}',

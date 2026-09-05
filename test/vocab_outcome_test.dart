@@ -98,6 +98,42 @@ void main() {
     expect(find.text('Check your level again'), findsNothing);
   });
 
+  testWidgets('never claims the final check used new words', (tester) async {
+    // It draws on the words the lessons taught, in sentences the learner has
+    // not seen — the change made after "the person who first time sees the
+    // word can't answer in post assessment". Copy written before that said
+    // the opposite, and reached the device saying it.
+    for (final plan in [
+      planWith(
+        before: {'collocations': (0, 1)},
+        after: {'collocations': (3, 3)},
+      ),
+      planWith(
+        before: {'collocations': (0, 1)},
+        after: {'collocations': (0, 3)},
+        stillWeak: const ['collocations'],
+      ),
+      planWith(
+        before: {'collocations': (0, 1), 'phrasal_verbs': (0, 1)},
+        after: {'collocations': (3, 3), 'phrasal_verbs': (0, 3)},
+        stillWeak: const ['phrasal_verbs'],
+      ),
+    ]) {
+      await pumpOutcome(tester, plan: plan);
+
+      final shown = tester
+          .widgetList<Text>(find.byType(Text))
+          .map((t) => t.data ?? '')
+          .join(' ');
+
+      expect(
+        shown.contains('new words'),
+        isFalse,
+        reason: 'the final check tests taught words in new sentences',
+      );
+    }
+  });
+
   testWidgets('a cleared level offers the one above it', (tester) async {
     await pumpOutcome(
       tester,

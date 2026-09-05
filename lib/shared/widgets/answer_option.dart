@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../app/debug_flags.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_spacing.dart';
 import 'markup_text.dart';
@@ -123,6 +124,20 @@ class AnswerOption extends StatelessWidget {
                   Expanded(
                     child: MarkupText(text, style: theme.textTheme.bodyLarge),
                   ),
+                  // Debug only. A bare dot rather than a label, so it cannot
+                  // be mistaken for part of the design and cannot collide
+                  // with anything a test looks for.
+                  if (DebugFlags.revealAnswers && isAnswer && !revealed) ...[
+                    const SizedBox(width: AppSpacing.sm),
+                    Container(
+                      width: 8,
+                      height: 8,
+                      decoration: const BoxDecoration(
+                        color: AppColors.warning,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ],
                 ],
               ),
             ),

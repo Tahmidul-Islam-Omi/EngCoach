@@ -202,6 +202,10 @@ class _Questions extends StatelessWidget {
                       text: question.options[i].text,
                       isChosen:
                           state.selectedOptionId == question.options[i].id,
+                      // Read only by the debug answer marker; a check never
+                      // reveals anything on its own.
+                      isAnswer:
+                          question.correctOptionId == question.options[i].id,
                       onTap: () => onSelect(question.options[i].id),
                     ),
                     if (i < question.options.length - 1)

@@ -172,6 +172,15 @@ NextStep nextStep({
   final vocabulary = _vocabularyStep(plan, planChunks, topLevel);
 
   if (grammar != null && vocabulary != null) {
+    // Work already underway beats a fresh suggestion, whichever section was
+    // touched last. Clearing a vocabulary level produces a next step, but it
+    // is an invitation, not something half-finished — and offering it over a
+    // topic mid-flight tells a learner they are all caught up while their
+    // own unpractised area sits on the same screen.
+    if (grammar.isWorkInProgress != vocabulary.isWorkInProgress) {
+      return grammar.isWorkInProgress ? grammar : vocabulary;
+    }
+
     return vocabularyTouchedLast(progress: progress, plan: plan)
         ? vocabulary
         : grammar;

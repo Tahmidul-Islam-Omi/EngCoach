@@ -311,6 +311,31 @@ void main() {
       expect(step, isA<ContinueTopic>());
     });
 
+    test('a cleared level never outranks a topic still being taught', () {
+      // The state a device found: the post-check left one area weak, so
+      // grammar is mid-flight, while the vocabulary level was cleared more
+      // recently. Recency used to hand the hero to the level check, and the
+      // screen then claimed the learner was all caught up.
+      final step = decide(
+        progress: [
+          topic(
+            'present_simple',
+            status: TopicStatus.learning,
+            weak: ['s1'],
+            at: DateTime(2026, 9, 4, 10),
+          ),
+        ],
+        plan: VocabPlan(
+          level: 2,
+          focusSubSkillIds: const [],
+          updatedAt: DateTime(2026, 9, 4, 16),
+        ),
+      );
+
+      expect(step, isA<StartTopicLearning>());
+      expect(step.isWorkInProgress, isTrue);
+    });
+
     test('grammar keeps unstamped progress, so an upgrade does not jump', () {
       final step = decide(
         progress: grammarWork,
@@ -396,6 +421,31 @@ void main() {
       );
 
       expect(home.weakAreas.map((a) => a.title), ['Sub-skill 2']);
+    });
+
+    test('a cleared level does not hide pending grammar work', () {
+      final home = build(
+        progress: [
+          topic(
+            'present_simple',
+            status: TopicStatus.learning,
+            weak: ['s1'],
+            at: DateTime(2026, 9, 4, 10),
+          ),
+        ],
+        plan: VocabPlan(
+          level: 2,
+          focusSubSkillIds: const [],
+          updatedAt: DateTime(2026, 9, 4, 16),
+        ),
+      );
+
+      expect(home.next, isA<StartTopicLearning>());
+      // "Start something new" and the finished list stay away while a topic
+      // is unfinished.
+      expect(home.untouched, isEmpty);
+      expect(home.finished, isEmpty);
+      expect(home.weakAreas, hasLength(1));
     });
 
     test('finished topics stay hidden while there is work in flight', () {

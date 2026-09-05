@@ -7,7 +7,6 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../data/models/topic.dart';
-import '../../../data/models/topic_status.dart';
 import '../../../data/models/weak_area.dart';
 import '../../../shared/widgets/async_view.dart';
 import '../../../shared/widgets/improvement_card.dart';
@@ -189,10 +188,10 @@ class _TopicCard extends StatelessWidget {
               ),
               if (topic.before case final before?) ...[
                 const SizedBox(height: AppSpacing.md),
-                _ScoreRail(label: 'First', percent: before, muted: true),
+                _ScoreRail(label: 'Before', percent: before, muted: true),
                 if (topic.after case final after?) ...[
                   const SizedBox(height: AppSpacing.xs + 1),
-                  _ScoreRail(label: 'Second', percent: after, muted: false),
+                  _ScoreRail(label: 'After', percent: after, muted: false),
                 ],
               ],
               const SizedBox(height: AppSpacing.sm),
@@ -237,8 +236,18 @@ class _ScoreRail extends StatelessWidget {
     return Row(
       children: [
         SizedBox(
-          width: 46,
-          child: Text(label.toUpperCase(), style: text.labelSmall),
+          // Wide enough for the longest label at this size. Both rows share
+          // it so the two bars start at the same x — they exist to be
+          // compared, and bars that do not line up cannot be.
+          width: 52,
+          child: Text(
+            label.toUpperCase(),
+            // One line, always. At 46 this wrapped "SECOND" to "SECON / D",
+            // which broke the row's height and read as a typo.
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: text.labelSmall,
+          ),
         ),
         Expanded(
           child: ClipRRect(
@@ -361,7 +370,10 @@ class _VocabularyCard extends StatelessWidget {
               Expanded(
                 child: Text('Level ${report.level}', style: text.titleLarge),
               ),
-              if (report.cleared) const StatusBadge(TopicStatus.completed),
+              // "Cleared", not "Completed": the vocabulary module says
+              // cleared everywhere else, and completed is grammar's word for
+              // a different thing.
+              if (report.cleared) const _ClearedBadge(),
             ],
           ),
           const SizedBox(height: AppSpacing.md),
@@ -381,6 +393,28 @@ class _VocabularyCard extends StatelessWidget {
       ),
     );
   }
+}
+
+class _ClearedBadge extends StatelessWidget {
+  const _ClearedBadge();
+
+  @override
+  Widget build(BuildContext context) => Container(
+    padding: const EdgeInsets.symmetric(
+      horizontal: AppSpacing.sm + 2,
+      vertical: 3,
+    ),
+    decoration: BoxDecoration(
+      color: AppStatusColors.completed.background,
+      borderRadius: BorderRadius.circular(AppRadius.pill),
+    ),
+    child: Text(
+      'CLEARED',
+      style: Theme.of(context).textTheme.labelSmall?.copyWith(
+        color: AppStatusColors.completed.foreground,
+      ),
+    ),
+  );
 }
 
 /// The four rungs, with the one the learner is on filled.

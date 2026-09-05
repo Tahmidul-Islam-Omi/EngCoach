@@ -162,6 +162,47 @@ void main() {
     expect(find.text('+20'), findsOneWidget);
   });
 
+  testWidgets('the score labels stay on one line', (tester) async {
+    await pumpProgress(
+      tester,
+      progress: [
+        progressFor('present_simple', pre: score(70), post: score(90)),
+      ],
+    );
+
+    // At 46dp the longest label wrapped to "SECON / D" on a 360dp phone.
+    // Height, not width, is what catches that: a wrapped label is two lines
+    // tall and nothing reports it as an overflow.
+    for (final label in ['BEFORE', 'AFTER']) {
+      final size = tester.getSize(find.text(label));
+      expect(
+        size.height,
+        lessThan(20),
+        reason: '$label wrapped onto a second line',
+      );
+    }
+
+    // And they line up, so the two bars can be compared. Scoped to the topic
+    // card: the headline card shows the same two percentages.
+    Finder inCard(String percent) =>
+        find.descendant(of: find.byType(Card), matching: find.text(percent));
+    expect(
+      tester.getTopLeft(inCard('70%')).dx,
+      tester.getTopLeft(inCard('90%')).dx,
+    );
+  });
+
+  testWidgets('a cleared level says cleared, not completed', (tester) async {
+    await pumpProgress(
+      tester,
+      plan: const VocabPlan(level: 2, focusSubSkillIds: [], after: []),
+    );
+
+    expect(find.text('CLEARED'), findsOneWidget);
+    // "Completed" is grammar's word for a different thing.
+    expect(find.text('COMPLETED'), findsNothing);
+  });
+
   testWidgets('vocabulary shows counts, never percentages', (tester) async {
     await pumpProgress(
       tester,

@@ -33,22 +33,36 @@ class WeakArea {
 @immutable
 class HomeStats {
   const HomeStats({
-    required this.topicsDone,
+    required this.topicsStarted,
     required this.topicsTotal,
     this.vocabLevel,
-    this.averageGain,
+    this.grammarGain,
   });
 
-  final int topicsDone;
+  /// Topics the learner has taken a check in.
+  ///
+  /// Started rather than finished, deliberately. A topic only reaches
+  /// [TopicStatus.completed] when its post-check comes back with nothing
+  /// weak, so a learner who has done a check, the lessons, the practice and
+  /// a second check can still be looking at a zero — for their first week.
+  /// The finished count belongs on Progress, where there is room to show
+  /// both and say why one is smaller.
+  final int topicsStarted;
+
   final int topicsTotal;
 
   /// Null until the first vocabulary check has been taken.
   final int? vocabLevel;
 
-  /// Mean of post minus pre, over every topic that has both. Null until a
-  /// post-assessment has been taken — there is nothing to average yet, and a
-  /// zero would read as "you did not improve".
-  final int? averageGain;
+  /// Mean of post minus pre, in percentage points, over every grammar topic
+  /// that has both. Null until a post-assessment has been taken — there is
+  /// nothing to average yet, and a zero would read as "you did not improve".
+  ///
+  /// Grammar only, and the label says so. Vocabulary keeps its own before and
+  /// after, but its "before" is the level check — one question per area —
+  /// against a final check that asks more. Folding two different instruments
+  /// into one headline figure would put that noise on the front page.
+  final int? grammarGain;
 }
 
 /// Everything the home screen draws.
@@ -250,11 +264,13 @@ HomeStats _stats({
         if (p.postAssessment case final post?) post.percent - pre.percent,
   ];
 
+  final touched = {for (final p in progress) p.topicId};
+
   return HomeStats(
-    topicsDone: _byStatus(topics, progress, done: true).length,
+    topicsStarted: topics.where((t) => touched.contains(t.id)).length,
     topicsTotal: topics.length,
     vocabLevel: plan?.level,
-    averageGain: gains.isEmpty
+    grammarGain: gains.isEmpty
         ? null
         : (gains.reduce((a, b) => a + b) / gains.length).round(),
   );

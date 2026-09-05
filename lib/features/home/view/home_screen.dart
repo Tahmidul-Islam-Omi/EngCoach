@@ -630,7 +630,7 @@ class _StatsStrip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final gain = stats.averageGain;
+    final gain = stats.grammarGain;
 
     return Container(
       decoration: BoxDecoration(
@@ -646,9 +646,9 @@ class _StatsStrip extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             _Stat(
-              value: '${stats.topicsDone}',
+              value: '${stats.topicsStarted}',
               suffix: '/${stats.topicsTotal}',
-              label: 'Topics done',
+              label: 'Grammar topics started',
             ),
             const _Divider(),
             _Stat(
@@ -659,7 +659,7 @@ class _StatsStrip extends StatelessWidget {
             _Stat(
               // Signed, because the number only means something as a change.
               value: gain == null ? '—' : '${gain > 0 ? '+' : ''}$gain',
-              label: 'Average gain',
+              label: 'Grammar gain',
             ),
           ],
         ),

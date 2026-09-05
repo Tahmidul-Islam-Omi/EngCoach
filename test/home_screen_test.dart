@@ -166,6 +166,11 @@ void main() {
 
     expect(find.text('Welcome back'), findsOneWidget);
     expect(find.text('You left off in Present Simple.'), findsOneWidget);
+
+    // Started, not finished: this topic is mid-flight and still counts.
+    expect(find.text('GRAMMAR TOPICS STARTED'), findsOneWidget);
+    expect(find.text('1'), findsOneWidget);
+    expect(find.text('/2'), findsOneWidget);
     // Once as the hero's title, then again under each weak area it owns.
     expect(find.text('Present Simple'), findsWidgets);
     expect(

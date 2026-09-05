@@ -448,6 +448,21 @@ void main() {
       expect(home.weakAreas, hasLength(1));
     });
 
+    test('a topic counts as started before it is finished', () {
+      // The device case: a post-check left one area weak, so the topic is
+      // not completed. Counting only completions showed 0 after a full
+      // round of work.
+      final home = build(
+        progress: [
+          topic('present_simple', status: TopicStatus.learning, weak: ['s1']),
+        ],
+      );
+
+      expect(home.stats.topicsStarted, 1);
+      expect(home.stats.topicsTotal, 2);
+      expect(home.finished, isEmpty);
+    });
+
     test('finished topics stay hidden while there is work in flight', () {
       final home = build(
         progress: [
@@ -498,11 +513,11 @@ void main() {
         ],
       );
 
-      expect(home.stats.averageGain, 30);
-      expect(home.stats.topicsDone, 2);
+      expect(home.stats.grammarGain, 30);
+      expect(home.stats.topicsStarted, 2);
       expect(home.stats.topicsTotal, 2);
 
-      expect(build().stats.averageGain, isNull);
+      expect(build().stats.grammarGain, isNull);
       expect(build().stats.vocabLevel, isNull);
     });
   });

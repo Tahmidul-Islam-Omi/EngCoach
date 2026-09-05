@@ -7,7 +7,7 @@ rules_version = '2';
 // token with `uid: 01895613473` after bdapps has verified the number. So
 // comparing uid to the document path is the whole check.
 //
-// Operator restriction (Robi/Circle only) is deliberately NOT here. bdapps
+// Operator restriction (Robi/Cirkle only) is deliberately NOT here. bdapps
 // rejects other carriers with E1325 before any token can be minted, so a
 // Grameenphone number can never reach Firestore at all. Repeating that rule
 // here would only mean redeploying rules the day another carrier is added.

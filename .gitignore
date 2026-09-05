@@ -94,3 +94,8 @@ CLAUDE.md
 # the app, and are far too large to belong in git history.
 docs/vocabulary_source/
 Vocabulary-Images/
+
+# Release binaries — deployed by hand to cPanel, never committed.
+# A 52 MB blob cannot be removed from git history without a rewrite.
+*.apk
+*.aab

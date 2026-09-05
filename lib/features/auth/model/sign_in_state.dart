@@ -59,9 +59,10 @@ class SignInState {
   static const phoneLength = 11;
   static const codeLength = 6;
 
-  /// Robi (018) and Cirkle (016) — Cirkle is the network Airtel Bangladesh
-  /// was renamed to, and the prefix did not change with the name. bdapps
-  /// rejects every other carrier with
+  /// Robi (018) and Cirkle (016). Robi Axiata retired the Airtel brand on
+  /// 17 August 2026 and Cirkle replaced it; every 016 number carried over
+  /// unchanged, so the prefix is the same as it always was. bdapps rejects
+  /// every other carrier with
   /// E1325 — checked here only so the learner hears why immediately, rather
   /// than after a round trip that answers "Format of the address is invalid".
   static const carrierPrefixes = {'016', '018'};

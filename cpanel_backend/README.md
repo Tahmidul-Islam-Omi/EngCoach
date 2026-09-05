@@ -59,7 +59,7 @@ SDK, vendor code — don't edit).
 
 - `E1351` — bdapps **refuses** an OTP for an already-subscribed number, which
   is why `check_subscription.php` signs those learners in directly.
-- `E1325` — non-Robi/Circle numbers are rejected by bdapps itself. (Circle
+- `E1325` — non-Robi/Cirkle numbers are rejected by bdapps itself. (Cirkle
   is the network formerly branded Airtel; 016 is unchanged.)
 - `E1343` — the number isn't whitelisted. In Limited Production **every**
   number must be whitelisted in the portal.

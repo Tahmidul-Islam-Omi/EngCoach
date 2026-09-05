@@ -111,7 +111,7 @@ class _Landing extends ConsumerWidget {
         const _HowStep(
           1,
           'Give your number',
-          "We'll send a one-time code to your Robi or Airtel number.",
+          "We'll send a one-time code to your Robi or Circle number.",
         ),
         const _HowStep(
           2,
@@ -144,7 +144,7 @@ class _Landing extends ConsumerWidget {
                 ),
                 TextSpan(text: ' or '),
                 TextSpan(
-                  text: 'Airtel',
+                  text: 'Circle',
                   style: TextStyle(
                     color: AppColors.textPrimary,
                     fontWeight: FontWeight.w500,
@@ -157,7 +157,7 @@ class _Landing extends ConsumerWidget {
         ),
         const SizedBox(height: AppSpacing.lg),
         Text(
-          'A BDApps service. Charges apply for Robi and Airtel customers. '
+          'A BDApps service. Charges apply for Robi and Circle customers. '
           'Stop any time by sending STOP engcoach to 21213.',
           textAlign: TextAlign.center,
           style: text.bodySmall,
@@ -241,7 +241,7 @@ class _Hero extends StatelessWidget {
                 Expanded(
                   child: Text(
                     'Tk 2.78 a day, including VAT, SD and SC. '
-                    'Robi and Airtel numbers only.',
+                    'Robi and Circle numbers only.',
                     style: text.bodySmall?.copyWith(
                       color: AppColors.onPrimaryBody,
                     ),

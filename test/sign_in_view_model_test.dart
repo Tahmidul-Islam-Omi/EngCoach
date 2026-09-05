@@ -129,11 +129,11 @@ void main() {
       modelIn(c).phoneChanged('01712345678');
       await modelIn(c).sendCode();
 
-      expect(stateIn(c).error, contains('Robi and Airtel'));
+      expect(stateIn(c).error, contains('Robi and Circle'));
       expect(auth.starts, 0, reason: 'answered without a round trip');
     });
 
-    test('accepts both Robi and Airtel prefixes', () async {
+    test('accepts both Robi and Circle prefixes', () async {
       for (final number in ['01812345678', '01612345678']) {
         auth = _StubAuth();
         session = _StubSession();

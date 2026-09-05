@@ -50,7 +50,7 @@ class SignInViewModel extends Notifier<SignInState> {
     // wording no learner can act on.
     if (!state.carrierSupported) {
       state = state.copyWith(
-        error: 'EngCoach works with Robi and Airtel numbers only.',
+        error: 'EngCoach works with Robi and Circle numbers only.',
       );
       return;
     }

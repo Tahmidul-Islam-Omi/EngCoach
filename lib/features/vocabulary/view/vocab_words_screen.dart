@@ -9,6 +9,7 @@ import '../../../data/models/vocabulary/vocab_chunk.dart';
 import '../../../data/repositories/vocabulary_repository.dart';
 import '../../../shared/widgets/async_view.dart';
 import '../viewmodel/vocab_plan_view_model.dart';
+import '../viewmodel/vocab_reading_position.dart';
 import 'word_card_view.dart';
 
 /// One chunk's words, one at a time.
@@ -17,57 +18,84 @@ import 'word_card_view.dart';
 /// pieces building one idea, so splitting it would break the rule apart from
 /// its examples. A word set is six independent words, and meeting them one at
 /// a time is what makes the count — "word 3 of 6" — mean anything.
-class VocabWordsScreen extends ConsumerStatefulWidget {
+class VocabWordsScreen extends ConsumerWidget {
   const VocabWordsScreen({required this.chunkId, super.key});
 
   final String chunkId;
 
   @override
-  ConsumerState<VocabWordsScreen> createState() => _VocabWordsScreenState();
-}
-
-class _VocabWordsScreenState extends ConsumerState<VocabWordsScreen> {
-  int _index = 0;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final plan = ref.watch(vocabPlanProvider);
-
-    // Reached only from the plan, so a missing plan means the check was
-    // cleared out from under this route rather than a state to design for.
-    if (plan == null) return const _Missing();
-
-    final level = ref.watch(vocabLevelProvider(plan.level));
 
     return Scaffold(
       appBar: AppBar(title: const Text('Words')),
+      // Through AsyncView rather than reading `.value`: on a cold start the
+      // plan is still being read from Firestore, and a bare null would tell
+      // the learner these words do not exist when they are simply not here
+      // yet.
       body: AsyncView(
-        value: level,
-        onRetry: () => ref.invalidate(vocabLevelProvider(plan.level)),
-        data: (l) {
-          final chunk = l.chunks
-              .where((c) => c.id == widget.chunkId)
-              .firstOrNull;
-
-          // A plan naming a chunk this level does not carry is a content
-          // fault, not a crash: say so plainly rather than throwing.
-          if (chunk == null || chunk.words.isEmpty) return const _Missing();
-
-          final index = _index.clamp(0, chunk.words.length - 1);
-
-          return _Body(
-            chunk: chunk,
-            index: index,
-            onBack: () => setState(() => _index = index - 1),
-            onNext: () => setState(() => _index = index + 1),
-            // Reading six cards is not evidence of anything, so the set is
-            // not marked done here — the practice does that.
-            practiceCount: chunk.practice.length,
-            onPractise: () => context.push(Routes.vocabularyPractice(chunk.id)),
-            onLeave: () => context.pop(),
-          );
-        },
+        value: plan,
+        onRetry: () => ref.invalidate(vocabPlanProvider),
+        data: (p) => p == null
+            ? const _Missing()
+            : _WithPlan(
+                chunkId: chunkId,
+                level: p.level,
+                // A set already practised opens at the first word again: the
+                // position means "where you are in reading this", and
+                // finishing the set ends the reading.
+                startAtFirst: p.isDone(chunkId),
+              ),
       ),
+    );
+  }
+}
+
+class _WithPlan extends ConsumerWidget {
+  const _WithPlan({
+    required this.chunkId,
+    required this.level,
+    required this.startAtFirst,
+  });
+
+  final String chunkId;
+  final int level;
+  final bool startAtFirst;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final content = ref.watch(vocabLevelProvider(level));
+    final index = startAtFirst
+        ? 0
+        : ref.watch(vocabReadingPositionProvider)[chunkId] ?? 0;
+
+    void moveTo(int i) =>
+        ref.read(vocabReadingPositionProvider.notifier).moveTo(chunkId, i);
+
+    return AsyncView(
+      value: content,
+      onRetry: () => ref.invalidate(vocabLevelProvider(level)),
+      data: (l) {
+        final chunk = l.chunks.where((c) => c.id == chunkId).firstOrNull;
+
+        // A plan naming a chunk this level does not carry is a content fault,
+        // not a crash: say so plainly rather than throwing.
+        if (chunk == null || chunk.words.isEmpty) return const _Missing();
+
+        final at = index.clamp(0, chunk.words.length - 1);
+
+        return _Body(
+          chunk: chunk,
+          index: at,
+          onBack: () => moveTo(at - 1),
+          onNext: () => moveTo(at + 1),
+          // Reading six cards is not evidence of anything, so the set is not
+          // marked done here — the practice does that.
+          practiceCount: chunk.practice.length,
+          onPractise: () => context.push(Routes.vocabularyPractice(chunk.id)),
+          onLeave: () => context.pop(),
+        );
+      },
     );
   }
 }
@@ -154,7 +182,8 @@ class _Body extends StatelessWidget {
                     if (index > 0) ...[
                       OutlinedButton(
                         // The theme sizes outlined buttons full-bleed, which
-                        // is an infinite width inside a Row.
+                        // is an infinite width inside a Row. Back sits beside
+                        // Next, so it states its own width.
                         style: OutlinedButton.styleFrom(
                           minimumSize: const Size(
                             AppSizes.secondaryButtonWidth,

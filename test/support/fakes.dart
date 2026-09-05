@@ -6,6 +6,8 @@ import 'package:engcoach/data/models/topic.dart';
 import 'package:engcoach/data/models/vocabulary/vocab_course.dart';
 import 'package:engcoach/data/models/vocabulary/vocab_level.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
+import 'package:engcoach/data/models/vocabulary/vocab_plan.dart';
+import 'package:engcoach/data/repositories/vocab_progress_repository.dart';
 import 'package:engcoach/data/repositories/vocabulary_repository.dart';
 import 'package:engcoach/data/repositories/progress_repository.dart';
 
@@ -107,5 +109,38 @@ class FakeVocabularyRepository implements VocabularyRepository {
     levelReads++;
     if (level == failLevel) throw StateError('offline');
     return VocabLevel.fromJson(levelJson(level: level, bankSize: bankSize));
+  }
+}
+
+/// Holds a vocabulary plan in memory, so tests never reach Firestore.
+class FakeVocabProgressRepository implements VocabProgressRepository {
+  FakeVocabProgressRepository([this.stored, this.readDelay = Duration.zero]);
+
+  VocabPlan? stored;
+
+  /// How long the read takes. Non-zero lets a test see the frames a screen
+  /// renders while the plan is still coming back — which is where "loading"
+  /// and "no plan" get confused for each other.
+  final Duration readDelay;
+
+  int saves = 0;
+  final completed = <String>[];
+
+  @override
+  Future<VocabPlan?> plan() async {
+    if (readDelay > Duration.zero) await Future<void>.delayed(readDelay);
+    return stored;
+  }
+
+  @override
+  Future<void> savePlan(VocabPlan plan) async {
+    saves++;
+    stored = plan;
+  }
+
+  @override
+  Future<void> markChunkComplete(String chunkId) async {
+    completed.add(chunkId);
+    stored = stored?.withChunkDone(chunkId);
   }
 }

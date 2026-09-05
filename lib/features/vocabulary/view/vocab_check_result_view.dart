@@ -77,14 +77,15 @@ class VocabCheckResultView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: AppSpacing.xl),
-                Text('PART BY PART', style: text.labelSmall),
+                Text('AREA BY AREA', style: text.labelSmall),
                 const SizedBox(height: AppSpacing.md),
+                // Only the areas the check actually asked about. A level
+                // may author fewer than six, and a row for one never
+                // measured would be a verdict on nothing.
                 for (final subSkill in course.subSkills)
-                  if (profile.scoreFor(subSkill.id) case final score?) ...[
+                  if (profile.scoreFor(subSkill.id) != null) ...[
                     _AreaRow(
                       title: subSkill.title,
-                      correct: score.correct,
-                      total: score.total,
                       isFocus: focus.contains(subSkill.id),
                     ),
                     const SizedBox(height: AppSpacing.sm),
@@ -145,16 +146,9 @@ class _LevelCard extends StatelessWidget {
 }
 
 class _AreaRow extends StatelessWidget {
-  const _AreaRow({
-    required this.title,
-    required this.correct,
-    required this.total,
-    required this.isFocus,
-  });
+  const _AreaRow({required this.title, required this.isFocus});
 
   final String title;
-  final int correct;
-  final int total;
   final bool isFocus;
 
   @override
@@ -168,16 +162,13 @@ class _AreaRow extends StatelessWidget {
       radius: AppRadius.lg,
       child: Row(
         children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: text.titleLarge),
-                const SizedBox(height: 2),
-                Text('$correct of $total correct', style: text.bodySmall),
-              ],
-            ),
-          ),
+          // Deliberately no score beside the badge. The figures aggregate
+          // every level the learner climbed, while the badge is decided at
+          // the one they settled on — so two areas could read "2 of 3" with
+          // opposite badges, and the learner would have no way to tell why.
+          // The real numbers appear on the outcome screen, where before and
+          // after are measured the same way.
+          Expanded(child: Text(title, style: text.titleLarge)),
           const SizedBox(width: AppSpacing.md),
           Container(
             padding: const EdgeInsets.symmetric(

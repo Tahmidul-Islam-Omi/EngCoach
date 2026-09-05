@@ -28,11 +28,15 @@ class VocabPathScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Your plan')),
-      body: plan == null
-          ? const _TakeTheCheckFirst()
-          : plan.isEmpty
-          ? const _NothingToTeach()
-          : _Loaded(plan: plan),
+      body: AsyncView(
+        value: plan,
+        onRetry: () => ref.invalidate(vocabPlanProvider),
+        data: (p) => p == null
+            ? const _TakeTheCheckFirst()
+            : p.isEmpty
+            ? const _NothingToTeach()
+            : _Loaded(plan: p),
+      ),
     );
   }
 }
@@ -124,7 +128,62 @@ class _Plan extends StatelessWidget {
             done: plan.isDone(chunks[i].id),
           ),
         ],
+        if (plan.readyForFinalCheck(chunks.map((c) => c.id))) ...[
+          const SizedBox(height: AppSpacing.xl),
+          const _FinalCheck(),
+        ],
       ],
+    );
+  }
+}
+
+/// Offered only once every set in the plan has been practised.
+///
+/// The final check draws from the post bank — the same words the lesson
+/// taught, in sentences the learner has not met — so its score can be set
+/// against the first check's. Taking it early would measure nothing.
+class _FinalCheck extends StatelessWidget {
+  const _FinalCheck();
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Theme.of(context).textTheme;
+
+    return Container(
+      padding: const EdgeInsets.all(AppSpacing.xl),
+      decoration: BoxDecoration(
+        color: AppColors.primary,
+        borderRadius: BorderRadius.circular(AppRadius.xl),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'THAT’S EVERY WORD SET',
+            style: text.labelSmall?.copyWith(color: AppColors.onPrimaryMuted),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            'Now see how much changed.',
+            style: text.headlineSmall?.copyWith(color: AppColors.onPrimary),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            'The same words, in sentences you have not seen, set against the '
+            'check you took at the start.',
+            style: text.bodySmall?.copyWith(color: AppColors.onPrimaryBody),
+          ),
+          const SizedBox(height: AppSpacing.lg),
+          FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: AppColors.onPrimary,
+              foregroundColor: AppColors.primary,
+            ),
+            onPressed: () => context.push(Routes.vocabularyFinalCheck),
+            child: const Text('Take the final check'),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -214,7 +214,9 @@ class VocabCheckViewModel extends Notifier<VocabCheckState> {
 
     // The plan outlives this flow, so it is handed over rather than read back
     // out of a view model the next screen has no business knowing about.
-    ref.read(vocabPlanProvider.notifier).adopt(profile);
+    // Not awaited: the result is already on screen, and Firestore queues the
+    // write offline.
+    unawaited(ref.read(vocabPlanProvider.notifier).adopt(profile));
   }
 
   void _fail(String message) {

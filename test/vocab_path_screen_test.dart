@@ -4,6 +4,7 @@ import 'package:engcoach/data/models/vocabulary/vocab_course.dart';
 import 'package:engcoach/data/models/vocabulary/vocab_ladder.dart';
 import 'package:engcoach/data/models/vocabulary/vocab_paper.dart';
 import 'package:engcoach/data/models/vocabulary/vocab_result.dart';
+import 'package:engcoach/data/repositories/vocab_progress_repository.dart';
 import 'package:engcoach/data/repositories/vocabulary_repository.dart';
 import 'package:engcoach/features/vocabulary/view/vocab_path_screen.dart';
 import 'package:engcoach/features/vocabulary/view/vocab_words_screen.dart';
@@ -53,6 +54,9 @@ void main() {
       overrides: [
         vocabularyRepositoryProvider.overrideWithValue(
           FakeVocabularyRepository(),
+        ),
+        vocabProgressRepositoryProvider.overrideWithValue(
+          FakeVocabProgressRepository(),
         ),
       ],
     );
@@ -122,6 +126,25 @@ void main() {
     });
   });
 
+  group('the final check', () {
+    testWidgets('is offered only once every set is practised', (tester) async {
+      await pumpPath(tester, missing: const ['collocations', 'word_usage']);
+
+      expect(find.text('Take the final check'), findsNothing);
+    });
+
+    testWidgets('appears when the last set is done', (tester) async {
+      final container = await pumpPath(tester, missing: const ['collocations']);
+      await container
+          .read(vocabPlanProvider.notifier)
+          .markChunkComplete('l2-collocations-1');
+      await tester.pumpAndSettle();
+
+      expect(find.text('Take the final check'), findsOneWidget);
+      expect(find.text('Now see how much changed.'), findsOneWidget);
+    });
+  });
+
   group('the words', () {
     testWidgets('opens on the first word of the set', (tester) async {
       await pumpPath(tester, missing: const ['collocations']);
@@ -157,6 +180,32 @@ void main() {
       expect(find.text('GOES WITH'), findsNothing);
     });
 
+    testWidgets('leaving a set and coming back resumes where it was', (
+      tester,
+    ) async {
+      await pumpPath(tester, missing: const ['collocations']);
+      await tester.tap(find.text('Area 4'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Next word'));
+      await tester.pumpAndSettle();
+      expect(find.text('Word 2 of 2'), findsOneWidget);
+
+      // Out to the plan and back in, the way leaving for the Home tab does.
+      await tester.pageBack();
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Area 4'));
+      await tester.pumpAndSettle();
+
+      expect(
+        find.text('Word 2 of 2'),
+        findsOneWidget,
+        reason:
+            'paging through every card again to reach the practice '
+            'button is the whole complaint',
+      );
+      expect(find.text('Practise these — 1 question'), findsOneWidget);
+    });
+
     testWidgets('the last card offers the practice, not a finish', (
       tester,
     ) async {
@@ -173,7 +222,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(
-        container.read(vocabPlanProvider)!.completedChunkIds,
+        container.read(vocabPlanProvider).value!.completedChunkIds,
         isEmpty,
         reason: 'reading six cards is not evidence that anything stuck',
       );

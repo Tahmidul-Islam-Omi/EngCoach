@@ -39,10 +39,16 @@ class _VocabPracticeScreenState extends ConsumerState<VocabPracticeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final plan = ref.watch(vocabPlanProvider);
+    final planValue = ref.watch(vocabPlanProvider);
 
-    // Reached only from a word set, so a missing plan means the check was
-    // cleared out from under this route rather than a state to design for.
+    // On a cold start the plan is still being read from Firestore. Showing
+    // "take the check first" to a learner who has a plan waiting would be a
+    // lie, so loading gets its own state.
+    if (planValue.isLoading && !planValue.hasValue) {
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    }
+
+    final plan = planValue.value;
     if (plan == null) {
       return Scaffold(
         appBar: AppBar(title: const Text('Practice')),
@@ -100,7 +106,7 @@ class _VocabPracticeScreenState extends ConsumerState<VocabPracticeScreen> {
   /// The next unfinished set in the plan, so the summary can offer it
   /// directly rather than sending the learner back to hunt for it.
   String? _nextChunkId() {
-    final plan = ref.watch(vocabPlanProvider);
+    final plan = ref.watch(vocabPlanProvider).value;
     final level = ref.watch(vocabLevelProvider(plan!.level)).value;
     if (level == null) return null;
 

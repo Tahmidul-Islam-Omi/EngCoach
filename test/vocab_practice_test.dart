@@ -4,6 +4,7 @@ import 'package:engcoach/data/models/vocabulary/vocab_course.dart';
 import 'package:engcoach/data/models/vocabulary/vocab_ladder.dart';
 import 'package:engcoach/data/models/vocabulary/vocab_paper.dart';
 import 'package:engcoach/data/models/vocabulary/vocab_result.dart';
+import 'package:engcoach/data/repositories/vocab_progress_repository.dart';
 import 'package:engcoach/data/repositories/vocabulary_repository.dart';
 import 'package:engcoach/features/vocabulary/model/vocab_practice_state.dart';
 import 'package:engcoach/features/vocabulary/view/vocab_path_screen.dart';
@@ -47,6 +48,9 @@ void main() {
       overrides: [
         vocabularyRepositoryProvider.overrideWithValue(
           FakeVocabularyRepository(),
+        ),
+        vocabProgressRepositoryProvider.overrideWithValue(
+          FakeVocabProgressRepository(),
         ),
       ],
     );
@@ -114,13 +118,16 @@ void main() {
         item.options.firstWhere((o) => o.id != item.correctOptionId).id,
       );
       model.next();
+      // The completion is written without being awaited, so the summary is
+      // never held up by it. Let it land before asking whether it did.
+      await Future<void>.delayed(Duration.zero);
 
       expect(
         container.read(vocabPracticeViewModelProvider(key)).status,
         VocabPracticeStatus.finished,
       );
       expect(
-        container.read(vocabPlanProvider)!.isDone('l2-collocations-1'),
+        container.read(vocabPlanProvider).value!.isDone('l2-collocations-1'),
         isTrue,
         reason: 'a wrong answer read through is still work done',
       );

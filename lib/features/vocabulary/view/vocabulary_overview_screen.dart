@@ -1,22 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
+import '../../../data/models/vocabulary/vocab_plan.dart';
+import '../../../data/repositories/vocabulary_repository.dart';
 import '../../../shared/widgets/note.dart';
+import '../viewmodel/vocab_plan_view_model.dart';
 
 /// The way into the vocabulary module.
 ///
 /// Says what the check is for before asking anyone to sit it: a diagnostic
 /// that opens without explaining itself reads as a test to be passed, which
 /// is the opposite of what it is.
-class VocabularyOverviewScreen extends StatelessWidget {
+///
+/// Also the only way back to a plan already in progress. Without that, a
+/// learner who closed the app mid-plan would find nothing here but "start the
+/// check" — and taking it would throw the plan away.
+class VocabularyOverviewScreen extends ConsumerWidget {
   const VocabularyOverviewScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final text = Theme.of(context).textTheme;
+    final plan = ref.watch(vocabPlanProvider).value;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Vocabulary')),
@@ -33,6 +42,10 @@ class VocabularyOverviewScreen extends StatelessWidget {
               children: [
                 Text('Learn and retain new words', style: text.headlineSmall),
                 const SizedBox(height: AppSpacing.md),
+                if (plan != null) ...[
+                  _InProgress(plan: plan),
+                  const SizedBox(height: AppSpacing.xl),
+                ],
                 Text(
                   'The check finds the level you are already at and the areas '
                   'that need the most work. It stops as soon as it knows, so '
@@ -80,11 +93,104 @@ class VocabularyOverviewScreen extends StatelessWidget {
             ),
             child: SafeArea(
               top: false,
-              child: FilledButton(
-                onPressed: () => context.push(Routes.vocabularyCheck),
-                child: const Text('Start the check'),
-              ),
+              child: plan == null
+                  ? FilledButton(
+                      onPressed: () => context.push(Routes.vocabularyCheck),
+                      child: const Text('Start the check'),
+                    )
+                  : Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        FilledButton(
+                          onPressed: () => context.push(Routes.vocabularyPath),
+                          child: const Text('Continue your plan'),
+                        ),
+                        const SizedBox(height: AppSpacing.xs),
+                        TextButton(
+                          onPressed: () => _confirmRetake(context),
+                          child: const Text('Take the check again'),
+                        ),
+                      ],
+                    ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Retaking replaces the plan and clears every set finished under it, so it
+/// asks first. Losing an afternoon's work to a mis-tap is not a state anyone
+/// should be able to reach in one gesture.
+Future<void> _confirmRetake(BuildContext context) async {
+  final again = await showDialog<bool>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text('Take the check again?'),
+      content: const Text(
+        'It will replace your current plan, and the word sets you have '
+        'already finished will be cleared.',
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(false),
+          child: const Text('Keep my plan'),
+        ),
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(true),
+          child: const Text('Start again'),
+        ),
+      ],
+    ),
+  );
+
+  if (again == true && context.mounted) {
+    context.push(Routes.vocabularyCheck);
+  }
+}
+
+/// Where the learner left off, so the plan is worth returning to.
+///
+/// The total comes from the level's own chunks, counted exactly as the plan
+/// screen counts them. Using the number of focus areas instead would be right
+/// only while every area happens to be taught by exactly one word set — and
+/// the two screens would then disagree the day one is not.
+class _InProgress extends ConsumerWidget {
+  const _InProgress({required this.plan});
+
+  final VocabPlan plan;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final text = Theme.of(context).textTheme;
+    final level = ref.watch(vocabLevelProvider(plan.level)).value;
+
+    final sets = level?.chunksFor(plan.focusSubSkillIds);
+    final done = sets?.where((c) => plan.isDone(c.id)).length;
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(AppSpacing.lg),
+      decoration: BoxDecoration(
+        color: AppColors.infoSurface,
+        borderRadius: BorderRadius.circular(AppRadius.lg),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('YOUR PLAN', style: text.labelSmall),
+          const SizedBox(height: AppSpacing.xs),
+          Text(
+            plan.isEmpty
+                ? 'Level ${plan.level} — nothing left to work on.'
+                : sets == null
+                // The level has not loaded. Say where they are without
+                // inventing a total.
+                ? 'Level ${plan.level} — plan in progress.'
+                : 'Level ${plan.level} — $done of ${sets.length} '
+                      'word sets done.',
+            style: text.bodyMedium,
           ),
         ],
       ),

@@ -14,6 +14,7 @@ import '../features/lesson/view/lesson_screen.dart';
 import '../features/practice/view/practice_screen.dart';
 import '../features/grammar/view/topic_overview_screen.dart';
 import '../features/vocabulary/view/vocab_check_screen.dart';
+import '../features/vocabulary/view/vocab_final_check_screen.dart';
 import '../features/vocabulary/view/vocab_path_screen.dart';
 import '../features/vocabulary/view/vocab_practice_screen.dart';
 import '../features/vocabulary/view/vocab_words_screen.dart';
@@ -47,6 +48,9 @@ abstract final class Routes {
   /// That set's practice questions.
   static String vocabularyPractice(String chunkId) =>
       '/vocabulary/learn/$chunkId/practice';
+
+  /// The check taken once every set in the plan is finished.
+  static const vocabularyFinalCheck = '/vocabulary/final-check';
 
   /// The focused topic flow — assessment, lessons, practice, results.
   ///
@@ -210,6 +214,12 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: Routes.vocabularyCheck,
         parentNavigatorKey: _rootKey,
         builder: (_, _) => const VocabCheckScreen(),
+      ),
+
+      GoRoute(
+        path: Routes.vocabularyFinalCheck,
+        parentNavigatorKey: _rootKey,
+        builder: (_, _) => const VocabFinalCheckScreen(),
       ),
 
       GoRoute(

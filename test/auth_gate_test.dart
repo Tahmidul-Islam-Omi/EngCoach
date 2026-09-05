@@ -4,6 +4,8 @@ import 'package:engcoach/app/app.dart';
 import 'package:engcoach/data/services/auth_service.dart';
 import 'package:engcoach/data/repositories/content_repository.dart';
 import 'package:engcoach/data/repositories/progress_repository.dart';
+import 'package:engcoach/data/repositories/vocab_progress_repository.dart';
+import 'package:engcoach/data/repositories/vocabulary_repository.dart';
 import 'package:engcoach/data/services/session_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -83,6 +85,14 @@ void main() {
           FakeContentRepository(buildTopic()),
         ),
         progressRepositoryProvider.overrideWithValue(progress),
+        // Home reads both sections on launch, so the gate cannot be pumped
+        // without them — neither the asset bundle nor Firestore is here.
+        vocabularyRepositoryProvider.overrideWithValue(
+          FakeVocabularyRepository(),
+        ),
+        vocabProgressRepositoryProvider.overrideWithValue(
+          FakeVocabProgressRepository(),
+        ),
       ],
     );
     addTearDown(container.dispose);

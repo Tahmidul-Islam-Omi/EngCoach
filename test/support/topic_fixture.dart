@@ -11,6 +11,7 @@ import 'package:engcoach/data/models/topic.dart';
 /// makes "the shuffle kept exactly one correct option" checkable.
 Topic buildTopic({
   String id = 'test_topic',
+  String title = 'Test topic',
   int subSkills = 3,
   int bankSize = 6,
   int questionsPerSubSkill = 3,
@@ -38,7 +39,7 @@ Topic buildTopic({
     id: id,
     section: 'grammar',
     order: 1,
-    title: 'Test topic',
+    title: title,
     summary: 'For tests.',
     whyThisTopic: 'Because tests.',
     assessmentConfig: AssessmentConfig(

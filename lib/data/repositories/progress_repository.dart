@@ -16,10 +16,19 @@ class TopicProgress {
     this.completedSubSkills = const [],
     this.preAssessment,
     this.postAssessment,
+    this.updatedAt,
   });
 
   final String topicId;
   final TopicStatus status;
+
+  /// When this topic was last worked on. Home orders sections by it, so the
+  /// card at the top is whatever the learner touched last rather than
+  /// whichever section happens to be listed first.
+  ///
+  /// Null for progress written before this field existed; Home treats that
+  /// as "long ago", which is what it means.
+  final DateTime? updatedAt;
 
   /// Which sub-skills to teach, in authored order. Stored alongside the full
   /// pre-assessment rather than derived from it on every read: this is what
@@ -97,6 +106,15 @@ abstract interface class ProgressRepository {
 
   Future<TopicProgress?> topicProgress(String topicId);
 
+  /// Every topic the learner has touched, in no particular order.
+  ///
+  /// One query instead of one read per topic. The topic list can afford to
+  /// read per card because Firestore caches them and a card the learner
+  /// never opened costs a single miss; Home needs all of them at once to
+  /// decide what to put at the top, and six sequential reads would show a
+  /// spinner for as long as the slowest one.
+  Future<List<TopicProgress>> allTopicProgress();
+
   /// Records that a sub-skill's practice is finished, and moves the topic to
   /// at least [TopicStatus.learning].
   Future<void> markSubSkillComplete({
@@ -160,6 +178,7 @@ class FirestoreProgressRepository implements ProgressRepository {
     await doc.set(
       {
         'status': current.furthest(result.reaches).name,
+        'updatedAt': Timestamp.fromDate(now),
         ...planUpdate(result),
         field: {
           'correct': result.correct,
@@ -226,6 +245,7 @@ class FirestoreProgressRepository implements ProgressRepository {
 
     await doc.set({
       'status': current.furthest(TopicStatus.learning).name,
+      'updatedAt': Timestamp.fromDate(DateTime.now()),
       // arrayUnion rather than a rewritten list, so two devices finishing
       // different lessons offline both survive the merge.
       'completedSubSkills': FieldValue.arrayUnion([subSkillId]),
@@ -241,6 +261,21 @@ class FirestoreProgressRepository implements ProgressRepository {
     final data = snapshot.data();
     if (data == null) return null;
 
+    return _progressFrom(topicId, data);
+  }
+
+  @override
+  Future<List<TopicProgress>> allTopicProgress() async {
+    final user = _user;
+    if (user == null) return const [];
+
+    final snapshot = await user.collection('topics').get();
+    return [
+      for (final doc in snapshot.docs) _progressFrom(doc.id, doc.data()),
+    ];
+  }
+
+  TopicProgress _progressFrom(String topicId, Map<String, dynamic> data) {
     return TopicProgress(
       topicId: topicId,
       status: TopicStatus.values.firstWhere(
@@ -253,6 +288,7 @@ class FirestoreProgressRepository implements ProgressRepository {
           (data['completedSubSkills'] as List?)?.cast<String>() ?? const [],
       preAssessment: _snapshotFrom(data['preAssessment']),
       postAssessment: _snapshotFrom(data['postAssessment']),
+      updatedAt: (data['updatedAt'] as Timestamp?)?.toDate(),
     );
   }
 
@@ -297,6 +333,11 @@ final topicProgressProvider = FutureProvider.family<TopicProgress?, String>((
   topicId,
 ) {
   return ref.watch(progressRepositoryProvider).topicProgress(topicId);
+});
+
+/// Every topic the learner has touched. Home's input.
+final allTopicProgressProvider = FutureProvider<List<TopicProgress>>((ref) {
+  return ref.watch(progressRepositoryProvider).allTopicProgress();
 });
 
 final progressRepositoryProvider = Provider<ProgressRepository>(

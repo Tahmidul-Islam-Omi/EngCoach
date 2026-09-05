@@ -39,10 +39,13 @@ class FakeContentRepository implements ContentRepository {
 /// One fake rather than six near-identical stubs: adding a method to
 /// [ProgressRepository] used to mean editing the same class in six files.
 class FakeProgressRepository implements ProgressRepository {
-  FakeProgressRepository([this.progress]);
+  FakeProgressRepository([this.progress, this.all = const []]);
 
   /// What [topicProgress] returns. Null means the learner has not started.
   final TopicProgress? progress;
+
+  /// What [allTopicProgress] returns — every topic the learner has touched.
+  final List<TopicProgress> all;
 
   /// Makes [saveAssessment] throw, for the "a failed write must not disturb
   /// the result on screen" cases.
@@ -58,6 +61,12 @@ class FakeProgressRepository implements ProgressRepository {
   Future<TopicProgress?> topicProgress(String topicId) async {
     reads++;
     return progress;
+  }
+
+  @override
+  Future<List<TopicProgress>> allTopicProgress() async {
+    reads++;
+    return all;
   }
 
   @override

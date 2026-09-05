@@ -62,6 +62,9 @@ VocabPlan? planFrom(Map<String, dynamic>? data) {
         (data['completedChunks'] as List?)?.cast<String>() ?? const [],
     before: scoresFrom(data['before']),
     after: data['after'] == null ? null : scoresFrom(data['after']),
+    // Both write paths already stamp this, so there is nothing new to
+    // write — Home just needed it read back.
+    updatedAt: (data['updatedAt'] as Timestamp?)?.toDate(),
   );
 }
 

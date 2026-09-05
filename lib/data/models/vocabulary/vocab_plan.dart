@@ -18,6 +18,7 @@ class VocabPlan {
     this.completedChunkIds = const [],
     this.before = const [],
     this.after,
+    this.updatedAt,
   });
 
   /// Reads a finished check.
@@ -45,6 +46,14 @@ class VocabPlan {
   /// Per-area scores from the most recent final check. Null until one is
   /// taken.
   final List<VocabSubSkillScore>? after;
+
+  /// When the stored plan was last written.
+  ///
+  /// Read from Firestore, never written by the model: the repository stamps
+  /// it, so a plan built in memory carries null until it has been saved and
+  /// read back. Home compares it against a topic's `updatedAt` to decide
+  /// which section the learner touched last.
+  final DateTime? updatedAt;
 
   bool isDone(String chunkId) => completedChunkIds.contains(chunkId);
 
@@ -100,5 +109,6 @@ class VocabPlan {
     completedChunkIds: completedChunkIds ?? this.completedChunkIds,
     before: before ?? this.before,
     after: after ?? this.after,
+    updatedAt: updatedAt,
   );
 }

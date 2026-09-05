@@ -121,6 +121,9 @@ class PracticeViewModel extends Notifier<PracticeState> {
             subSkillId: key.subSkillId,
           );
       ref.invalidate(topicProgressProvider(key.topicId));
+      // Home's joined read has its own cache; see the note in
+      // AssessmentViewModel._save.
+      ref.invalidate(allTopicProgressProvider);
     } catch (_) {
       // Nothing useful to tell the learner: they did the work either way,
       // and the write retries. Reported once Crashlytics is in.

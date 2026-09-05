@@ -135,10 +135,15 @@ class AssessmentViewModel extends Notifier<AssessmentState> {
       // Firestore retries the write itself. Reported once Crashlytics is in.
     } finally {
       // Whatever reads progress next — the plan, the topic overview, the
-      // topic list — must see this result rather than the cached answer
-      // from before it. In a finally because a failed write still leaves
-      // Firestore's local cache updated.
+      // topic list, Home — must see this result rather than the cached
+      // answer from before it. In a finally because a failed write still
+      // leaves Firestore's local cache updated.
       ref.invalidate(topicProgressProvider(result.topicId));
+      // Home joins every topic in one read, so it has its own cache to
+      // clear. Invalidated here rather than when Home is returned to,
+      // because the learner can reach a topic from the Learn tab and never
+      // pop back through Home at all.
+      ref.invalidate(allTopicProgressProvider);
     }
   }
 }

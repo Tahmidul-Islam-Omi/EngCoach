@@ -32,7 +32,6 @@ class LearnScreen extends StatelessWidget {
             title: 'Grammar',
             subtitle: 'Rules for correct sentences',
             icon: Icons.spellcheck_rounded,
-            badge: 'START',
             onTap: () => context.go(Routes.grammar),
           ),
           const SizedBox(height: AppSpacing.md),
@@ -40,7 +39,6 @@ class LearnScreen extends StatelessWidget {
             title: 'Vocabulary',
             subtitle: 'Learn and retain new words',
             icon: Icons.style_outlined,
-            badge: 'NEW',
             onTap: () => context.go(Routes.vocabulary),
           ),
           const SizedBox(height: AppSpacing.md),
@@ -55,8 +53,18 @@ class LearnScreen extends StatelessWidget {
             subtitle: 'Practise saying it out loud',
             icon: Icons.mic_none_rounded,
           ),
-          const SizedBox(height: AppSpacing.xl),
-          const _ComingSoon(),
+          const SizedBox(height: AppSpacing.md),
+          const _SectionCard(
+            title: 'Reading',
+            subtitle: 'Understand longer texts',
+            icon: Icons.menu_book_outlined,
+          ),
+          const SizedBox(height: AppSpacing.md),
+          const _SectionCard(
+            title: 'Listening',
+            subtitle: 'Follow spoken English',
+            icon: Icons.headphones_outlined,
+          ),
         ],
       ),
     );
@@ -68,24 +76,20 @@ class _SectionCard extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.icon,
-    this.badge,
     this.onTap,
   });
 
   final String title;
   final String subtitle;
   final IconData icon;
-  final String? badge;
+
+  /// Null while a section is still being built.
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final text = Theme.of(context).textTheme;
-    final enabled = onTap != null;
-
-    final titleColor = enabled
-        ? AppColors.textPrimary
-        : AppColors.textSecondary;
+    final ready = onTap != null;
 
     return Card(
       clipBehavior: Clip.antiAlias,
@@ -109,92 +113,34 @@ class _SectionCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Flexible(
-                          child: Text(
-                            title,
-                            style: text.titleLarge?.copyWith(color: titleColor),
-                          ),
-                        ),
-                        if (badge != null) ...[
-                          const SizedBox(width: AppSpacing.sm),
-                          _Pill(badge!),
-                        ],
-                      ],
+                    Text(
+                      title,
+                      style: text.titleLarge?.copyWith(
+                        color: ready
+                            ? AppColors.textPrimary
+                            : AppColors.textSecondary,
+                      ),
                     ),
                     const SizedBox(height: 2),
                     Text(subtitle, style: text.bodySmall),
                   ],
                 ),
               ),
-              Icon(
-                enabled
-                    ? Icons.chevron_right_rounded
-                    : Icons.lock_outline_rounded,
-                color: AppColors.textSecondary,
-              ),
+              const SizedBox(width: AppSpacing.sm),
+              // Says what is true rather than showing a padlock. A lock reads
+              // as something the learner could unlock; these are simply not
+              // built yet.
+              if (ready)
+                const Icon(
+                  Icons.chevron_right_rounded,
+                  color: AppColors.textSecondary,
+                )
+              else
+                Text('Coming soon', style: text.labelSmall),
             ],
           ),
         ),
       ),
     );
   }
-}
-
-class _Pill extends StatelessWidget {
-  const _Pill(this.label);
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: 3),
-    decoration: BoxDecoration(
-      color: AppColors.primary,
-      borderRadius: BorderRadius.circular(AppRadius.pill),
-    ),
-    child: Text(
-      label,
-      style: Theme.of(
-        context,
-      ).textTheme.labelSmall?.copyWith(color: AppColors.onPrimary),
-    ),
-  );
-}
-
-class _ComingSoon extends StatelessWidget {
-  const _ComingSoon();
-
-  @override
-  Widget build(BuildContext context) {
-    final text = Theme.of(context).textTheme;
-    return _NoticeBox(
-      child: Column(
-        children: [
-          Text('COMING SOON', style: text.labelSmall),
-          const SizedBox(height: AppSpacing.xs),
-          Text('Reading · Listening', style: text.bodyMedium),
-        ],
-      ),
-    );
-  }
-}
-
-/// Outlined container for not-yet-available content.
-class _NoticeBox extends StatelessWidget {
-  const _NoticeBox({required this.child});
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) => Container(
-    width: double.infinity,
-    padding: const EdgeInsets.symmetric(vertical: AppSpacing.xl),
-    decoration: BoxDecoration(
-      border: Border.all(color: AppColors.border),
-      borderRadius: BorderRadius.circular(AppRadius.md),
-    ),
-    child: child,
-  );
 }

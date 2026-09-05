@@ -47,6 +47,9 @@ class FakeProgressRepository implements ProgressRepository {
   /// What [allTopicProgress] returns — every topic the learner has touched.
   final List<TopicProgress> all;
 
+  /// What [memberSince] returns. Null means the stamp has not resolved.
+  DateTime? createdAt;
+
   /// Makes [saveAssessment] throw, for the "a failed write must not disturb
   /// the result on screen" cases.
   bool fail = false;
@@ -83,6 +86,9 @@ class FakeProgressRepository implements ProgressRepository {
 
   @override
   Future<void> touch() async => touches++;
+
+  @override
+  Future<DateTime?> memberSince() async => createdAt;
 }
 
 /// A real authored topic, for tests that need questions with feedback in

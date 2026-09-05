@@ -124,6 +124,14 @@ abstract interface class ProgressRepository {
 
   /// Called on launch, so retention can be measured.
   Future<void> touch();
+
+  /// When this account was first created, or null if it cannot be read yet.
+  ///
+  /// [touch] writes `createdAt` once and never again, so it has been sitting
+  /// in the user document since the first launch with signal. Null while a
+  /// freshly written server timestamp is still unresolved, and on the very
+  /// first launch — the screen simply omits the line rather than guessing.
+  Future<DateTime?> memberSince();
 }
 
 /// Firestore, under `users/{phone}`.
@@ -270,9 +278,7 @@ class FirestoreProgressRepository implements ProgressRepository {
     if (user == null) return const [];
 
     final snapshot = await user.collection('topics').get();
-    return [
-      for (final doc in snapshot.docs) _progressFrom(doc.id, doc.data()),
-    ];
+    return [for (final doc in snapshot.docs) _progressFrom(doc.id, doc.data())];
   }
 
   TopicProgress _progressFrom(String topicId, Map<String, dynamic> data) {
@@ -320,6 +326,15 @@ class FirestoreProgressRepository implements ProgressRepository {
 
     await _ensureUser(user);
   }
+
+  @override
+  Future<DateTime?> memberSince() async {
+    final user = _user;
+    if (user == null) return null;
+
+    final data = (await user.get()).data();
+    return (data?['createdAt'] as Timestamp?)?.toDate();
+  }
 }
 
 /// What the learner has done with one topic, or null if they have not
@@ -333,6 +348,11 @@ final topicProgressProvider = FutureProvider.family<TopicProgress?, String>((
   topicId,
 ) {
   return ref.watch(progressRepositoryProvider).topicProgress(topicId);
+});
+
+/// When the account was created. Null until the stamp has resolved.
+final memberSinceProvider = FutureProvider<DateTime?>((ref) {
+  return ref.watch(progressRepositoryProvider).memberSince();
 });
 
 /// Every topic the learner has touched. Home's input.

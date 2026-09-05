@@ -1895,8 +1895,8 @@
               "text": "to",
               "correct": false,
               "feedback": {
-                "en": "**Inform** takes the person with no **to**.",
-                "bn": "**inform**-এর পরে ব্যক্তির আগে **to** বসে না।"
+                "en": "What you are telling them takes **about**, not **to** — *inform someone about something*.",
+                "bn": "যা জানাচ্ছেন তার আগে **about** বসে, **to** নয় — *inform someone about something*।"
               }
             },
             {

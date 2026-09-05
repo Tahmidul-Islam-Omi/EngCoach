@@ -7,7 +7,7 @@ import 'package:flutter/foundation.dart';
 /// off should be zero, not a shipped app that shows learners the answers.
 abstract final class DebugFlags {
   /// Set to false to walk the app exactly as a learner sees it.
-  static const _wanted = true;
+  static const _wanted = false;
 
   /// Marks the right answer on every question with a dot, so a whole flow can
   /// be walked without reading it.

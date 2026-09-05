@@ -62,7 +62,7 @@ class _SignedOut extends StatelessWidget {
         ),
         const SizedBox(height: AppSpacing.sm),
         Text(
-          'Sign in with your Robi or Circle number to save your progress.',
+          'Sign in with your Robi or Cirkle number to save your progress.',
           style: text.bodyMedium,
           textAlign: TextAlign.center,
         ),

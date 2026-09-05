@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/models/vocabulary/vocab_ladder.dart';
 import '../../../data/models/vocabulary/vocab_level.dart';
 import '../../../data/models/vocabulary/vocab_paper.dart';
+import '../../../data/models/vocabulary/vocab_plan.dart';
 import '../../../data/models/vocabulary/vocab_result.dart';
 import '../../../data/repositories/vocabulary_repository.dart';
 import '../model/vocab_check_state.dart';
@@ -25,6 +27,10 @@ import 'vocab_plan_view_model.dart';
 /// result is a state of this flow and must survive the question screen. Whoever
 /// enters the flow invalidates it.
 class VocabCheckViewModel extends Notifier<VocabCheckState> {
+  /// The rung this run opens on. Kept so a restart returns to it rather than
+  /// dropping back to the bottom.
+  int _from = 1;
+
   /// Question ids already asked at the level being checked, so the probe draws
   /// new evidence rather than a second look at the same item.
   final _askedAtLevel = <String>{};
@@ -46,10 +52,37 @@ class VocabCheckViewModel extends Notifier<VocabCheckState> {
       final course = await ref.read(vocabularyRepositoryProvider).course();
       if (!ref.mounted) return;
       state = state.copyWith(course: course);
-      await _dealLevel(1);
+
+      _from = _openingLevel(await _plan(), course.ladder.topLevel);
+      await _dealLevel(_from);
     } catch (_) {
       _fail("The vocabulary check couldn't be loaded. Check your connection.");
     }
+  }
+
+  /// Read once, never watched: settling writes the plan, and a watched plan
+  /// would rebuild this mid-run and throw away everything answered so far.
+  Future<VocabPlan?> _plan() async {
+    try {
+      return await ref.read(vocabPlanProvider.future);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Where the ladder starts.
+  ///
+  /// Normally the bottom, because the ladder has no way down: starting high
+  /// without evidence and then failing would settle a learner above where they
+  /// belong. A level cleared by its final check is different — that is
+  /// stronger evidence than the ladder's own six questions, and the level
+  /// above it is exactly where the learner should now be studying. Failing
+  /// there is not a misplacement; it means that level has a lot to teach.
+  int _openingLevel(VocabPlan? plan, int topLevel) {
+    if (plan == null) return 1;
+    if (plan.after == null || !plan.isEmpty) return 1;
+
+    return min(plan.level + 1, topLevel);
   }
 
   /// Loads a rung and deals its check.
@@ -155,13 +188,13 @@ class VocabCheckViewModel extends Notifier<VocabCheckState> {
     );
   }
 
-  /// Starts the whole run again from Level 1, with a fresh draw.
+  /// Starts the run again from the level it opened on, with a fresh draw.
   void restart() {
     _askedAtLevel.clear();
     _pendingProbe = const [];
     _levelContent = null;
-    state = VocabCheckState(course: state.course);
-    unawaited(_dealLevel(1));
+    state = VocabCheckState(course: state.course, level: _from);
+    unawaited(_dealLevel(_from));
   }
 
   /// After a load failure.

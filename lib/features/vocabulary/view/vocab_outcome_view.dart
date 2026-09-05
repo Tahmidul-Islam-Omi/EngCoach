@@ -130,7 +130,7 @@ class _Headline extends StatelessWidget {
         'LEVEL ${title == null ? level : '$level — $title'}',
         'You have cleared this level.',
         'Every area came back clear — the words your lessons taught, in '
-            'sentences you had not seen. The check can place you higher now.',
+            'sentences you had not seen. This level is behind you.',
       ),
       (false, 0) => (
         'LEVEL ${title == null ? level : '$level — $title'}',
@@ -239,10 +239,9 @@ class _Footer extends StatelessWidget {
   final bool cleared;
   final bool atTop;
 
-  /// Deliberately not printed on the button. The ladder always starts at
-  /// Level 1 and has no way down, so it cannot be sent straight to one rung
-  /// up without risking placing a learner above where they belong — the
-  /// check has to climb to it and prove it.
+  /// Named on the button, because the check now opens there. Clearing a level
+  /// by its final check is evidence enough to skip the climb — see
+  /// VocabCheckViewModel._openingLevel.
   final int nextLevel;
 
   final VoidCallback onContinue;
@@ -268,7 +267,7 @@ class _Footer extends StatelessWidget {
             if (cleared && !atTop)
               FilledButton(
                 onPressed: onNextLevel,
-                child: const Text('Check your level again'),
+                child: Text('Continue to Level $nextLevel'),
               )
             else
               FilledButton(

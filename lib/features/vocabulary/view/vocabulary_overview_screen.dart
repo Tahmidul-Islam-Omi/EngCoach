@@ -107,7 +107,7 @@ class VocabularyOverviewScreen extends ConsumerWidget {
                 // warning.
                 final p when p.isEmpty => FilledButton(
                   onPressed: () => context.push(Routes.vocabularyCheck),
-                  child: const Text('Check your level again'),
+                  child: Text(_nextStepLabel(ref, p)),
                 ),
                 _ => Column(
                   mainAxisSize: MainAxisSize.min,
@@ -130,6 +130,18 @@ class VocabularyOverviewScreen extends ConsumerWidget {
       ),
     );
   }
+}
+
+/// What a learner with a cleared level is being offered.
+///
+/// The check opens on the level above, so the button names it. At the top
+/// there is no rung above and the check simply runs again.
+String _nextStepLabel(WidgetRef ref, VocabPlan plan) {
+  final top = ref.watch(vocabCourseProvider).value?.ladder.topLevel;
+
+  return top == null || plan.level >= top
+      ? 'Check your level again'
+      : 'Continue to Level ${plan.level + 1}';
 }
 
 /// Retaking replaces the plan and clears every set finished under it, so it
@@ -195,8 +207,7 @@ class _InProgress extends ConsumerWidget {
           const SizedBox(height: AppSpacing.xs),
           Text(
             plan.isEmpty
-                ? 'Level ${plan.level} — cleared. The check can place you '
-                      'higher now.'
+                ? 'Level ${plan.level} — cleared.'
                 : sets == null
                 // The level has not loaded. Say where they are without
                 // inventing a total.

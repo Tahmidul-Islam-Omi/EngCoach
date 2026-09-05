@@ -1,3 +1,6 @@
+import 'package:engcoach/data/models/vocabulary/vocab_plan.dart';
+import 'package:engcoach/data/models/vocabulary/vocab_result.dart';
+import 'package:engcoach/data/repositories/vocab_progress_repository.dart';
 import 'package:engcoach/data/repositories/vocabulary_repository.dart';
 import 'package:engcoach/features/vocabulary/model/vocab_check_state.dart';
 import 'package:engcoach/features/vocabulary/viewmodel/vocab_check_view_model.dart';
@@ -19,11 +22,15 @@ void main() {
   ({ProviderContainer container, VocabCheckViewModel model}) start({
     int? failLevel,
     int bankSize = 3,
+    VocabPlan? stored,
   }) {
     final container = ProviderContainer(
       overrides: [
         vocabularyRepositoryProvider.overrideWithValue(
           FakeVocabularyRepository(failLevel: failLevel, bankSize: bankSize),
+        ),
+        vocabProgressRepositoryProvider.overrideWithValue(
+          FakeVocabProgressRepository(stored),
         ),
       ],
     );
@@ -34,6 +41,27 @@ void main() {
       model: container.read(vocabCheckViewModelProvider.notifier),
     );
   }
+
+  /// A plan for a level finished and cleared by its final check.
+  VocabPlan cleared(int level) => VocabPlan(
+    level: level,
+    focusSubSkillIds: const [],
+    before: const [
+      VocabSubSkillScore(subSkillId: 'collocations', correct: 0, total: 1),
+    ],
+    after: const [
+      VocabSubSkillScore(subSkillId: 'collocations', correct: 3, total: 3),
+    ],
+  );
+
+  /// A plan still being worked through.
+  VocabPlan inProgress(int level) => VocabPlan(
+    level: level,
+    focusSubSkillIds: const ['collocations'],
+    before: const [
+      VocabSubSkillScore(subSkillId: 'collocations', correct: 0, total: 1),
+    ],
+  );
 
   /// Answers every question on the paper in front of the learner, getting the
   /// ones for [wrong] subskills deliberately wrong.
@@ -74,6 +102,57 @@ void main() {
       expect(state.total, 6);
       expect(state.position, 1);
       expect(state.isProbe, isFalse);
+    });
+
+    test('a level cleared by its final check is not asked again', () async {
+      final (:container, :model) = start(stored: cleared(1));
+      await settle();
+
+      final state = container.read(vocabCheckViewModelProvider);
+      expect(
+        state.level,
+        2,
+        reason:
+            'clearing Level 1 is stronger evidence than the ladder own '
+            'six questions, so the climb through it is wasted',
+      );
+      expect(state.status, VocabCheckStatus.inProgress);
+    });
+
+    test('a plan still in progress starts from the bottom', () async {
+      final (:container, :model) = start(stored: inProgress(3));
+      await settle();
+
+      expect(
+        container.read(vocabCheckViewModelProvider).level,
+        1,
+        reason:
+            'nothing has been proved at Level 3, and the ladder cannot '
+            'come back down from a level it settles on',
+      );
+    });
+
+    test('clearing the top level has no rung above to open on', () async {
+      final (:container, :model) = start(stored: cleared(4));
+      await settle();
+
+      expect(container.read(vocabCheckViewModelProvider).level, 4);
+    });
+
+    test('restarting returns to the level it opened on', () async {
+      final (:container, :model) = start(stored: cleared(1));
+      await settle();
+      await answerPaper(container, model);
+      expect(container.read(vocabCheckViewModelProvider).level, 3);
+
+      model.restart();
+      await settle();
+
+      expect(
+        container.read(vocabCheckViewModelProvider).level,
+        2,
+        reason: 'not back to the bottom',
+      );
     });
 
     test('content that will not load is reported, not swallowed', () async {

@@ -118,14 +118,11 @@ void main() {
     // learner into a screen with nothing on it and no way forward.
     await pumpOverview(tester, missing: const []);
 
-    expect(find.text('Check your level again'), findsOneWidget);
+    expect(find.text('Continue to Level 3'), findsOneWidget);
     expect(find.text('Continue your plan'), findsNothing);
-    expect(
-      find.text('Level 2 — cleared. The check can place you higher now.'),
-      findsOneWidget,
-    );
+    expect(find.text('Level 2 — cleared.'), findsOneWidget);
 
-    await tester.tap(find.text('Check your level again'));
+    await tester.tap(find.text('Continue to Level 3'));
     await tester.pumpAndSettle();
 
     expect(

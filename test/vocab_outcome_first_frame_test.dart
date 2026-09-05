@@ -107,6 +107,6 @@ void main() {
 
     expect(find.text('You have cleared this level.'), findsOneWidget);
     expect(find.text('Nothing moved yet.'), findsNothing);
-    expect(find.text('Check your level again'), findsOneWidget);
+    expect(find.text('Continue to Level 3'), findsOneWidget);
   });
 }

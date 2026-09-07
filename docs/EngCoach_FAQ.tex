@@ -1,0 +1,114 @@
+% EngCoach — Application FAQ for bdapps
+% Compile:  pdflatex EngCoach_FAQ.tex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=22mm]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{url}
+\urlstyle{tt}
+
+\definecolor{navy}{HTML}{16243A}
+\definecolor{ink}{HTML}{55657F}
+\definecolor{panel}{HTML}{EEF1F8}
+
+\titleformat{\section}{\normalfont\large\bfseries\color{navy}}{}{0pt}{}[\vspace{-6pt}\color{navy}\rule{\linewidth}{0.8pt}]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+
+\setlist[itemize]{leftmargin=6mm,topsep=2pt,itemsep=2pt,parsep=0pt}
+\setlist[enumerate]{leftmargin=7mm,topsep=2pt,itemsep=3pt,parsep=0pt}
+
+\newcommand{\field}[2]{\textbf{#1:} #2}
+\newcommand{\msg}[1]{\par\vspace{2pt}\colorbox{panel}{\parbox{\dimexpr\linewidth-2\fboxsep}{#1}}\vspace{4pt}}
+
+\pagestyle{empty}
+
+\begin{document}
+
+{\LARGE\bfseries\color{navy} EngCoach — Application FAQ}\par
+\vspace{10pt}
+
+\field{App Name}{EngCoach}\par
+\field{App ID}{APP\_139854 \hspace{2em} \textbf{Username:} tahmidulislamomi}
+
+\section{Contact Details}
+\field{Name}{Tahmidul Islam Omi}\par
+\field{Mobile No.}{01919721621}\par
+\field{Email}{tahmidulislamomi09@gmail.com}\par
+\field{Address}{Titumir Hall, BUET}
+
+\section{Access Mode}
+Android App (with OTP verification over SMS).
+
+\section{App Description}
+EngCoach is a Bangla-medium English learning application. A short check first finds
+which grammar rules and vocabulary the user is weak in, the lessons then cover only
+those, and a second check measures the improvement. Two sections are live: Grammar
+(6 topics) and Vocabulary (4 adaptive levels). Every rule, word and wrong answer is
+explained in Bangla. Access requires an active subscription, confirmed through OTP
+verification.
+
+\section{Landing Page}
+\url{https://bdappsdigitalapps.com/engcoach/}
+
+\section{App Download Link}
+\url{https://bdappsdigitalapps.com/engcoach/engcoach.apk}
+
+\section{How to Subscribe}
+\begin{itemize}
+  \item \textbf{OTP (Android App):} The user opens the EngCoach app and enters their
+        Robi/Cirkle mobile number. An OTP is sent to that number by SMS. Entering the
+        OTP in the app confirms and activates the subscription.
+  \item \textbf{SMS:} The user types \textbf{engcoach} and sends it to
+        \textbf{21213} to complete the subscription.
+\end{itemize}
+
+\section{How to Unsubscribe}
+\begin{itemize}
+  \item \textbf{SMS:} The user types \textbf{STOP engcoach} and sends it to \textbf{21213}.
+  \item \textbf{In-App:} The user taps \textbf{Unsubscribe} on the Profile screen. Upon
+        unsubscription the user is automatically logged out and returned to the login page.
+\end{itemize}
+
+\section{Subscription Response Message}
+\textbf{On subscription (sent to the user):}
+\msg{Welcome to EngCoach! You are subscribed to English learning. To stop, send
+STOP engcoach to 21213.}
+
+\textbf{On un-subscription (sent to the user):}
+\msg{You have unsubscribed from EngCoach. Sorry to see you go! To rejoin, send
+engcoach to 21213.}
+
+\section{Host Address(es) [IP]}
+176.9.54.45
+
+\section{Charge}
+\textbf{2.78 BDT/day} including (VAT + SC + SD), with Auto Renewal.
+
+This is a subscription based application. The subscription charge will cost 2.78 BDT
+per day (including VAT + SC + SD) with Auto Renewal, for Robi and Cirkle users only.
+
+\section{Offer Details}
+Subscribed users get full access to every grammar topic and vocabulary level, a
+personalised learning path that skips what they already know, Bangla explanations for
+every rule and mistake, and before-and-after scores showing measured improvement.
+
+\section{How to Use (User Manual)}
+\begin{enumerate}
+  \item Open the landing page and tap \textbf{Download App}, then install the APK.
+  \item Open the EngCoach app and enter your Robi/Cirkle mobile number.
+  \item Enter the OTP received by SMS to activate your subscription (2.78 BDT/day,
+        incl.\ VAT+SC+SD).
+  \item Tap \textbf{Learn}, choose \textbf{Grammar} or \textbf{Vocabulary}, and take the
+        short check that finds your weak areas.
+  \item Study the lessons your check produced, practise them, then take the second
+        check to see your improvement.
+  \item To cancel, go to \textbf{Profile} $\rightarrow$ \textbf{Unsubscribe}, or send
+        \textbf{STOP engcoach} to 21213.
+\end{enumerate}
+
+\end{document}

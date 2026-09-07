@@ -115,10 +115,12 @@
 
   /* --------------------------------------------------------- screenshots */
   .shots { display:grid; gap:18px; grid-template-columns:1fr; justify-items:center; }
-  @media (min-width:620px) { .shots { grid-template-columns:repeat(2,1fr); } }
-  @media (min-width:980px) { .shots { grid-template-columns:repeat(4,1fr); } }
+  @media (min-width:620px) { .shots { grid-template-columns:repeat(3,1fr); } }
+  /* Five columns, so all five screens sit on one row. At four, the fifth
+     was stranded alone on a second row. */
+  @media (min-width:980px) { .shots { grid-template-columns:repeat(5,1fr); gap:12px; } }
   .shot {
-    width:100%; max-width:260px; border-radius:20px;
+    width:100%; max-width:260px; border-radius:16px;
     background:var(--surface); border:1px solid var(--border);
     overflow:hidden;
   }
@@ -256,23 +258,23 @@
     </div>
     <div class="shots">
       <figure class="shot-fig">
-        <div class="shot"><img src="shot-1.png" alt="The EngCoach home screen showing your next lesson and progress summary" width="720" height="1444" loading="lazy"></div>
+        <div class="shot"><img src="shot-1.png" alt="The EngCoach home screen showing your next lesson and progress summary" width="520" height="1043" loading="lazy"></div>
         <figcaption class="shot-cap">One card says what to learn next</figcaption>
       </figure>
       <figure class="shot-fig">
-        <div class="shot"><img src="shot-2.png" alt="The Learn tab listing Grammar, Vocabulary, Writing, Speaking, Reading, and Listening sections" width="720" height="1448" loading="lazy"></div>
+        <div class="shot"><img src="shot-2.png" alt="The Learn tab listing Grammar, Vocabulary, Writing, Speaking, Reading, and Listening sections" width="520" height="1046" loading="lazy"></div>
         <figcaption class="shot-cap">Six sections, all in one place</figcaption>
       </figure>
       <figure class="shot-fig">
-        <div class="shot"><img src="shot-3.png" alt="A grammar lesson on articles, with the rule, examples, and a comparison table" width="794" height="1598" loading="lazy"></div>
+        <div class="shot"><img src="shot-3.png" alt="A grammar lesson on articles, with the rule, examples, and a comparison table" width="520" height="1047" loading="lazy"></div>
         <figcaption class="shot-cap">Rules with real examples, not definitions</figcaption>
       </figure>
       <figure class="shot-fig">
-        <div class="shot"><img src="shot-4.png" alt="A vocabulary word card for detrimental, showing Bangla meaning, example sentence, usage, synonyms and antonyms" width="719" height="1447" loading="lazy"></div>
+        <div class="shot"><img src="shot-4.png" alt="A vocabulary word card for detrimental, showing Bangla meaning, example sentence, usage, synonyms and antonyms" width="520" height="1047" loading="lazy"></div>
         <figcaption class="shot-cap">Every word carries its Bangla</figcaption>
       </figure>
       <figure class="shot-fig">
-        <div class="shot"><img src="shot-5.png" alt="The progress screen listing every check taken with before and after scores" width="719" height="1432" loading="lazy"></div>
+        <div class="shot"><img src="shot-5.png" alt="The progress screen listing every check taken with before and after scores" width="520" height="1036" loading="lazy"></div>
         <figcaption class="shot-cap">Improvement as a number, not a feeling</figcaption>
       </figure>
     </div>

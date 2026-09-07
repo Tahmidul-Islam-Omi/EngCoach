@@ -9,6 +9,7 @@ import '../../../core/extensions/phone_format.dart';
 import '../../../data/repositories/progress_repository.dart';
 import '../../../data/services/auth_service.dart';
 import '../../../data/services/session_service.dart';
+import '../../../shared/widgets/app_list_row.dart';
 import '../viewmodel/app_version.dart';
 
 /// Account and subscription.
@@ -101,7 +102,7 @@ class _SignedIn extends ConsumerWidget {
         const SizedBox(height: AppSpacing.xl),
         const _Label('Your learning'),
         const SizedBox(height: AppSpacing.sm),
-        _Row(
+        AppListRow(
           icon: Icons.insights_outlined,
           title: 'See your progress',
           subtitle: 'Scores, before and after, every check you have taken',
@@ -343,72 +344,6 @@ class _VersionRow extends ConsumerWidget {
 }
 
 // -------------------------------------------------------------------- rows
-
-class _Row extends StatelessWidget {
-  const _Row({
-    required this.icon,
-    required this.title,
-    required this.subtitle,
-    required this.onTap,
-  });
-
-  final IconData icon;
-  final String title;
-  final String subtitle;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final text = Theme.of(context).textTheme;
-
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.md + 2,
-            vertical: AppSpacing.md,
-          ),
-          child: Row(
-            children: [
-              Container(
-                width: 34,
-                height: 34,
-                decoration: BoxDecoration(
-                  color: AppColors.divider,
-                  borderRadius: BorderRadius.circular(AppRadius.sm + 2),
-                ),
-                child: Icon(icon, size: 18, color: AppColors.textOnMuted),
-              ),
-              const SizedBox(width: AppSpacing.md),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: text.bodyLarge?.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(subtitle, style: text.bodySmall),
-                  ],
-                ),
-              ),
-              const SizedBox(width: AppSpacing.sm),
-              const Icon(
-                Icons.chevron_right_rounded,
-                color: AppColors.textSecondary,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 // ------------------------------------------------------------- unsubscribe
 

@@ -7,6 +7,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../data/models/topic.dart';
+import '../../../shared/widgets/app_list_row.dart';
 import '../../../shared/widgets/async_view.dart';
 import '../../../shared/widgets/bangla_text.dart';
 import '../model/home_state.dart';
@@ -76,7 +77,7 @@ class _Home extends StatelessWidget {
             _Group(
               label: 'Also in progress',
               children: [
-                _HomeRow(
+                AppListRow(
                   icon: second.icon,
                   title: second.title,
                   subtitle: second.meta,
@@ -92,7 +93,7 @@ class _Home extends StatelessWidget {
             label: 'Your weak areas',
             children: [
               for (final area in home.weakAreas)
-                _HomeRow(
+                AppListRow(
                   icon: Icons.warning_amber_rounded,
                   title: area.title,
                   subtitle: area.context,
@@ -108,7 +109,7 @@ class _Home extends StatelessWidget {
             label: 'Finished',
             children: [
               for (final topic in home.finished)
-                _HomeRow(
+                AppListRow(
                   icon: Icons.check_rounded,
                   title: topic.title,
                   subtitle: 'Completed',
@@ -123,7 +124,7 @@ class _Home extends StatelessWidget {
           _Group(
             label: 'Or start something new',
             children: [
-              _HomeRow(
+              AppListRow(
                 icon: Icons.auto_stories_outlined,
                 title: _untouchedTitle(home.untouched),
                 subtitle: _untouchedSubtitle(home.untouched),
@@ -552,73 +553,6 @@ class _Group extends StatelessWidget {
       ],
     ],
   );
-}
-
-class _HomeRow extends StatelessWidget {
-  const _HomeRow({
-    required this.icon,
-    required this.title,
-    required this.subtitle,
-    required this.onTap,
-  });
-
-  final IconData icon;
-  final String title;
-  final String subtitle;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final text = Theme.of(context).textTheme;
-
-    // Radius, border and zero margin all come from the card theme.
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.md + 2,
-            vertical: AppSpacing.md,
-          ),
-          child: Row(
-            children: [
-              Container(
-                width: 34,
-                height: 34,
-                decoration: BoxDecoration(
-                  color: AppColors.divider,
-                  borderRadius: BorderRadius.circular(AppRadius.sm + 2),
-                ),
-                child: Icon(icon, size: 18, color: AppColors.textOnMuted),
-              ),
-              const SizedBox(width: AppSpacing.md),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: text.bodyLarge?.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(subtitle, style: text.bodySmall),
-                  ],
-                ),
-              ),
-              const SizedBox(width: AppSpacing.sm),
-              const Icon(
-                Icons.chevron_right_rounded,
-                color: AppColors.textSecondary,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }
 
 // ------------------------------------------------------------------ stats

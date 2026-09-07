@@ -7,7 +7,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../data/models/topic.dart';
-import '../../../data/models/weak_area.dart';
+import '../../../shared/widgets/app_list_row.dart';
 import '../../../shared/widgets/async_view.dart';
 import '../../../shared/widgets/improvement_card.dart';
 import '../../../shared/widgets/status_badge.dart';
@@ -94,7 +94,12 @@ class _Report extends StatelessWidget {
           _Label('Still to work on · ${report.weakAreas.length}'),
           const SizedBox(height: AppSpacing.sm),
           for (final area in report.weakAreas) ...[
-            _WeakAreaRow(area),
+            AppListRow(
+              icon: Icons.warning_amber_rounded,
+              title: area.title,
+              subtitle: area.context,
+              onTap: () => context.push(area.route),
+            ),
             const SizedBox(height: AppSpacing.sm),
           ],
         ],
@@ -520,68 +525,6 @@ class _AreaRow extends StatelessWidget {
 }
 
 // ------------------------------------------------------------- weak areas
-
-class _WeakAreaRow extends StatelessWidget {
-  const _WeakAreaRow(this.area);
-
-  final WeakArea area;
-
-  @override
-  Widget build(BuildContext context) {
-    final text = Theme.of(context).textTheme;
-
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: () => context.push(area.route),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.md + 2,
-            vertical: AppSpacing.md,
-          ),
-          child: Row(
-            children: [
-              Container(
-                width: 34,
-                height: 34,
-                decoration: BoxDecoration(
-                  color: AppColors.divider,
-                  borderRadius: BorderRadius.circular(AppRadius.sm + 2),
-                ),
-                child: const Icon(
-                  Icons.warning_amber_rounded,
-                  size: 18,
-                  color: AppColors.textOnMuted,
-                ),
-              ),
-              const SizedBox(width: AppSpacing.md),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      area.title,
-                      style: text.bodyLarge?.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(area.context, style: text.bodySmall),
-                  ],
-                ),
-              ),
-              const SizedBox(width: AppSpacing.sm),
-              const Icon(
-                Icons.chevron_right_rounded,
-                color: AppColors.textSecondary,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 // ----------------------------------------------------------------- checks
 

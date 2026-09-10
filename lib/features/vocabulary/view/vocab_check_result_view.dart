@@ -5,6 +5,7 @@ import '../../../app/theme/app_spacing.dart';
 import '../../../data/models/vocabulary/vocab_course.dart';
 import '../../../data/models/vocabulary/vocab_ladder.dart';
 import '../../../shared/widgets/app_card.dart';
+import '../../../shared/widgets/section_label.dart';
 
 /// What the vocabulary check says about the learner (SPEC §6).
 ///
@@ -77,7 +78,7 @@ class VocabCheckResultView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: AppSpacing.xl),
-                Text('AREA BY AREA', style: text.labelSmall),
+                const SectionLabel('Area by area'),
                 const SizedBox(height: AppSpacing.md),
                 // Only the areas the check actually asked about. A level
                 // may author fewer than six, and a row for one never

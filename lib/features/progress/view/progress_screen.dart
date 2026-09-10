@@ -11,6 +11,7 @@ import '../../../shared/widgets/app_list_row.dart';
 import '../../../shared/widgets/async_view.dart';
 import '../../../shared/widgets/improvement_card.dart';
 import '../../../shared/widgets/status_badge.dart';
+import '../../../shared/widgets/section_label.dart';
 import '../model/progress_report.dart';
 import '../viewmodel/progress_view_model.dart';
 
@@ -71,7 +72,7 @@ class _Report extends StatelessWidget {
 
         if (report.topics.isNotEmpty || report.notStarted.isNotEmpty) ...[
           const SizedBox(height: AppSpacing.xl),
-          _Label(
+          SectionLabel(
             report.topics.length > 1 ? 'Grammar · weakest first' : 'Grammar',
           ),
           const SizedBox(height: AppSpacing.sm),
@@ -84,14 +85,14 @@ class _Report extends StatelessWidget {
 
         if (report.vocabulary case final vocabulary?) ...[
           const SizedBox(height: AppSpacing.xl),
-          const _Label('Vocabulary'),
+          const SectionLabel('Vocabulary'),
           const SizedBox(height: AppSpacing.sm),
           _VocabularyCard(vocabulary),
         ],
 
         if (report.weakAreas.isNotEmpty) ...[
           const SizedBox(height: AppSpacing.xl),
-          _Label('Still to work on · ${report.weakAreas.length}'),
+          SectionLabel('Still to work on · ${report.weakAreas.length}'),
           const SizedBox(height: AppSpacing.sm),
           for (final area in report.weakAreas) ...[
             AppListRow(
@@ -106,23 +107,13 @@ class _Report extends StatelessWidget {
 
         if (report.checks.isNotEmpty) ...[
           const SizedBox(height: AppSpacing.xl),
-          const _Label('Every check you have taken'),
+          const SectionLabel('Every check you have taken'),
           const SizedBox(height: AppSpacing.sm),
           _Checks(report.checks),
         ],
       ],
     );
   }
-}
-
-class _Label extends StatelessWidget {
-  const _Label(this.text);
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) =>
-      Text(text.toUpperCase(), style: Theme.of(context).textTheme.labelSmall);
 }
 
 /// Shown until a topic has been checked twice.
@@ -389,7 +380,7 @@ class _VocabularyCard extends StatelessWidget {
           ),
           if (report.areas.isNotEmpty) ...[
             const SizedBox(height: AppSpacing.lg),
-            const _Label('Before and after'),
+            const SectionLabel('Before and after'),
             const SizedBox(height: AppSpacing.xs),
             for (final (i, area) in report.areas.indexed)
               _AreaRow(area: area, first: i == 0),

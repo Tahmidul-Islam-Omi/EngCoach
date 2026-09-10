@@ -9,6 +9,7 @@ import '../../../data/models/topic.dart';
 import '../../../data/repositories/content_repository.dart';
 import '../../../data/repositories/progress_repository.dart';
 import '../../../shared/widgets/async_view.dart';
+import '../../../shared/widgets/section_label.dart';
 
 /// Topic overview — what this topic is, and what the learner is about to do.
 ///
@@ -81,7 +82,7 @@ class _Body extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('WHY THIS TOPIC?', style: text.labelSmall),
+                      const SectionLabel('Why this topic?'),
                       const SizedBox(height: AppSpacing.sm),
                       Text(topic.whyThisTopic, style: text.bodyMedium),
                     ],
@@ -89,7 +90,7 @@ class _Body extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: AppSpacing.xl),
-              Text('YOUR PATH', style: text.labelSmall),
+              const SectionLabel('Your path'),
               const SizedBox(height: AppSpacing.md),
               _Step(
                 1,

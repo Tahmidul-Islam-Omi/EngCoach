@@ -12,6 +12,7 @@ import '../../../data/models/vocabulary/vocab_plan.dart';
 import '../../../data/repositories/vocabulary_repository.dart';
 import '../../../shared/widgets/app_card.dart';
 import '../../../shared/widgets/async_view.dart';
+import '../../../shared/widgets/section_label.dart';
 import '../viewmodel/vocab_plan_view_model.dart';
 
 /// What this learner has to study, and in what order.
@@ -104,7 +105,7 @@ class _Plan extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('YOUR WORD SETS', style: text.labelSmall),
+            const SectionLabel('Your word sets'),
             Text('$done of ${chunks.length} done', style: text.labelSmall),
           ],
         ),

@@ -9,6 +9,7 @@ import '../../../shared/widgets/answer_option.dart';
 import '../../../shared/widgets/markup_text.dart';
 import '../../../shared/widgets/question_progress.dart';
 import '../../../shared/widgets/retry_message.dart';
+import '../../../shared/widgets/section_label.dart';
 import '../model/vocab_check_state.dart';
 import '../viewmodel/vocab_check_view_model.dart';
 import 'vocab_check_result_view.dart';
@@ -114,7 +115,7 @@ class _Borderline extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('ALMOST THERE', style: text.labelSmall),
+            const SectionLabel('Almost there'),
             const SizedBox(height: AppSpacing.sm),
             Text('You were close.', style: text.headlineMedium),
             const SizedBox(height: AppSpacing.md),

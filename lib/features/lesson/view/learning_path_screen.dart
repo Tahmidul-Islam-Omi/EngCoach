@@ -10,6 +10,7 @@ import '../../../data/repositories/content_repository.dart';
 import '../../../data/repositories/progress_repository.dart';
 import '../../../shared/widgets/app_card.dart';
 import '../../../shared/widgets/async_view.dart';
+import '../../../shared/widgets/section_label.dart';
 
 /// What this learner has to study in this topic, and in what order.
 ///
@@ -89,7 +90,7 @@ class _Plan extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('YOUR LESSONS', style: text.labelSmall),
+            const SectionLabel('Your lessons'),
             Text('$done of ${weak.length} done', style: text.labelSmall),
           ],
         ),

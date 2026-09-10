@@ -10,6 +10,7 @@ import '../../../data/models/assessment_result.dart';
 import '../../../data/repositories/progress_repository.dart';
 import '../../../shared/widgets/app_card.dart';
 import '../../../shared/widgets/improvement_card.dart';
+import '../../../shared/widgets/section_label.dart';
 
 /// What a finished check tells the learner, in either phase.
 ///
@@ -76,7 +77,7 @@ class AssessmentResultView extends ConsumerWidget {
                 // "Part", not "sub-skill": the rest of the app already
                 // says parts to the learner, and sub-skill is our word for
                 // the thing, not theirs.
-                Text('PART BY PART', style: text.labelSmall),
+                const SectionLabel('Part by part'),
                 const SizedBox(height: AppSpacing.md),
                 for (final score in result.subSkills) ...[
                   _SubSkillRow(score: score),

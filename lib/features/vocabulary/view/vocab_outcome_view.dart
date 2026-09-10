@@ -5,6 +5,7 @@ import '../../../app/theme/app_spacing.dart';
 import '../../../data/models/vocabulary/vocab_course.dart';
 import '../../../data/models/vocabulary/vocab_plan.dart';
 import '../../../shared/widgets/app_card.dart';
+import '../../../shared/widgets/section_label.dart';
 
 /// What the final check proved (SPEC §16, §17).
 ///
@@ -70,7 +71,7 @@ class VocabOutcomeView extends StatelessWidget {
                   cleared: cleared,
                 ),
                 const SizedBox(height: AppSpacing.xl),
-                Text('BEFORE AND AFTER', style: text.labelSmall),
+                const SectionLabel('Before and after'),
                 const SizedBox(height: AppSpacing.md),
                 for (final pair in pairs) ...[
                   _Pair(

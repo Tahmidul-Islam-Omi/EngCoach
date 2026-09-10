@@ -8,6 +8,7 @@ import '../../../app/theme/app_spacing.dart';
 import '../../../data/models/vocabulary/vocab_plan.dart';
 import '../../../data/repositories/vocabulary_repository.dart';
 import '../../../shared/widgets/note.dart';
+import '../../../shared/widgets/section_label.dart';
 import '../viewmodel/vocab_plan_view_model.dart';
 
 /// The way into the vocabulary module.
@@ -53,7 +54,7 @@ class VocabularyOverviewScreen extends ConsumerWidget {
                   style: text.bodyMedium,
                 ),
                 const SizedBox(height: AppSpacing.xl),
-                Text('WHAT IT LOOKS AT', style: text.labelSmall),
+                const SectionLabel('What it looks at'),
                 const SizedBox(height: AppSpacing.md),
                 const _Point(
                   icon: Icons.stairs_outlined,
@@ -203,7 +204,7 @@ class _InProgress extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('YOUR PLAN', style: text.labelSmall),
+          const SectionLabel('Your plan'),
           const SizedBox(height: AppSpacing.xs),
           Text(
             plan.isEmpty

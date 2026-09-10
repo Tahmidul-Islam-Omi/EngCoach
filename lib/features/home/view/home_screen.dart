@@ -10,6 +10,7 @@ import '../../../data/models/topic.dart';
 import '../../../shared/widgets/app_list_row.dart';
 import '../../../shared/widgets/async_view.dart';
 import '../../../shared/widgets/bangla_text.dart';
+import '../../../shared/widgets/section_label.dart';
 import '../model/home_state.dart';
 import '../model/next_step.dart';
 import '../viewmodel/home_view_model.dart';
@@ -545,7 +546,7 @@ class _Group extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(label.toUpperCase(), style: Theme.of(context).textTheme.labelSmall),
+      SectionLabel(label),
       const SizedBox(height: AppSpacing.sm),
       for (final (i, child) in children.indexed) ...[
         if (i > 0) const SizedBox(height: AppSpacing.sm),

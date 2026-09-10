@@ -10,6 +10,7 @@ import '../../../data/repositories/progress_repository.dart';
 import '../../../data/services/auth_service.dart';
 import '../../../data/services/session_service.dart';
 import '../../../shared/widgets/app_list_row.dart';
+import '../../../shared/widgets/section_label.dart';
 import '../viewmodel/app_version.dart';
 
 /// Account and subscription.
@@ -95,12 +96,12 @@ class _SignedIn extends ConsumerWidget {
         _Identity(phone: phone),
 
         const SizedBox(height: AppSpacing.xl),
-        const _Label('Subscription'),
+        const SectionLabel('Subscription'),
         const SizedBox(height: AppSpacing.sm),
         const _SubscriptionCard(),
 
         const SizedBox(height: AppSpacing.xl),
-        const _Label('Your learning'),
+        const SectionLabel('Your learning'),
         const SizedBox(height: AppSpacing.sm),
         AppListRow(
           icon: Icons.insights_outlined,
@@ -110,12 +111,12 @@ class _SignedIn extends ConsumerWidget {
         ),
 
         const SizedBox(height: AppSpacing.xl),
-        const _Label('About'),
+        const SectionLabel('About'),
         const SizedBox(height: AppSpacing.sm),
         const _VersionRow(),
 
         const SizedBox(height: AppSpacing.xl),
-        const _Label('Account'),
+        const SectionLabel('Account'),
         const SizedBox(height: AppSpacing.sm),
         OutlinedButton(
           onPressed: () async {
@@ -135,16 +136,6 @@ class _SignedIn extends ConsumerWidget {
       ],
     );
   }
-}
-
-class _Label extends StatelessWidget {
-  const _Label(this.text);
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) =>
-      Text(text.toUpperCase(), style: Theme.of(context).textTheme.labelSmall);
 }
 
 class _Footnote extends StatelessWidget {

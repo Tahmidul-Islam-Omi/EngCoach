@@ -8,6 +8,7 @@ import '../model/sign_in_state.dart';
 import '../../../shared/widgets/app_card.dart';
 import '../../../shared/widgets/error_line.dart';
 import '../../../shared/widgets/note.dart';
+import '../../../shared/widgets/section_label.dart';
 import '../viewmodel/sign_in_view_model.dart';
 
 /// Phone-number sign-in.
@@ -73,7 +74,7 @@ class _Landing extends ConsumerWidget {
         const _Hero(),
         const SizedBox(height: AppSpacing.xxl),
 
-        Text("WHAT YOU'LL GET", style: text.labelSmall),
+        const SectionLabel("What you'll get"),
         const SizedBox(height: AppSpacing.md),
         const _Feature(
           icon: Icons.rule_rounded,
@@ -106,7 +107,7 @@ class _Landing extends ConsumerWidget {
         ),
 
         const SizedBox(height: AppSpacing.xxl),
-        Text('HOW SIGNING IN WORKS', style: text.labelSmall),
+        const SectionLabel('How signing in works'),
         const SizedBox(height: AppSpacing.md),
         const _HowStep(
           1,
@@ -548,7 +549,7 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('ALMOST THERE', style: text.labelSmall),
+          const SectionLabel('Almost there'),
           const SizedBox(height: AppSpacing.xs),
           // Their subscription is real and already paid for; only the
           // Firebase handshake failed. Say that, rather than implying the
@@ -574,7 +575,7 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('MOBILE NUMBER', style: text.labelSmall),
+          const SectionLabel('Mobile number'),
           const SizedBox(height: AppSpacing.sm + 2),
           Row(
             children: [
@@ -631,7 +632,7 @@ class _AuthCardState extends ConsumerState<_AuthCard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text('ENTER THE CODE', style: text.labelSmall),
+              const SectionLabel('Enter the code'),
               const SizedBox(height: AppSpacing.xs),
               Text.rich(
                 TextSpan(
